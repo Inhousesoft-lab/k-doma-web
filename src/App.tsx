@@ -15,6 +15,7 @@ import RecipeDetailPage from './pages/RecipeDetailPage';
 import CartPage from './pages/CartPage';
 import RecordsPage from './pages/RecordsPage';
 import FridgePage from './pages/FridgePage';
+import AddIngredientPage from './pages/fridge/AddIngredientPage';
 import MyPage from './pages/MyPage';
 import HouseholdPage from './pages/HouseholdPage';
 import LoginPage from './pages/LoginPage';
@@ -48,6 +49,9 @@ export default function App() {
           {/* 7. 냉장고 */}
           {/* 로그인 여부를 확인하지 않고 연다 (KD-46). 비로그인 = 빈 냉장고 (KD-47) */}
           <Route path="/fridge" element={<FridgePage />} />
+
+          {/* 7-1. 냉장고 재료 추가 (전체 재료 그리드) */}
+          <Route path="/fridge/add" element={<RequireLogin><AddIngredientPage /></RequireLogin>} />
 
           {/* 8. 마이 */}
           <Route path="/my" element={<MyPage />} />

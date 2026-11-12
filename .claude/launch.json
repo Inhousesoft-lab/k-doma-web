@@ -1,0 +1,7 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "k-doma-web", "runtimeExecutable": "npx", "runtimeArgs": ["vite", "--port=3005"], "port": 3005 },
+    { "name": "k-doma-web-emu", "runtimeExecutable": "npx", "runtimeArgs": ["vite", "--port=3006"], "port": 3006, "env": { "VITE_USE_FIREBASE_EMULATOR": "true" } }
+  ]
+}

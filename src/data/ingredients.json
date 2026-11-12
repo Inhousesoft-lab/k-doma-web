@@ -136,7 +136,8 @@
     "zone": "SEASONING",
     "imageKey": "ketchup",
     "aliases": [
-      "토마토케첩"
+      "토마토케첩",
+      "케찹"
     ]
   },
   {
@@ -210,7 +211,6 @@
     "imageKey": "kimchi",
     "aliases": [
       "배추김치",
-      "묵은지",
       "신김치"
     ]
   },
@@ -251,7 +251,6 @@
     "imageKey": "rice_cake",
     "aliases": [
       "떡볶이떡",
-      "떡국떡",
       "밀떡"
     ]
   },
@@ -283,7 +282,6 @@
     "zone": "FRIDGE",
     "imageKey": "chicken",
     "aliases": [
-      "닭가슴살",
       "닭다리살",
       "닭정육",
       "닭안심",
@@ -333,7 +331,6 @@
     "zone": "FRIDGE",
     "imageKey": "mushroom",
     "aliases": [
-      "팽이버섯",
       "새송이버섯",
       "표고버섯"
     ]
@@ -377,7 +374,6 @@
     "zone": "FRIDGE",
     "imageKey": "cheese",
     "aliases": [
-      "슬라이스치즈",
       "피자치즈"
     ]
   },
@@ -410,9 +406,218 @@
     "name": "청양고추",
     "zone": "FRIDGE",
     "imageKey": "chili_pepper",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_127",
+    "name": "참치캔",
+    "zone": "FRIDGE",
+    "imageKey": "canned_tuna",
     "aliases": [
-      "고추",
+      "참치",
+      "참치통조림"
+    ]
+  },
+  {
+    "id": "m_ing_128",
+    "name": "양배추",
+    "zone": "FRIDGE",
+    "imageKey": "cabbage",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_129",
+    "name": "고추",
+    "zone": "FRIDGE",
+    "imageKey": "green_chili",
+    "aliases": [
       "풋고추"
+    ]
+  },
+  {
+    "id": "m_ing_130",
+    "name": "김",
+    "zone": "FRIDGE",
+    "imageKey": "laver",
+    "aliases": [
+      "조미김"
+    ]
+  },
+  {
+    "id": "m_ing_131",
+    "name": "스팸",
+    "zone": "FRIDGE",
+    "imageKey": "spam",
+    "aliases": [
+      "런천미트"
+    ]
+  },
+  {
+    "id": "m_ing_132",
+    "name": "묵은지",
+    "zone": "FRIDGE",
+    "imageKey": "aged_kimchi",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_133",
+    "name": "사과",
+    "zone": "FRIDGE",
+    "imageKey": "apple",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_134",
+    "name": "소면",
+    "zone": "FRIDGE",
+    "imageKey": "somen",
+    "aliases": [
+      "국수"
+    ]
+  },
+  {
+    "id": "m_ing_135",
+    "name": "모짜렐라치즈",
+    "zone": "FRIDGE",
+    "imageKey": "mozzarella",
+    "aliases": [
+      "모차렐라치즈"
+    ]
+  },
+  {
+    "id": "m_ing_136",
+    "name": "오이",
+    "zone": "FRIDGE",
+    "imageKey": "cucumber",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_137",
+    "name": "파스타면",
+    "zone": "FRIDGE",
+    "imageKey": "pasta",
+    "aliases": [
+      "스파게티면"
+    ]
+  },
+  {
+    "id": "m_ing_138",
+    "name": "참치액젓",
+    "zone": "SEASONING",
+    "imageKey": "tuna_fish_sauce",
+    "aliases": [
+      "참치액"
+    ]
+  },
+  {
+    "id": "m_ing_139",
+    "name": "슬라이스치즈",
+    "zone": "FRIDGE",
+    "imageKey": "sliced_cheese",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_140",
+    "name": "올리브유",
+    "zone": "SEASONING",
+    "imageKey": "olive_oil",
+    "aliases": [
+      "올리브오일"
+    ]
+  },
+  {
+    "id": "m_ing_141",
+    "name": "쌀",
+    "zone": "FRIDGE",
+    "imageKey": "rice",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_142",
+    "name": "고등어",
+    "zone": "FRIDGE",
+    "imageKey": "mackerel",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_143",
+    "name": "팽이버섯",
+    "zone": "FRIDGE",
+    "imageKey": "enoki",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_144",
+    "name": "무염버터",
+    "zone": "FRIDGE",
+    "imageKey": "unsalted_butter",
+    "aliases": [
+      "버터"
+    ]
+  },
+  {
+    "id": "m_ing_145",
+    "name": "마늘",
+    "zone": "FRIDGE",
+    "imageKey": "garlic",
+    "aliases": [
+      "통마늘"
+    ]
+  },
+  {
+    "id": "m_ing_146",
+    "name": "닭가슴살",
+    "zone": "FRIDGE",
+    "imageKey": "chicken_breast",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_147",
+    "name": "식빵",
+    "zone": "FRIDGE",
+    "imageKey": "bread",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_148",
+    "name": "토마토 파스타소스",
+    "zone": "SEASONING",
+    "imageKey": "tomato_pasta_sauce",
+    "aliases": [
+      "토마토소스",
+      "파스타소스"
+    ]
+  },
+  {
+    "id": "m_ing_149",
+    "name": "대패삼겹살",
+    "zone": "FRIDGE",
+    "imageKey": "thin_pork_belly",
+    "aliases": [
+      "대패삼겹"
+    ]
+  },
+  {
+    "id": "m_ing_150",
+    "name": "떡국떡",
+    "zone": "FRIDGE",
+    "imageKey": "rice_cake_slices",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_151",
+    "name": "부침가루",
+    "zone": "SEASONING",
+    "imageKey": "pancake_mix",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_152",
+    "name": "코인육수",
+    "zone": "SEASONING",
+    "imageKey": "broth_coin",
+    "aliases": [
+      "육수코인"
     ]
   }
 ]

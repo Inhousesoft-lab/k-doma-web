@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { LayoutList, Grid } from 'lucide-react';
 import { Ingredient, IngredientStatus, StorageZone } from '../types';
 import { ingredientService, authService, subscribeToDataChanges } from '../services';
@@ -7,7 +8,6 @@ import StateView from '../components/common/StateView';
 import Toast from '../components/common/Toast';
 import useLoginGate from '../hooks/useLoginGate';
 import FridgeZoneSection from './fridge/FridgeZoneSection';
-import AddIngredientSheet from './fridge/AddIngredientSheet';
 
 const FILTER_CHIPS: Array<{ value: 'ALL' | IngredientStatus; label: string }> = [
   { value: 'ALL', label: '전체' },
@@ -43,8 +43,9 @@ export const FridgePage: React.FC = () => {
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  // 4. 추가 시트 상태
-  const [sheetZone, setSheetZone] = useState<StorageZone | null>(null);
+  // 4. 재료 추가 화면(/fridge/add) 이동 · 돌아왔을 때 추가 개수 토스트
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // 5. 로그인 유도 모달 (비로그인 [추가], KD-46). 화면은 로그인 여부와 관계없이 연다
   const { requireLogin, loginModal } = useLoginGate();
@@ -152,22 +153,20 @@ export const FridgePage: React.FC = () => {
     }
   };
 
-  // 재료 추가 완료 콜백
-  const handleAdded = async (count: number) => {
-    if (count > 0) {
-      await loadIngredients(false); // 새로 추가 시 정렬 갱신
-      setToastMessage(`${count}개 재료가 추가되었어요.`);
-    }
-  };
+  // 재료 추가 화면에서 돌아오면 추가 개수 토스트. state 는 한 번 쓰고 비운다
+  useEffect(() => {
+    const addedCount = (location.state as { addedCount?: number } | null)?.addedCount;
+    if (addedCount === undefined) return;
+    if (addedCount > 0) setToastMessage(`${addedCount}개 재료가 추가되었어요.`);
+    navigate(location.pathname, { replace: true, state: null });
+  }, [location.state]);
 
-  // [추가]: 비로그인이면 로그인 유도 모달. 모달에서 로그인하면 우리 집 냉장고를 불러오고 그 구역 추가 시트를 연다
-  const handleAdd = (zone: StorageZone) => {
-    requireLogin(() => setSheetZone(zone), {
+  // [추가]: 비로그인이면 로그인 유도 모달. 로그인하면 재료 추가 화면으로 이동 (전체 재료를 보여준다)
+  const handleAdd = () => {
+    const openAddPage = () => navigate('/fridge/add');
+    requireLogin(openAddPage, {
       description: '냉장고에 재료를 추가하려면 로그인해 주세요.',
-      afterLogin: async () => {
-        await loadIngredients(false);
-        setSheetZone(zone);
-      },
+      afterLogin: openAddPage,
     });
   };
 
@@ -196,11 +195,6 @@ export const FridgePage: React.FC = () => {
   const fridgeList = useMemo(() => {
     return filteredIngredients.filter((item) => item.zone === 'FRIDGE');
   }, [filteredIngredients]);
-
-  // 전체 등록된 재료명 Set (추가 시트에서 등록됨 표시용)
-  const existingNamesSet = useMemo(() => {
-    return new Set(ingredients.map((i) => i.name));
-  }, [ingredients]);
 
   // 로딩 상태
   if (isLoading) {
@@ -288,7 +282,7 @@ export const FridgePage: React.FC = () => {
           onTileClick={handleTileClick}
           onStatusChange={handleStatusChange}
           onRemove={handleRemove}
-          onAdd={() => handleAdd(zone.zone)}
+          onAdd={handleAdd}
         />
       ))}
 
@@ -296,18 +290,6 @@ export const FridgePage: React.FC = () => {
       <p className="text-[12px] text-ink-muted leading-relaxed text-center px-1 pt-1 pb-4">
         재료를 누르면 있음 → 적음 → 없음 순으로 바뀝니다. 적음·없음인 재료는 장바구니 '더 사두면 좋아요'에 나와요.
       </p>
-
-      {/* 6. 재료 추가 바텀시트 */}
-      {sheetZone && (
-        <AddIngredientSheet
-          isOpen={true}
-          onClose={() => setSheetZone(null)}
-          zone={sheetZone}
-          existingNames={existingNamesSet}
-          onAdded={handleAdded}
-          onError={() => setToastMessage(SAVE_FAILED)}
-        />
-      )}
 
       {/* 8. 로그인 유도 모달 (비로그인 [추가]) */}
       {loginModal}
