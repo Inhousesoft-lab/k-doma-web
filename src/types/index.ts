@@ -35,6 +35,8 @@ export interface Recipe {
   photoUrl?: string;
   mainIngredient: string; // 닭, 돼지, 소, 해산물·생선, 계란, 두부, 채소 등
   category: string; // 밥, 면·파스타, 국·탕·찌개, 분식, 반찬, 특식, 간식 등
+  dishGroupId?: string; // 음식 묶음 (03-2 3.3). 없으면 recipe.id
+  themes?: string[]; // Today 테마 (파스타·떡볶이·국물·긴급·만원·간식·샌드위치·수프·양식·중식·일식·분식·해산물·소·돼지·닭). 여러 개 가능
   cookTimeMinutes: number;
   caloriesKcal?: number;
   servings?: number; // 기본 인분 (예: 2)

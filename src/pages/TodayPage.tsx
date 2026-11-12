@@ -3,20 +3,25 @@ import {
   recommendationService,
   recipeService,
   subscribeToDataChanges,
-  RecommendationResult,
   authService,
+  type TodayRecipeItem,
+  type TodayThemeSection,
 } from '../services';
+import { TODAY_RECOMMEND_COUNT } from '../recommendation';
 import TodayRecommendations from './today/TodayRecommendations';
 import StateView from '../components/common/StateView';
 import useLoginGate from '../hooks/useLoginGate';
 
 /**
  * Today (/) — 오늘 요리 추천에만 집중
- * 화면 순서: 헤더 → '오늘 한끼 뭐먹지?' 제목과 추천 그룹 → 하단 탭
+ * 화면 순서: 헤더 → 추천 요리('오늘 한끼 뭐먹지?') → 테마 요리 → 하단 탭 (KD-51)
  * (달력, 요리 카드, 구분선은 기록 탭 /records 로 이동 완료)
  */
 export const TodayPage: React.FC = () => {
-  const [recommendations, setRecommendations] = useState<RecommendationResult | null>(null);
+  const [recommendations, setRecommendations] = useState<{
+    recommended: TodayRecipeItem[];
+    themes: TodayThemeSection[];
+  } | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
 
@@ -25,8 +30,16 @@ export const TodayPage: React.FC = () => {
   const loadData = useCallback(async () => {
     try {
       const userId = authService.getCurrentUser().id;
-      const recs = await recommendationService.getRecommendations(userId);
-      setRecommendations(recs);
+      const [recs, themes] = await Promise.all([
+        recommendationService.getRecommendations(userId),
+        recommendationService.getThemes(),
+      ]);
+      setRecommendations({
+        recommended: recs
+          .slice(0, TODAY_RECOMMEND_COUNT)
+          .map(({ recipe, missingCount }) => ({ recipe, missingCount })),
+        themes,
+      });
       setError(false);
     } catch (e) {
       console.error(e);
@@ -81,12 +94,12 @@ export const TodayPage: React.FC = () => {
 
   return (
     <div className="flex flex-col px-5 pt-3 pb-8 gap-4 bg-white min-h-[calc(100vh-80px)]">
-      {/* '오늘 한끼 뭐먹지?' 추천 그룹 (가로 스크롤 카드 + 세로 목록 + 냉장고 비었을 때 안내) */}
+      {/* 추천 요리 + 테마 요리 (냉장고가 비어 있어도 그대로 보여 준다, KD-50·51) */}
       {recommendations && (
         <TodayRecommendations
-          readyRecipes={recommendations.readyRecipes}
-          needBuyRecipes={recommendations.needBuyRecipes}
-          isFridgeEmpty={recommendations.isFridgeEmpty}
+          recommended={recommendations.recommended}
+          themes={recommendations.themes}
+          showStock={authService.isLoggedIn()}
           onToggleFavorite={handleToggleFavorite}
         />
       )}

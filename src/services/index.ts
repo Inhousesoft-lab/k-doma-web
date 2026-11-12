@@ -23,10 +23,10 @@ import {
   findByIngredientName,
   findMasterIngredient,
   getMissingIngredientNames,
-  hasLowIngredient,
   isSameIngredient,
 } from '../utils/ingredient';
-import { daysBetween, todayStr, weekStartOf } from '../utils/date';
+import { todayStr } from '../utils/date';
+import { pickThemes, recommend, type RecommendedItem } from '../recommendation';
 import {
   browserSessionPersistence,
   onAuthStateChanged,
@@ -539,98 +539,44 @@ export const mealPlanService = {
   },
 };
 
-export interface RecommendationResult {
-  readyRecipes: Array<{
-    recipe: Recipe;
-    missingCount: 0;
-  }>;
-  needBuyRecipes: Array<{
-    recipe: Recipe;
-    missingCount: number;
-    missingIngredientNames: string[];
-  }>;
-  isFridgeEmpty: boolean;
+/** Today 카드 하나: 요리와 재료 정보 줄용 부족 수 */
+export interface TodayRecipeItem {
+  recipe: Recipe;
+  missingCount: number;
 }
 
-// 03-2 3.3 추천 점수 (v1 초기 정책값)
-const SCORE_BASE = 100;
-const COOKED_PENALTY_BY_WEEKS_AGO = [-50, -30, -10]; // 이번 주 / 전주 / 2주 전
-const LOW_BONUS = 5;
-
-/** 가장 최근 COOKED 기록이 속한 주 하나만 감점한다 (KD-R03) */
-const cookedPenalty = (latestCookedDate: string | undefined, today: string): number => {
-  if (!latestCookedDate) return 0;
-  const weeksAgo = daysBetween(weekStartOf(latestCookedDate), weekStartOf(today)) / 7;
-  return COOKED_PENALTY_BY_WEEKS_AGO[weeksAgo] ?? 0;
-};
-
-/** 같은 그룹 안 정렬: 점수 높은 순 → 조리시간 짧은 순 → 이름 → recipeId (KD-R04) */
-const compareScored = (
-  a: { recipe: Recipe; score: number },
-  b: { recipe: Recipe; score: number }
-): number =>
-  b.score - a.score ||
-  a.recipe.cookTimeMinutes - b.recipe.cookTimeMinutes ||
-  a.recipe.name.localeCompare(b.recipe.name, 'ko') ||
-  a.recipe.id.localeCompare(b.recipe.id);
+export interface TodayThemeSection {
+  theme: string;
+  items: TodayRecipeItem[];
+}
 
 export const recommendationService = {
   /**
-   * 현재 냉장고 재고 기준 추천 (03-2 3장)
-   * - 부족 재료 0개: '지금 바로 만들 수 있어요'
-   * - 부족 재료 1~2개: '1~2개만 사면 돼요'
-   * - 부족 재료 3개 이상: Today에서 제외
-   * - 그룹 안 정렬: 100 + 이력 감점(내 COOKED 기록) + 적음 가점
+   * 추천 요리 (03-2 3장, KD-50). 계산은 src/recommendation/engine.ts 가 한다.
+   * 여기서는 레시피·냉장고(비로그인은 빈 냉장고)·내 기록만 모아 넘긴다.
    */
-  async getRecommendations(userId: string = uid()): Promise<RecommendationResult> {
+  async getRecommendations(userId: string = uid()): Promise<RecommendedItem[]> {
     const [recipes, ingredients, userPlans] = await Promise.all([
       recipeService.getRecipes(),
       ingredientService.getIngredients(),
       mealPlanService.getUserPlans(userId),
     ]);
+    return recommend({ recipes, fridge: ingredients, cookedPlans: userPlans, today: todayStr() });
+  },
 
-    if (ingredients.length === 0) {
-      return { readyRecipes: [], needBuyRecipes: [], isFridgeEmpty: true };
-    }
-
-    const today = todayStr();
-    const latestCookedByRecipe = new Map<string, string>();
-    userPlans
-      .filter((p) => p.status === 'COOKED' && p.date <= today)
-      .forEach((p) => {
-        const prev = latestCookedByRecipe.get(p.recipeId);
-        if (!prev || p.date > prev) latestCookedByRecipe.set(p.recipeId, p.date);
-      });
-
-    const readyList: Array<{ recipe: Recipe; score: number }> = [];
-    const needBuyList: Array<{ recipe: Recipe; score: number; missingNames: string[] }> = [];
-
-    recipes.forEach((recipe) => {
-      const missingNames = getMissingIngredientNames(recipe, ingredients);
-      const score =
-        SCORE_BASE +
-        cookedPenalty(latestCookedByRecipe.get(recipe.id), today) +
-        (hasLowIngredient(recipe, ingredients) ? LOW_BONUS : 0);
-
-      if (missingNames.length === 0) {
-        readyList.push({ recipe, score });
-      } else if (missingNames.length <= 2) {
-        needBuyList.push({ recipe, score, missingNames });
-      }
-    });
-
-    readyList.sort(compareScored);
-    needBuyList.sort(compareScored);
-
-    return {
-      readyRecipes: readyList.map(({ recipe }) => ({ recipe, missingCount: 0 as const })),
-      needBuyRecipes: needBuyList.map(({ recipe, missingNames }) => ({
+  /** 테마 요리 (03-2 3.6, KD-51). 오늘 날짜 기준이라 같은 날에는 같은 테마가 나온다 */
+  async getThemes(): Promise<TodayThemeSection[]> {
+    const [recipes, ingredients] = await Promise.all([
+      recipeService.getRecipes(),
+      ingredientService.getIngredients(),
+    ]);
+    return pickThemes(recipes, todayStr()).map(({ theme, recipes: themeRecipes }) => ({
+      theme,
+      items: themeRecipes.map((recipe) => ({
         recipe,
-        missingCount: missingNames.length,
-        missingIngredientNames: missingNames,
+        missingCount: getMissingIngredientNames(recipe, ingredients).length,
       })),
-      isFridgeEmpty: false,
-    };
+    }));
   },
 };
 

@@ -4,6 +4,11 @@
     "name": "돼지고기 김치찌개",
     "mainIngredient": "돼지",
     "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "만원",
+      "돼지"
+    ],
     "cookTimeMinutes": 25,
     "caloriesKcal": 380,
     "servings": 2,
@@ -67,6 +72,10 @@
     "name": "스팸 감자채볶음",
     "mainIngredient": "채소",
     "category": "반찬",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 15,
     "caloriesKcal": 210,
     "servings": 2,
@@ -114,6 +123,10 @@
     "name": "차돌박이 된장찌개",
     "mainIngredient": "소",
     "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "소"
+    ],
     "cookTimeMinutes": 20,
     "caloriesKcal": 640,
     "servings": 2,
@@ -209,6 +222,10 @@
     "name": "포슬포슬 계란말이",
     "mainIngredient": "계란",
     "category": "반찬",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 10,
     "caloriesKcal": 195,
     "servings": 2,
@@ -256,6 +273,10 @@
     "name": "불맛 제육볶음",
     "mainIngredient": "돼지",
     "category": "반찬",
+    "themes": [
+      "만원",
+      "돼지"
+    ],
     "cookTimeMinutes": 25,
     "caloriesKcal": 520,
     "servings": 2,
@@ -313,6 +334,10 @@
     "name": "소고기 미역국",
     "mainIngredient": "소",
     "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "소"
+    ],
     "cookTimeMinutes": 40,
     "servings": 3,
     "bookPage": 38,
@@ -353,6 +378,9 @@
     "name": "칼칼 닭볶음탕",
     "mainIngredient": "닭",
     "category": "특식",
+    "themes": [
+      "닭"
+    ],
     "cookTimeMinutes": 45,
     "caloriesKcal": 490,
     "servings": 3,
@@ -415,6 +443,9 @@
     "name": "통오징어 볶음",
     "mainIngredient": "해산물·생선",
     "category": "반찬",
+    "themes": [
+      "해산물"
+    ],
     "cookTimeMinutes": 20,
     "caloriesKcal": 310,
     "servings": 2,
@@ -472,6 +503,9 @@
     "name": "매콤 두부조림",
     "mainIngredient": "두부",
     "category": "반찬",
+    "themes": [
+      "만원"
+    ],
     "cookTimeMinutes": 15,
     "caloriesKcal": 220,
     "servings": 2,
@@ -529,6 +563,12 @@
     "name": "바지락 콩나물국",
     "mainIngredient": "채소",
     "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "긴급",
+      "만원",
+      "해산물"
+    ],
     "cookTimeMinutes": 15,
     "servings": 2,
     "bookPage": 54,
@@ -569,6 +609,9 @@
     "name": "간장 찜닭",
     "mainIngredient": "닭",
     "category": "특식",
+    "themes": [
+      "닭"
+    ],
     "cookTimeMinutes": 40,
     "caloriesKcal": 560,
     "servings": 3,
@@ -626,6 +669,10 @@
     "name": "김치 볶음밥",
     "mainIngredient": "돼지",
     "category": "밥",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 12,
     "caloriesKcal": 440,
     "servings": 1,
@@ -678,6 +725,9 @@
     "name": "소고기 야채 볶음밥",
     "mainIngredient": "소",
     "category": "밥",
+    "themes": [
+      "소"
+    ],
     "cookTimeMinutes": 15,
     "caloriesKcal": 480,
     "servings": 1,
@@ -735,6 +785,10 @@
     "name": "해물 라면",
     "mainIngredient": "해산물·생선",
     "category": "면·파스타",
+    "themes": [
+      "긴급",
+      "해산물"
+    ],
     "cookTimeMinutes": 10,
     "caloriesKcal": 510,
     "servings": 1,
@@ -787,6 +841,11 @@
     "name": "국물 떡볶이",
     "mainIngredient": "채소",
     "category": "분식",
+    "dishGroupId": "tteokbokki",
+    "themes": [
+      "떡볶이",
+      "만원"
+    ],
     "cookTimeMinutes": 18,
     "caloriesKcal": 420,
     "servings": 2,
@@ -844,6 +903,9 @@
     "name": "마늘종 새우볶음",
     "mainIngredient": "해산물·생선",
     "category": "반찬",
+    "themes": [
+      "해산물"
+    ],
     "cookTimeMinutes": 12,
     "servings": 2,
     "bookPage": 78,
@@ -884,6 +946,10 @@
     "name": "순두부 열라면",
     "mainIngredient": "두부",
     "category": "면·파스타",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 12,
     "caloriesKcal": 495,
     "servings": 1,
@@ -936,6 +1002,9 @@
     "name": "소고기 장조림",
     "mainIngredient": "소",
     "category": "반찬",
+    "themes": [
+      "소"
+    ],
     "cookTimeMinutes": 45,
     "caloriesKcal": 280,
     "servings": 4,
@@ -983,6 +1052,11 @@
     "name": "참치 마요 덮밥",
     "mainIngredient": "해산물·생선",
     "category": "밥",
+    "themes": [
+      "긴급",
+      "만원",
+      "해산물"
+    ],
     "cookTimeMinutes": 10,
     "caloriesKcal": 530,
     "servings": 1,
@@ -1035,6 +1109,10 @@
     "name": "감자전",
     "mainIngredient": "채소",
     "category": "간식",
+    "themes": [
+      "간식",
+      "만원"
+    ],
     "cookTimeMinutes": 20,
     "caloriesKcal": 230,
     "servings": 2,
@@ -1072,6 +1150,11 @@
     "name": "닭가슴살 샐러드",
     "mainIngredient": "닭",
     "category": "간식",
+    "themes": [
+      "긴급",
+      "양식",
+      "닭"
+    ],
     "cookTimeMinutes": 15,
     "caloriesKcal": 250,
     "servings": 1,
@@ -1119,6 +1202,10 @@
     "name": "소고기 배추된장국",
     "mainIngredient": "소",
     "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "소"
+    ],
     "cookTimeMinutes": 25,
     "servings": 2,
     "bookPage": 102,
@@ -1159,6 +1246,10 @@
     "name": "대파 계란 볶음밥",
     "mainIngredient": "계란",
     "category": "밥",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 10,
     "caloriesKcal": 410,
     "servings": 1,
@@ -1206,6 +1297,10 @@
     "name": "어묵탕",
     "mainIngredient": "해산물·생선",
     "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "만원"
+    ],
     "cookTimeMinutes": 15,
     "caloriesKcal": 260,
     "servings": 2,
@@ -1253,6 +1348,9 @@
     "name": "골뱅이 소면 무침",
     "mainIngredient": "해산물·생선",
     "category": "면·파스타",
+    "themes": [
+      "해산물"
+    ],
     "cookTimeMinutes": 20,
     "caloriesKcal": 460,
     "servings": 2,
@@ -1315,6 +1413,9 @@
     "name": "돼지고기 수육",
     "mainIngredient": "돼지",
     "category": "특식",
+    "themes": [
+      "돼지"
+    ],
     "cookTimeMinutes": 50,
     "caloriesKcal": 610,
     "servings": 3,
@@ -1367,6 +1468,10 @@
     "name": "콩나물 불고기",
     "mainIngredient": "돼지",
     "category": "특식",
+    "themes": [
+      "만원",
+      "돼지"
+    ],
     "cookTimeMinutes": 20,
     "caloriesKcal": 480,
     "servings": 2,
@@ -1424,6 +1529,10 @@
     "name": "두부 김치",
     "mainIngredient": "두부",
     "category": "반찬",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 15,
     "servings": 2,
     "bookPage": 126,
@@ -1469,6 +1578,10 @@
     "name": "소고기 규동",
     "mainIngredient": "소",
     "category": "밥",
+    "themes": [
+      "긴급",
+      "소"
+    ],
     "cookTimeMinutes": 15,
     "caloriesKcal": 540,
     "servings": 1,
@@ -1526,6 +1639,10 @@
     "name": "오뎅 볶음",
     "mainIngredient": "해산물·생선",
     "category": "반찬",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 10,
     "caloriesKcal": 180,
     "servings": 2,
@@ -1578,6 +1695,10 @@
     "name": "토마토 계란 볶음",
     "mainIngredient": "계란",
     "category": "반찬",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 8,
     "caloriesKcal": 210,
     "servings": 1,
@@ -1630,6 +1751,9 @@
     "name": "고등어 무조림",
     "mainIngredient": "해산물·생선",
     "category": "반찬",
+    "themes": [
+      "해산물"
+    ],
     "cookTimeMinutes": 35,
     "servings": 2,
     "bookPage": 142,
@@ -1675,6 +1799,9 @@
     "name": "닭안심 카레라이스",
     "mainIngredient": "닭",
     "category": "밥",
+    "themes": [
+      "닭"
+    ],
     "cookTimeMinutes": 25,
     "caloriesKcal": 490,
     "servings": 2,
@@ -1727,6 +1854,12 @@
     "name": "매운 라볶이",
     "mainIngredient": "채소",
     "category": "분식",
+    "dishGroupId": "tteokbokki",
+    "themes": [
+      "떡볶이",
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 15,
     "caloriesKcal": 580,
     "servings": 2,
@@ -1784,6 +1917,10 @@
     "name": "소고기 뭇국",
     "mainIngredient": "소",
     "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "소"
+    ],
     "cookTimeMinutes": 30,
     "servings": 2,
     "bookPage": 154,
@@ -1829,6 +1966,11 @@
     "name": "마늘 베이컨 알리오 올리오",
     "mainIngredient": "돼지",
     "category": "면·파스타",
+    "themes": [
+      "파스타",
+      "긴급",
+      "양식"
+    ],
     "cookTimeMinutes": 15,
     "caloriesKcal": 480,
     "servings": 1,
@@ -1871,6 +2013,11 @@
     "name": "계란 샌드위치",
     "mainIngredient": "계란",
     "category": "간식",
+    "themes": [
+      "긴급",
+      "간식",
+      "샌드위치"
+    ],
     "cookTimeMinutes": 12,
     "caloriesKcal": 360,
     "servings": 1,
@@ -1913,6 +2060,10 @@
     "name": "얼큰 순두부찌개",
     "mainIngredient": "두부",
     "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "만원"
+    ],
     "cookTimeMinutes": 18,
     "caloriesKcal": 290,
     "servings": 2,
@@ -1970,6 +2121,12 @@
     "name": "양배추 계란 토스트",
     "mainIngredient": "계란",
     "category": "간식",
+    "themes": [
+      "긴급",
+      "만원",
+      "간식",
+      "샌드위치"
+    ],
     "cookTimeMinutes": 10,
     "servings": 1,
     "bookPage": 170,
@@ -2010,6 +2167,10 @@
     "name": "바지락 칼국수",
     "mainIngredient": "해산물·생선",
     "category": "면·파스타",
+    "themes": [
+      "국물",
+      "해산물"
+    ],
     "cookTimeMinutes": 20,
     "caloriesKcal": 450,
     "servings": 2,
@@ -2057,6 +2218,10 @@
     "name": "시금치 된장국",
     "mainIngredient": "채소",
     "category": "반찬",
+    "themes": [
+      "국물",
+      "만원"
+    ],
     "cookTimeMinutes": 15,
     "caloriesKcal": 467,
     "servings": 2,
@@ -2104,6 +2269,9 @@
     "name": "고추장 삼겹살 구이",
     "mainIngredient": "닭",
     "category": "밥",
+    "themes": [
+      "돼지"
+    ],
     "cookTimeMinutes": 20,
     "servings": 2,
     "bookPage": 104,
@@ -2144,6 +2312,10 @@
     "name": "닭가슴살 볶음밥",
     "mainIngredient": "돼지",
     "category": "분식",
+    "themes": [
+      "긴급",
+      "닭"
+    ],
     "cookTimeMinutes": 25,
     "caloriesKcal": 481,
     "servings": 2,
@@ -2191,6 +2363,10 @@
     "name": "묵은지 꽁치조림",
     "mainIngredient": "소",
     "category": "간식",
+    "themes": [
+      "만원",
+      "해산물"
+    ],
     "cookTimeMinutes": 30,
     "caloriesKcal": 488,
     "servings": 2,
@@ -2238,6 +2414,9 @@
     "name": "달걀 만두국",
     "mainIngredient": "해산물·생선",
     "category": "국·탕·찌개",
+    "themes": [
+      "국물"
+    ],
     "cookTimeMinutes": 35,
     "servings": 2,
     "bookPage": 110,
@@ -2278,6 +2457,10 @@
     "name": "마파두부 덮밥",
     "mainIngredient": "계란",
     "category": "특식",
+    "themes": [
+      "만원",
+      "돼지"
+    ],
     "cookTimeMinutes": 40,
     "caloriesKcal": 502,
     "servings": 2,
@@ -2325,6 +2508,10 @@
     "name": "소고기 야채 전골",
     "mainIngredient": "두부",
     "category": "면·파스타",
+    "themes": [
+      "국물",
+      "소"
+    ],
     "cookTimeMinutes": 45,
     "caloriesKcal": 509,
     "servings": 2,
@@ -2372,6 +2559,10 @@
     "name": "김치 비빔국수",
     "mainIngredient": "채소",
     "category": "반찬",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 10,
     "servings": 2,
     "bookPage": 116,
@@ -2412,6 +2603,9 @@
     "name": "애호박 새우전",
     "mainIngredient": "닭",
     "category": "밥",
+    "themes": [
+      "해산물"
+    ],
     "cookTimeMinutes": 15,
     "caloriesKcal": 523,
     "servings": 2,
@@ -2459,6 +2653,9 @@
     "name": "간장 돼지불고기",
     "mainIngredient": "돼지",
     "category": "분식",
+    "themes": [
+      "돼지"
+    ],
     "cookTimeMinutes": 20,
     "caloriesKcal": 530,
     "servings": 2,
@@ -2506,6 +2703,10 @@
     "name": "치킨 가라아게",
     "mainIngredient": "소",
     "category": "간식",
+    "themes": [
+      "간식",
+      "닭"
+    ],
     "cookTimeMinutes": 25,
     "servings": 2,
     "bookPage": 122,
@@ -2546,6 +2747,10 @@
     "name": "해물 파전",
     "mainIngredient": "해산물·생선",
     "category": "국·탕·찌개",
+    "themes": [
+      "간식",
+      "해산물"
+    ],
     "cookTimeMinutes": 30,
     "caloriesKcal": 184,
     "servings": 2,
@@ -2593,6 +2798,10 @@
     "name": "뚝배기 계란찜",
     "mainIngredient": "계란",
     "category": "특식",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 35,
     "caloriesKcal": 191,
     "servings": 2,
@@ -2640,6 +2849,10 @@
     "name": "두부 버섯 전골",
     "mainIngredient": "두부",
     "category": "면·파스타",
+    "themes": [
+      "국물",
+      "만원"
+    ],
     "cookTimeMinutes": 40,
     "servings": 2,
     "bookPage": 128,
@@ -2680,6 +2893,10 @@
     "name": "소고기 육개장",
     "mainIngredient": "채소",
     "category": "반찬",
+    "themes": [
+      "국물",
+      "소"
+    ],
     "cookTimeMinutes": 45,
     "caloriesKcal": 205,
     "servings": 2,
@@ -2727,6 +2944,10 @@
     "name": "열무 비빔밥",
     "mainIngredient": "닭",
     "category": "밥",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 10,
     "caloriesKcal": 212,
     "servings": 2,
@@ -2774,6 +2995,10 @@
     "name": "잔치국수",
     "mainIngredient": "돼지",
     "category": "분식",
+    "themes": [
+      "국물",
+      "만원"
+    ],
     "cookTimeMinutes": 15,
     "servings": 2,
     "bookPage": 134,
@@ -2814,6 +3039,10 @@
     "name": "소떡소떡",
     "mainIngredient": "소",
     "category": "간식",
+    "themes": [
+      "만원",
+      "간식"
+    ],
     "cookTimeMinutes": 20,
     "caloriesKcal": 226,
     "servings": 2,
@@ -2861,6 +3090,10 @@
     "name": "연어 구이",
     "mainIngredient": "해산물·생선",
     "category": "국·탕·찌개",
+    "themes": [
+      "양식",
+      "해산물"
+    ],
     "cookTimeMinutes": 25,
     "caloriesKcal": 233,
     "servings": 2,
@@ -2908,6 +3141,9 @@
     "name": "돼지고기 김치찜",
     "mainIngredient": "계란",
     "category": "특식",
+    "themes": [
+      "돼지"
+    ],
     "cookTimeMinutes": 30,
     "servings": 2,
     "bookPage": 140,
@@ -2948,6 +3184,10 @@
     "name": "닭개장",
     "mainIngredient": "두부",
     "category": "면·파스타",
+    "themes": [
+      "국물",
+      "닭"
+    ],
     "cookTimeMinutes": 35,
     "caloriesKcal": 247,
     "servings": 2,
@@ -2995,6 +3235,10 @@
     "name": "오삼불고기",
     "mainIngredient": "채소",
     "category": "반찬",
+    "themes": [
+      "해산물",
+      "돼지"
+    ],
     "cookTimeMinutes": 40,
     "caloriesKcal": 254,
     "servings": 2,
@@ -3042,6 +3286,10 @@
     "name": "간장 계란밥",
     "mainIngredient": "닭",
     "category": "밥",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 45,
     "servings": 2,
     "bookPage": 146,
@@ -3082,6 +3330,10 @@
     "name": "두부 스테이크",
     "mainIngredient": "돼지",
     "category": "분식",
+    "themes": [
+      "만원",
+      "양식"
+    ],
     "cookTimeMinutes": 10,
     "caloriesKcal": 268,
     "servings": 2,
@@ -3129,6 +3381,10 @@
     "name": "차돌박이 숙주볶음",
     "mainIngredient": "소",
     "category": "간식",
+    "themes": [
+      "긴급",
+      "소"
+    ],
     "cookTimeMinutes": 15,
     "caloriesKcal": 275,
     "servings": 2,
@@ -3176,6 +3432,10 @@
     "name": "들깨 수제비",
     "mainIngredient": "해산물·생선",
     "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "만원"
+    ],
     "cookTimeMinutes": 20,
     "servings": 2,
     "bookPage": 152,
@@ -3216,6 +3476,10 @@
     "name": "오징어 튀김",
     "mainIngredient": "계란",
     "category": "특식",
+    "themes": [
+      "간식",
+      "해산물"
+    ],
     "cookTimeMinutes": 25,
     "caloriesKcal": 289,
     "servings": 2,
@@ -3263,6 +3527,9 @@
     "name": "돈까스 덮밥(가츠동)",
     "mainIngredient": "두부",
     "category": "면·파스타",
+    "themes": [
+      "돼지"
+    ],
     "cookTimeMinutes": 30,
     "caloriesKcal": 296,
     "servings": 2,
@@ -3310,6 +3577,9 @@
     "name": "닭봉 간장조림",
     "mainIngredient": "채소",
     "category": "반찬",
+    "themes": [
+      "닭"
+    ],
     "cookTimeMinutes": 35,
     "servings": 2,
     "bookPage": 158,
@@ -3350,6 +3620,9 @@
     "name": "낙지 탕탕이 비빔밥",
     "mainIngredient": "닭",
     "category": "밥",
+    "themes": [
+      "해산물"
+    ],
     "cookTimeMinutes": 40,
     "caloriesKcal": 310,
     "servings": 2,
@@ -3397,6 +3670,10 @@
     "name": "치즈 계란말이",
     "mainIngredient": "돼지",
     "category": "분식",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 45,
     "caloriesKcal": 317,
     "servings": 2,
@@ -3444,6 +3721,9 @@
     "name": "순두부 그라탕",
     "mainIngredient": "소",
     "category": "간식",
+    "themes": [
+      "양식"
+    ],
     "cookTimeMinutes": 10,
     "servings": 2,
     "bookPage": 24,
@@ -3484,6 +3764,10 @@
     "name": "소고기 찹스테이크",
     "mainIngredient": "해산물·생선",
     "category": "국·탕·찌개",
+    "themes": [
+      "양식",
+      "소"
+    ],
     "cookTimeMinutes": 15,
     "caloriesKcal": 331,
     "servings": 2,
@@ -3531,6 +3815,10 @@
     "name": "도토리묵 무침",
     "mainIngredient": "계란",
     "category": "특식",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
     "cookTimeMinutes": 20,
     "caloriesKcal": 338,
     "servings": 2,
@@ -3578,6 +3866,9 @@
     "name": "볶음 우동",
     "mainIngredient": "두부",
     "category": "면·파스타",
+    "themes": [
+      "긴급"
+    ],
     "cookTimeMinutes": 25,
     "servings": 2,
     "bookPage": 30,
@@ -3618,6 +3909,10 @@
     "name": "순대 볶음",
     "mainIngredient": "채소",
     "category": "반찬",
+    "themes": [
+      "만원",
+      "돼지"
+    ],
     "cookTimeMinutes": 30,
     "caloriesKcal": 352,
     "servings": 2,
@@ -3665,6 +3960,10 @@
     "name": "황태 해장국",
     "mainIngredient": "닭",
     "category": "밥",
+    "themes": [
+      "국물",
+      "해산물"
+    ],
     "cookTimeMinutes": 35,
     "caloriesKcal": 359,
     "servings": 2,
@@ -3712,6 +4011,9 @@
     "name": "돼지갈비찜",
     "mainIngredient": "돼지",
     "category": "분식",
+    "themes": [
+      "돼지"
+    ],
     "cookTimeMinutes": 40,
     "servings": 2,
     "bookPage": 36,
@@ -3752,6 +4054,10 @@
     "name": "삼계탕",
     "mainIngredient": "소",
     "category": "간식",
+    "themes": [
+      "국물",
+      "닭"
+    ],
     "cookTimeMinutes": 45,
     "caloriesKcal": 373,
     "servings": 2,
