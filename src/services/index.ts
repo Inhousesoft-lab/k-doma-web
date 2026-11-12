@@ -624,16 +624,6 @@ export const authService = {
     return account ? toProfile(account) : { ...GUEST_PROFILE };
   },
 
-  /** 개발용 빠른 계정 전환 (로그인 화면의 계정 선택 버튼, 개발 모드에서만 보임) */
-  setCurrentUser(userId: string): UserProfile | undefined {
-    const account = usersData.find((u) => u.id === userId);
-    if (!account) return undefined;
-    currentUserId = account.id;
-    writeSession(account.id);
-    notifyListeners();
-    return toProfile(account);
-  },
-
   /** 데모 로그인: src/data/users.json 의 아이디·비밀번호와 비교 */
   async login(userId: string, password: string): Promise<{ success: boolean; message?: string }> {
     const account = usersData.find((u) => u.id === userId);

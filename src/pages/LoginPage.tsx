@@ -35,12 +35,6 @@ export const LoginPage: React.FC = () => {
     }
   };
 
-  const handleQuickSelect = (userId: string) => {
-    setUsername(userId);
-    authService.setCurrentUser(userId);
-    navigate(returnTo, { replace: true });
-  };
-
   return (
     <div className="flex flex-col px-5 pt-8 pb-10 min-h-[75vh] justify-between">
       <div>
@@ -101,31 +95,6 @@ export const LoginPage: React.FC = () => {
             </Button>
           </div>
         </form>
-
-        {/* 개발 모드에서만: 테스트 계정 빠른 선택 (데모·배포 빌드에는 안 보임) */}
-        {import.meta.env.DEV && (
-          <div className="mt-8 p-4 bg-white rounded-[16px] border border-line">
-            <p className="text-[12px] font-bold text-ink-muted mb-2 uppercase tracking-wide">
-              빠른 테스트 계정 선택
-            </p>
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => handleQuickSelect('taering')}
-                className="p-2.5 rounded-[12px] bg-primary-light text-primary text-[13px] font-semibold text-center hover:bg-primary-light-hover transition-colors cursor-pointer"
-              >
-                이태링 (메인)
-              </button>
-              <button
-                type="button"
-                onClick={() => handleQuickSelect('beomi')}
-                className="p-2.5 rounded-[12px] bg-line-subtle text-ink-secondary text-[13px] font-semibold text-center hover:bg-line transition-colors cursor-pointer"
-              >
-                김버미 (서브)
-              </button>
-            </div>
-          </div>
-        )}
       </div>
 
       <p className="text-center text-[12px] text-ink-muted">
