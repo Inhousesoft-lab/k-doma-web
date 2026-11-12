@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heart, LayoutList, LayoutGrid, Image as ImageIcon, Search } from 'lucide-react';
+import { Heart, LayoutList, LayoutGrid, Search } from 'lucide-react';
 import { Recipe, Ingredient } from '../types';
 import {
   recipeService,
   ingredientService,
+  authService,
   subscribeToDataChanges,
 } from '../services';
 import StateView from '../components/common/StateView';
+import NoImage from '../components/common/NoImage';
 import useLoginGate from '../hooks/useLoginGate';
 
 const MAIN_INGREDIENTS = [
@@ -46,6 +48,8 @@ export const RecipesPage: React.FC = () => {
   // 데이터 상태
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+  // 비로그인이면 요리별 보유 상태(바로 가능·부족 n개)를 보여 주지 않는다 (KD-44). 로그인 상태가 바뀌면 데이터 변경 알림으로 다시 그린다
+  const isLoggedIn = authService.isLoggedIn();
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
 
@@ -300,6 +304,12 @@ export const RecipesPage: React.FC = () => {
           {filteredRecipes.map((recipe) => {
             const { statusLabel } = recipeService.calculateMissing(recipe, ingredients);
             const isFav = recipeService.isFavorite(recipe.id);
+            // 비로그인: '바로 가능'·'부족 n개'를 표시하지 않고 kcal 만 (없으면 줄 생략, KD-44)
+            const statusLine = isLoggedIn
+              ? `${statusLabel}${recipe.caloriesKcal ? ` · ${recipe.caloriesKcal} kcal` : ''}`
+              : recipe.caloriesKcal
+                ? `${recipe.caloriesKcal} kcal`
+                : '';
 
             return (
               <div
@@ -317,7 +327,7 @@ export const RecipesPage: React.FC = () => {
                       referrerPolicy="no-referrer"
                     />
                   ) : (
-                    <ImageIcon className="w-6 h-6 opacity-40" />
+                    <NoImage size="sm" />
                   )}
                 </div>
 
@@ -329,10 +339,9 @@ export const RecipesPage: React.FC = () => {
                   <p className="text-[13px] text-ink-muted mt-1">
                     {recipe.mainIngredient} · {recipe.category} · {recipe.cookTimeMinutes}분
                   </p>
-                  <p className="text-[13px] font-medium text-ink-secondary mt-0.5">
-                    {statusLabel}
-                    {recipe.caloriesKcal ? ` · ${recipe.caloriesKcal} kcal` : ''}
-                  </p>
+                  {statusLine && (
+                    <p className="text-[13px] font-medium text-ink-secondary mt-0.5">{statusLine}</p>
+                  )}
                 </div>
 
                 {/* 우측 찜 버튼 (♡) */}
@@ -375,10 +384,7 @@ export const RecipesPage: React.FC = () => {
                       referrerPolicy="no-referrer"
                     />
                   ) : (
-                    <div className="flex flex-col items-center gap-1.5">
-                      <ImageIcon className="w-10 h-10 opacity-35" />
-                      <span className="text-[12px] font-medium">요리 사진</span>
-                    </div>
+                    <NoImage size="lg" />
                   )}
                 </div>
 
@@ -396,9 +402,10 @@ export const RecipesPage: React.FC = () => {
                   >
                     <Heart className={`w-5 h-5 ${isFav ? 'fill-danger' : ''}`} />
                   </button>
-                  <span className="text-[13px] font-medium text-ink-secondary">
-                    {feedStatusLabel}
-                  </span>
+                  {/* 비로그인: 상태 문구를 그리지 않는다 (KD-44) */}
+                  {isLoggedIn && (
+                    <span className="text-[13px] font-medium text-ink-secondary">{feedStatusLabel}</span>
+                  )}
                 </div>
 
                 {/* 요리명 및 태그 */}

@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heart, LayoutList, LayoutGrid, Image as ImageIcon } from 'lucide-react';
+import { Heart, LayoutList, LayoutGrid } from 'lucide-react';
 import { Recipe } from '../types';
 import { recipeService, authService, subscribeToDataChanges } from '../services';
 import StateView from '../components/common/StateView';
 import Button from '../components/common/Button';
+import NoImage from '../components/common/NoImage';
 
 export const LikesPage: React.FC = () => {
   const navigate = useNavigate();
@@ -125,7 +126,7 @@ export const LikesPage: React.FC = () => {
                     referrerPolicy="no-referrer"
                   />
                 ) : (
-                  <ImageIcon className="w-6 h-6 opacity-40" />
+                  <NoImage size="sm" />
                 )}
               </div>
 
@@ -175,7 +176,7 @@ export const LikesPage: React.FC = () => {
                     referrerPolicy="no-referrer"
                   />
                 ) : (
-                  <ImageIcon className="w-8 h-8 opacity-40" />
+                  <NoImage size="md" />
                 )}
 
                 {/* 사진 위 플로팅 꽉 찬 하트 버튼 */}

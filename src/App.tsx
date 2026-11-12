@@ -44,7 +44,8 @@ export default function App() {
           <Route path="/records" element={<RequireLogin allowGuestView><RecordsPage /></RequireLogin>} />
 
           {/* 7. 냉장고 */}
-          <Route path="/fridge" element={<RequireLogin allowGuestView><FridgePage /></RequireLogin>} />
+          {/* 로그인 여부를 확인하지 않고 연다 (KD-46). 비로그인 = 빈 냉장고 (KD-47) */}
+          <Route path="/fridge" element={<FridgePage />} />
 
           {/* 8. 마이 */}
           <Route path="/my" element={<MyPage />} />

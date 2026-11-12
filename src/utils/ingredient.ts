@@ -28,6 +28,11 @@ export function canonicalName(name: string): string {
   return findMasterIngredient(name)?.name ?? name.replace(/\(.*?\)/g, '').trim();
 }
 
+/** 같은 재료면 같은 값이 나오는 저장용 키 (Firestore 문서 id). 표준 이름에서 공백·괄호·'/' 를 뺀다 */
+export function ingredientKey(name: string): string {
+  return normalize(canonicalName(name)).replace(/\//g, '_');
+}
+
 export function isSameIngredient(a: string, b: string): boolean {
   return normalize(canonicalName(a)) === normalize(canonicalName(b));
 }

@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { LayoutList, Grid, Refrigerator } from 'lucide-react';
+import { LayoutList, Grid } from 'lucide-react';
 import { Ingredient, IngredientStatus, StorageZone } from '../types';
 import { ingredientService, authService, subscribeToDataChanges } from '../services';
 import StatusSignal, { STATUS_LABELS } from '../components/common/StatusSignal';
 import StateView from '../components/common/StateView';
 import Toast from '../components/common/Toast';
-import GuestView from '../components/common/GuestView';
+import useLoginGate from '../hooks/useLoginGate';
 import FridgeZoneSection from './fridge/FridgeZoneSection';
 import AddIngredientSheet from './fridge/AddIngredientSheet';
 
@@ -16,9 +16,20 @@ const FILTER_CHIPS: Array<{ value: 'ALL' | IngredientStatus; label: string }> = 
   { value: 'NONE', label: STATUS_LABELS.NONE },
 ];
 
-const ZONES: Array<{ zone: StorageZone; title: string; caption?: string; addLabel: string }> = [
-  { zone: 'SEASONING', title: '양념 선반', addLabel: '양념 재료 추가' },
-  { zone: 'FRIDGE', title: '냉장고', caption: '냉장·냉동 통합', addLabel: '냉장고 재료 추가' },
+const ZONES: Array<{ zone: StorageZone; title: string; caption?: string; addLabel: string; emptyText: string }> = [
+  {
+    zone: 'SEASONING',
+    title: '양념 선반',
+    addLabel: '양념 재료 추가',
+    emptyText: '간장·고추장처럼 자주 쓰는 양념을 추가해 보세요.',
+  },
+  {
+    zone: 'FRIDGE',
+    title: '냉장고',
+    caption: '냉장·냉동 통합',
+    addLabel: '냉장고 재료 추가',
+    emptyText: '집에 있는 재료를 추가하면 지금 만들 수 있는 요리를 알려 드려요.',
+  },
 ];
 
 export const FridgePage: React.FC = () => {
@@ -35,8 +46,8 @@ export const FridgePage: React.FC = () => {
   // 4. 추가 시트 상태
   const [sheetZone, setSheetZone] = useState<StorageZone | null>(null);
 
-  // 5. 로그인 상태 & 모달
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(authService.isLoggedIn());
+  // 5. 로그인 유도 모달 (비로그인 [추가], KD-46). 화면은 로그인 여부와 관계없이 연다
+  const { requireLogin, loginModal } = useLoginGate();
 
   // 6. 토스트 알림
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -60,7 +71,8 @@ export const FridgePage: React.FC = () => {
 
   // 초기 데이터 로드 및 정렬 순서 고정
   const loadIngredients = async (preserveOrder: boolean = true) => {
-    const rawList = await ingredientService.getIngredients();
+    // 비로그인 = 빈 냉장고 (KD-47)
+    const rawList = authService.isLoggedIn() ? await ingredientService.getIngredients() : [];
 
     if (!preserveOrder || displayOrderRef.current.size === 0) {
       // 새로운 정렬 순서 확정
@@ -90,7 +102,6 @@ export const FridgePage: React.FC = () => {
 
     // 데이터 변경 구독 (장바구니에서 이동, 요리 완료 등)
     const unsubscribe = subscribeToDataChanges(() => {
-      setIsLoggedIn(authService.isLoggedIn());
       loadIngredients(true);
     });
 
@@ -101,21 +112,39 @@ export const FridgePage: React.FC = () => {
 
 
   // 아이콘형 타일 클릭 시 상태 순환 (있음 -> 적음 -> 없음 -> 있음)
+  const SAVE_FAILED = '저장하지 못했어요. 잠시 후 다시 시도해 주세요.';
+
   const handleTileClick = async (id: string) => {
-    await ingredientService.cycleIngredientStatus(id);
+    try {
+      await ingredientService.cycleIngredientStatus(id);
+    } catch (e) {
+      console.error(e);
+      setToastMessage(SAVE_FAILED);
+    }
     // order is preserved so tile does not bounce/reorder on screen
     await loadIngredients(true);
   };
 
   // 목록형 상태 직접 변경
   const handleStatusChange = async (id: string, newStatus: IngredientStatus) => {
-    await ingredientService.updateIngredientStatus(id, newStatus);
+    try {
+      await ingredientService.updateIngredientStatus(id, newStatus);
+    } catch (e) {
+      console.error(e);
+      setToastMessage(SAVE_FAILED);
+    }
     await loadIngredients(true);
   };
 
   // 목록형 [빼기] (삭제)
   const handleRemove = async (id: string, name: string) => {
-    const ok = await ingredientService.removeIngredient(id);
+    let ok = false;
+    try {
+      ok = await ingredientService.removeIngredient(id);
+    } catch (e) {
+      console.error(e);
+      setToastMessage(SAVE_FAILED);
+    }
     if (ok) {
       displayOrderRef.current.delete(id);
       await loadIngredients(true);
@@ -129,6 +158,17 @@ export const FridgePage: React.FC = () => {
       await loadIngredients(false); // 새로 추가 시 정렬 갱신
       setToastMessage(`${count}개 재료가 추가되었어요.`);
     }
+  };
+
+  // [추가]: 비로그인이면 로그인 유도 모달. 모달에서 로그인하면 우리 집 냉장고를 불러오고 그 구역 추가 시트를 연다
+  const handleAdd = (zone: StorageZone) => {
+    requireLogin(() => setSheetZone(zone), {
+      description: '냉장고에 재료를 추가하려면 로그인해 주세요.',
+      afterLogin: async () => {
+        await loadIngredients(false);
+        setSheetZone(zone);
+      },
+    });
   };
 
   // 상태별 개수 집계 (필터 칩용)
@@ -162,50 +202,11 @@ export const FridgePage: React.FC = () => {
     return new Set(ingredients.map((i) => i.name));
   }, [ingredients]);
 
-  // 비로그인 상태 대응 화면
-  if (!isLoggedIn) {
-    return (
-      <GuestView
-        title="로그인이 필요한 서비스예요"
-        description="냉장고는 가족(가구)과 함께 공유돼요. 로그인하여 우리 집 냉장고를 관리해보세요."
-        icon={<Refrigerator className="w-7 h-7 stroke-[2.2]" />}
-        onLoggedIn={() => {
-          setIsLoggedIn(true);
-          loadIngredients(false);
-        }}
-      />
-    );
-  }
-
   // 로딩 상태
   if (isLoading) {
     return (
       <div className="flex flex-col min-h-[calc(100vh-140px)] items-center justify-center px-5 py-10 bg-white">
         <StateView type="loading" title="냉장고 재료를 불러오는 중이에요" />
-      </div>
-    );
-  }
-
-  // 냉장고가 완전히 비어 있는 경우 (8항)
-  if (ingredients.length === 0) {
-    return (
-      <div className="flex flex-col min-h-[calc(100vh-140px)] items-center justify-center px-5 py-10 bg-white">
-        <StateView
-          type="empty"
-          title="냉장고에 재료가 없어요"
-          description="냉장고에 있는 재료를 추가하면&#10;지금 만들 수 있는 요리를 알려 드려요."
-          actionText="재료 추가하기"
-          onAction={() => setSheetZone('FRIDGE')}
-        />
-        {sheetZone && (
-          <AddIngredientSheet
-            isOpen={true}
-            onClose={() => setSheetZone(null)}
-            zone={sheetZone}
-            existingNames={existingNamesSet}
-            onAdded={handleAdded}
-          />
-        )}
       </div>
     );
   }
@@ -280,13 +281,14 @@ export const FridgePage: React.FC = () => {
           title={zone.title}
           caption={zone.caption}
           addLabel={zone.addLabel}
+          emptyText={zone.emptyText}
           items={zone.zone === 'SEASONING' ? seasoningList : fridgeList}
           viewMode={viewMode}
           isFiltered={isFiltered}
           onTileClick={handleTileClick}
           onStatusChange={handleStatusChange}
           onRemove={handleRemove}
-          onAdd={() => setSheetZone(zone.zone)}
+          onAdd={() => handleAdd(zone.zone)}
         />
       ))}
 
@@ -303,8 +305,12 @@ export const FridgePage: React.FC = () => {
           zone={sheetZone}
           existingNames={existingNamesSet}
           onAdded={handleAdded}
+          onError={() => setToastMessage(SAVE_FAILED)}
         />
       )}
+
+      {/* 8. 로그인 유도 모달 (비로그인 [추가]) */}
+      {loginModal}
 
       {/* 7. 토스트 피드백 */}
       {toastMessage && (

@@ -10,8 +10,9 @@
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
     "dev:emu": "VITE_USE_FIREBASE_EMULATOR=true vite --port=3000 --host=0.0.0.0",
-    "emulators": "firebase emulators:start --only auth --project k-doma",
-    "seed:auth": "node --env-file=.env.local scripts/seed-auth-emulator.mjs"
+    "emulators": "firebase emulators:start --only auth,firestore --project k-doma",
+    "seed:auth": "node --env-file=.env.local scripts/seed-auth-emulator.mjs",
+    "deploy:rules": "firebase deploy --only firestore:rules --project k-doma"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

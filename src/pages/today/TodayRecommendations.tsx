@@ -1,9 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heart, Image as ImageIcon, Refrigerator } from 'lucide-react';
+import { Heart, Refrigerator } from 'lucide-react';
 import { Recipe } from '../../types';
 import StatusSignal from '../../components/common/StatusSignal';
 import Button from '../../components/common/Button';
+import NoImage from '../../components/common/NoImage';
 
 export interface TodayRecommendationsProps {
   readyRecipes: Array<{ recipe: Recipe; missingCount: 0 }>;
@@ -147,7 +148,7 @@ export const TodayRecommendations: React.FC<TodayRecommendationsProps> = ({
                         referrerPolicy="no-referrer"
                       />
                     ) : (
-                      <ImageIcon className="w-8 h-8 opacity-40" />
+                      <NoImage size="md" />
                     )}
                   </div>
 
@@ -232,7 +233,7 @@ export const TodayRecommendations: React.FC<TodayRecommendationsProps> = ({
                       referrerPolicy="no-referrer"
                     />
                   ) : (
-                    <ImageIcon className="w-6 h-6 opacity-40" />
+                    <NoImage size="sm" />
                   )}
                 </div>
 

@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics, isSupported, type Analytics } from 'firebase/analytics';
 import { connectAuthEmulator, getAuth } from 'firebase/auth';
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
 
 // Firebase 웹 설정값은 .env.local 의 VITE_FIREBASE_* 에서 읽는다 (.env 참고)
 const firebaseConfig = {
@@ -25,6 +26,11 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 if (useEmulator) {
   connectAuthEmulator(auth, 'http://127.0.0.1:9099', { disableWarnings: true });
+}
+
+export const db = getFirestore(app);
+if (useEmulator) {
+  connectFirestoreEmulator(db, '127.0.0.1', 8080);
 }
 
 // Analytics 는 실제 프로젝트에서, 브라우저가 지원할 때만 켠다 (일부 환경·쿠키 차단 시 에러 방지)

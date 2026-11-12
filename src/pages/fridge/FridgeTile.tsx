@@ -78,4 +78,13 @@ export const AddTile: React.FC<AddTileProps> = ({ onClick, label = '추가' }) =
   );
 };
 
+/**
+ * 빈 구역의 빈칸 (KD-46)
+ * - 일반 타일과 같은 크기(88px), 옅은 점선 테두리, 아주 옅은 배경, 내용 없음
+ * - 장식용이라 스크린리더에서 숨기고 클릭 반응이 없다
+ */
+export const EmptySlot: React.FC = () => (
+  <div aria-hidden="true" className="h-[88px] w-full border border-dashed border-line bg-fill-subtle rounded-[16px]" />
+);
+
 export default FridgeTile;

@@ -1,0 +1,40 @@
+rules_version = '2';
+
+// K-Doma Firestore 보안 규칙
+// - 가구(households/{hid}) 문서 id = 만든 사람의 uid. 구성원(memberIds)만 가구 데이터를 읽고 쓴다.
+// - 가구 합류 기능 전까지 구성원 변경(update)은 막는다.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isMember(hid) {
+      return signedIn()
+        && request.auth.uid in get(/databases/$(database)/documents/households/$(hid)).data.memberIds;
+    }
+
+    function validIngredient(d) {
+      return d.keys().hasOnly(['name', 'zone', 'status', 'imageKey', 'updatedAt', 'updatedBy'])
+        && d.name is string && d.name.size() > 0 && d.name.size() <= 40
+        && d.zone in ['SEASONING', 'FRIDGE']
+        && d.status in ['HAVE', 'LOW', 'NONE']
+        && (!('imageKey' in d) || d.imageKey == null || d.imageKey is string)
+        && d.updatedBy == request.auth.uid;
+    }
+
+    match /households/{hid} {
+      allow read: if signedIn() && (hid == request.auth.uid || request.auth.uid in resource.data.memberIds);
+      allow create: if signedIn() && hid == request.auth.uid
+        && request.resource.data.keys().hasOnly(['name', 'memberIds', 'createdAt'])
+        && request.resource.data.name is string
+        && request.resource.data.memberIds == [request.auth.uid];
+      allow update, delete: if false;
+
+      match /fridge/{ingredientId} {
+        allow read, delete: if isMember(hid);
+        allow create, update: if isMember(hid) && validIngredient(request.resource.data);
+      }
+    }
+  }
+}

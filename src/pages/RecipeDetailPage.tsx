@@ -8,7 +8,6 @@ import {
   ShoppingBag,
   Check,
   CalendarPlus,
-  Image as ImageIcon,
 } from 'lucide-react';
 import { Recipe, Ingredient } from '../types';
 import { todayStr } from '../utils/date';
@@ -27,6 +26,7 @@ import Toast from '../components/common/Toast';
 import useLoginGate from '../hooks/useLoginGate';
 import { scaleAmount } from '../utils/amount';
 import StateView from '../components/common/StateView';
+import NoImage from '../components/common/NoImage';
 
 export const RecipeDetailPage: React.FC = () => {
   const { recipeId } = useParams<{ recipeId: string }>();
@@ -204,12 +204,7 @@ export const RecipeDetailPage: React.FC = () => {
               referrerPolicy="no-referrer"
             />
           ) : (
-            <div className="flex flex-col items-center gap-2">
-              <ImageIcon className="w-12 h-12 opacity-30" />
-              <span className="text-[13px] font-medium text-ink-muted">
-                책 사진 ({recipe.bookPage ? `p.${recipe.bookPage}` : '수록 레시피'})
-              </span>
-            </div>
+            <NoImage size="lg" />
           )}
         </div>
 

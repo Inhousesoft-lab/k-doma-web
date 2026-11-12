@@ -13,6 +13,7 @@ export interface AddIngredientSheetProps {
   zone: StorageZone;
   existingNames: Set<string>;
   onAdded: (count: number) => void;
+  onError?: () => void;
 }
 
 export const AddIngredientSheet: React.FC<AddIngredientSheetProps> = ({
@@ -21,6 +22,7 @@ export const AddIngredientSheet: React.FC<AddIngredientSheetProps> = ({
   zone,
   existingNames,
   onAdded,
+  onError,
 }) => {
   const [masterList, setMasterList] = useState<MasterIngredient[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -76,6 +78,9 @@ export const AddIngredientSheet: React.FC<AddIngredientSheetProps> = ({
       const added = await ingredientService.addIngredients(itemsToAdd);
       onAdded(added.length);
       onClose();
+    } catch (e) {
+      console.error(e);
+      onError?.();
     } finally {
       setIsSubmitting(false);
     }

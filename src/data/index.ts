@@ -32,7 +32,7 @@ export interface PlanSeed {
 export const recipesData = recipesJson as Recipe[];
 export const ingredientsData = ingredientsJson as MasterIngredient[];
 export const usersData = usersJson as UserAccount[];
-/** 가구별 냉장고 (가구 공유, KD-27). 'guest' 는 비로그인일 때 보여 줄 기본 냉장고 */
+/** 가구별 냉장고 예시 (가구 공유, KD-27). 비로그인은 빈 냉장고(KD-47) */
 export const fridgeData = fridgeJson as Record<string, Ingredient[]>;
 /** 계정별 장바구니 */
 export const cartsData = cartsJson as Record<string, CartItem[]>;
