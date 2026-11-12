@@ -6,7 +6,7 @@ export interface RequireLoginProps {
   children: React.ReactNode;
   /**
    * true: 앱 안에서 이동해 왔으면 화면을 그대로 보여 준다 (화면이 비로그인 안내 GuestView 를 갖고 있음).
-   *       주소를 직접 열었을 때만 Today 로 보낸다. (기록·장바구니·냉장고)
+   *       주소를 직접 열었을 때만 Today 로 보낸다. (장바구니)
    * false: 비로그인이면 항상 Today 로 보낸다. (찜·우리 집)
    */
   allowGuestView?: boolean;

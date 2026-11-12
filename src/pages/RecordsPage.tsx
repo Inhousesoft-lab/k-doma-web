@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Calendar as CalendarIcon } from 'lucide-react';
 import { MealPlan } from '../types';
 import {
   mealPlanService,
@@ -10,7 +9,7 @@ import Calendar from '../components/calendar/Calendar';
 import PlanCard from '../components/plan/PlanCard';
 import InventoryUpdateSheet from '../components/plan/InventoryUpdateSheet';
 import StateView from '../components/common/StateView';
-import GuestView from '../components/common/GuestView';
+import RecordsLoginBox from './records/RecordsLoginBox';
 import { todayStr } from '../utils/date';
 
 
@@ -22,7 +21,7 @@ export const RecordsPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
 
-  // 로그인 상태 및 모달
+  // 로그인 상태 (비로그인이어도 화면은 연다, KD-48)
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(authService.isLoggedIn());
 
   // 재고 변경 바텀시트
@@ -33,7 +32,11 @@ export const RecordsPage: React.FC = () => {
 
   const loadData = useCallback(async () => {
     if (!authService.isLoggedIn()) {
+      // 비로그인: 기록이 없다 → 달력에 점이 없고, 달력 아래는 로그인 안내 박스
       setIsLoggedIn(false);
+      setPlans([]);
+      setCurrentPlan(undefined);
+      setError(false);
       setLoading(false);
       return;
     }
@@ -111,22 +114,6 @@ export const RecordsPage: React.FC = () => {
     );
   }
 
-  // 비로그인 화면 대응
-  if (!isLoggedIn) {
-    return (
-      <GuestView
-        title="로그인이 필요해요"
-        description="요리 기록을 보려면 로그인해 주세요."
-        icon={<CalendarIcon className="w-7 h-7 stroke-[2.2]" />}
-        redirectToLogin
-        onLoggedIn={() => {
-          setIsLoggedIn(true);
-          loadData();
-        }}
-      />
-    );
-  }
-
   return (
     <div className="flex flex-col px-5 pt-3 pb-8 gap-4 bg-white min-h-[calc(100vh-80px)]">
       {/* 1. 달력: 연월 접힘/펼침, 요일 줄, 접힌 상태 1주, 선택일 검은 원, 완료● / 예정○ 점 */}
@@ -136,23 +123,30 @@ export const RecordsPage: React.FC = () => {
         plans={plans}
       />
 
-      {/* 2. 선택한 날짜의 요리 카드 (요리가 있을 때만 표시. 없으면 카드 영역 숨기고 비워 둠) */}
-      {currentPlan && (
-        <PlanCard
-          plan={currentPlan}
-          onComplete={handleCompletePlan}
-          onCancel={handleCancelPlan}
-          onOpenInventorySheet={handleOpenInventorySheet}
-        />
+      {/* 2. 로그인: 선택한 날짜의 요리 카드 (요리가 있을 때만 표시. 없으면 카드 영역 숨기고 비워 둠)
+             비로그인: 어느 날짜를 골라도 로그인 안내 박스 (KD-48) */}
+      {isLoggedIn ? (
+        currentPlan && (
+          <PlanCard
+            plan={currentPlan}
+            onComplete={handleCompletePlan}
+            onCancel={handleCancelPlan}
+            onOpenInventorySheet={handleOpenInventorySheet}
+          />
+        )
+      ) : (
+        <RecordsLoginBox />
       )}
 
-      {/* 3. 재고 변경 바텀시트 */}
-      <InventoryUpdateSheet
-        isOpen={isInventorySheetOpen}
-        onClose={() => setIsInventorySheetOpen(false)}
-        plan={sheetTargetPlan}
-        onSaved={loadData}
-      />
+      {/* 3. 재고 변경 바텀시트 (로그인 상태에서만) */}
+      {isLoggedIn && (
+        <InventoryUpdateSheet
+          isOpen={isInventorySheetOpen}
+          onClose={() => setIsInventorySheetOpen(false)}
+          plan={sheetTargetPlan}
+          onSaved={loadData}
+        />
+      )}
 
     </div>
   );
