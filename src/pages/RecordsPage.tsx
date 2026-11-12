@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Calendar as CalendarIcon } from 'lucide-react';
 import { MealPlan } from '../types';
 import {
   mealPlanService,
@@ -9,7 +10,7 @@ import Calendar from '../components/calendar/Calendar';
 import PlanCard from '../components/plan/PlanCard';
 import InventoryUpdateSheet from '../components/plan/InventoryUpdateSheet';
 import StateView from '../components/common/StateView';
-import RecordsLoginBox from './records/RecordsLoginBox';
+import LoginNoticeBox from '../components/common/LoginNoticeBox';
 import { todayStr } from '../utils/date';
 
 
@@ -135,7 +136,12 @@ export const RecordsPage: React.FC = () => {
           />
         )
       ) : (
-        <RecordsLoginBox />
+        <LoginNoticeBox
+          icon={<CalendarIcon className="w-8 h-8 text-ink-disabled" aria-hidden="true" />}
+          title="요리 기록을 보려면 로그인해 주세요."
+          description="로그인하면 내가 만든 요리와 예정한 요리가 달력에 표시돼요."
+          returnTo="/records"
+        />
       )}
 
       {/* 3. 재고 변경 바텀시트 (로그인 상태에서만) */}

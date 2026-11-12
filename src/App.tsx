@@ -38,7 +38,8 @@ export default function App() {
           <Route path="/recipe/:recipeId" element={<RecipeDetailPage />} />
 
           {/* 5. 장바구니 */}
-          <Route path="/cart" element={<RequireLogin allowGuestView><CartPage /></RequireLogin>} />
+          {/* 로그인 여부를 확인하지 않고 연다. 비로그인은 빈 두 영역 + 로그인 안내 박스 (KD-49) */}
+          <Route path="/cart" element={<CartPage />} />
 
           {/* 6. 기록 */}
           {/* 로그인 여부를 확인하지 않고 연다. 비로그인은 달력 + 로그인 안내 박스 (KD-48) */}

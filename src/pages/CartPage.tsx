@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ShoppingCart } from 'lucide-react';
 import { CartItem } from '../types';
 import { cartService, authService, subscribeToDataChanges } from '../services';
 import StatusSignal from '../components/common/StatusSignal';
 import StateView from '../components/common/StateView';
 import Toast from '../components/common/Toast';
-import GuestView from '../components/common/GuestView';
+import LoginNoticeBox from '../components/common/LoginNoticeBox';
 import CartUrgentRow from './cart/CartUrgentRow';
 import CartExtraRow, { ExtraIngredientItem } from './cart/CartExtraRow';
 
@@ -18,10 +19,10 @@ export const CartPage: React.FC = () => {
   // 2. 냉장고 적음·없음 항목들 (더 사두면 좋아요)
   const [extraItems, setExtraItems] = useState<ExtraIngredientItem[]>([]);
 
-  // 3. 로딩 상태
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  // 3. 로딩 상태 (비로그인은 불러올 데이터가 없어 로딩을 켜지 않는다)
+  const [isLoading, setIsLoading] = useState<boolean>(() => authService.isLoggedIn());
 
-  // 4. 로그인 상태 & 모달 (KD-27)
+  // 4. 로그인 상태 (KD-27 장바구니는 계정별). 비로그인이어도 화면은 연다 (KD-49)
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(authService.isLoggedIn());
 
   // 5. 토스트 메시지
@@ -33,6 +34,13 @@ export const CartPage: React.FC = () => {
 
   // 데이터 로드 함수
   const loadData = useCallback(async () => {
+    // 비로그인: 데이터를 불러오지 않는다 → 두 영역 모두 0개 (KD-49)
+    if (!authService.isLoggedIn()) {
+      setUrgentItems([]);
+      setExtraItems([]);
+      return;
+    }
+
     const [cart, needBuy] = await Promise.all([
       cartService.getCartItems(),
       cartService.getNeedBuyFromFridge(),
@@ -46,7 +54,7 @@ export const CartPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(authService.isLoggedIn());
     loadData().finally(() => {
       setIsLoading(false);
     });
@@ -116,20 +124,6 @@ export const CartPage: React.FC = () => {
     }
   };
 
-  // 비로그인 화면 대응
-  if (!isLoggedIn) {
-    return (
-      <GuestView
-        title="로그인이 필요한 서비스예요"
-        description={'장바구니는 계정별로 안전하게 보관돼요.\n로그인하여 장바구니를 이용해보세요.'}
-        onLoggedIn={() => {
-          setIsLoggedIn(true);
-          loadData();
-        }}
-      />
-    );
-  }
-
   // 로딩 화면
   if (isLoading) {
     return (
@@ -139,9 +133,9 @@ export const CartPage: React.FC = () => {
     );
   }
 
-  // 완전히 비어 있는 상태 (7항)
+  // 완전히 비어 있는 상태 (7항). 로그인 상태에서만 쓴다 (비로그인은 두 영역 + 로그인 안내 박스, KD-49)
   const isAllEmpty = urgentItems.length === 0 && extraItems.length === 0;
-  if (isAllEmpty) {
+  if (isLoggedIn && isAllEmpty) {
     return (
       <div className="flex flex-col min-h-[calc(100vh-140px)] items-center justify-center px-5 py-10 bg-white">
         <StateView
@@ -156,7 +150,7 @@ export const CartPage: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col px-5 pt-3 pb-32 gap-6 bg-white min-h-[calc(100vh-80px)]">
+    <div className={`flex flex-col px-5 pt-3 ${isLoggedIn ? 'pb-32' : 'pb-8'} gap-6 bg-white min-h-[calc(100vh-80px)]`}>
       {/* 1. 꼭 사야 해요 영역 */}
       <section>
         <div className="flex items-center justify-between pb-1 mb-1">
@@ -232,24 +226,36 @@ export const CartPage: React.FC = () => {
         )}
       </section>
 
-      {/* 3. 안내 문구 */}
-      <div className="bg-fill rounded-[16px] p-4 text-[13px] text-ink-secondary leading-relaxed select-none">
-        체크만으로는 냉장고가 바뀌지 않아요. 장을 본 뒤 아래 버튼을 눌러야 &apos;있음&apos;으로 등록됩니다.
-      </div>
+      {isLoggedIn ? (
+        <>
+        {/* 3. 안내 문구 */}
+        <div className="bg-fill rounded-[16px] p-4 text-[13px] text-ink-secondary leading-relaxed select-none">
+          체크만으로는 냉장고가 바뀌지 않아요. 장을 본 뒤 아래 버튼을 눌러야 &apos;있음&apos;으로 등록됩니다.
+        </div>
 
-      {/* 4. 하단 고정 버튼: [체크한 n개 냉장고에 등록] */}
-      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[630px] p-4 bg-white/95 backdrop-blur-md border-t border-line-subtle z-40">
-        <button
-          type="button"
-          onClick={handleRegisterChecked}
-          disabled={checkedCount === 0 || isSubmitting}
-          className="w-full h-[52px] bg-ink hover:bg-ink-hover disabled:bg-line-strong text-white rounded-btn text-[16px] font-bold transition-all cursor-pointer disabled:cursor-not-allowed active:scale-[0.99] flex items-center justify-center select-none shadow-xs"
-        >
-          {isSubmitting
-            ? '냉장고에 등록 중...'
-            : `체크한 ${checkedCount}개 냉장고에 등록`}
-        </button>
-      </div>
+        {/* 4. 하단 고정 버튼: [체크한 n개 냉장고에 등록] */}
+        <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[630px] p-4 bg-white/95 backdrop-blur-md border-t border-line-subtle z-40">
+          <button
+            type="button"
+            onClick={handleRegisterChecked}
+            disabled={checkedCount === 0 || isSubmitting}
+            className="w-full h-[52px] bg-ink hover:bg-ink-hover disabled:bg-line-strong text-white rounded-btn text-[16px] font-bold transition-all cursor-pointer disabled:cursor-not-allowed active:scale-[0.99] flex items-center justify-center select-none shadow-xs"
+          >
+            {isSubmitting
+              ? '냉장고에 등록 중...'
+              : `체크한 ${checkedCount}개 냉장고에 등록`}
+          </button>
+        </div>
+        </>
+      ) : (
+        /* 비로그인: 안내 문구·하단 고정 버튼 대신 로그인 안내 박스 (KD-49) */
+        <LoginNoticeBox
+          icon={<ShoppingCart className="w-8 h-8 text-ink-disabled" aria-hidden="true" />}
+          title="장바구니를 쓰려면 로그인해 주세요."
+          description="로그인하면 요리에 필요한 재료를 담고, 장 본 재료를 냉장고에 등록할 수 있어요."
+          returnTo="/cart"
+        />
+      )}
 
       {/* 5. 토스트 알림 */}
       {toastMessage && (
