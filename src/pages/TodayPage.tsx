@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   recommendationService,
   recipeService,
@@ -24,6 +24,8 @@ export const TodayPage: React.FC = () => {
   } | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
+  /** 테마 새로고침 횟수. 재고가 바뀌어 다시 불러와도 지금 보던 테마를 유지한다 */
+  const themeRoundRef = useRef<number>(0);
 
   const currentUser = authService.getCurrentUser();
 
@@ -32,7 +34,7 @@ export const TodayPage: React.FC = () => {
       const userId = authService.getCurrentUser().id;
       const [recs, themes] = await Promise.all([
         recommendationService.getRecommendations(userId),
-        recommendationService.getThemes(),
+        recommendationService.getThemes(themeRoundRef.current),
       ]);
       setRecommendations({
         recommended: recs
@@ -57,6 +59,17 @@ export const TodayPage: React.FC = () => {
     });
     return () => unsubscribe();
   }, [loadData]);
+
+  // 추천 테마 새로고침: 오늘 섞은 순서에서 다음 테마로 바꾼다 (추천 요리는 그대로)
+  const handleRefreshTheme = async () => {
+    themeRoundRef.current += 1;
+    try {
+      const themes = await recommendationService.getThemes(themeRoundRef.current);
+      setRecommendations((prev) => (prev ? { ...prev, themes } : prev));
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   const { requireLogin, loginModal } = useLoginGate();
 
@@ -101,6 +114,7 @@ export const TodayPage: React.FC = () => {
           themes={recommendations.themes}
           showStock={authService.isLoggedIn()}
           onToggleFavorite={handleToggleFavorite}
+          onRefreshTheme={handleRefreshTheme}
         />
       )}
       {loginModal}

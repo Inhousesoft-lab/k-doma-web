@@ -15,11 +15,11 @@ export const STOCK_BONUS_MAX = 10;
 /** 적음(LOW) 재료가 1개 이상이면 가점 (레시피당 1회) */
 export const LOW_BONUS = 5;
 
-/** Today 추천 요리 개수 */
-export const TODAY_RECOMMEND_COUNT = 10;
+/** Today 추천 요리 개수 (최대) */
+export const TODAY_RECOMMEND_COUNT = 5;
 
-/** Today 테마 개수와 테마당 요리 개수 */
-export const THEME_COUNT = 3;
+/** Today 테마 개수와 테마당 요리 개수 (테마 카드는 2열 n행) */
+export const THEME_COUNT = 1;
 export const THEME_MAX_RECIPES = 10;
 
 /** 테마 후보 (03-2 3.6). 요리가 0개인 테마만 뺀다 */

@@ -565,12 +565,13 @@ export const recommendationService = {
   },
 
   /** 테마 요리 (03-2 3.6, KD-51). 오늘 날짜 기준이라 같은 날에는 같은 테마가 나온다 */
-  async getThemes(): Promise<TodayThemeSection[]> {
+  /** Today 테마 요리. round = 새로고침 횟수 (0 = 오늘 첫 테마) */
+  async getThemes(round = 0): Promise<TodayThemeSection[]> {
     const [recipes, ingredients] = await Promise.all([
       recipeService.getRecipes(),
       ingredientService.getIngredients(),
     ]);
-    return pickThemes(recipes, todayStr()).map(({ theme, recipes: themeRecipes }) => ({
+    return pickThemes(recipes, todayStr(), { round }).map(({ theme, recipes: themeRecipes }) => ({
       theme,
       items: themeRecipes.map((recipe) => ({
         recipe,

@@ -20,6 +20,8 @@ export interface RecipeCardProps {
   index: number;
   /** false 면 재료 정보 줄을 그리지 않는다 (비로그인, KD-44) */
   showStock: boolean;
+  /** true 면 칸 너비에 맞춘다 (테마 2열 그리드). 기본은 가로 스크롤용 고정 너비 */
+  fullWidth?: boolean;
   onOpen: (recipeId: string) => void;
   onToggleFavorite: (recipeId: string) => void;
 }
@@ -30,6 +32,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
   missingCount,
   index,
   showStock,
+  fullWidth = false,
   onOpen,
   onToggleFavorite,
 }) => {
@@ -37,7 +40,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
   return (
     <div
       onClick={() => onOpen(recipe.id)}
-      className="w-[180px] shrink-0 cursor-pointer group select-none flex flex-col"
+      className={`${fullWidth ? 'w-full min-w-0' : 'w-[180px] shrink-0'} cursor-pointer group select-none flex flex-col`}
     >
       {/* 상단 파스텔 이미지 썸네일 박스 */}
       <div
