@@ -28,14 +28,5 @@
       "checked": false,
       "zone": "FRIDGE"
     }
-  ],
-  "beomi": [
-    {
-      "id": "cart_b1",
-      "name": "감자",
-      "isUrgent": true,
-      "checked": false,
-      "zone": "FRIDGE"
-    }
   ]
 }

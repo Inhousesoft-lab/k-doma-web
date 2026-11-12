@@ -54,7 +54,7 @@ export const HouseholdPage: React.FC = () => {
                     </span>
                   )}
                 </div>
-                <span className="text-[12px] text-ink-muted mt-0.5 block">@{member.id}</span>
+                <span className="text-[12px] text-ink-muted mt-0.5 block">{member.email ?? `@${member.id}`}</span>
               </div>
             </div>
           ))}

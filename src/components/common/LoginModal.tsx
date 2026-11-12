@@ -100,10 +100,11 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                   <User className="w-4 h-4" />
                 </span>
                 <input
-                  type="text"
+                  type="email"
+                  autoComplete="username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  placeholder="아이디 입력"
+                  placeholder="이메일 주소 입력"
                   className="w-full h-[44px] pl-9 pr-3 rounded-[12px] bg-fill text-[14px] text-ink outline-none focus:bg-white focus:ring-2 focus:ring-primary/30"
                   required
                 />

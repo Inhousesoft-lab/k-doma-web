@@ -75,6 +75,7 @@ export interface UserProfile {
   name: string;
   role: 'ADMIN' | 'MEMBER';
   householdName: string;
+  email?: string; // 로그인 아이디(이메일). 로그인한 본인 프로필에만 채운다
 }
 
 /** 재료 사전 항목 (src/data/ingredients.json) */

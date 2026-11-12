@@ -14,9 +14,8 @@ import cartsJson from './carts.json';
 import favoritesJson from './favorites.json';
 import plansJson from './plans.json';
 
-/** 로그인 계정 (데모용: 비밀번호가 브라우저에 그대로 내려가므로 실제 서비스에는 쓰지 않는다) */
+/** 계정 프로필 (로그인 확인은 Firebase Auth 가 한다. 아이디 = Auth 이메일의 @ 앞부분) */
 export interface UserAccount extends UserProfile {
-  password: string;
   householdId: string;
 }
 

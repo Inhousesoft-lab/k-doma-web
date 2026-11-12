@@ -52,7 +52,7 @@ export const MyPage: React.FC = () => {
                 </span>
               )}
             </div>
-            <p className="text-[13px] text-ink-muted mt-0.5">@{currentUser.id}</p>
+            <p className="text-[13px] text-ink-muted mt-0.5">{currentUser.email ?? `@${currentUser.id}`}</p>
           </div>
         </div>
       </section>

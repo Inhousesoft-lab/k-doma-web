@@ -60,10 +60,11 @@ export const LoginPage: React.FC = () => {
             <div className="relative flex items-center">
               <User className="absolute left-3.5 w-5 h-5 text-ink-muted" />
               <input
-                type="text"
+                type="email"
+                autoComplete="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="아이디를 입력하세요"
+                placeholder="이메일 주소를 입력하세요"
                 className="w-full h-[50px] bg-white rounded-btn border border-line pl-11 pr-4 text-[15px] text-ink outline-hidden focus:border-primary"
               />
             </div>

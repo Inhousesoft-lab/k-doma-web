@@ -30,13 +30,5 @@
     "recipeId": "r_soybean_stew",
     "status": "PLANNED",
     "inventoryUpdated": false
-  },
-  {
-    "id": "plan_beomi_1",
-    "userId": "beomi",
-    "daysAgo": 2,
-    "recipeId": "r_egg_roll",
-    "status": "COOKED",
-    "inventoryUpdated": true
   }
 ]

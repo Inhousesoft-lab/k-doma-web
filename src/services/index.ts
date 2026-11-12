@@ -28,6 +28,16 @@ import {
   isSameIngredient,
 } from '../utils/ingredient';
 import { daysBetween, todayStr, weekStartOf } from '../utils/date';
+import {
+  browserSessionPersistence,
+  onAuthStateChanged,
+  setPersistence,
+  signInWithEmailAndPassword,
+  signOut,
+  type User,
+} from 'firebase/auth';
+import { FirebaseError } from 'firebase/app';
+import { auth } from '../lib/firebase';
 
 // 메모리 저장소: 앱을 열 때 JSON(src/data)으로 채우고, 바뀐 값은 메모리에만 둔다 (새로고침하면 초기화)
 const inMemoryRecipes: Recipe[] = clone(recipesData);
@@ -38,25 +48,33 @@ const userFavorites: Record<string, Set<string>> = Object.fromEntries(
 ); // 계정별 찜 (KD-27)
 const inMemoryPlans: MealPlan[] = buildPlans(); // 계정별 요리 기록
 
-// 로그인 상태: 처음엔 로그아웃. 로그인한 계정 id는 sessionStorage에 두어 새로고침해도 유지한다 (탭을 닫으면 풀림)
-const SESSION_KEY = 'kdoma.userId';
-const readSession = (): string | null => {
-  try {
-    const id = sessionStorage.getItem(SESSION_KEY);
-    return id && usersData.some((u) => u.id === id) ? id : null;
-  } catch {
-    return null;
-  }
-};
-const writeSession = (id: string | null) => {
-  try {
-    if (id) sessionStorage.setItem(SESSION_KEY, id);
-    else sessionStorage.removeItem(SESSION_KEY);
-  } catch {
-    // 저장소를 못 쓰는 환경이면 이번 화면에서만 로그인 유지
-  }
-};
-let currentUserId: string | null = readSession();
+// 로그인 상태: Firebase Auth 가 관리한다. 세션 유지(browserSessionPersistence)라 새로고침해도 유지되고 탭을 닫으면 풀린다.
+// 아이디 = 이메일. 지금은 계정 1개만 쓴다: VITE_OWNER_EMAIL 로 로그인하면 users.json 의 첫 프로필(태링)이 된다.
+// (이메일은 저장소에 올리지 않으려고 .env.local 에 둔다. 가입·가구 합류 기능은 아직 없음)
+const OWNER_EMAIL = (import.meta.env.VITE_OWNER_EMAIL ?? '').trim().toLowerCase();
+const OWNER_PROFILE_ID = usersData[0]?.id ?? null;
+
+/** Firebase 계정을 앱 계정 id 로. 지정한 이메일이 아니면 로그인 안 된 것으로 본다 */
+const toAppUserId = (user: User | null): string | null =>
+  OWNER_EMAIL && user?.email?.toLowerCase() === OWNER_EMAIL ? OWNER_PROFILE_ID : null;
+
+let currentUserId: string | null = null;
+
+/** 처음 로그인 상태를 확인할 때까지 기다린다. main.tsx 가 첫 화면을 그리기 전에 기다린다 */
+export const authReady: Promise<void> = setPersistence(auth, browserSessionPersistence)
+  .catch(() => undefined) // 저장소를 못 쓰는 환경이면 기본 유지 방식 그대로
+  .then(
+    () =>
+      new Promise<void>((resolve) => {
+        onAuthStateChanged(auth, (user) => {
+          const nextId = toAppUserId(user);
+          const changed = nextId !== currentUserId;
+          currentUserId = nextId;
+          resolve();
+          if (changed) notifyListeners();
+        });
+      })
+  );
 
 /** 데이터를 바꾸는 동작은 로그인한 계정만 할 수 있다. 화면에서 먼저 막고, 여기서 한 번 더 막는다 */
 export class LoginRequiredError extends Error {
@@ -621,30 +639,46 @@ export const authService = {
   /** 로그인한 계정 프로필. 비로그인이면 빈 프로필 */
   getCurrentUser(): UserProfile {
     const account = usersData.find((u) => u.id === currentUserId);
-    return account ? toProfile(account) : { ...GUEST_PROFILE };
+    return account ? { ...toProfile(account), email: auth.currentUser?.email ?? undefined } : { ...GUEST_PROFILE };
   },
 
-  /** 데모 로그인: src/data/users.json 의 아이디·비밀번호와 비교 */
-  async login(userId: string, password: string): Promise<{ success: boolean; message?: string }> {
-    const account = usersData.find((u) => u.id === userId);
-    if (account && account.password === password) {
-      currentUserId = account.id;
-      writeSession(account.id);
+  /** 이메일 아이디 로그인: Firebase Auth 이메일/비밀번호 계정으로 확인한다 */
+  async login(email: string, password: string): Promise<{ success: boolean; message?: string }> {
+    const failed = { success: false, message: '아이디 또는 비밀번호가 맞지 않아요' };
+    if (!email || !password) return failed;
+    try {
+      const { user } = await signInWithEmailAndPassword(auth, email.trim(), password);
+      const appUserId = toAppUserId(user);
+      if (!appUserId) {
+        // Auth 계정은 있지만 앱 프로필이 없으면 로그인시키지 않는다
+        await signOut(auth);
+        return failed;
+      }
+      currentUserId = appUserId; // onAuthStateChanged 보다 먼저 화면이 바뀌어도 맞게
       notifyListeners();
       return { success: true };
+    } catch (e) {
+      if (e instanceof FirebaseError && e.code === 'auth/network-request-failed') {
+        return { success: false, message: '네트워크 연결을 확인해 주세요' };
+      }
+      if (e instanceof FirebaseError && e.code === 'auth/too-many-requests') {
+        return { success: false, message: '잠시 후 다시 시도해 주세요' };
+      }
+      return failed;
     }
-    return { success: false, message: '아이디 또는 비밀번호가 맞지 않아요' };
   },
 
   /** 같은 가구 구성원 */
   getHouseholdMembers(): UserProfile[] {
     const householdId = usersData.find((u) => u.id === currentUserId)?.householdId;
-    return usersData.filter((u) => u.householdId === householdId).map(toProfile);
+    return usersData
+      .filter((u) => u.householdId === householdId)
+      .map((u) => (u.id === currentUserId ? authService.getCurrentUser() : toProfile(u)));
   },
 
   logout(): void {
     currentUserId = null;
-    writeSession(null);
     notifyListeners();
+    signOut(auth).catch((e) => console.error(e));
   },
 };
