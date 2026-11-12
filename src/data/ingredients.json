@@ -1,0 +1,418 @@
+[
+  {
+    "id": "m_ing_1",
+    "name": "간장",
+    "zone": "SEASONING",
+    "imageKey": "soy_sauce",
+    "aliases": [
+      "진간장",
+      "양조간장"
+    ]
+  },
+  {
+    "id": "m_ing_2",
+    "name": "고추장",
+    "zone": "SEASONING",
+    "imageKey": "chili_paste",
+    "aliases": [
+      "순창고추장"
+    ]
+  },
+  {
+    "id": "m_ing_3",
+    "name": "된장",
+    "zone": "SEASONING",
+    "imageKey": "soybean_paste",
+    "aliases": [
+      "재래된장"
+    ]
+  },
+  {
+    "id": "m_ing_4",
+    "name": "고춧가루",
+    "zone": "SEASONING",
+    "imageKey": "chili_powder",
+    "aliases": [
+      "고추가루",
+      "태양초"
+    ]
+  },
+  {
+    "id": "m_ing_5",
+    "name": "참기름",
+    "zone": "SEASONING",
+    "imageKey": "sesame_oil",
+    "aliases": [
+      "고소한참기름"
+    ]
+  },
+  {
+    "id": "m_ing_6",
+    "name": "들기름",
+    "zone": "SEASONING",
+    "imageKey": "perilla_oil",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_7",
+    "name": "설탕",
+    "zone": "SEASONING",
+    "imageKey": "sugar",
+    "aliases": [
+      "백설탕",
+      "흑설탕"
+    ]
+  },
+  {
+    "id": "m_ing_8",
+    "name": "소금",
+    "zone": "SEASONING",
+    "imageKey": "salt",
+    "aliases": [
+      "천일염",
+      "맛소금",
+      "굵은소금",
+      "굵은 소금"
+    ]
+  },
+  {
+    "id": "m_ing_9",
+    "name": "식초",
+    "zone": "SEASONING",
+    "imageKey": "vinegar",
+    "aliases": [
+      "양조식초",
+      "사과식초"
+    ]
+  },
+  {
+    "id": "m_ing_10",
+    "name": "다진마늘",
+    "zone": "SEASONING",
+    "imageKey": "garlic_minced",
+    "aliases": [
+      "간마늘"
+    ]
+  },
+  {
+    "id": "m_ing_11",
+    "name": "맛술",
+    "zone": "SEASONING",
+    "imageKey": "cooking_wine",
+    "aliases": [
+      "미림",
+      "청주"
+    ]
+  },
+  {
+    "id": "m_ing_12",
+    "name": "후추",
+    "zone": "SEASONING",
+    "imageKey": "black_pepper",
+    "aliases": [
+      "후춧가루",
+      "순후추"
+    ]
+  },
+  {
+    "id": "m_ing_13",
+    "name": "올리고당",
+    "zone": "SEASONING",
+    "imageKey": "syrup",
+    "aliases": [
+      "물엿"
+    ]
+  },
+  {
+    "id": "m_ing_14",
+    "name": "굴소스",
+    "zone": "SEASONING",
+    "imageKey": "oyster_sauce",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_15",
+    "name": "케첩",
+    "zone": "SEASONING",
+    "imageKey": "ketchup",
+    "aliases": [
+      "토마토케첩"
+    ]
+  },
+  {
+    "id": "m_ing_16",
+    "name": "마요네즈",
+    "zone": "SEASONING",
+    "imageKey": "mayonnaise",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_17",
+    "name": "멸치액젓",
+    "zone": "SEASONING",
+    "imageKey": "fish_sauce",
+    "aliases": [
+      "액젓",
+      "까나리액젓"
+    ]
+  },
+  {
+    "id": "m_ing_18",
+    "name": "통깨",
+    "zone": "SEASONING",
+    "imageKey": "sesame_seeds",
+    "aliases": [
+      "볶음참깨"
+    ]
+  },
+  {
+    "id": "m_ing_101",
+    "name": "양파",
+    "zone": "FRIDGE",
+    "imageKey": "onion",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_102",
+    "name": "대파",
+    "zone": "FRIDGE",
+    "imageKey": "scallion",
+    "aliases": [
+      "파",
+      "쪽파"
+    ]
+  },
+  {
+    "id": "m_ing_103",
+    "name": "계란",
+    "zone": "FRIDGE",
+    "imageKey": "egg",
+    "aliases": [
+      "달걀",
+      "신선란"
+    ]
+  },
+  {
+    "id": "m_ing_104",
+    "name": "두부",
+    "zone": "FRIDGE",
+    "imageKey": "tofu",
+    "aliases": [
+      "찌개두부",
+      "부침두부",
+      "순두부"
+    ]
+  },
+  {
+    "id": "m_ing_105",
+    "name": "김치",
+    "zone": "FRIDGE",
+    "imageKey": "kimchi",
+    "aliases": [
+      "배추김치",
+      "묵은지",
+      "신김치"
+    ]
+  },
+  {
+    "id": "m_ing_106",
+    "name": "우유",
+    "zone": "FRIDGE",
+    "imageKey": "milk",
+    "aliases": [
+      "생우유"
+    ]
+  },
+  {
+    "id": "m_ing_107",
+    "name": "돼지고기",
+    "zone": "FRIDGE",
+    "imageKey": "pork",
+    "aliases": [
+      "돼지고기 앞다리살",
+      "삼겹살",
+      "목살"
+    ]
+  },
+  {
+    "id": "m_ing_108",
+    "name": "새우",
+    "zone": "FRIDGE",
+    "imageKey": "shrimp",
+    "aliases": [
+      "칵테일새우",
+      "냉동새우"
+    ]
+  },
+  {
+    "id": "m_ing_109",
+    "name": "떡",
+    "zone": "FRIDGE",
+    "imageKey": "rice_cake",
+    "aliases": [
+      "떡볶이떡",
+      "떡국떡",
+      "밀떡"
+    ]
+  },
+  {
+    "id": "m_ing_110",
+    "name": "감자",
+    "zone": "FRIDGE",
+    "imageKey": "potato",
+    "aliases": [
+      "수미감자"
+    ]
+  },
+  {
+    "id": "m_ing_111",
+    "name": "소고기",
+    "zone": "FRIDGE",
+    "imageKey": "beef",
+    "aliases": [
+      "소고기 양지",
+      "소고기 홍두깨",
+      "다진소고기",
+      "차돌박이",
+      "우삼겹"
+    ]
+  },
+  {
+    "id": "m_ing_112",
+    "name": "닭고기",
+    "zone": "FRIDGE",
+    "imageKey": "chicken",
+    "aliases": [
+      "닭가슴살",
+      "닭다리살",
+      "닭정육",
+      "닭안심",
+      "토막닭"
+    ]
+  },
+  {
+    "id": "m_ing_113",
+    "name": "오징어",
+    "zone": "FRIDGE",
+    "imageKey": "squid",
+    "aliases": [
+      "물오징어"
+    ]
+  },
+  {
+    "id": "m_ing_114",
+    "name": "어묵",
+    "zone": "FRIDGE",
+    "imageKey": "fish_cake",
+    "aliases": [
+      "사각어묵",
+      "모둠어묵"
+    ]
+  },
+  {
+    "id": "m_ing_115",
+    "name": "콩나물",
+    "zone": "FRIDGE",
+    "imageKey": "bean_sprouts",
+    "aliases": [
+      "숙주"
+    ]
+  },
+  {
+    "id": "m_ing_116",
+    "name": "애호박",
+    "zone": "FRIDGE",
+    "imageKey": "zucchini",
+    "aliases": [
+      "호박"
+    ]
+  },
+  {
+    "id": "m_ing_117",
+    "name": "버섯",
+    "zone": "FRIDGE",
+    "imageKey": "mushroom",
+    "aliases": [
+      "팽이버섯",
+      "새송이버섯",
+      "표고버섯"
+    ]
+  },
+  {
+    "id": "m_ing_118",
+    "name": "당근",
+    "zone": "FRIDGE",
+    "imageKey": "carrot",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_119",
+    "name": "시금치",
+    "zone": "FRIDGE",
+    "imageKey": "spinach",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_120",
+    "name": "바지락",
+    "zone": "FRIDGE",
+    "imageKey": "clam",
+    "aliases": [
+      "조개"
+    ]
+  },
+  {
+    "id": "m_ing_121",
+    "name": "베이컨",
+    "zone": "FRIDGE",
+    "imageKey": "bacon",
+    "aliases": [
+      "햄",
+      "소시지"
+    ]
+  },
+  {
+    "id": "m_ing_122",
+    "name": "치즈",
+    "zone": "FRIDGE",
+    "imageKey": "cheese",
+    "aliases": [
+      "슬라이스치즈",
+      "피자치즈"
+    ]
+  },
+  {
+    "id": "m_ing_123",
+    "name": "만두",
+    "zone": "FRIDGE",
+    "imageKey": "dumpling",
+    "aliases": [
+      "냉동만두",
+      "교자"
+    ]
+  },
+  {
+    "id": "m_ing_124",
+    "name": "무",
+    "zone": "FRIDGE",
+    "imageKey": "radish",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_125",
+    "name": "쌈장",
+    "zone": "SEASONING",
+    "imageKey": "ssamjang",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_126",
+    "name": "청양고추",
+    "zone": "FRIDGE",
+    "imageKey": "chili_pepper",
+    "aliases": [
+      "고추",
+      "풋고추"
+    ]
+  }
+]

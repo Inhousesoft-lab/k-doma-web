@@ -1,0 +1,188 @@
+{
+  "home": [
+    {
+      "id": "ing_1",
+      "name": "간장",
+      "zone": "SEASONING",
+      "status": "HAVE",
+      "imageKey": "soy_sauce"
+    },
+    {
+      "id": "ing_2",
+      "name": "고추장",
+      "zone": "SEASONING",
+      "status": "HAVE",
+      "imageKey": "chili_paste"
+    },
+    {
+      "id": "ing_3",
+      "name": "참기름",
+      "zone": "SEASONING",
+      "status": "LOW",
+      "imageKey": "sesame_oil"
+    },
+    {
+      "id": "ing_4",
+      "name": "설탕",
+      "zone": "SEASONING",
+      "status": "HAVE",
+      "imageKey": "sugar"
+    },
+    {
+      "id": "ing_5",
+      "name": "식초",
+      "zone": "SEASONING",
+      "status": "NONE",
+      "imageKey": "vinegar"
+    },
+    {
+      "id": "ing_6",
+      "name": "다진마늘",
+      "zone": "SEASONING",
+      "status": "HAVE",
+      "imageKey": "garlic_minced"
+    },
+    {
+      "id": "ing_7",
+      "name": "양파",
+      "zone": "FRIDGE",
+      "status": "LOW",
+      "imageKey": "onion"
+    },
+    {
+      "id": "ing_8",
+      "name": "계란",
+      "zone": "FRIDGE",
+      "status": "LOW",
+      "imageKey": "egg"
+    },
+    {
+      "id": "ing_9",
+      "name": "두부",
+      "zone": "FRIDGE",
+      "status": "NONE",
+      "imageKey": "tofu"
+    },
+    {
+      "id": "ing_10",
+      "name": "대파",
+      "zone": "FRIDGE",
+      "status": "HAVE",
+      "imageKey": "scallion"
+    },
+    {
+      "id": "ing_11",
+      "name": "김치",
+      "zone": "FRIDGE",
+      "status": "HAVE",
+      "imageKey": "kimchi"
+    },
+    {
+      "id": "ing_12",
+      "name": "우유",
+      "zone": "FRIDGE",
+      "status": "LOW",
+      "imageKey": "milk"
+    },
+    {
+      "id": "ing_13",
+      "name": "돼지고기",
+      "zone": "FRIDGE",
+      "status": "HAVE",
+      "imageKey": "pork"
+    },
+    {
+      "id": "ing_14",
+      "name": "새우",
+      "zone": "FRIDGE",
+      "status": "HAVE",
+      "imageKey": "shrimp"
+    },
+    {
+      "id": "ing_15",
+      "name": "떡",
+      "zone": "FRIDGE",
+      "status": "HAVE",
+      "imageKey": "rice_cake"
+    }
+  ],
+  "guest": [
+    {
+      "id": "guest_1",
+      "name": "간장",
+      "zone": "SEASONING",
+      "status": "HAVE",
+      "imageKey": "soy_sauce"
+    },
+    {
+      "id": "guest_2",
+      "name": "고추장",
+      "zone": "SEASONING",
+      "status": "HAVE",
+      "imageKey": "chili_paste"
+    },
+    {
+      "id": "guest_3",
+      "name": "된장",
+      "zone": "SEASONING",
+      "status": "HAVE",
+      "imageKey": "soybean_paste"
+    },
+    {
+      "id": "guest_4",
+      "name": "참기름",
+      "zone": "SEASONING",
+      "status": "HAVE",
+      "imageKey": "sesame_oil"
+    },
+    {
+      "id": "guest_5",
+      "name": "설탕",
+      "zone": "SEASONING",
+      "status": "HAVE",
+      "imageKey": "sugar"
+    },
+    {
+      "id": "guest_6",
+      "name": "소금",
+      "zone": "SEASONING",
+      "status": "HAVE",
+      "imageKey": "salt"
+    },
+    {
+      "id": "guest_7",
+      "name": "다진마늘",
+      "zone": "SEASONING",
+      "status": "HAVE",
+      "imageKey": "garlic_minced"
+    },
+    {
+      "id": "guest_8",
+      "name": "계란",
+      "zone": "FRIDGE",
+      "status": "HAVE",
+      "imageKey": "egg"
+    },
+    {
+      "id": "guest_9",
+      "name": "양파",
+      "zone": "FRIDGE",
+      "status": "HAVE",
+      "imageKey": "onion"
+    },
+    {
+      "id": "guest_10",
+      "name": "대파",
+      "zone": "FRIDGE",
+      "status": "HAVE",
+      "imageKey": "scallion"
+    },
+    {
+      "id": "guest_11",
+      "name": "김치",
+      "zone": "FRIDGE",
+      "status": "HAVE",
+      "imageKey": "kimchi"
+    }
+  ]
+}

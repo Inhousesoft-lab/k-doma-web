@@ -1,0 +1,41 @@
+{
+  "taering": [
+    {
+      "id": "cart_1",
+      "name": "대파",
+      "isUrgent": true,
+      "checked": true,
+      "zone": "FRIDGE"
+    },
+    {
+      "id": "cart_2",
+      "name": "애호박",
+      "isUrgent": true,
+      "checked": true,
+      "zone": "FRIDGE"
+    },
+    {
+      "id": "cart_3",
+      "name": "두부",
+      "isUrgent": true,
+      "checked": false,
+      "zone": "FRIDGE"
+    },
+    {
+      "id": "cart_4",
+      "name": "떡",
+      "isUrgent": true,
+      "checked": false,
+      "zone": "FRIDGE"
+    }
+  ],
+  "beomi": [
+    {
+      "id": "cart_b1",
+      "name": "감자",
+      "isUrgent": true,
+      "checked": false,
+      "zone": "FRIDGE"
+    }
+  ]
+}

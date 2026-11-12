@@ -1,0 +1,322 @@
+import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { LayoutList, Grid, Refrigerator } from 'lucide-react';
+import { Ingredient, IngredientStatus, StorageZone } from '../types';
+import { ingredientService, authService, subscribeToDataChanges } from '../services';
+import StatusSignal, { STATUS_LABELS } from '../components/common/StatusSignal';
+import StateView from '../components/common/StateView';
+import Toast from '../components/common/Toast';
+import GuestView from '../components/common/GuestView';
+import FridgeZoneSection from './fridge/FridgeZoneSection';
+import AddIngredientSheet from './fridge/AddIngredientSheet';
+
+const FILTER_CHIPS: Array<{ value: 'ALL' | IngredientStatus; label: string }> = [
+  { value: 'ALL', label: '전체' },
+  { value: 'HAVE', label: STATUS_LABELS.HAVE },
+  { value: 'LOW', label: STATUS_LABELS.LOW },
+  { value: 'NONE', label: STATUS_LABELS.NONE },
+];
+
+const ZONES: Array<{ zone: StorageZone; title: string; caption?: string; addLabel: string }> = [
+  { zone: 'SEASONING', title: '양념 선반', addLabel: '양념 재료 추가' },
+  { zone: 'FRIDGE', title: '냉장고', caption: '냉장·냉동 통합', addLabel: '냉장고 재료 추가' },
+];
+
+export const FridgePage: React.FC = () => {
+  // 1. 보기 모드 (기본: 아이콘형 icon - 와이어프레임 기본값)
+  const [viewMode, setViewMode] = useState<'icon' | 'list'>('icon');
+
+  // 2. 상태 필터 (전체 / 있음 / 적음 / 없음)
+  const [statusFilter, setStatusFilter] = useState<'ALL' | IngredientStatus>('ALL');
+
+  // 3. 재료 데이터 상태
+  const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  // 4. 추가 시트 상태
+  const [sheetZone, setSheetZone] = useState<StorageZone | null>(null);
+
+  // 5. 로그인 상태 & 모달
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(authService.isLoggedIn());
+
+  // 6. 토스트 알림
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  // 7. 정렬 안정성을 위한 순서 고정 맵 (재료 ID -> 정렬 인덱스)
+  const displayOrderRef = useRef<Map<string, number>>(new Map());
+
+  // 정렬 함수: 있음(0) -> 적음(1) -> 없음(2), 같은 상태 내에서는 가나다순
+  const sortIngredients = (list: Ingredient[]): Ingredient[] => {
+    const statusWeight: Record<IngredientStatus, number> = {
+      HAVE: 0,
+      LOW: 1,
+      NONE: 2,
+    };
+    return [...list].sort((a, b) => {
+      const weightDiff = statusWeight[a.status] - statusWeight[b.status];
+      if (weightDiff !== 0) return weightDiff;
+      return a.name.localeCompare(b.name, 'ko');
+    });
+  };
+
+  // 초기 데이터 로드 및 정렬 순서 고정
+  const loadIngredients = async (preserveOrder: boolean = true) => {
+    const rawList = await ingredientService.getIngredients();
+
+    if (!preserveOrder || displayOrderRef.current.size === 0) {
+      // 새로운 정렬 순서 확정
+      const sorted = sortIngredients(rawList);
+      const newOrder = new Map<string, number>();
+      sorted.forEach((item, idx) => {
+        newOrder.set(item.id, idx);
+      });
+      displayOrderRef.current = newOrder;
+      setIngredients(sorted);
+    } else {
+      // 기존 순서 유지 (상태만 최신으로 반영)
+      const sorted = [...rawList].sort((a, b) => {
+        const orderA = displayOrderRef.current.get(a.id) ?? 9999;
+        const orderB = displayOrderRef.current.get(b.id) ?? 9999;
+        return orderA - orderB;
+      });
+      setIngredients(sorted);
+    }
+  };
+
+  useEffect(() => {
+    setIsLoading(true);
+    loadIngredients(false).finally(() => {
+      setIsLoading(false);
+    });
+
+    // 데이터 변경 구독 (장바구니에서 이동, 요리 완료 등)
+    const unsubscribe = subscribeToDataChanges(() => {
+      setIsLoggedIn(authService.isLoggedIn());
+      loadIngredients(true);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+
+  // 아이콘형 타일 클릭 시 상태 순환 (있음 -> 적음 -> 없음 -> 있음)
+  const handleTileClick = async (id: string) => {
+    await ingredientService.cycleIngredientStatus(id);
+    // order is preserved so tile does not bounce/reorder on screen
+    await loadIngredients(true);
+  };
+
+  // 목록형 상태 직접 변경
+  const handleStatusChange = async (id: string, newStatus: IngredientStatus) => {
+    await ingredientService.updateIngredientStatus(id, newStatus);
+    await loadIngredients(true);
+  };
+
+  // 목록형 [빼기] (삭제)
+  const handleRemove = async (id: string, name: string) => {
+    const ok = await ingredientService.removeIngredient(id);
+    if (ok) {
+      displayOrderRef.current.delete(id);
+      await loadIngredients(true);
+      setToastMessage(`'${name}'을(를) 냉장고에서 뺐어요.`);
+    }
+  };
+
+  // 재료 추가 완료 콜백
+  const handleAdded = async (count: number) => {
+    if (count > 0) {
+      await loadIngredients(false); // 새로 추가 시 정렬 갱신
+      setToastMessage(`${count}개 재료가 추가되었어요.`);
+    }
+  };
+
+  // 상태별 개수 집계 (필터 칩용)
+  const counts = useMemo(() => {
+    const result: Record<IngredientStatus, number> = { HAVE: 0, LOW: 0, NONE: 0 };
+    ingredients.forEach((item) => {
+      result[item.status]++;
+    });
+    return result;
+  }, [ingredients]);
+
+  // 필터 적용된 목록
+  const isFiltered = statusFilter !== 'ALL';
+
+  const filteredIngredients = useMemo(() => {
+    if (statusFilter === 'ALL') return ingredients;
+    return ingredients.filter((item) => item.status === statusFilter);
+  }, [ingredients, statusFilter]);
+
+  // 구역별 분리 (양념 선반 / 냉장고)
+  const seasoningList = useMemo(() => {
+    return filteredIngredients.filter((item) => item.zone === 'SEASONING');
+  }, [filteredIngredients]);
+
+  const fridgeList = useMemo(() => {
+    return filteredIngredients.filter((item) => item.zone === 'FRIDGE');
+  }, [filteredIngredients]);
+
+  // 전체 등록된 재료명 Set (추가 시트에서 등록됨 표시용)
+  const existingNamesSet = useMemo(() => {
+    return new Set(ingredients.map((i) => i.name));
+  }, [ingredients]);
+
+  // 비로그인 상태 대응 화면
+  if (!isLoggedIn) {
+    return (
+      <GuestView
+        title="로그인이 필요한 서비스예요"
+        description="냉장고는 가족(가구)과 함께 공유돼요. 로그인하여 우리 집 냉장고를 관리해보세요."
+        icon={<Refrigerator className="w-7 h-7 stroke-[2.2]" />}
+        onLoggedIn={() => {
+          setIsLoggedIn(true);
+          loadIngredients(false);
+        }}
+      />
+    );
+  }
+
+  // 로딩 상태
+  if (isLoading) {
+    return (
+      <div className="flex flex-col min-h-[calc(100vh-140px)] items-center justify-center px-5 py-10 bg-white">
+        <StateView type="loading" title="냉장고 재료를 불러오는 중이에요" />
+      </div>
+    );
+  }
+
+  // 냉장고가 완전히 비어 있는 경우 (8항)
+  if (ingredients.length === 0) {
+    return (
+      <div className="flex flex-col min-h-[calc(100vh-140px)] items-center justify-center px-5 py-10 bg-white">
+        <StateView
+          type="empty"
+          title="냉장고에 재료가 없어요"
+          description="냉장고에 있는 재료를 추가하면&#10;지금 만들 수 있는 요리를 알려 드려요."
+          actionText="재료 추가하기"
+          onAction={() => setSheetZone('FRIDGE')}
+        />
+        {sheetZone && (
+          <AddIngredientSheet
+            isOpen={true}
+            onClose={() => setSheetZone(null)}
+            zone={sheetZone}
+            existingNames={existingNamesSet}
+            onAdded={handleAdded}
+          />
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col px-5 pt-3 pb-8 gap-4 bg-white">
+      {/* 1. 상단 바: 제목 '냉장고' + 목록형/아이콘형 세그먼트 토글 */}
+      <div className="flex items-center justify-between">
+        <h2 className="text-[22px] font-bold text-ink tracking-tight">
+          냉장고
+        </h2>
+
+        {/* 와이어프레임 토글: [ ≡ ] [ ⊞ ] (기본 아이콘형) */}
+        <div className="inline-flex items-center bg-fill p-1 rounded-[12px] h-[36px]" role="group">
+          <button
+            type="button"
+            onClick={() => setViewMode('list')}
+            className={`p-1.5 rounded-[9px] transition-all cursor-pointer ${
+              viewMode === 'list'
+                ? 'bg-white text-ink shadow-xs'
+                : 'text-ink-muted hover:text-ink-secondary'
+            }`}
+            aria-label="목록형 보기"
+            title="목록형"
+          >
+            <LayoutList className="w-4 h-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => setViewMode('icon')}
+            className={`p-1.5 rounded-[9px] transition-all cursor-pointer ${
+              viewMode === 'icon'
+                ? 'bg-white text-ink shadow-xs'
+                : 'text-ink-muted hover:text-ink-secondary'
+            }`}
+            aria-label="아이콘형 보기"
+            title="아이콘형"
+          >
+            <Grid className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      {/* 2. 상태 필터 칩 (전체 / ● 있음 n / ◐ 적음 n / ◌ 없음 n) */}
+      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
+        {FILTER_CHIPS.map((chip) => (
+          <button
+            key={chip.value}
+            type="button"
+            onClick={() => setStatusFilter(chip.value)}
+            className={`flex items-center gap-1.5 py-1.5 rounded-full text-[13px] font-semibold transition-all shrink-0 cursor-pointer ${
+              chip.value === 'ALL' ? 'px-3.5' : 'px-3'
+            } ${
+              statusFilter === chip.value
+                ? 'bg-ink text-white shadow-2xs'
+                : 'bg-white border border-line text-ink-secondary hover:bg-fill-subtle'
+            }`}
+          >
+            {chip.value !== 'ALL' && <StatusSignal status={chip.value} size={12} />}
+            <span>
+              {chip.label}
+              {chip.value !== 'ALL' && ` ${counts[chip.value]}`}
+            </span>
+          </button>
+        ))}
+      </div>
+
+      {/* 3·4. 구역 카드: 양념 선반 / 냉장고 (냉장·냉동 통합) */}
+      {ZONES.map((zone) => (
+        <FridgeZoneSection
+          key={zone.zone}
+          title={zone.title}
+          caption={zone.caption}
+          addLabel={zone.addLabel}
+          items={zone.zone === 'SEASONING' ? seasoningList : fridgeList}
+          viewMode={viewMode}
+          isFiltered={isFiltered}
+          onTileClick={handleTileClick}
+          onStatusChange={handleStatusChange}
+          onRemove={handleRemove}
+          onAdd={() => setSheetZone(zone.zone)}
+        />
+      ))}
+
+      {/* 5. 안내 문구 (와이어프레임 하단 텍스트) */}
+      <p className="text-[12px] text-ink-muted leading-relaxed text-center px-1 pt-1 pb-4">
+        재료를 누르면 있음 → 적음 → 없음 순으로 바뀝니다. 적음·없음인 재료는 장바구니 '더 사두면 좋아요'에 나와요.
+      </p>
+
+      {/* 6. 재료 추가 바텀시트 */}
+      {sheetZone && (
+        <AddIngredientSheet
+          isOpen={true}
+          onClose={() => setSheetZone(null)}
+          zone={sheetZone}
+          existingNames={existingNamesSet}
+          onAdded={handleAdded}
+        />
+      )}
+
+      {/* 7. 토스트 피드백 */}
+      {toastMessage && (
+        <Toast
+          message={toastMessage}
+          isVisible={Boolean(toastMessage)}
+          onClose={() => setToastMessage(null)}
+          duration={2500}
+        />
+      )}
+    </div>
+  );
+};
+
+export default FridgePage;

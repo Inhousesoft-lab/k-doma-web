@@ -1,0 +1,18 @@
+[
+  {
+    "id": "taering",
+    "password": "1234",
+    "name": "태링",
+    "role": "ADMIN",
+    "householdId": "home",
+    "householdName": "우리 집"
+  },
+  {
+    "id": "beomi",
+    "password": "1234",
+    "name": "버미",
+    "role": "MEMBER",
+    "householdId": "home",
+    "householdName": "우리 집"
+  }
+]
