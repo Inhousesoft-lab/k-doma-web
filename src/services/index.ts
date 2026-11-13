@@ -47,6 +47,7 @@ import {
   moveCartItemToFridge,
   PlanNotFoundError,
   setIngredientStatus,
+  setIngredientZone,
   startHouseholdSync,
   stopHouseholdSync,
   updateCartItem,
@@ -275,6 +276,18 @@ export const ingredientService = {
     const status = nextMap[item.status];
     await setIngredientStatus(id, status);
     return { ...item, status };
+  },
+
+  /**
+   * 드래그앤드롭으로 구역 옮기기 (양념 선반 ↔ 냉장고). 처음 구역은 재료 사전 분류로 정해지고,
+   * 사용자가 옮기면 그 구역을 저장한다. 이후 상태가 바뀌어도(장바구니·요리 완료) 구역은 그대로다.
+   */
+  async moveIngredientZone(id: string, zone: StorageZone): Promise<boolean> {
+    requireUser();
+    const item = (await fridge()).find((i) => i.id === id);
+    if (!item || item.zone === zone) return false;
+    await setIngredientZone(id, zone);
+    return true;
   },
 
   /**

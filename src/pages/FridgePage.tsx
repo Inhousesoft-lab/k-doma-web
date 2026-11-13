@@ -5,9 +5,11 @@ import { Ingredient, IngredientStatus, StorageZone } from '../types';
 import { ingredientService, authService, subscribeToDataChanges } from '../services';
 import StatusSignal, { STATUS_LABELS } from '../components/common/StatusSignal';
 import StateView from '../components/common/StateView';
+import IngredientImage from '../components/common/IngredientImage';
 import Toast from '../components/common/Toast';
 import useLoginGate from '../hooks/useLoginGate';
 import FridgeZoneSection from './fridge/FridgeZoneSection';
+import useZoneDrag from './fridge/useZoneDrag';
 
 const FILTER_CHIPS: Array<{ value: 'ALL' | IngredientStatus; label: string }> = [
   { value: 'ALL', label: '전체' },
@@ -115,7 +117,23 @@ export const FridgePage: React.FC = () => {
   // 아이콘형 타일 클릭 시 상태 순환 (있음 -> 적음 -> 없음 -> 있음)
   const SAVE_FAILED = '저장하지 못했어요. 잠시 후 다시 시도해 주세요.';
 
+  // 드래그앤드롭으로 구역 옮기기: 화면에 먼저 반영하고 바로 저장한다. 실패하면 원래대로 되돌린다
+  const handleZoneDrop = async (ingredient: Ingredient, zone: StorageZone) => {
+    setIngredients((prev) => prev.map((i) => (i.id === ingredient.id ? { ...i, zone } : i)));
+    try {
+      await ingredientService.moveIngredientZone(ingredient.id, zone);
+      setToastMessage(`'${ingredient.name}'을(를) ${zone === 'SEASONING' ? '양념 선반' : '냉장고'}으로 옮겼어요.`);
+    } catch (e) {
+      console.error(e);
+      setToastMessage(SAVE_FAILED);
+    }
+    await loadIngredients(true);
+  };
+
+  const { drag, startPress, consumeClick } = useZoneDrag(handleZoneDrop);
+
   const handleTileClick = async (id: string) => {
+    if (consumeClick()) return; // 끌어서 옮긴 직후의 클릭은 상태를 바꾸지 않는다
     try {
       await ingredientService.cycleIngredientStatus(id);
     } catch (e) {
@@ -272,6 +290,7 @@ export const FridgePage: React.FC = () => {
       {ZONES.map((zone) => (
         <FridgeZoneSection
           key={zone.zone}
+          zone={zone.zone}
           title={zone.title}
           caption={zone.caption}
           addLabel={zone.addLabel}
@@ -283,12 +302,40 @@ export const FridgePage: React.FC = () => {
           onStatusChange={handleStatusChange}
           onRemove={handleRemove}
           onAdd={handleAdd}
+          onTilePointerDown={startPress}
+          draggingId={drag?.ingredient.id ?? null}
+          isDropTarget={Boolean(drag && drag.overZone === zone.zone && drag.ingredient.zone !== zone.zone)}
         />
       ))}
+
+      {/* 끌고 있는 타일 (손가락·마우스를 따라다님) */}
+      {drag && (
+        <div
+          className="fixed z-50 pointer-events-none w-[84px] h-[88px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-between p-1.5 border border-line bg-white rounded-[16px] shadow-lg scale-105"
+          style={{ left: drag.x, top: drag.y }}
+          aria-hidden="true"
+        >
+          <IngredientImage
+            name={drag.ingredient.name}
+            imageKey={drag.ingredient.imageKey}
+            className="w-12 h-12 mt-0.5 rounded-[10px]"
+          />
+          <div className="w-full flex items-center justify-center gap-1 px-0.5 mb-0.5 min-w-0">
+            <StatusSignal status={drag.ingredient.status} size={12} className="shrink-0" />
+            <span className="text-[12px] font-medium text-ink truncate leading-tight">{drag.ingredient.name}</span>
+          </div>
+        </div>
+      )}
 
       {/* 5. 안내 문구 (와이어프레임 하단 텍스트) */}
       <p className="text-[12px] text-ink-muted leading-relaxed text-center px-1 pt-1 pb-4">
         재료를 누르면 있음 → 적음 → 없음 순으로 바뀝니다. 적음·없음인 재료는 장바구니 '더 사두면 좋아요'에 나와요.
+        {viewMode === 'icon' && (
+          <>
+            <br />
+            재료를 길게 누른 채 끌면 양념 선반 ↔ 냉장고로 옮길 수 있어요.
+          </>
+        )}
       </p>
 
       {/* 8. 로그인 유도 모달 (비로그인 [추가]) */}

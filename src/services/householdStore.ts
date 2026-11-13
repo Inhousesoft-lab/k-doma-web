@@ -215,6 +215,10 @@ export const cachedFridge = (): Ingredient[] => session?.fridge ?? [];
 export const setIngredientStatus = (id: string, status: IngredientStatus): Promise<void> =>
   updateDoc(fridgeDoc(active().householdId, id), { status, ...stamp() });
 
+/** 냉장고 화면에서 재료를 다른 구역으로 옮긴다 (드래그앤드롭). 이후 상태 변경에도 구역은 유지된다 */
+export const setIngredientZone = (id: string, zone: StorageZone): Promise<void> =>
+  updateDoc(fridgeDoc(active().householdId, id), { zone, ...stamp() });
+
 export const deleteIngredient = (id: string): Promise<void> => deleteDoc(fridgeDoc(active().householdId, id));
 
 export interface FridgeUpsert {
