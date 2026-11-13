@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Calendar as CalendarIcon } from 'lucide-react';
-import { MealPlan } from '../types';
+import { MealPlan, Recipe } from '../types';
 import {
   mealPlanService,
+  recipeService,
   authService,
   subscribeToDataChanges,
 } from '../services';
@@ -25,6 +26,8 @@ const SAVE_FAILED = '저장하지 못했어요. 다시 시도해 주세요';
 export const RecordsPage: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<string>(() => todayStr());
   const [plans, setPlans] = useState<MealPlan[]>([]);
+  // 카드에 요리 시간·칼로리·탄단지를 보여 주려고 레시피를 id로 찾는다
+  const [recipesById, setRecipesById] = useState<Map<string, Recipe>>(new Map());
 
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
@@ -64,7 +67,9 @@ export const RecordsPage: React.FC = () => {
 
     setIsLoggedIn(true);
     try {
-      setPlans(await mealPlanService.getPlans());
+      const [nextPlans, recipes] = await Promise.all([mealPlanService.getPlans(), recipeService.getRecipes()]);
+      setPlans(nextPlans);
+      setRecipesById(new Map(recipes.map((r) => [r.id, r])));
       setError(false);
     } catch (e) {
       console.error(e);
@@ -156,6 +161,7 @@ export const RecordsPage: React.FC = () => {
               <PlanCard
                 key={plan.id}
                 plan={plan}
+                recipe={recipesById.get(plan.recipeId)}
                 busy={busyPlanId === plan.id}
                 onComplete={handleCompletePlan}
                 onCancel={handleCancelPlan}

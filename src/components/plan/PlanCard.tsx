@@ -1,9 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MealPlan } from '../../types';
+import { MealPlan, Recipe } from '../../types';
 
 export interface PlanCardProps {
   plan: MealPlan;
+  /** 요리 시간·칼로리·탄단지를 보여 줄 레시피 (못 찾으면 해당 줄을 그리지 않는다) */
+  recipe?: Recipe;
   onComplete: (planId: string) => void;
   /** 요리 예정 [취소]: 확인 없이 지운다 */
   onCancel: (planId: string) => void;
@@ -19,10 +21,13 @@ export interface PlanCardProps {
  * - 요리 예정(PLANNED): [취소] [요리 완료]
  * - 요리 완료(COOKED): [요리를 완성했어요. 재고 변경할까요?] 또는 '재고 반영됨', [삭제]
  * - 재고 반영은 한 번만. [다시 수정]은 없다 (KD-57)
- * - 두지 않는 것: 카드 위 제목 줄, 카드 안 메타 줄 금지
+ * - 요리명 아래 메타 줄: 요리 시간 · 칼로리 (오늘 탭 요리 카드와 같은 형식)
+ * - 영양 데이터가 있으면 탄수화물·단백질·지방 줄을 덧붙인다
+ * - 두지 않는 것: 카드 위 제목 줄
  */
 export const PlanCard: React.FC<PlanCardProps> = ({
   plan,
+  recipe,
   onComplete,
   onCancel,
   onDelete,
@@ -38,6 +43,17 @@ export const PlanCard: React.FC<PlanCardProps> = ({
   };
 
   const isCooked = plan.status === 'COOKED';
+
+  const kcal = recipe?.nutrition?.calories ?? recipe?.caloriesKcal;
+  const meta = [
+    recipe && recipe.cookTimeMinutes > 0 ? `${recipe.cookTimeMinutes}분` : '',
+    kcal ? `${kcal} kcal` : '',
+  ]
+    .filter(Boolean)
+    .join(' · ');
+  const macros = recipe?.nutrition
+    ? `탄 ${recipe.nutrition.carbs}g · 단 ${recipe.nutrition.protein}g · 지 ${recipe.nutrition.fat}g`
+    : '';
 
   return (
     <div
@@ -76,9 +92,13 @@ export const PlanCard: React.FC<PlanCardProps> = ({
           )}
         </div>
 
-        <h3 className="text-[19px] font-bold text-ink truncate leading-tight">
-          {plan.recipeName}
-        </h3>
+        <div className="min-w-0">
+          <h3 className="text-[19px] font-bold text-ink truncate leading-tight">
+            {plan.recipeName}
+          </h3>
+          {meta && <p className="text-[13px] text-ink-muted mt-1">{meta}</p>}
+          {macros && <p className="text-[12px] text-ink-muted mt-0.5">{macros}</p>}
+        </div>
       </div>
 
       {/* 3. 하단 액션 버튼 */}
