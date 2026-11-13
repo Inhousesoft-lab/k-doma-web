@@ -39,6 +39,7 @@
   /* 상태 */
   --color-danger: #FF3B30;               /* 오류, 찜, 삭제 */
   --color-danger-light: #FFF0EB;
+  --color-have: #16A34A;                 /* 재료 있음 (그린라이트) */
   --color-warning: #FF9500;              /* 재료 적음 */
   --color-warning-light: #FFF8EB;
 

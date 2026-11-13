@@ -16,7 +16,7 @@ export const STATUS_LABELS: Record<IngredientStatus, string> = {
 
 /** 디자인 토큰(src/index.css @theme) 색을 CSS 변수로 쓴다 */
 export const STATUS_COLORS: Record<IngredientStatus, string> = {
-  HAVE: 'var(--color-primary)',
+  HAVE: 'var(--color-have)',
   LOW: 'var(--color-warning)',
   NONE: 'var(--color-ink-muted)',
 };

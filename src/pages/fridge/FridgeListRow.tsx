@@ -32,7 +32,7 @@ export const FridgeListRow: React.FC<FridgeListRowProps> = ({
   const getActiveStyle = (key: IngredientStatus) => {
     switch (key) {
       case 'HAVE':
-        return 'bg-primary text-white shadow-xs';
+        return 'bg-have text-white shadow-xs';
       case 'LOW':
         return 'bg-warning text-white shadow-xs';
       case 'NONE':

@@ -68,6 +68,7 @@
 | | `fill-hover` | `#F0F4FA` | 옅은 박스 hover |
 | | `thumb` | `#EAEFF5` | 이미지가 없을 때 자리 |
 | 상태 | `danger` / `danger-light` | `#FF3B30` / `#FFF0EB` | 오류, 찜, 삭제 |
+| | `have` | `#16A34A` | 재료 있음 (그린라이트) |
 | | `warning` / `warning-light` | `#FF9500` / `#FFF8EB` | 재료 적음 |
 | 파스텔 카드 | `mint` / `mint-bg` / `mint-line` | `#12804A` / `#EAF6EE` / `#D3EFE0` | 민트 카드 |
 | | `teal` / `teal-bg` | `#0E8A6E` / `#E8F8F5` | 우리 집 |
