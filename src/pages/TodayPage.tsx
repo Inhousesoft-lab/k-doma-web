@@ -31,9 +31,8 @@ export const TodayPage: React.FC = () => {
 
   const loadData = useCallback(async () => {
     try {
-      const userId = authService.getCurrentUser().id;
       const [recs, themes] = await Promise.all([
-        recommendationService.getRecommendations(userId),
+        recommendationService.getRecommendations(),
         recommendationService.getThemes(themeRoundRef.current),
       ]);
       setRecommendations({

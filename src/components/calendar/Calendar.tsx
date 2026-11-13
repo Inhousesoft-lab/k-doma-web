@@ -76,10 +76,11 @@ export const Calendar: React.FC<CalendarProps> = ({
   const { year, monthIndex } = parseDateStr(selectedDate);
 
   const getPlanDot = (dateStr: string) => {
-    const plan = plans.find((p) => p.date === dateStr && p.status !== 'CANCELED');
-    if (!plan) return null;
+    // 날짜마다 점 1개: 요리 완료가 1개라도 있으면 ●, 예정만 있으면 ○ (KD-57)
+    const dayPlans = plans.filter((p) => p.date === dateStr);
+    if (dayPlans.length === 0) return null;
 
-    if (plan.status === 'COOKED') {
+    if (dayPlans.some((p) => p.status === 'COOKED')) {
       // ● 검은 원
       return (
         <span
@@ -89,17 +90,14 @@ export const Calendar: React.FC<CalendarProps> = ({
         />
       );
     }
-    if (plan.status === 'PLANNED') {
-      // ○ 테두리 원
-      return (
-        <span
-          className="w-1.5 h-1.5 rounded-full border border-ink bg-white inline-block"
-          title="요리 예정"
-          aria-label="요리 예정"
-        />
-      );
-    }
-    return null;
+    // ○ 테두리 원
+    return (
+      <span
+        className="w-1.5 h-1.5 rounded-full border border-ink bg-white inline-block"
+        title="요리 예정"
+        aria-label="요리 예정"
+      />
+    );
   };
 
   const handleToggle = () => {

@@ -1,25 +1,33 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { RotateCcw } from 'lucide-react';
 import { MealPlan } from '../../types';
 
 export interface PlanCardProps {
   plan: MealPlan;
   onComplete: (planId: string) => void;
+  /** 요리 예정 [취소]: 확인 없이 지운다 */
   onCancel: (planId: string) => void;
+  /** 요리 완료 [삭제]: 확인 창을 띄운 뒤 지운다 (KD-57) */
+  onDelete: (plan: MealPlan) => void;
   onOpenInventorySheet: (plan: MealPlan) => void;
+  /** 저장 중이면 버튼을 막는다 (연속 누름 방지) */
+  busy?: boolean;
 }
 
 /**
  * 선택한 날짜의 요리 카드 컴포넌트 (공용 위치: src/components/plan/PlanCard.tsx)
- * - 요리 예정(PLANNED) / 요리 완료(COOKED) 카드
+ * - 요리 예정(PLANNED): [취소] [요리 완료]
+ * - 요리 완료(COOKED): [요리를 완성했어요. 재고 변경할까요?] 또는 '재고 반영됨', [삭제]
+ * - 재고 반영은 한 번만. [다시 수정]은 없다 (KD-57)
  * - 두지 않는 것: 카드 위 제목 줄, 카드 안 메타 줄 금지
  */
 export const PlanCard: React.FC<PlanCardProps> = ({
   plan,
   onComplete,
   onCancel,
+  onDelete,
   onOpenInventorySheet,
+  busy = false,
 }) => {
   const navigate = useNavigate();
 
@@ -79,57 +87,63 @@ export const PlanCard: React.FC<PlanCardProps> = ({
           <div className="flex gap-2.5">
             <button
               type="button"
+              disabled={busy}
               onClick={(e) => {
                 e.stopPropagation();
                 onCancel(plan.id);
               }}
-              className="h-[48px] rounded-[12px] border border-line-strong bg-white hover:bg-fill-subtle text-ink font-bold text-[14px] flex-1 transition-colors cursor-pointer"
+              className="h-[48px] rounded-[12px] border border-line-strong bg-white hover:bg-fill-subtle text-ink font-bold text-[14px] flex-1 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-default"
             >
               취소
             </button>
             <button
               type="button"
+              disabled={busy}
               onClick={(e) => {
                 e.stopPropagation();
                 onComplete(plan.id);
               }}
-              className="h-[48px] rounded-[12px] bg-ink hover:bg-black text-white font-bold text-[14px] flex-1 flex items-center justify-center transition-colors cursor-pointer"
+              className="h-[48px] rounded-[12px] bg-ink hover:bg-black text-white font-bold text-[14px] flex-1 flex items-center justify-center transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-default"
             >
               요리 완료
             </button>
           </div>
         ) : (
-          <div>
-            {!plan.inventoryUpdated ? (
+          <div className="flex flex-col gap-2">
+            {!plan.inventoryUpdated && (
               <button
                 type="button"
+                disabled={busy}
                 onClick={(e) => {
                   e.stopPropagation();
                   onOpenInventorySheet(plan);
                 }}
-                className="w-full h-[48px] rounded-[12px] border border-ink bg-white hover:bg-fill-subtle text-ink font-bold text-[14px] flex items-center justify-center transition-colors cursor-pointer"
+                className="w-full h-[48px] rounded-[12px] border border-ink bg-white hover:bg-fill-subtle text-ink font-bold text-[14px] flex items-center justify-center transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-default"
               >
                 요리를 완성했어요. 재고 변경할까요?
               </button>
-            ) : (
-              <div className="flex items-center justify-between text-[13px] px-1 pt-1">
+            )}
+            <div className="flex items-center justify-between text-[13px] px-1 min-h-[44px]">
+              {plan.inventoryUpdated ? (
                 <span className="font-bold text-mint flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-mint" />
                   재고 반영됨
                 </span>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onOpenInventorySheet(plan);
-                  }}
-                  className="text-primary font-bold hover:underline flex items-center gap-1 cursor-pointer"
-                >
-                  <RotateCcw className="w-3.5 h-3.5" />
-                  <span>다시 수정</span>
-                </button>
-              </div>
-            )}
+              ) : (
+                <span />
+              )}
+              <button
+                type="button"
+                disabled={busy}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onDelete(plan);
+                }}
+                className="h-[44px] px-2 text-ink-muted font-bold hover:text-ink cursor-pointer disabled:opacity-50 disabled:cursor-default"
+              >
+                삭제
+              </button>
+            </div>
           </div>
         )}
       </div>

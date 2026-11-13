@@ -1,34 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { MealPlan, IngredientStatus } from '../../types';
-import { recipeService, ingredientService, mealPlanService } from '../../services';
+import {
+  recipeService,
+  ingredientService,
+  mealPlanService,
+  InventoryAlreadyAppliedError,
+  PlanNotFoundError,
+} from '../../services';
 import BottomSheet from '../common/BottomSheet';
 import StatusSignal from '../common/StatusSignal';
 import Button from '../common/Button';
-import { fridgeStatusOf } from '../../utils/ingredient';
+import { findByIngredientName, isSameIngredient } from '../../utils/ingredient';
 
 export interface InventoryUpdateSheetProps {
   isOpen: boolean;
   onClose: () => void;
   plan: MealPlan | null;
-  onSaved: () => void;
+  /** 시트를 닫으며 알릴 문구 (예: '이미 재고가 반영됐어요') */
+  onNotice: (message: string) => void;
 }
 
 interface IngredientItemState {
   name: string;
   usageType: 'ALL' | 'PART';
+  /** 냉장고에 등록된 재료인지. 아니면 '냉장고에 없음'으로 보여 주고 반영할 때 새로 추가한다 */
+  inFridge: boolean;
   currentStatus: IngredientStatus;
   proposedStatus: IngredientStatus;
   selectedStatus: IngredientStatus;
 }
 
 /**
- * 재고 변경 바텀시트 컴포넌트 (공용 위치: src/components/plan/InventoryUpdateSheet.tsx)
+ * 재고 변경 바텀시트 (03-2 6장, KD-57)
+ * - 레시피 재료를 모두 보여 준다. 냉장고에 없는 재료도 '냉장고에 없음'으로 보여 준다
+ *   (냉장고에 있는데 기록하지 않았을 수 있다)
+ * - 제안값: 냉장고에 있음 → ALL 없음 / PART 있음→적음(적음·없음은 그대로)
+ *           냉장고에 없음 → ALL 없음 / PART 적음 (요리했으니 있었다고 본다)
+ * - [냉장고에 반영]: 냉장고 변경과 '재고 반영됨'을 한 번에 저장한다. 한 번만 반영된다
  */
 export const InventoryUpdateSheet: React.FC<InventoryUpdateSheetProps> = ({
   isOpen,
   onClose,
   plan,
-  onSaved,
+  onNotice,
 }) => {
   const [items, setItems] = useState<IngredientItemState[]>([]);
   const [loading, setLoading] = useState(false);
@@ -50,36 +64,36 @@ export const InventoryUpdateSheet: React.FC<InventoryUpdateSheetProps> = ({
         ingredientService.getIngredients(),
       ]);
 
-      if (recipe && recipe.ingredientsRequired) {
-        const itemStates: IngredientItemState[] = recipe.ingredientsRequired.map((req) => {
-          const currentStatus = fridgeStatusOf(req.name, fridgeIngredients);
+      // 같은 재료가 두 번 적힌 레시피는 한 줄로 합친다 (먼저 나온 것 기준)
+      const required = (recipe?.ingredientsRequired ?? []).filter(
+        (req, index, list) => list.findIndex((other) => isSameIngredient(other.name, req.name)) === index
+      );
+      setItems(
+        required.map((req) => {
+          const match = findByIngredientName(req.name, fridgeIngredients);
+          const inFridge = Boolean(match);
+          const currentStatus: IngredientStatus = match?.status ?? 'NONE';
           const usageType =
             req.usageType ||
             (req.amount?.includes('포기') || req.amount?.includes('모') || req.amount?.includes('g')
               ? 'ALL'
               : 'PART');
 
-          // 기본 제안값:
-          // 다 쓰는 재료(ALL) -> 없음(NONE)
-          // 일부 쓰는 재료(PART) -> 있음(HAVE) -> 적음(LOW) (이미 적음이나 없으면 그대로)
-          let proposedStatus: IngredientStatus = 'NONE';
-          if (usageType === 'ALL') {
-            proposedStatus = 'NONE';
-          } else {
-            proposedStatus = currentStatus === 'HAVE' ? 'LOW' : currentStatus;
-          }
+          let proposedStatus: IngredientStatus;
+          if (usageType === 'ALL') proposedStatus = 'NONE';
+          else if (!inFridge) proposedStatus = 'LOW';
+          else proposedStatus = currentStatus === 'HAVE' ? 'LOW' : currentStatus;
 
           return {
             name: req.name,
             usageType,
+            inFridge,
             currentStatus,
             proposedStatus,
             selectedStatus: proposedStatus,
           };
-        });
-
-        setItems(itemStates);
-      }
+        })
+      );
     } catch (e) {
       console.error(e);
     } finally {
@@ -100,17 +114,19 @@ export const InventoryUpdateSheet: React.FC<InventoryUpdateSheetProps> = ({
     setIsSaving(true);
     setErrorMessage('');
     try {
-      // 1. 냉장고 재료 상태 일괄 반영 (batch update)
-      await ingredientService.batchUpdateStatuses(
+      // 냉장고 변경 + '재고 반영됨'을 한 번에 저장 (트랜잭션)
+      await mealPlanService.applyInventory(
+        plan.id,
         items.map((i) => ({ name: i.name, status: i.selectedStatus }))
       );
-
-      // 2. 계획에 'inventoryUpdated: true' 마킹
-      await mealPlanService.markInventoryUpdated(plan.id, true);
-
-      onSaved();
       onClose();
     } catch (e) {
+      if (e instanceof InventoryAlreadyAppliedError || e instanceof PlanNotFoundError) {
+        // 다른 구성원이 먼저 반영했거나 기록을 지웠다
+        onNotice(e.message);
+        onClose();
+        return;
+      }
       console.error(e);
       // 실패하면 시트를 닫지 않고 고른 값을 그대로 둔다 (KD-37)
       setErrorMessage('저장하지 못했어요. 다시 시도해 주세요.');
@@ -134,13 +150,21 @@ export const InventoryUpdateSheet: React.FC<InventoryUpdateSheetProps> = ({
           <div className="flex flex-col divide-y divide-line-subtle max-h-[360px] overflow-y-auto no-scrollbar">
             {items.map((item, index) => (
               <div key={item.name} className="py-3 flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2 min-w-0">
+                {/* 좁은 화면(360px)에서도 재료 이름이 보이도록 이름 / 사용량·태그를 두 줄로 */}
+                <div className="flex flex-col gap-1 min-w-0">
                   <span className="text-[15px] font-bold text-ink truncate">
                     {item.name}
                   </span>
-                  <span className="text-[11px] font-medium text-ink-muted shrink-0">
-                    ({item.usageType === 'ALL' ? '다 씀' : '일부 씀'})
-                  </span>
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="text-[11px] font-medium text-ink-muted">
+                      {item.usageType === 'ALL' ? '다 씀' : '일부 씀'}
+                    </span>
+                    {!item.inFridge && (
+                      <span className="text-[11px] font-medium text-ink-tertiary bg-fill px-1.5 py-0.5 rounded-full whitespace-nowrap">
+                        냉장고에 없음
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 {/* 상태 선택 라디오 버튼 3종 */}

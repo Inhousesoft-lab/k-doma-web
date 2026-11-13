@@ -8,14 +8,7 @@ import {
   UserProfile,
   StorageZone,
 } from '../types';
-import {
-  buildPlans,
-  clone,
-  ingredientsData,
-  recipesData,
-  toProfile,
-  usersData,
-} from '../data';
+import { clone, ingredientsData, recipesData } from '../data';
 import {
   canonicalName,
   findByIngredientName,
@@ -37,19 +30,28 @@ import { FirebaseError } from 'firebase/app';
 import { auth } from '../lib/firebase';
 import {
   addCartItems,
+  applyInventory as saveInventory,
   cachedCart,
   cachedFridge,
+  cachedPlans,
+  createPlan,
   deleteCartItem,
   deleteIngredient,
+  deletePlan as removePlan,
+  DuplicatePlanError,
+  InventoryAlreadyAppliedError,
   loadCart,
   loadFridge,
+  loadPlans,
+  markPlanCooked as saveCooked,
   moveCartItemToFridge,
+  PlanNotFoundError,
   setIngredientStatus,
-  setStatusesBatch,
   startHouseholdSync,
   stopHouseholdSync,
   updateCartItem,
   upsertIngredient,
+  type InventoryWrite,
 } from './householdStore';
 import {
   addFavorite as saveFavorite,
@@ -61,22 +63,16 @@ import {
   stopFavoritesSync,
 } from './favoritesStore';
 
-// 메모리 저장소: 앱을 열 때 JSON(src/data)으로 채우고, 바뀐 값은 메모리에만 둔다 (새로고침하면 초기화)
-// 냉장고·장바구니는 가구 공유로 Firestore(householdStore.ts)에 저장한다
-// 찜은 계정별로 Firestore(favoritesStore.ts)에 저장한다 (KD-27)
+// 레시피는 JSON(src/data)을 메모리에 두고 읽기만 한다
+// 냉장고·장바구니·요리 기록은 가구 단위로 Firestore(householdStore.ts)에 저장한다 (KD-54, KD-57)
+// 찜은 계정별로 Firestore(favoritesStore.ts)에 저장한다 (KD-55)
 const inMemoryRecipes: Recipe[] = clone(recipesData);
-const inMemoryPlans: MealPlan[] = buildPlans(); // 계정별 요리 기록
 
 // 로그인 상태: Firebase Auth 가 관리한다. 세션 유지(browserSessionPersistence)라 새로고침해도 유지되고 탭을 닫으면 풀린다.
-// 아이디 = 이메일. 지금은 계정 1개만 쓴다: VITE_OWNER_EMAIL 로 로그인하면 users.json 의 첫 프로필(태링)이 된다.
-// (이메일은 저장소에 올리지 않으려고 .env.local 에 둔다. 가입·가구 합류 기능은 아직 없음)
-const OWNER_EMAIL = (import.meta.env.VITE_OWNER_EMAIL ?? '').trim().toLowerCase();
-const OWNER_PROFILE_ID = usersData[0]?.id ?? null;
+// 아이디 = 이메일. Firebase 에 등록된 계정이면 누구나 로그인하고, 로그인하면 내 1인 가구가 생긴다 (KD-58).
+// 회원가입·가구 합류는 MVP 2.
 
-/** Firebase 계정을 앱 계정 id 로. 지정한 이메일이 아니면 로그인 안 된 것으로 본다 */
-const toAppUserId = (user: User | null): string | null =>
-  OWNER_EMAIL && user?.email?.toLowerCase() === OWNER_EMAIL ? OWNER_PROFILE_ID : null;
-
+/** 로그인한 계정의 Firebase uid. 비로그인이면 null */
 let currentUserId: string | null = null;
 
 /** 처음 로그인 상태를 확인할 때까지 기다린다. main.tsx 가 첫 화면을 그리기 전에 기다린다 */
@@ -86,10 +82,10 @@ export const authReady: Promise<void> = setPersistence(auth, browserSessionPersi
     () =>
       new Promise<void>((resolve) => {
         onAuthStateChanged(auth, (user) => {
-          const nextId = toAppUserId(user);
+          const nextId = user?.uid ?? null;
           const changed = nextId !== currentUserId;
           currentUserId = nextId;
-          syncHousehold(user, nextId);
+          syncHousehold(user);
           resolve();
           if (changed) notifyListeners();
         });
@@ -108,14 +104,10 @@ const requireUser = (): string => {
   return currentUserId;
 };
 
-/** 지금 로그인한 계정 id (비로그인이면 빈 문자열 → 계정별 데이터는 비어 있음) */
-const uid = (): string => currentUserId ?? '';
-
-/** 로그인하면 가구 냉장고·장바구니와 내 찜(Firestore) 구독을 시작하고, 로그아웃하면 멈춘다 */
-function syncHousehold(user: User | null, appUserId: string | null) {
-  if (user && appUserId) {
-    const householdName = usersData.find((u) => u.id === appUserId)?.householdName ?? '우리 집';
-    startHouseholdSync(user.uid, householdName, notifyListeners);
+/** 로그인하면 가구 냉장고·장바구니·기록과 내 찜(Firestore) 구독을 시작하고, 로그아웃하면 멈춘다 */
+function syncHousehold(user: User | null) {
+  if (user) {
+    startHouseholdSync(user.uid, notifyListeners);
     startFavoritesSync(user.uid, notifyListeners);
   } else {
     stopHouseholdSync();
@@ -139,6 +131,9 @@ const fridge = async (): Promise<Ingredient[]> => (currentUserId ? loadFridge() 
 
 /** 지금 계정 가구의 장바구니 (가구 공유). 비로그인은 빈 장바구니 (KD-49) */
 const cart = async (): Promise<CartItem[]> => (currentUserId ? loadCart() : []);
+
+/** 지금 계정 가구의 요리 기록 (가구 공유, KD-57). 비로그인은 빈 기록 (KD-48) */
+const plans = async (): Promise<MealPlan[]> => (currentUserId ? loadPlans() : []);
 
 // 리스너 패턴 (냉장고/계획/장바구니 변경 시 자동 갱신)
 type ChangeListener = () => void;
@@ -320,19 +315,6 @@ export const ingredientService = {
     return zone ? ingredientsData.filter((m) => m.zone === zone) : ingredientsData;
   },
 
-  /**
-   * 요리 완료 후 재료 상태 일괄 반영 (공유 냉장고 저장)
-   * 사용자가 고른 값을 그대로 저장한다. 냉장고에 없는(미등록) 재료는 건너뛴다.
-   */
-  async batchUpdateStatuses(updates: Array<{ name: string; status: IngredientStatus }>): Promise<void> {
-    requireUser();
-    const current = await fridge();
-    const matched = updates.flatMap((update) => {
-      const match = findByIngredientName(update.name, current);
-      return match ? [{ id: match.id, status: update.status }] : [];
-    });
-    await setStatusesBatch(matched);
-  },
 };
 
 export const cartService = {
@@ -441,91 +423,96 @@ export const cartService = {
   },
 };
 
+/** 하루에 기록할 수 있는 요리 수 (가구 기준, KD-57). 앱에서만 확인한다 */
+export const PLAN_LIMIT_PER_DAY = 10;
+
+/** 오늘 기록이 10개라 더 추가할 수 없다 */
+export class PlanLimitError extends Error {
+  constructor() {
+    super(`하루에 ${PLAN_LIMIT_PER_DAY}개까지 기록할 수 있어요`);
+    this.name = 'PlanLimitError';
+  }
+}
+
+export { DuplicatePlanError, InventoryAlreadyAppliedError, PlanNotFoundError };
+
+/** 재고 시트의 재료 하나: 사용자가 고른 최종 상태 */
+export interface InventoryChoice {
+  name: string;
+  status: IngredientStatus;
+}
+
 export const mealPlanService = {
-  /**
-   * 특정 사용자의 계획 전체 (취소된 것 제외, 내 기록만 KD-27)
-   */
-  async getUserPlans(userId: string = uid()): Promise<MealPlan[]> {
-    return inMemoryPlans.filter((p) => p.userId === userId && p.status !== 'CANCELED');
+  /** 가구의 기록 전체 (날짜순, 같은 날은 추가한 순). 비로그인은 빈 목록 */
+  async getPlans(): Promise<MealPlan[]> {
+    return [...(await plans())];
+  },
+
+  /** 그날 기록 (추가한 순) */
+  async getPlansByDate(date: string): Promise<MealPlan[]> {
+    return (await plans()).filter((p) => p.date === date);
   },
 
   /**
-   * 특정 날짜의 요리 계획 (취소된 것 제외)
+   * 요리 상세 [오늘 기록에 추가]: 덮어쓰지 않고 추가한다 (KD-57)
+   * - 하루 10개면 PlanLimitError
+   * - 같은 날 같은 요리가 있으면 DuplicatePlanError (문서 id = 날짜_요리id, KD-61)
    */
-  async getPlanByDate(date: string, userId: string = uid()): Promise<MealPlan | undefined> {
-    const found = inMemoryPlans.find(
-      (p) => p.userId === userId && p.date === date && p.status !== 'CANCELED'
-    );
-    return found ? { ...found } : undefined;
-  },
-
-  /**
-   * [요리 완료] -> COOKED 확정
-   */
-  async markPlanCooked(planId: string): Promise<MealPlan | undefined> {
-    requireUser();
-    const plan = inMemoryPlans.find((p) => p.id === planId);
-    if (!plan) return undefined;
-    plan.status = 'COOKED';
-    notifyListeners();
-    return { ...plan };
-  },
-
-  /**
-   * [취소] -> CANCELED
-   */
-  async cancelPlan(planId: string): Promise<boolean> {
-    requireUser();
-    const plan = inMemoryPlans.find((p) => p.id === planId);
-    if (!plan) return false;
-    plan.status = 'CANCELED';
-    notifyListeners();
-    return true;
-  },
-
-  /**
-   * 재고 반영 여부 표시 ('재고 반영됨 · 다시 수정')
-   */
-  async markInventoryUpdated(planId: string, updated: boolean = true): Promise<MealPlan | undefined> {
-    requireUser();
-    const plan = inMemoryPlans.find((p) => p.id === planId);
-    if (!plan) return undefined;
-    plan.inventoryUpdated = updated;
-    notifyListeners();
-    return { ...plan };
-  },
-
-  /**
-   * 요리 상세 [오늘 기록에 추가]: 하루 1개, 이미 있으면 확인 없이 덮어쓰기 (KD-18, KD-38)
-   */
-  async setPlanForDate(date: string, recipeId: string, userId: string = uid()): Promise<MealPlan> {
+  async addPlan(date: string, recipeId: string): Promise<void> {
     requireUser();
     const recipe = inMemoryRecipes.find((r) => r.id === recipeId);
+    if (!recipe) throw new Error('요리를 찾을 수 없어요');
+    const dayPlans = (await plans()).filter((p) => p.date === date);
+    if (dayPlans.some((p) => p.recipeId === recipeId)) throw new DuplicatePlanError();
+    if (dayPlans.length >= PLAN_LIMIT_PER_DAY) throw new PlanLimitError();
+    await createPlan({ date, recipeId, recipeName: recipe.name, photoUrl: recipe.photoUrl ?? null });
+  },
 
-    const existingIndex = inMemoryPlans.findIndex(
-      (p) => p.userId === userId && p.date === date && p.status !== 'CANCELED'
-    );
+  /** [요리 완료] → COOKED. 가구 추천 감점에 바로 반영된다 */
+  async markPlanCooked(planId: string): Promise<void> {
+    requireUser();
+    await saveCooked(planId);
+  },
 
-    const newPlan: MealPlan = {
-      id: existingIndex >= 0 ? inMemoryPlans[existingIndex].id : `plan_${Date.now()}`,
-      userId,
-      date,
-      recipeId,
-      recipeName: recipe?.name || '추천 요리',
-      photoUrl: recipe?.photoUrl,
-      status: 'PLANNED',
-      inventoryUpdated: false,
-      caloriesKcal: recipe?.caloriesKcal,
-    };
+  /** 요리 예정 [취소]·요리 완료 [삭제]: 기록을 지운다. 냉장고 재고는 되돌리지 않는다 (KD-57) */
+  async deletePlan(planId: string): Promise<void> {
+    requireUser();
+    await removePlan(planId);
+  },
 
-    if (existingIndex >= 0) {
-      inMemoryPlans[existingIndex] = newPlan;
-    } else {
-      inMemoryPlans.push(newPlan);
-    }
+  /**
+   * 재고 반영 (한 번만, KD-57). 고른 상태를 냉장고에 저장하고 '재고 반영됨'을 함께 표시한다.
+   * - 냉장고에 있는 재료: 상태가 바뀐 것만 저장
+   * - 냉장고에 없는 재료: 고른 상태로 새로 추가 (구역은 재료 사전, 없으면 냉장고)
+   * - 이미 반영된 기록이면 InventoryAlreadyAppliedError
+   */
+  async applyInventory(planId: string, choices: InventoryChoice[]): Promise<void> {
+    requireUser();
+    const current = await fridge();
+    const writes = choices.flatMap(({ name, status }): InventoryWrite[] => {
+      const match = findByIngredientName(name, current);
+      if (match) {
+        if (match.status === status) return [];
+        return [{ existingId: match.id, upsert: { name: match.name, zone: match.zone, status, imageKey: match.imageKey } }];
+      }
+      const master = findMasterIngredient(name);
+      return [
+        {
+          upsert: {
+            name: master?.name ?? canonicalName(name),
+            zone: master?.zone ?? 'FRIDGE',
+            status,
+            imageKey: master?.imageKey ?? null,
+          },
+        },
+      ];
+    });
+    await saveInventory(planId, writes);
+  },
 
-    notifyListeners();
-    return { ...newPlan };
+  /** 메모리에 있는 기록에서 바로 찾는다 (구독 전이면 undefined) */
+  findCachedPlan(planId: string): MealPlan | undefined {
+    return cachedPlans().find((p) => p.id === planId);
   },
 };
 
@@ -543,15 +530,15 @@ export interface TodayThemeSection {
 export const recommendationService = {
   /**
    * 추천 요리 (03-2 3장, KD-50). 계산은 src/recommendation/engine.ts 가 한다.
-   * 여기서는 레시피·냉장고(비로그인은 빈 냉장고)·내 기록만 모아 넘긴다.
+   * 여기서는 레시피·냉장고(비로그인은 빈 냉장고)·가구 기록(KD-57)만 모아 넘긴다.
    */
-  async getRecommendations(userId: string = uid()): Promise<RecommendedItem[]> {
-    const [recipes, ingredients, userPlans] = await Promise.all([
+  async getRecommendations(): Promise<RecommendedItem[]> {
+    const [recipes, ingredients, householdPlans] = await Promise.all([
       recipeService.getRecipes(),
       ingredientService.getIngredients(),
-      mealPlanService.getUserPlans(userId),
+      mealPlanService.getPlans(),
     ]);
-    return recommend({ recipes, fridge: ingredients, cookedPlans: userPlans, today: todayStr() });
+    return recommend({ recipes, fridge: ingredients, cookedPlans: householdPlans, today: todayStr() });
   },
 
   /** 테마 요리 (03-2 3.6, KD-51). 오늘 날짜 기준이라 같은 날에는 같은 테마가 나온다 */
@@ -573,6 +560,15 @@ export const recommendationService = {
 
 const GUEST_PROFILE: UserProfile = { id: '', name: '', role: 'MEMBER', householdName: '' };
 
+/** 로그인한 계정 프로필. 이름은 Auth 표시 이름, 없으면 이메일 @ 앞부분. 1인 가구의 관리자 (KD-58) */
+const toProfile = (user: User): UserProfile => ({
+  id: user.uid,
+  name: user.displayName?.trim() || user.email?.split('@')[0] || '나',
+  role: 'ADMIN',
+  householdName: '우리 집',
+  email: user.email ?? undefined,
+});
+
 export const authService = {
   isLoggedIn(): boolean {
     return currentUserId !== null;
@@ -580,8 +576,8 @@ export const authService = {
 
   /** 로그인한 계정 프로필. 비로그인이면 빈 프로필 */
   getCurrentUser(): UserProfile {
-    const account = usersData.find((u) => u.id === currentUserId);
-    return account ? { ...toProfile(account), email: auth.currentUser?.email ?? undefined } : { ...GUEST_PROFILE };
+    const user = auth.currentUser;
+    return currentUserId && user?.uid === currentUserId ? toProfile(user) : { ...GUEST_PROFILE };
   },
 
   /** 이메일 아이디 로그인: Firebase Auth 이메일/비밀번호 계정으로 확인한다 */
@@ -590,14 +586,8 @@ export const authService = {
     if (!email || !password) return failed;
     try {
       const { user } = await signInWithEmailAndPassword(auth, email.trim(), password);
-      const appUserId = toAppUserId(user);
-      if (!appUserId) {
-        // Auth 계정은 있지만 앱 프로필이 없으면 로그인시키지 않는다
-        await signOut(auth);
-        return failed;
-      }
-      currentUserId = appUserId; // onAuthStateChanged 보다 먼저 화면이 바뀌어도 맞게
-      syncHousehold(user, appUserId); // 화면이 바로 냉장고·장바구니를 읽어도 되도록 구독을 먼저 시작한다
+      currentUserId = user.uid; // onAuthStateChanged 보다 먼저 화면이 바뀌어도 맞게
+      syncHousehold(user); // 화면이 바로 냉장고·장바구니·기록을 읽어도 되도록 구독을 먼저 시작한다
       notifyListeners();
       return { success: true };
     } catch (e) {
@@ -611,12 +601,9 @@ export const authService = {
     }
   },
 
-  /** 같은 가구 구성원 */
+  /** 같은 가구 구성원. MVP 2 전까지는 1인 가구라 나 혼자 (KD-58) */
   getHouseholdMembers(): UserProfile[] {
-    const householdId = usersData.find((u) => u.id === currentUserId)?.householdId;
-    return usersData
-      .filter((u) => u.householdId === householdId)
-      .map((u) => (u.id === currentUserId ? authService.getCurrentUser() : toProfile(u)));
+    return currentUserId ? [authService.getCurrentUser()] : [];
   },
 
   logout(): void {

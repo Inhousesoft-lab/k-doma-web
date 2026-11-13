@@ -8,6 +8,7 @@ import {
   ShoppingBag,
   Check,
   CalendarPlus,
+  Copy,
 } from 'lucide-react';
 import { Recipe, Ingredient } from '../types';
 import { todayStr } from '../utils/date';
@@ -19,6 +20,8 @@ import {
   mealPlanService,
   authService,
   subscribeToDataChanges,
+  DuplicatePlanError,
+  PlanLimitError,
 } from '../services';
 import StatusSignal from '../components/common/StatusSignal';
 import Button from '../components/common/Button';
@@ -44,6 +47,8 @@ export const RecipeDetailPage: React.FC = () => {
   // 피드백 토스트 상태
   const [toastMessage, setToastMessage] = useState<string>('');
   const [showToast, setShowToast] = useState<boolean>(false);
+  // [오늘 기록에 추가] 저장 중 (연속 누름 방지)
+  const [addingPlan, setAddingPlan] = useState<boolean>(false);
 
   // 로그인이 필요한 동작(찜·장바구니·오늘 기록)은 비로그인이면 로그인 유도 모달 (기획서 5장)
   const { requireLogin, loginModal } = useLoginGate();
@@ -121,6 +126,20 @@ export const RecipeDetailPage: React.FC = () => {
     setShowToast(true);
   };
 
+  // 재료 복사: 지금 고른 인분 기준으로 "재료명 양, 재료명 양, ..." 한 줄로 복사
+  const handleCopyIngredients = async () => {
+    if (!recipe?.ingredientsRequired?.length) return;
+    const text = recipe.ingredientsRequired
+      .map((item) => `${item.name} ${scaleAmount(item.amount, servings, recipe.servings || 2)}`.trim())
+      .join(', ');
+    try {
+      await navigator.clipboard.writeText(text);
+      showToastMessage('재료가 복사되었습니다');
+    } catch {
+      showToastMessage('재료를 복사하지 못했어요. 다시 시도해 주세요');
+    }
+  };
+
   // 3. 인분 수 변경 (−/+)
   const handleServingsChange = (delta: number) => {
     setServings((prev) => Math.max(1, Math.min(8, prev + delta)));
@@ -179,15 +198,28 @@ export const RecipeDetailPage: React.FC = () => {
     );
   };
 
-  // 6. [오늘 기록에 추가] (기획서 4.3: 화면 이동 없음, 확인 없이 덮어쓰기, 토스트)
-  //    비로그인이면 로그인 후 이어서 추가한다 (기록은 계정별, KD-27)
+  // 6. [오늘 기록에 추가] (기획서 4.3: 화면 이동 없음, 토스트)
+  //    덮어쓰지 않고 추가한다. 하루 10개·같은 요리 중복은 막는다 (KD-57, KD-61)
+  //    비로그인이면 로그인 후 이어서 추가한다 (기록은 가구 단위)
   const handleAddToTodayPlan = async () => {
-    if (!recipe) return;
+    if (!recipe || addingPlan) return;
     const id = recipe.id;
     await requireLogin(
       async () => {
-        await mealPlanService.setPlanForDate(todayStr(), id);
-        showToastMessage('오늘 기록에 추가했어요');
+        setAddingPlan(true);
+        try {
+          await mealPlanService.addPlan(todayStr(), id);
+          showToastMessage('오늘 기록에 추가했어요');
+        } catch (e) {
+          if (e instanceof DuplicatePlanError || e instanceof PlanLimitError) {
+            showToastMessage(e.message);
+          } else {
+            console.error(e);
+            showToastMessage('기록에 추가하지 못했어요. 다시 시도해 주세요');
+          }
+        } finally {
+          setAddingPlan(false);
+        }
       },
       { description: '오늘 기록에 추가하려면 로그인해 주세요.' }
     );
@@ -336,7 +368,18 @@ export const RecipeDetailPage: React.FC = () => {
           {/* 헤더: 필요한 재료 + 인분 조절 (−/+) */}
           <div className="flex items-center justify-between mb-3 pb-2 border-b border-line-subtle">
             <div>
-              <h3 className="text-[16px] font-bold text-ink">필요한 재료</h3>
+              <div className="flex items-center gap-1.5">
+                <h3 className="text-[16px] font-bold text-ink">필요한 재료</h3>
+                <button
+                  type="button"
+                  onClick={handleCopyIngredients}
+                  className="flex items-center gap-1 px-2 py-1 rounded-[8px] bg-fill text-[12px] font-bold text-ink-secondary cursor-pointer"
+                  aria-label="재료 복사"
+                >
+                  <Copy className="w-3.5 h-3.5" />
+                  복사
+                </button>
+              </div>
               {/* 비로그인 상태에서는 상태 신호 범례 숨김 (기획서 4.4) */}
               {isLoggedIn && (
                 <span className="text-[11px] text-ink-muted">

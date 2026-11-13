@@ -14,7 +14,8 @@ export interface Ingredient {
   imageKey?: string | null;
 }
 
-export type PlanStatus = 'PLANNED' | 'COOKED' | 'CANCELED';
+/** 요리 예정 / 요리 완료. 취소·삭제는 기록을 지운다 (KD-57) */
+export type PlanStatus = 'PLANNED' | 'COOKED';
 
 export interface RecipeIngredientRef {
   name: string;
@@ -59,16 +60,21 @@ export interface CartItem {
   zone?: StorageZone;
 }
 
+/**
+ * 요리 기록 (가구 단위, KD-57). households/{hid}/plans/{date}_{recipeId} (KD-61)
+ * 누가 했는지(plannedBy·cookedBy)는 데이터에만 남기고 화면에는 표시하지 않는다 (KD-26)
+ */
 export interface MealPlan {
-  id: string;
-  userId: string;
-  date: string; // YYYY-MM-DD
+  id: string; // `${date}_${recipeId}`
+  date: string; // YYYY-MM-DD (Asia/Seoul)
   recipeId: string;
-  recipeName: string;
-  photoUrl?: string;
+  recipeName: string; // 기록할 때의 요리 이름
+  photoUrl: string | null; // 기록할 때의 요리 사진
   status: PlanStatus;
-  inventoryUpdated?: boolean;
-  caloriesKcal?: number;
+  inventoryUpdated: boolean; // 재고 반영됨 (한 번만, KD-57)
+  plannedBy: string;
+  plannedAt: number; // ms. 같은 날 카드 순서
+  cookedBy?: string;
 }
 
 
