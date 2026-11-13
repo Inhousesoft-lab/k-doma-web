@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { ArrowLeft, ShoppingBag } from 'lucide-react';
+import { ArrowLeft, Heart, ShoppingBag } from 'lucide-react';
+import useLoginGate from '../../hooks/useLoginGate';
 
 export interface HeaderProps {
   title?: string;
@@ -12,7 +13,8 @@ export interface HeaderProps {
 
 /**
  * K-Doma 상단 헤더 (모니모 스타일 카피)
- * - 기본형(탭 화면): 왼쪽 'K-DOMA' 굵은 볼드 워드마크 + 오른쪽 장바구니 아이콘(코발트 블루 배지)
+ * - 기본형(탭 화면): 왼쪽 'K-DOMA' 굵은 볼드 워드마크 + 오른쪽 찜 아이콘(♡) · 장바구니 아이콘(코발트 블루 배지)
+ *   찜 아이콘: 로그인이면 찜 화면으로 이동, 비로그인이면 로그인 유도 모달 → 로그인하면 찜 화면 (KD-55)
  * - 서브 화면: 뒤로가기 화살표 + 가운데 타이틀(17px 굵은 볼드) + 오른쪽 액션
  */
 export const Header: React.FC<HeaderProps> = ({
@@ -24,6 +26,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { requireLogin, loginModal } = useLoginGate();
 
   const handleBack = () => {
     if (onBack) {
@@ -35,7 +38,11 @@ export const Header: React.FC<HeaderProps> = ({
 
   const isCartPage = location.pathname === '/cart';
 
+  const openLikes = () =>
+    requireLogin(() => navigate('/recipes/likes'), { description: '찜한 요리를 보려면 로그인해 주세요.' });
+
   return (
+    <>
     <header className="sticky top-0 z-40 w-full h-[56px] bg-white/95 backdrop-blur-md px-5 flex items-center justify-between transition-colors border-b border-line-subtle/60">
       {/* 왼쪽 슬롯 */}
       <div className="flex items-center min-w-[44px]">
@@ -66,8 +73,18 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       )}
 
-      {/* 오른쪽 슬롯 (장바구니 아이콘 + 코발트 블루 배지) */}
-      <div className="flex items-center justify-end min-w-[44px]">
+      {/* 오른쪽 슬롯 (탭 화면: 찜 아이콘 + 장바구니 아이콘·코발트 블루 배지) */}
+      <div className="flex items-center justify-end gap-1 min-w-[44px]">
+        {!showBack && !rightAction && (
+          <button
+            type="button"
+            onClick={openLikes}
+            className="w-10 h-10 rounded-full flex items-center justify-center text-ink hover:bg-line active:bg-line-strong transition-colors cursor-pointer"
+            aria-label="찜한 요리 보기"
+          >
+            <Heart className="w-5 h-5 stroke-[2]" />
+          </button>
+        )}
         {rightAction ? (
           rightAction
         ) : !isCartPage ? (
@@ -89,6 +106,9 @@ export const Header: React.FC<HeaderProps> = ({
         )}
       </div>
     </header>
+    {/* 헤더(backdrop-blur) 밖에 둬야 모달이 화면 기준으로 뜬다 */}
+    {loginModal}
+    </>
   );
 };
 

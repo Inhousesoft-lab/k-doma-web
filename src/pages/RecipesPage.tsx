@@ -131,7 +131,7 @@ export const RecipesPage: React.FC = () => {
     });
   }, [recipes, selectedMain, selectedCategory, search]);
 
-  // 결과 문구 생성 (예: '돼지 · 전체 종류 9개', 와이어프레임 완벽 일치)
+  // 결과 문구 생성 (예: '돼지 · 전체 종류 9개')
   const resultCountText = useMemo(() => {
     const mainLabel = selectedMain;
     const catLabel = selectedCategory === '전체' ? '전체 종류' : selectedCategory;
@@ -156,7 +156,7 @@ export const RecipesPage: React.FC = () => {
 
   return (
     <div className="flex flex-col px-5 pt-3 pb-8 gap-4 bg-white min-h-screen">
-      {/* 1. 상단 제목 줄: '요리 79' + 찜 아이콘(♡) + 보기 전환 (와이어프레임 완벽 일치) */}
+      {/* 1. 상단 제목 줄: '요리 79' + 보기 전환. */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <h2 className="text-[22px] font-black text-ink tracking-tight">
@@ -165,18 +165,6 @@ export const RecipesPage: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          {/* 찜 아이콘 버튼 (찜 화면 /recipes/likes 로 이동) */}
-          <button
-            type="button"
-            onClick={() =>
-              requireLogin(() => navigate('/recipes/likes'), { description: '찜한 요리를 보려면 로그인해 주세요.' })
-            }
-            className="w-[38px] h-[38px] rounded-[12px] border border-line-strong bg-white flex items-center justify-center text-ink hover:text-danger hover:border-danger transition-colors cursor-pointer"
-            aria-label="찜한 요리 보기"
-          >
-            <Heart className="w-[18px] h-[18px]" />
-          </button>
-
           {/* 보기 모드 전환: 목록형 / 피드형 토글 */}
           <div className="flex items-center bg-fill p-1 rounded-[12px]">
             <button
@@ -209,7 +197,7 @@ export const RecipesPage: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. 검색창 (와이어프레임: 돋보기 아이콘 + '요리명, 재료로 검색') */}
+      {/* 2. 검색창 (돋보기 아이콘 + '요리명, 재료로 검색') */}
       <div className="relative w-full">
         <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-ink-muted">
           <Search className="w-4 h-4" />
@@ -233,7 +221,7 @@ export const RecipesPage: React.FC = () => {
         )}
       </div>
 
-      {/* 3. 필터 2줄: 주재료 / 요리 종류 (와이어프레임 완벽 일치) */}
+      {/* 3. 필터 2줄: 주재료 / 요리 종류 */}
       <div className="flex flex-col gap-2.5">
         {/* 필터 1줄: 주재료 (전체·닭·돼지·소·해산물·생선·계란·두부·채소) */}
         <div className="flex items-center gap-2">
