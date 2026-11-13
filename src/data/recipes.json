@@ -1,25 +1,992 @@
 [
   {
-    "id": "r_kimchi_stew",
-    "name": "돼지고기 김치찌개",
+    "id": "r_p1_01",
+    "name": "평생 제육볶음",
+    "mainIngredient": "돼지",
+    "category": "특식",
+    "themes": [
+      "돼지"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "dishGroupId": "jeyuk",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_02",
+    "name": "긴급제육 119",
+    "mainIngredient": "돼지",
+    "category": "특식",
+    "themes": [
+      "긴급",
+      "돼지"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "dishGroupId": "jeyuk",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_03",
+    "name": "만 원 닭볶음탕",
+    "mainIngredient": "닭",
+    "category": "특식",
+    "themes": [
+      "만원",
+      "닭"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_04",
+    "name": "만 원 갈비찜",
+    "mainIngredient": "돼지",
+    "category": "특식",
+    "themes": [
+      "만원",
+      "돼지"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_05",
+    "name": "원 팬 등갈비",
+    "mainIngredient": "돼지",
+    "category": "특식",
+    "themes": [
+      "돼지"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "dishGroupId": "deunggalbi",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_06",
+    "name": "꼬리멸치 치킨",
+    "mainIngredient": "해산물·생선",
+    "category": "특식",
+    "themes": [
+      "해산물"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_07",
+    "name": "냄비 바비큐",
+    "mainIngredient": "돼지",
+    "category": "특식",
+    "themes": [
+      "돼지"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_08",
+    "name": "초간단 바싹 불고기",
+    "mainIngredient": "소",
+    "category": "특식",
+    "themes": [
+      "긴급",
+      "소"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_09",
+    "name": "갈비치킨",
+    "mainIngredient": "닭",
+    "category": "특식",
+    "themes": [
+      "닭"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "dishGroupId": "chicken",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_10",
+    "name": "어향가지",
+    "mainIngredient": "채소",
+    "category": "특식",
+    "themes": [
+      "중식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_11",
+    "name": "모두의 닭백숙",
+    "mainIngredient": "닭",
+    "category": "특식",
+    "themes": [
+      "국물",
+      "닭"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_12",
+    "name": "김치찜",
+    "mainIngredient": "돼지",
+    "category": "특식",
+    "themes": [
+      "돼지"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_13",
+    "name": "버터 새우",
+    "mainIngredient": "해산물·생선",
+    "category": "특식",
+    "themes": [
+      "해산물"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_14",
+    "name": "버터 감바스",
+    "mainIngredient": "해산물·생선",
+    "category": "특식",
+    "themes": [
+      "양식",
+      "해산물"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_15",
+    "name": "돈파육",
+    "mainIngredient": "돼지",
+    "category": "특식",
+    "themes": [
+      "돼지",
+      "중식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_16",
+    "name": "양념 육회",
+    "mainIngredient": "소",
+    "category": "특식",
+    "themes": [
+      "소"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_17",
+    "name": "만 원 찜닭",
+    "mainIngredient": "닭",
+    "category": "특식",
+    "themes": [
+      "만원",
+      "닭"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_18",
+    "name": "고추장 버터 등갈비",
+    "mainIngredient": "돼지",
+    "category": "특식",
+    "themes": [
+      "돼지"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "dishGroupId": "deunggalbi",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_19",
+    "name": "만 원 반반치킨",
+    "mainIngredient": "닭",
+    "category": "특식",
+    "themes": [
+      "만원",
+      "닭"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "dishGroupId": "chicken",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_20",
+    "name": "오징어 회무침과 천 원 깻잎전",
+    "mainIngredient": "해산물·생선",
+    "category": "특식",
+    "themes": [
+      "만원",
+      "해산물",
+      "전"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_21",
+    "name": "간장게장",
+    "mainIngredient": "해산물·생선",
+    "category": "특식",
+    "themes": [
+      "해산물"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "dishGroupId": "gejang",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p1_22",
+    "name": "양념게장",
+    "mainIngredient": "해산물·생선",
+    "category": "특식",
+    "themes": [
+      "해산물"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 1 평생 특식",
+    "dishGroupId": "gejang",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p2_01",
+    "name": "평생 김밥",
+    "mainIngredient": "계란",
+    "category": "밥",
+    "themes": [
+      "분식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 97,
+    "part": "Part 2 평생 밥",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p2_02",
+    "name": "평생 김치볶음밥",
+    "mainIngredient": "채소",
+    "category": "밥",
+    "themes": [
+      "만원"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 100,
+    "part": "Part 2 평생 밥",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p2_03",
+    "name": "달걀볶음밥",
+    "mainIngredient": "계란",
+    "category": "밥",
+    "themes": [
+      "긴급",
+      "만원"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 102,
+    "part": "Part 2 평생 밥",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p2_04",
+    "name": "매콤 게살볶음밥",
+    "mainIngredient": "해산물·생선",
+    "category": "밥",
+    "themes": [
+      "해산물"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 105,
+    "part": "Part 2 평생 밥",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p2_05",
+    "name": "스팸 덮밥",
+    "mainIngredient": "돼지",
+    "category": "밥",
+    "themes": [
+      "만원",
+      "돼지",
+      "스팸"
+    ],
+    "cookTimeMinutes": 15,
+    "caloriesKcal": 990,
+    "servings": 1,
+    "bookPage": 108,
+    "part": "Part 2 평생 밥",
+    "nutrition": {
+      "calories": 990,
+      "carbs": 100,
+      "protein": 26,
+      "fat": 52
+    },
+    "ingredientsRequired": [
+      {
+        "name": "스팸",
+        "amount": "100g",
+        "usageType": "PART"
+      },
+      {
+        "name": "밥",
+        "amount": "1공기",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "1/2개",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "2바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "달걀노른자",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "김가루",
+        "amount": "약간",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "스팸은 칼등으로 눌러 으깨고, 양파는 잘게 다진다.",
+      "달군 팬에 식용유를 2바퀴 두르고, 으깬 스팸을 넣어 꼬들꼬들하게 볶는다. (최대한 꼬들하게 볶아야 햄 특유의 잡내를 제거할 수 있어요.)",
+      "스팸이 노릇해지면 다진 마늘 1큰술, 다진 양파를 넣고 중불에서 볶는다.",
+      "양파가 투명해지면 설탕 1큰술을 넣는다. (양파를 볶을 때 설탕을 넣으면 캐러멜라이징이 더 잘돼요.)",
+      "팬 가장자리에 간장 2큰술을 넣고 중불에서 태우듯이 끓인 뒤 잘 섞는다.",
+      "그릇에 밥을 담고 스팸볶음을 얹은 뒤, 달걀노른자, 김가루를 올려 마무리한다. (취향에 따라 달걀노른자 대신 달걀프라이를 올려도 좋아요.)"
+    ],
+    "tags": [
+      "돼지",
+      "밥",
+      "간단한",
+      "단짠"
+    ],
+    "description": "으깬 스팸을 꼬들하게 볶아 간장으로 단짠하게 졸인 간단 덮밥",
+    "photoUrl": "/images/recipes/r_p2_05.jpg"
+  },
+  {
+    "id": "r_risotto",
+    "name": "10분 리소토",
+    "mainIngredient": "치즈",
+    "category": "밥",
+    "themes": [
+      "긴급",
+      "양식"
+    ],
+    "cookTimeMinutes": 10,
+    "caloriesKcal": 870,
+    "servings": 1,
+    "bookPage": 110,
+    "part": "Part 2 평생 밥",
+    "isVerified": true,
+    "nutrition": {
+      "calories": 870,
+      "carbs": 82,
+      "protein": 21,
+      "fat": 50
+    },
+    "tags": [
+      "밥",
+      "양식",
+      "초간단",
+      "치즈"
+    ],
+    "description": "생크림 없이 치즈와 참치액으로 레스토랑 맛을 내는 즉석밥 리소토",
+    "ingredientsRequired": [
+      {
+        "name": "즉석밥",
+        "amount": "1개",
+        "usageType": "ALL"
+      },
+      {
+        "name": "양송이버섯",
+        "amount": "3개",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "2쪽",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "¼개",
+        "usageType": "PART"
+      },
+      {
+        "name": "슬라이스 체다치즈",
+        "amount": "1장",
+        "usageType": "PART"
+      },
+      {
+        "name": "버터",
+        "amount": "40g",
+        "usageType": "PART"
+      },
+      {
+        "name": "우유",
+        "amount": "200ml",
+        "usageType": "PART"
+      },
+      {
+        "name": "참치액",
+        "amount": "⅘큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "1꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "달걀노른자",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "양송이버섯, 마늘은 얇게 편 썰고, 양파는 잘게 다진다. 즉석밥은 뚜껑을 완전히 뜯어내고 전자레인지에 2분 돌린 뒤 한 김 식힌다. (뚜껑을 완전히 벗기고 돌려야 밥알이 고슬고슬해요.)",
+      "팬에 버터 40g과 손질한 양송이버섯, 마늘, 양파를 넣고, 소금을 뿌려 약불에서 볶는다.",
+      "양파, 마늘이 노릇노릇해지면 물 50ml, 우유 200ml, 슬라이스 체다치즈 1장을 넣고 중불로 올려 끓인다.",
+      "치즈가 녹으면 참치액 ⅘큰술을 넣고 중약불에서 끓인다.",
+      "걸쭉하게 소스화가 되면 약불로 줄이고, 즉석밥을 넣어 30~40초 잘 섞은 뒤 불을 끈다. (주걱으로 바닥을 긁었을 때 길이 생기면 충분히 소스화가 된 것입니다.)",
+      "그릇에 리소토를 담고 후추를 넉넉히 뿌린 뒤, 달걀노른자를 올려 마무리한다. (달걀노른자 대신 화이트 트러플오일을 8방울 정도 뿌려도 맛있어요.)"
+    ],
+    "photoUrl": "/images/recipes/r_risotto.jpg"
+  },
+  {
+    "id": "r_egg_rice_bowl",
+    "name": "10분 달걀덮밥",
+    "mainIngredient": "계란",
+    "category": "밥",
+    "themes": [
+      "긴급"
+    ],
+    "cookTimeMinutes": 10,
+    "caloriesKcal": 760,
+    "servings": 1,
+    "bookPage": 112,
+    "part": "Part 2 평생 밥",
+    "isVerified": true,
+    "nutrition": {
+      "calories": 760,
+      "carbs": 84,
+      "protein": 21,
+      "fat": 37
+    },
+    "tags": [
+      "밥",
+      "계란",
+      "초간단",
+      "덮밥"
+    ],
+    "description": "달걀과 밥, 양파만 있으면 10분 만에 완성하는 참치액 달걀덮밥",
+    "ingredientsRequired": [
+      {
+        "name": "달걀",
+        "amount": "2개",
+        "usageType": "ALL"
+      },
+      {
+        "name": "양파",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "참치액",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "2꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "즉석밥",
+        "amount": "1개",
+        "usageType": "ALL"
+      },
+      {
+        "name": "식용유",
+        "amount": "",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "양파는 얇게 채썬다. 달걀은 가볍게 풀어 준비한다. (흰자와 노른자가 적당히 살아 있게 대충 풀어주세요.)",
+      "약불에 달군 팬에 식용유 4바퀴를 두르고 채썬 양파를 넣은 뒤, 소금 2꼬집을 뿌려 부드럽게 익힌다.",
+      "양파가 노릇노릇해지면 간장 1큰술, 참치액 1큰술, 설탕 ½큰술, 물 150ml를 넣고 강불에서 2분 끓인다. (액젓을 바꾸면 다른 요리가 되니 꼭 참치액을 사용하세요.)",
+      "풀어둔 달걀물을 넣고 어느 정도 익으면 뚜껑을 덮은 뒤 불을 끄고 잔열로 1분 익힌다. (달걀은 취향껏 익히면 됩니다.)",
+      "그릇에 밥을 담고 4를 얹어 마무리한다."
+    ],
+    "photoUrl": "/images/recipes/r_egg_rice_bowl.jpg"
+  },
+  {
+    "id": "r_p2_08",
+    "name": "어남선생 파에야",
+    "mainIngredient": "해산물·생선",
+    "category": "밥",
+    "themes": [
+      "양식",
+      "해산물"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 115,
+    "part": "Part 2 평생 밥",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p2_09",
+    "name": "에그 전복죽",
+    "mainIngredient": "해산물·생선",
+    "category": "밥",
+    "themes": [
+      "해산물"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 119,
+    "part": "Part 2 평생 밥",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p2_10",
+    "name": "무수분 마늘 카레",
+    "mainIngredient": "채소",
+    "category": "밥",
+    "themes": [
+      "일식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 122,
+    "part": "Part 2 평생 밥",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p3_01",
+    "name": "원 팬 토마토 버터 파스타",
+    "mainIngredient": "채소",
+    "category": "면·파스타",
+    "themes": [
+      "파스타",
+      "양식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 128,
+    "part": "Part 3 평생 면",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p3_02",
+    "name": "차돌볶음 파스타",
+    "mainIngredient": "소",
+    "category": "면·파스타",
+    "themes": [
+      "파스타",
+      "소",
+      "양식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 131,
+    "part": "Part 3 평생 면",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p3_03",
+    "name": "스팸 케첩 파스타",
+    "mainIngredient": "돼지",
+    "category": "면·파스타",
+    "themes": [
+      "파스타",
+      "양식",
+      "돼지",
+      "스팸"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 134,
+    "part": "Part 3 평생 면",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p3_04",
+    "name": "명란 버터 파스타",
+    "mainIngredient": "해산물·생선",
+    "category": "면·파스타",
+    "themes": [
+      "파스타",
+      "해산물",
+      "양식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 138,
+    "part": "Part 3 평생 면",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p3_05",
+    "name": "원 팬 우유 버터 파스타",
+    "mainIngredient": "채소",
+    "category": "면·파스타",
+    "themes": [
+      "파스타",
+      "양식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 140,
+    "part": "Part 3 평생 면",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p3_06",
+    "name": "원 팬 우유 버터 봉골레",
+    "mainIngredient": "해산물·생선",
+    "category": "면·파스타",
+    "themes": [
+      "파스타",
+      "해산물",
+      "양식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 143,
+    "part": "Part 3 평생 면",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p3_07",
+    "name": "원 팬 카르보나라",
+    "mainIngredient": "계란",
+    "category": "면·파스타",
+    "themes": [
+      "파스타",
+      "양식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 146,
+    "part": "Part 3 평생 면",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p3_08",
+    "name": "보일링 크랩",
+    "mainIngredient": "해산물·생선",
+    "category": "특식",
+    "themes": [
+      "해산물"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 149,
+    "part": "Part 3 평생 면",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p3_09",
+    "name": "골뱅이 소면",
+    "mainIngredient": "해산물·생선",
+    "category": "면·파스타",
+    "themes": [
+      "해산물",
+      "면"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 152,
+    "part": "Part 3 평생 면",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p3_10",
+    "name": "참간초면",
+    "mainIngredient": "채소",
+    "category": "면·파스타",
+    "themes": [
+      "긴급",
+      "면"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 155,
+    "part": "Part 3 평생 면",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p3_11",
+    "name": "원 팬 삼겹 잡채",
+    "mainIngredient": "돼지",
+    "category": "면·파스타",
+    "themes": [
+      "돼지",
+      "면"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 157,
+    "part": "Part 3 평생 면",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p3_12",
+    "name": "분식집 라볶이",
+    "mainIngredient": "채소",
+    "category": "분식",
+    "themes": [
+      "떡볶이",
+      "간식",
+      "분식",
+      "면"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 160,
+    "part": "Part 3 평생 면",
+    "dishGroupId": "tteokbokki",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p3_13",
+    "name": "어묵국수",
+    "mainIngredient": "해산물·생선",
+    "category": "면·파스타",
+    "themes": [
+      "국물",
+      "면"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 162,
+    "part": "Part 3 평생 면",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p3_14",
+    "name": "설마고추장비빔면",
+    "mainIngredient": "채소",
+    "category": "면·파스타",
+    "themes": [
+      "긴급",
+      "면"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 164,
+    "part": "Part 3 평생 면",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p4_01",
+    "name": "초간단 홍합탕",
+    "mainIngredient": "해산물·생선",
+    "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "긴급",
+      "해산물"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 4 평생 국탕찌개",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p4_02",
+    "name": "한우양지미역국",
+    "mainIngredient": "소",
+    "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "소"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 4 평생 국탕찌개",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p4_03",
+    "name": "어남선생 감자탕 완결판",
     "mainIngredient": "돼지",
     "category": "국·탕·찌개",
     "themes": [
       "국물",
-      "만원",
       "돼지"
     ],
-    "cookTimeMinutes": 25,
-    "caloriesKcal": 380,
+    "cookTimeMinutes": 0,
     "servings": 2,
-    "bookPage": 18,
-    "part": "Part 1 국·탕·찌개",
-    "isVerified": true,
+    "part": "Part 4 평생 국탕찌개",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_kimchi_stew",
+    "name": "평생 김치찌개",
+    "mainIngredient": "돼지",
+    "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "돼지"
+    ],
+    "cookTimeMinutes": 60,
+    "caloriesKcal": 530,
+    "servings": 2,
+    "bookPage": 181,
+    "part": "Part 4 평생 국탕찌개",
     "nutrition": {
-      "calories": 380,
-      "carbs": 14,
-      "protein": 28,
-      "fat": 24
+      "calories": 530,
+      "carbs": 24,
+      "protein": 39,
+      "fat": 29
     },
     "tags": [
       "돼지",
@@ -27,100 +994,90 @@
       "얼큰한",
       "밥도둑"
     ],
-    "description": "잘 익은 묵은지와 돼지고기를 달달 볶아 진하게 끓여낸 정석 김치찌개",
+    "description": "앞다리살을 볶아 고추기름을 내고 40분 푹 끓여 국밥처럼 깊은 맛을 낸 김치찌개",
     "ingredientsRequired": [
       {
-        "name": "배추김치",
-        "amount": "1/4포기",
+        "name": "김치",
+        "amount": "¼포기(약 600g)",
+        "usageType": "ALL"
+      },
+      {
+        "name": "돼지고기 앞다리살 찌개용",
+        "amount": "300g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "김치 국물",
+        "amount": "½컵",
         "usageType": "PART"
       },
       {
-        "name": "돼지고기 앞다리살",
-        "amount": "150g",
-        "usageType": "ALL"
+        "name": "양파",
+        "amount": "1개",
+        "usageType": "PART"
       },
       {
         "name": "대파",
-        "amount": "1/2대",
+        "amount": "1대",
         "usageType": "PART"
       },
       {
-        "name": "찌개두부",
-        "amount": "1/2모",
-        "usageType": "ALL"
+        "name": "두부",
+        "amount": "½모",
+        "usageType": "PART"
       },
       {
-        "name": "고춧가루",
+        "name": "다진 마늘",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "새우젓",
         "amount": "1큰술",
         "usageType": "PART"
       },
       {
         "name": "진간장",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고춧가루",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "굵은 소금",
+        "amount": "⅓큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
         "amount": "1큰술",
         "usageType": "PART"
-      }
-    ],
-    "steps": [
-      "달군 냄비에 돼지고기와 김치를 넣고 달달 볶아줍니다.",
-      "고기 겉면이 익으면 쌀뜨물 또는 물 3컵을 붓고 끓입니다.",
-      "끓어오르면 고춧가루, 진간장으로 간을 맞춥니다.",
-      "두부와 송송 썬 대파를 넣고 5분간 중불에서 끓여 완성합니다."
-    ]
-  },
-  {
-    "id": "r_potato_stirfry",
-    "name": "스팸 감자채볶음",
-    "mainIngredient": "채소",
-    "category": "반찬",
-    "themes": [
-      "긴급",
-      "만원"
-    ],
-    "cookTimeMinutes": 15,
-    "caloriesKcal": 210,
-    "servings": 2,
-    "bookPage": 22,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 210,
-      "carbs": 22,
-      "protein": 7,
-      "fat": 11
-    },
-    "tags": [
-      "채소",
-      "반찬",
-      "아이반찬",
-      "간단"
-    ],
-    "description": "감자의 아삭함과 스팸의 짭조름한 감칠맛이 어우러진 국민 밥반찬",
-    "ingredientsRequired": [
-      {
-        "name": "수미감자",
-        "amount": "2개",
-        "usageType": "ALL"
       },
       {
-        "name": "대파",
-        "amount": "약간",
-        "usageType": "PART"
-      },
-      {
-        "name": "참기름",
-        "amount": "1작은술",
+        "name": "식용유",
+        "amount": "",
         "usageType": "PART"
       }
     ],
     "steps": [
-      "감자는 가늘게 채 썰어 찬물에 헹궈 전분기를 뺍니다.",
-      "팬에 식용유를 두르고 감자채를 투명해질 때까지 볶습니다.",
-      "마지막에 참기름을 살짝 둘러 고소한 향을 냅니다."
-    ]
+      "김치는 먹기 좋은 크기로 썬다(이파리는 넓게, 줄기는 좁게). 양파는 채썰고, 대파는 송송 썰고, 두부는 1cm 두께로 썬다. (김장한 지 2~3개월 된 새콤달콤한 김치가 좋아요. 시판 김치는 밀폐용기에 담아 냉장고에서 2~3주 익히면 됩니다.)",
+      "중불에서 3분 예열한 냄비에 식용유 1바퀴를 두른다. (국물이 넘치지 않게 22cm 이상 스테인리스 냄비를 추천해요. 기름에 물결이 생기면 충분히 예열된 것입니다.)",
+      "앞다리살을 넣고 노릇해질 때까지 중불에 볶는다. (연기가 확 올라오면 뚜껑을 잠시 덮어주세요.)",
+      "수분이 날아가고 기름이 자글자글 끓는 소리가 나면 다진 마늘 1큰술, 새우젓 1큰술을 넣고 볶는다. (다진 마늘을 먼저 넣고, 매운 냄새가 빠지면 새우젓을 넣어주세요.)",
+      "재료를 한쪽으로 몰고, 빈 공간에 진간장 2큰술을 넣고 바글바글 끓인 뒤 섞는다.",
+      "고춧가루 2큰술을 넣은 뒤, 불을 끄고 잘 볶는다. (잔열로 고춧가루를 볶아 고추기름을 내는 것입니다.)",
+      "물 1L를 붓고, 김치, 김치 국물 ½컵, 굵은 소금 ⅓큰술, 양파, 대파를 넣고 강불로 끓인다.",
+      "바글바글 끓기 시작하면 중불로 줄이고 뚜껑을 덮어 40분 끓인다. (짜면 물을 소주잔 1컵 정도 추가하고, 싱거우면 10분 더 졸여주세요.)",
+      "두부와 식초 1큰술을 넣고, 두부가 따뜻해질 때까지 더 끓이면 완성!"
+    ],
+    "photoUrl": "/images/recipes/r_kimchi_stew.jpg"
   },
   {
     "id": "r_soybean_stew",
-    "name": "차돌박이 된장찌개",
+    "name": "평생 된장찌개",
     "mainIngredient": "소",
     "category": "국·탕·찌개",
     "themes": [
@@ -130,9 +1087,8 @@
     "cookTimeMinutes": 20,
     "caloriesKcal": 640,
     "servings": 2,
-    "bookPage": 26,
-    "part": "Part 1 국·탕·찌개",
-    "isVerified": true,
+    "bookPage": 185,
+    "part": "Part 4 평생 국탕찌개",
     "nutrition": {
       "calories": 640,
       "carbs": 40,
@@ -169,7 +1125,7 @@
       },
       {
         "name": "애호박",
-        "amount": "1/2개",
+        "amount": "1/3개",
         "usageType": "PART"
       },
       {
@@ -218,3886 +1174,571 @@
     "photoUrl": "/images/recipes/r_soybean_stew.jpg"
   },
   {
-    "id": "r_egg_roll",
-    "name": "포슬포슬 계란말이",
-    "mainIngredient": "계란",
-    "category": "반찬",
+    "id": "r_p4_06",
+    "name": "스팸 순두부찌개",
+    "mainIngredient": "두부",
+    "category": "국·탕·찌개",
     "themes": [
-      "긴급",
-      "만원"
+      "국물",
+      "스팸"
     ],
-    "cookTimeMinutes": 10,
-    "caloriesKcal": 195,
+    "cookTimeMinutes": 0,
     "servings": 2,
-    "bookPage": 30,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 195,
-      "carbs": 3,
-      "protein": 14,
-      "fat": 14
-    },
-    "tags": [
-      "계란",
-      "반찬",
-      "단백질",
-      "도시락"
-    ],
-    "description": "알끈을 풀어 부드럽고 도톰하게 말아낸 영양 만점 계란말이",
-    "ingredientsRequired": [
-      {
-        "name": "신선란",
-        "amount": "4알",
-        "usageType": "ALL"
-      },
-      {
-        "name": "대파",
-        "amount": "약간",
-        "usageType": "PART"
-      },
-      {
-        "name": "참기름",
-        "amount": "1작은술",
-        "usageType": "PART"
-      }
-    ],
-    "steps": [
-      "계란 4알을 곱게 풀고 소금으로 살짝 밑간합니다.",
-      "약불 팬에 기름을 얇게 두르고 계란물을 조금씩 부어가며 돌돌 맙니다.",
-      "도마에 꺼내 한 김 식힌 뒤 먹기 좋은 크기로 썹니다."
-    ]
+    "part": "Part 4 평생 국탕찌개",
+    "ingredientsRequired": [],
+    "steps": []
   },
   {
-    "id": "r_spicy_pork",
-    "name": "불맛 제육볶음",
+    "id": "r_gochujang_stew",
+    "name": "고추장찌개",
     "mainIngredient": "돼지",
-    "category": "반찬",
+    "category": "국·탕·찌개",
     "themes": [
-      "만원",
+      "국물",
       "돼지"
     ],
-    "cookTimeMinutes": 25,
-    "caloriesKcal": 520,
+    "cookTimeMinutes": 40,
+    "caloriesKcal": 1060,
     "servings": 2,
-    "bookPage": 34,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
+    "bookPage": 192,
+    "part": "Part 4 평생 국탕찌개",
     "nutrition": {
-      "calories": 520,
-      "carbs": 18,
-      "protein": 36,
-      "fat": 34
+      "calories": 1060,
+      "carbs": 84,
+      "protein": 51,
+      "fat": 58
     },
     "tags": [
       "돼지",
-      "반찬",
-      "특식",
-      "매콤달콤"
+      "국·탕·찌개",
+      "얼큰한",
+      "밥도둑"
     ],
-    "description": "고추장 특제 양념에 대파 기름으로 센 불에서 빠르게 볶아낸 제육",
+    "description": "육수 없이 삼겹살을 노릇하게 볶아 고추장으로 푹 끓여낸 밥도둑 찌개",
     "ingredientsRequired": [
       {
-        "name": "돼지고기 앞다리살",
+        "name": "돼지고기 삼겹살",
         "amount": "300g",
-        "usageType": "ALL"
-      },
-      {
-        "name": "양파",
-        "amount": "1개",
         "usageType": "ALL"
       },
       {
         "name": "대파",
         "amount": "1대",
-        "usageType": "ALL"
-      },
-      {
-        "name": "진간장",
-        "amount": "2큰술",
         "usageType": "PART"
       },
       {
-        "name": "고춧가루",
-        "amount": "2큰술",
-        "usageType": "PART"
-      }
-    ],
-    "steps": [
-      "돼지고기를 양념장에 10분간 재워 밑간이 배게 합니다.",
-      "센 불로 달군 팬에 고기를 빠르게 볶아 불향을 입힙니다.",
-      "양파와 대파를 넣고 센 불에서 수분을 날리며 볶습니다."
-    ]
-  },
-  {
-    "id": "r_beef_seaweed",
-    "name": "소고기 미역국",
-    "mainIngredient": "소",
-    "category": "국·탕·찌개",
-    "themes": [
-      "국물",
-      "소"
-    ],
-    "cookTimeMinutes": 40,
-    "servings": 3,
-    "bookPage": 38,
-    "part": "Part 1 국·탕·찌개",
-    "isVerified": true,
-    "tags": [
-      "소",
-      "국·탕·찌개",
-      "속편한",
-      "생일상"
-    ],
-    "description": "참기름에 소고기와 불린 미역을 달달 볶아 푹 끓여낸 맑고 깊은 국",
-    "ingredientsRequired": [
-      {
-        "name": "참기름",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "진간장",
-        "amount": "1.5큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "다진마늘",
-        "amount": "1작은술",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "불린 미역과 소고기를 참기름을 두른 냄비에 달달 볶습니다.",
-      "물을 넉넉히 붓고 센 불에서 끓이다가 중약불로 30분간 푹 우립니다.",
-      "국간장과 소금으로 간을 맞춰 담백하게 완성합니다."
-    ]
-  },
-  {
-    "id": "r_7",
-    "name": "칼칼 닭볶음탕",
-    "mainIngredient": "닭",
-    "category": "특식",
-    "themes": [
-      "닭"
-    ],
-    "cookTimeMinutes": 45,
-    "caloriesKcal": 490,
-    "servings": 3,
-    "bookPage": 42,
-    "part": "Part 4 별미 특식",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 490,
-      "carbs": 32,
-      "protein": 42,
-      "fat": 21
-    },
-    "tags": [
-      "닭",
-      "특식",
-      "얼큰한",
-      "주말메뉴"
-    ],
-    "description": "포슬포슬한 감자와 매콤달콤한 양념이 닭고기에 쏙 배어든 일품 요리",
-    "ingredientsRequired": [
-      {
-        "name": "수미감자",
+        "name": "감자",
         "amount": "2개",
-        "usageType": "ALL"
+        "usageType": "PART"
       },
       {
         "name": "양파",
         "amount": "1개",
-        "usageType": "ALL"
-      },
-      {
-        "name": "대파",
-        "amount": "1대",
-        "usageType": "ALL"
-      },
-      {
-        "name": "고춧가루",
-        "amount": "3큰술",
         "usageType": "PART"
       },
       {
-        "name": "진간장",
-        "amount": "4큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "닭정육",
-        "amount": "600g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "끓는 물에 토막 닭을 3분간 데쳐 불순물을 씻어냅니다.",
-      "냄비에 닭, 물, 감자, 양념장을 넣고 센 불로 끓입니다.",
-      "국물이 자작해지면 양파와 대파를 넣고 중약불로 조립니다."
-    ]
-  },
-  {
-    "id": "r_8",
-    "name": "통오징어 볶음",
-    "mainIngredient": "해산물·생선",
-    "category": "반찬",
-    "themes": [
-      "해산물"
-    ],
-    "cookTimeMinutes": 20,
-    "caloriesKcal": 310,
-    "servings": 2,
-    "bookPage": 46,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 310,
-      "carbs": 24,
-      "protein": 32,
-      "fat": 9
-    },
-    "tags": [
-      "해산물·생선",
-      "반찬",
-      "매콤한",
-      "쫄깃한"
-    ],
-    "description": "탱글탱글한 오징어 살에 불향 나는 양념을 입혀 빠르게 볶아낸 반찬",
-    "ingredientsRequired": [
-      {
-        "name": "대파",
-        "amount": "1대",
-        "usageType": "ALL"
-      },
-      {
-        "name": "양파",
-        "amount": "1/2개",
-        "usageType": "PART"
-      },
-      {
-        "name": "고춧가루",
-        "amount": "2큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "진간장",
-        "amount": "2큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "물오징어",
-        "amount": "1마리",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "오징어는 먹기 좋게 링 모양이나 칼집을 내어 썹니다.",
-      "센 불에 달군 팬에 파 기름을 내고 오징어를 빠르게 볶습니다.",
-      "양파와 양념장을 넣고 2분 내로 재빨리 볶아 물기를 줄입니다."
-    ]
-  },
-  {
-    "id": "r_9",
-    "name": "매콤 두부조림",
-    "mainIngredient": "두부",
-    "category": "반찬",
-    "themes": [
-      "만원"
-    ],
-    "cookTimeMinutes": 15,
-    "caloriesKcal": 220,
-    "servings": 2,
-    "bookPage": 50,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 220,
-      "carbs": 12,
-      "protein": 18,
-      "fat": 12
-    },
-    "tags": [
-      "두부",
-      "반찬",
-      "착한재료",
-      "매콤달콤"
-    ],
-    "description": "노릇하게 구운 두부에 짭짤 매콤한 양념장을 끼얹어 자작하게 조린 반찬",
-    "ingredientsRequired": [
-      {
-        "name": "찌개두부",
-        "amount": "1모",
-        "usageType": "ALL"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "고춧가루",
-        "amount": "1.5큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "진간장",
-        "amount": "2큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "참기름",
-        "amount": "1작은술",
-        "usageType": "PART"
-      }
-    ],
-    "steps": [
-      "두부는 도톰하게 썰어 키친타월로 물기를 제거합니다.",
-      "팬에 들기름을 두르고 두부를 앞뒤로 노릇하게 부칩니다.",
-      "양념장과 물 1/2컵을 붓고 자작하게 졸여냅니다."
-    ]
-  },
-  {
-    "id": "r_10",
-    "name": "바지락 콩나물국",
-    "mainIngredient": "채소",
-    "category": "국·탕·찌개",
-    "themes": [
-      "국물",
-      "긴급",
-      "만원",
-      "해산물"
-    ],
-    "cookTimeMinutes": 15,
-    "servings": 2,
-    "bookPage": 54,
-    "part": "Part 1 국·탕·찌개",
-    "isVerified": true,
-    "tags": [
-      "채소",
-      "국·탕·찌개",
-      "해장",
-      "시원한"
-    ],
-    "description": "아삭한 콩나물과 시원한 바지락이 어우러져 아침 해장에 으뜸인 맑은 국",
-    "ingredientsRequired": [
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "다진마늘",
-        "amount": "1작은술",
-        "usageType": "ALL"
-      },
-      {
-        "name": "콩나물",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "냄비에 물과 바지락을 넣고 끓여 뽀얀 육수를 냅니다.",
-      "콩나물을 넣고 뚜껑을 연 채로 4분간 시원하게 끓입니다.",
-      "다진 마늘과 대파를 넣고 소금으로 깔끔하게 간합니다."
-    ]
-  },
-  {
-    "id": "r_11",
-    "name": "간장 찜닭",
-    "mainIngredient": "닭",
-    "category": "특식",
-    "themes": [
-      "닭"
-    ],
-    "cookTimeMinutes": 40,
-    "caloriesKcal": 560,
-    "servings": 3,
-    "bookPage": 58,
-    "part": "Part 4 별미 특식",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 560,
-      "carbs": 48,
-      "protein": 44,
-      "fat": 20
-    },
-    "tags": [
-      "닭",
-      "특식",
-      "단짠단짠",
-      "당면"
-    ],
-    "description": "짭조름한 간장 베이스에 건고추의 칼칼함과 쫄깃한 당면이 가득한 안동식 찜닭",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "5큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "수미감자",
-        "amount": "1개",
-        "usageType": "ALL"
-      },
-      {
-        "name": "양파",
-        "amount": "1/2개",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1대",
-        "usageType": "ALL"
-      },
-      {
-        "name": "닭정육",
-        "amount": "500g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "손질한 닭을 끓는 물에 데쳐 건져냅니다.",
-      "간장, 물, 설탕 양념에 닭과 감자를 넣고 20분 끓입니다.",
-      "불린 당면과 양파, 대파를 넣고 윤기 나게 조립니다."
-    ]
-  },
-  {
-    "id": "r_12",
-    "name": "김치 볶음밥",
-    "mainIngredient": "돼지",
-    "category": "밥",
-    "themes": [
-      "긴급",
-      "만원"
-    ],
-    "cookTimeMinutes": 12,
-    "caloriesKcal": 440,
-    "servings": 1,
-    "bookPage": 62,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 440,
-      "carbs": 62,
-      "protein": 16,
-      "fat": 14
-    },
-    "tags": [
-      "돼지",
-      "밥",
-      "한그릇",
-      "초간단"
-    ],
-    "description": "송송 썬 김치와 햄을 파기름에 볶아 반숙 계란후라이를 얹은 스테디셀러",
-    "ingredientsRequired": [
-      {
-        "name": "배추김치",
-        "amount": "1공기",
-        "usageType": "PART"
-      },
-      {
-        "name": "신선란",
-        "amount": "1알",
-        "usageType": "ALL"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "참기름",
-        "amount": "1작은술",
-        "usageType": "PART"
-      }
-    ],
-    "steps": [
-      "팬에 식용유를 두르고 송송 썬 대파를 볶아 파기름을 냅니다.",
-      "잘게 썬 김치와 간장 1작은술을 넣고 달달 볶아줍니다.",
-      "밥을 넣고 골고루 섞은 뒤 계란후라이를 올려 냅니다."
-    ]
-  },
-  {
-    "id": "r_13",
-    "name": "소고기 야채 볶음밥",
-    "mainIngredient": "소",
-    "category": "밥",
-    "themes": [
-      "소"
-    ],
-    "cookTimeMinutes": 15,
-    "caloriesKcal": 480,
-    "servings": 1,
-    "bookPage": 66,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 480,
-      "carbs": 65,
-      "protein": 22,
-      "fat": 15
-    },
-    "tags": [
-      "소",
-      "밥",
-      "영양만점",
-      "아이반찬"
-    ],
-    "description": "잘게 다진 소고기와 갖은 채소를 고슬고슬 볶아낸 고소한 영양 볶음밥",
-    "ingredientsRequired": [
-      {
-        "name": "양파",
-        "amount": "1/4개",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "약간",
-        "usageType": "PART"
-      },
-      {
-        "name": "참기름",
-        "amount": "1작은술",
-        "usageType": "PART"
-      },
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "다진소고기",
-        "amount": "80g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "달군 팬에 참기름을 두르고 다진 소고기를 볶아 익힙니다.",
-      "다진 양파와 채소를 넣고 투명해질 때까지 볶습니다.",
-      "밥과 간장을 넣고 센 불에서 고슬고슬하게 볶아냅니다."
-    ]
-  },
-  {
-    "id": "r_14",
-    "name": "해물 라면",
-    "mainIngredient": "해산물·생선",
-    "category": "면·파스타",
-    "themes": [
-      "긴급",
-      "해산물"
-    ],
-    "cookTimeMinutes": 10,
-    "caloriesKcal": 510,
-    "servings": 1,
-    "bookPage": 70,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 510,
-      "carbs": 74,
-      "protein": 18,
-      "fat": 16
-    },
-    "tags": [
-      "해산물·생선",
-      "면·파스타",
-      "분식",
-      "얼큰한"
-    ],
-    "description": "오징어와 홍합을 넣어 바다 향이 물씬 풍기는 시원 칼칼한 프리미엄 라면",
-    "ingredientsRequired": [
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "고춧가루",
-        "amount": "1작은술",
-        "usageType": "PART"
-      },
-      {
-        "name": "신선란",
-        "amount": "1알",
-        "usageType": "ALL"
-      },
-      {
-        "name": "물오징어",
-        "amount": "1/2마리",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "냄비에 물 550ml와 해산물을 넣고 끓여 육수를 냅니다.",
-      "물이 끓으면 라면 스프와 면을 넣고 4분간 끓입니다.",
-      "송송 썬 대파와 고춧가루를 얹어 칼칼하게 완성합니다."
-    ]
-  },
-  {
-    "id": "r_15",
-    "name": "국물 떡볶이",
-    "mainIngredient": "채소",
-    "category": "분식",
-    "dishGroupId": "tteokbokki",
-    "themes": [
-      "떡볶이",
-      "만원"
-    ],
-    "cookTimeMinutes": 18,
-    "caloriesKcal": 420,
-    "servings": 2,
-    "bookPage": 74,
-    "part": "Part 4 별미 특식",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 420,
-      "carbs": 86,
-      "protein": 8,
-      "fat": 4
-    },
-    "tags": [
-      "채소",
-      "분식",
-      "간식",
-      "매콤달콤"
-    ],
-    "description": "숟가락으로 국물과 함께 떠먹는 매콤달달한 옛날 학교 앞 국물 떡볶이",
-    "ingredientsRequired": [
-      {
-        "name": "대파",
-        "amount": "1대",
-        "usageType": "ALL"
-      },
-      {
-        "name": "고춧가루",
-        "amount": "2큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "진간장",
-        "amount": "1.5큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "밀떡",
-        "amount": "300g",
-        "usageType": "ALL"
-      },
-      {
-        "name": "사각어묵",
-        "amount": "2장",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "물 400ml에 고추장, 고춧가루, 설탕, 간장을 풀어 끓입니다.",
-      "물이 끓으면 떡과 어묵을 넣고 중불에서 7분간 끓입니다.",
-      "어슷 썬 대파를 듬뿍 넣고 2분 더 끓여 걸쭉하게 냅니다."
-    ]
-  },
-  {
-    "id": "r_16",
-    "name": "마늘종 새우볶음",
-    "mainIngredient": "해산물·생선",
-    "category": "반찬",
-    "themes": [
-      "해산물"
-    ],
-    "cookTimeMinutes": 12,
-    "servings": 2,
-    "bookPage": 78,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "tags": [
-      "해산물·생선",
-      "반찬",
-      "고소한",
-      "밑반찬"
-    ],
-    "description": "알싸한 마늘종과 바삭한 건새우를 달콤 짭조름하게 볶아낸 밑반찬",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "2큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "참기름",
-        "amount": "1작은술",
-        "usageType": "PART"
-      },
-      {
-        "name": "건새우",
-        "amount": "1컵",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "마늘종은 4cm 길이로 썰어 끓는 물에 살짝 데칩니다.",
-      "마른 팬에 건새우를 덖어 잡내를 날리고 바삭하게 합니다.",
-      "간장 양념에 마늘종과 새우를 넣고 윤기 나게 볶아냅니다."
-    ]
-  },
-  {
-    "id": "r_17",
-    "name": "순두부 열라면",
-    "mainIngredient": "두부",
-    "category": "면·파스타",
-    "themes": [
-      "긴급",
-      "만원"
-    ],
-    "cookTimeMinutes": 12,
-    "caloriesKcal": 495,
-    "servings": 1,
-    "bookPage": 82,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 495,
-      "carbs": 68,
-      "protein": 21,
-      "fat": 15
-    },
-    "tags": [
-      "두부",
-      "면·파스타",
-      "얼큰한",
-      "SNS화제"
-    ],
-    "description": "몽글몽글 순두부 반 모를 통째로 넣어 얼큰함과 부드러움이 폭발하는 라면",
-    "ingredientsRequired": [
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "고춧가루",
-        "amount": "1작은술",
-        "usageType": "PART"
-      },
-      {
-        "name": "신선란",
-        "amount": "1알",
-        "usageType": "ALL"
-      },
-      {
-        "name": "순두부",
-        "amount": "1/2봉",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "물 350ml에 라면 스프와 순두부를 큼직하게 썰어 넣습니다.",
-      "물이 끓으면 면을 넣고 3분간 끓입니다.",
-      "계란과 대파, 후추를 톡톡 뿌려 얼큰하게 즐깁니다."
-    ]
-  },
-  {
-    "id": "r_18",
-    "name": "소고기 장조림",
-    "mainIngredient": "소",
-    "category": "반찬",
-    "themes": [
-      "소"
-    ],
-    "cookTimeMinutes": 45,
-    "caloriesKcal": 280,
-    "servings": 4,
-    "bookPage": 86,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 280,
-      "carbs": 8,
-      "protein": 38,
-      "fat": 9
-    },
-    "tags": [
-      "소",
-      "반찬",
-      "든든한",
-      "밑반찬"
-    ],
-    "description": "결대로 찢은 소고기 홍두깨살에 짭조름한 간장 맛이 배어든 든든한 반찬",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1/2컵",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1대",
-        "usageType": "ALL"
-      },
-      {
-        "name": "소고기홍두깨",
-        "amount": "300g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "소고기는 핏물을 빼고 끓는 물에 향신채와 함께 삶습니다.",
-      "익은 고기를 건져 결대로 먹기 좋게 찢어줍니다.",
-      "육수와 간장을 붓고 국물이 반으로 줄어들 때까지 조립니다."
-    ]
-  },
-  {
-    "id": "r_19",
-    "name": "참치 마요 덮밥",
-    "mainIngredient": "해산물·생선",
-    "category": "밥",
-    "themes": [
-      "긴급",
-      "만원",
-      "해산물"
-    ],
-    "cookTimeMinutes": 10,
-    "caloriesKcal": 530,
-    "servings": 1,
-    "bookPage": 90,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 530,
-      "carbs": 70,
-      "protein": 24,
-      "fat": 17
-    },
-    "tags": [
-      "해산물·생선",
-      "밥",
-      "초간단",
-      "고소한"
-    ],
-    "description": "기름 뺀 참치와 부드러운 스크램블 에그, 마요네즈가 어우러진 한 그릇 요리",
-    "ingredientsRequired": [
-      {
-        "name": "신선란",
-        "amount": "2알",
-        "usageType": "ALL"
-      },
-      {
-        "name": "양파",
-        "amount": "1/4개",
-        "usageType": "PART"
-      },
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "캔참치",
-        "amount": "1캔",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "계란 2알로 부드러운 스크램블 에그를 만들어 밥 위에 두릅니다.",
-      "채 썬 양파를 간장 양념에 볶아 밥 위에 얹습니다.",
-      "기름 뺀 참치를 올리고 마요네즈와 김가루를 뿌립니다."
-    ]
-  },
-  {
-    "id": "r_20",
-    "name": "감자전",
-    "mainIngredient": "채소",
-    "category": "간식",
-    "themes": [
-      "간식",
-      "만원"
-    ],
-    "cookTimeMinutes": 20,
-    "caloriesKcal": 230,
-    "servings": 2,
-    "bookPage": 94,
-    "part": "Part 4 별미 특식",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 230,
-      "carbs": 42,
-      "protein": 4,
-      "fat": 5
-    },
-    "tags": [
-      "채소",
-      "간식",
-      "비오는날",
-      "바삭한"
-    ],
-    "description": "강판에 곱게 갈아 감자 본연의 쫀득하고 바삭한 맛을 살린 순수 감자전",
-    "ingredientsRequired": [
-      {
-        "name": "수미감자",
+        "name": "청양고추",
         "amount": "3개",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "감자는 껍질을 벗겨 강판에 곱게 갈아 체에 밭칩니다.",
-      "가라앉은 앙금 전분과 감자 건더기를 소금과 함께 섞습니다.",
-      "기름을 넉넉히 두른 팬에 얇게 부쳐 바삭하게 굽습니다."
-    ]
-  },
-  {
-    "id": "r_21",
-    "name": "닭가슴살 샐러드",
-    "mainIngredient": "닭",
-    "category": "간식",
-    "themes": [
-      "긴급",
-      "양식",
-      "닭"
-    ],
-    "cookTimeMinutes": 15,
-    "caloriesKcal": 250,
-    "servings": 1,
-    "bookPage": 98,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 250,
-      "carbs": 12,
-      "protein": 34,
-      "fat": 6
-    },
-    "tags": [
-      "닭",
-      "간식",
-      "다이어트",
-      "식단"
-    ],
-    "description": "촉촉하게 삶은 닭가슴살과 신선한 채소에 오리엔탈 드레싱을 곁들인 건강식",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
         "usageType": "PART"
       },
       {
-        "name": "참기름",
-        "amount": "1작은술",
+        "name": "애호박",
+        "amount": "½개",
         "usageType": "PART"
       },
       {
-        "name": "닭가슴살",
-        "amount": "150g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "닭가슴살을 끓는 물에 12분간 삶아 결대로 찢습니다.",
-      "신선한 채소를 씻어 물기를 털어 볼에 담습니다.",
-      "간장, 참기름 베이스 드레싱을 가볍게 뿌려 완성합니다."
-    ]
-  },
-  {
-    "id": "r_22",
-    "name": "소고기 배추된장국",
-    "mainIngredient": "소",
-    "category": "국·탕·찌개",
-    "themes": [
-      "국물",
-      "소"
-    ],
-    "cookTimeMinutes": 25,
-    "servings": 2,
-    "bookPage": 102,
-    "part": "Part 1 국·탕·찌개",
-    "isVerified": true,
-    "tags": [
-      "소",
-      "국·탕·찌개",
-      "구수한",
-      "달큰한"
-    ],
-    "description": "달큰한 알배기 배추와 부드러운 소고기가 어우러진 편안하고 구수한 아침국",
-    "ingredientsRequired": [
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "다진마늘",
-        "amount": "1작은술",
-        "usageType": "ALL"
-      },
-      {
-        "name": "알배기배추",
-        "amount": "4장",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "소고기를 참기름에 살짝 볶다가 물을 붓고 끓입니다.",
-      "된장을 체에 걸러 풀고 큼직하게 썬 배추를 넣습니다.",
-      "배추가 투명하게 익으면 파와 마늘을 넣고 뜸을 들입니다."
-    ]
-  },
-  {
-    "id": "r_23",
-    "name": "대파 계란 볶음밥",
-    "mainIngredient": "계란",
-    "category": "밥",
-    "themes": [
-      "긴급",
-      "만원"
-    ],
-    "cookTimeMinutes": 10,
-    "caloriesKcal": 410,
-    "servings": 1,
-    "bookPage": 106,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 410,
-      "carbs": 58,
-      "protein": 14,
-      "fat": 13
-    },
-    "tags": [
-      "계란",
-      "밥",
-      "불맛",
-      "중화풍"
-    ],
-    "description": "대파 기름에 계란을 센 불로 튀기듯 볶아 굴소스 향을 입힌 황금 볶음밥",
-    "ingredientsRequired": [
-      {
-        "name": "신선란",
-        "amount": "2알",
-        "usageType": "ALL"
-      },
-      {
-        "name": "대파",
-        "amount": "1대",
-        "usageType": "ALL"
-      },
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      }
-    ],
-    "steps": [
-      "기름을 두른 팬에 송송 썬 대파를 갈색빛이 돌 때까지 볶습니다.",
-      "대파를 한쪽으로 밀고 계란을 풀어 스크램블합니다.",
-      "간장을 팬 가장자리에 둘러 불맛을 내고 밥과 섞어 볶습니다."
-    ]
-  },
-  {
-    "id": "r_24",
-    "name": "어묵탕",
-    "mainIngredient": "해산물·생선",
-    "category": "국·탕·찌개",
-    "themes": [
-      "국물",
-      "만원"
-    ],
-    "cookTimeMinutes": 15,
-    "caloriesKcal": 260,
-    "servings": 2,
-    "bookPage": 110,
-    "part": "Part 1 국·탕·찌개",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 260,
-      "carbs": 24,
-      "protein": 16,
-      "fat": 10
-    },
-    "tags": [
-      "해산물·생선",
-      "국·탕·찌개",
-      "따끈한국물",
-      "겨울"
-    ],
-    "description": "다양한 어묵을 꽂아 무와 대파를 넣고 시원하게 우려낸 포장마차식 어묵탕",
-    "ingredientsRequired": [
-      {
-        "name": "대파",
-        "amount": "1대",
-        "usageType": "ALL"
-      },
-      {
-        "name": "진간장",
-        "amount": "2큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "모둠어묵",
-        "amount": "1봉",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "냄비에 물과 무, 다시마를 넣고 시원한 육수를 끓입니다.",
-      "어묵을 먹기 좋게 꼬치에 꽂아 육수에 넣고 끓입니다.",
-      "간장과 후춧가루로 간하고 대파와 고추를 띄웁니다."
-    ]
-  },
-  {
-    "id": "r_25",
-    "name": "골뱅이 소면 무침",
-    "mainIngredient": "해산물·생선",
-    "category": "면·파스타",
-    "themes": [
-      "해산물"
-    ],
-    "cookTimeMinutes": 20,
-    "caloriesKcal": 460,
-    "servings": 2,
-    "bookPage": 114,
-    "part": "Part 4 별미 특식",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 460,
-      "carbs": 72,
-      "protein": 22,
-      "fat": 8
-    },
-    "tags": [
-      "해산물·생선",
-      "면·파스타",
-      "안주",
-      "새콤달콤"
-    ],
-    "description": "쫄깃한 골뱅이와 아삭한 채소를 새콤달콤 매콤한 초고추장에 비벼먹는 별미",
-    "ingredientsRequired": [
-      {
-        "name": "양파",
-        "amount": "1/2개",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1대",
-        "usageType": "ALL"
-      },
-      {
-        "name": "고춧가루",
-        "amount": "2큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "참기름",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "골뱅이통조림",
-        "amount": "1캔",
-        "usageType": "ALL"
-      },
-      {
-        "name": "소면",
-        "amount": "150g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "골뱅이는 체에 밭쳐 국물을 살짝 남기고 먹기 좋게 자릅니다.",
-      "채소와 골뱅이를 초양념장에 조물조물 무쳐냅니다.",
-      "삶은 소면을 곁들여 참기름과 통깨를 둘러 냅니다."
-    ]
-  },
-  {
-    "id": "r_26",
-    "name": "돼지고기 수육",
-    "mainIngredient": "돼지",
-    "category": "특식",
-    "themes": [
-      "돼지"
-    ],
-    "cookTimeMinutes": 50,
-    "caloriesKcal": 610,
-    "servings": 3,
-    "bookPage": 118,
-    "part": "Part 4 별미 특식",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 610,
-      "carbs": 4,
-      "protein": 46,
-      "fat": 44
-    },
-    "tags": [
-      "돼지",
-      "특식",
-      "손님상",
-      "야들야들"
-    ],
-    "description": "된장과 대파, 통마늘을 넣고 푹 삶아 잡내 없이 야들야들한 정통 돼지 수육",
-    "ingredientsRequired": [
-      {
-        "name": "돼지고기 앞다리살",
-        "amount": "500g",
-        "usageType": "ALL"
-      },
-      {
-        "name": "대파",
-        "amount": "1대",
-        "usageType": "ALL"
-      },
-      {
-        "name": "양파",
-        "amount": "1개",
-        "usageType": "ALL"
-      },
-      {
-        "name": "배추김치",
-        "amount": "1/4포기",
-        "usageType": "PART"
-      }
-    ],
-    "steps": [
-      "냄비에 물, 대파, 양파, 된장 1큰술을 넣고 팔팔 끓입니다.",
-      "고기를 넣고 센 불에서 15분, 중약불에서 35분간 삶습니다.",
-      "젓가락으로 찔러 핏물이 안 나오면 얇게 썰어 김치와 냅니다."
-    ]
-  },
-  {
-    "id": "r_27",
-    "name": "콩나물 불고기",
-    "mainIngredient": "돼지",
-    "category": "특식",
-    "themes": [
-      "만원",
-      "돼지"
-    ],
-    "cookTimeMinutes": 20,
-    "caloriesKcal": 480,
-    "servings": 2,
-    "bookPage": 122,
-    "part": "Part 4 별미 특식",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 480,
-      "carbs": 18,
-      "protein": 34,
-      "fat": 30
-    },
-    "tags": [
-      "돼지",
-      "특식",
-      "아삭한",
-      "매콤한"
-    ],
-    "description": "아삭한 콩나물 수분으로 자작하게 볶아내는 밥도둑 콩불",
-    "ingredientsRequired": [
-      {
-        "name": "돼지고기 앞다리살",
-        "amount": "300g",
-        "usageType": "ALL"
-      },
-      {
-        "name": "대파",
-        "amount": "1대",
-        "usageType": "ALL"
-      },
-      {
-        "name": "고춧가루",
-        "amount": "2큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "진간장",
-        "amount": "2큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "콩나물",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "팬 바닥에 씻은 콩나물을 듬뿍 깔아줍니다.",
-      "위에 얇은 돼지고기와 양념장을 듬뿍 올립니다.",
-      "뚜껑을 덮고 익히다가 채수가 나오면 센 불에서 볶아냅니다."
-    ]
-  },
-  {
-    "id": "r_28",
-    "name": "두부 김치",
-    "mainIngredient": "두부",
-    "category": "반찬",
-    "themes": [
-      "긴급",
-      "만원"
-    ],
-    "cookTimeMinutes": 15,
-    "servings": 2,
-    "bookPage": 126,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "tags": [
-      "두부",
-      "반찬",
-      "막걸리안주",
-      "초간단"
-    ],
-    "description": "따뜻하게 데친 두부에 고소한 들기름으로 볶은 신김치를 얹어먹는 환상 궁합",
-    "ingredientsRequired": [
-      {
-        "name": "배추김치",
-        "amount": "1컵",
-        "usageType": "PART"
-      },
-      {
-        "name": "찌개두부",
+        "name": "두부",
         "amount": "1모",
         "usageType": "ALL"
       },
       {
-        "name": "참기름",
-        "amount": "1큰술",
+        "name": "다진 생강",
+        "amount": "½큰술",
         "usageType": "PART"
       },
       {
-        "name": "대파",
-        "amount": "약간",
-        "usageType": "PART"
-      }
-    ],
-    "steps": [
-      "두부는 끓는 물에 소금을 약간 넣고 3분간 데쳐 냅니다.",
-      "달군 팬에 들기름을 두르고 신김치와 대파를 달달 볶습니다.",
-      "접시에 도톰하게 썬 두부와 볶은 김치를 가지런히 담습니다."
-    ]
-  },
-  {
-    "id": "r_29",
-    "name": "소고기 규동",
-    "mainIngredient": "소",
-    "category": "밥",
-    "themes": [
-      "긴급",
-      "소"
-    ],
-    "cookTimeMinutes": 15,
-    "caloriesKcal": 540,
-    "servings": 1,
-    "bookPage": 130,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 540,
-      "carbs": 70,
-      "protein": 26,
-      "fat": 16
-    },
-    "tags": [
-      "소",
-      "밥",
-      "단짠단짠",
-      "일식풍"
-    ],
-    "description": "달콤한 쯔유 소스에 얇은 우삼겹과 양파를 졸여 밥 위에 얹은 소고기 덮밥",
-    "ingredientsRequired": [
-      {
-        "name": "양파",
-        "amount": "1/2개",
+        "name": "다진 마늘",
+        "amount": "듬뿍 1큰술",
         "usageType": "PART"
       },
       {
-        "name": "신선란",
-        "amount": "1알",
-        "usageType": "ALL"
-      },
-      {
-        "name": "대파",
-        "amount": "약간",
+        "name": "고춧가루",
+        "amount": "듬뿍 2큰술",
         "usageType": "PART"
       },
       {
-        "name": "진간장",
+        "name": "설탕",
         "amount": "2큰술",
         "usageType": "PART"
       },
       {
-        "name": "우삼겹",
-        "amount": "120g",
-        "usageType": "ALL"
+        "name": "간장",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "멸치액젓",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "새우젓",
+        "amount": "듬뿍 1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고추장",
+        "amount": "듬뿍 4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "굵은 소금",
+        "amount": "2꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "",
+        "usageType": "PART"
       }
     ],
     "steps": [
-      "냄비에 물 100ml, 간장, 미림, 설탕을 넣고 채 썬 양파를 끓입니다.",
-      "양파가 투명해지면 소고기를 넣고 살짝 익힙니다.",
-      "따뜻한 밥 위에 국물과 함께 얹고 계란 노른자를 올립니다."
-    ]
+      "삼겹살은 한입 크기로 썬다. 감자, 양파, 두부는 한입 크기로 깍둑썰고, 대파는 어슷썬다. 애호박은 1cm 두께로 썬 뒤 십자로 4등분하고, 청양고추는 송송 썬다. (삼겹살 대신 찌개용 앞다리살도 좋아요.)",
+      "중불로 달군 냄비에 식용유 1바퀴를 두르고(기름에 물결이 생길 때까지 예열) 삼겹살과 굵은 소금 2꼬집을 넣어 기름이 타닥타닥 튈 때까지 노릇하게 볶는다.",
+      "약불로 줄이고 다진 생강 ½큰술, 다진 마늘 듬뿍 1큰술, 고춧가루 듬뿍 2큰술, 대파를 넣어 고춧가루 풋내가 날아갈 정도로만 볶는다.",
+      "설탕 2큰술, 간장 2큰술, 멸치액젓 1큰술, 새우젓 듬뿍 1큰술을 넣고 볶는다.",
+      "고추장 듬뿍 4큰술을 넣고 잘 섞이면 바로 물 1L를 부어 강불에서 끓인다.",
+      "감자, 양파, 두부를 넣고 뚜껑을 덮어 10분 끓인다.",
+      "애호박을 넣고 중강불로 줄여 뚜껑을 덮고 10분 끓인다.",
+      "식초 1큰술을 넣고 한 김 날린 뒤 불을 끄면 완성! 간이 부족하면 조금 더 졸이거나 고추장을 추가한다."
+    ],
+    "photoUrl": "/images/recipes/r_gochujang_stew.jpg"
   },
   {
-    "id": "r_30",
-    "name": "오뎅 볶음",
-    "mainIngredient": "해산물·생선",
-    "category": "반찬",
+    "id": "r_p4_08",
+    "name": "로제 부대찌개",
+    "mainIngredient": "돼지",
+    "category": "국·탕·찌개",
     "themes": [
-      "긴급",
-      "만원"
+      "국물",
+      "돼지",
+      "스팸"
     ],
-    "cookTimeMinutes": 10,
-    "caloriesKcal": 180,
+    "cookTimeMinutes": 0,
     "servings": 2,
-    "bookPage": 134,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 180,
-      "carbs": 19,
-      "protein": 10,
-      "fat": 6
-    },
-    "tags": [
-      "해산물·생선",
-      "반찬",
-      "초간단",
-      "도시락"
-    ],
-    "description": "간장과 올리고당으로 윤기 나게 볶아낸 국민 밑반찬 사각 어묵 볶음",
-    "ingredientsRequired": [
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "진간장",
-        "amount": "1.5큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "참기름",
-        "amount": "1작은술",
-        "usageType": "PART"
-      },
-      {
-        "name": "사각어묵",
-        "amount": "3장",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "어묵을 먹기 좋은 한 입 크기로 썰어줍니다.",
-      "팬에 기름을 두르고 어묵과 대파를 3분간 노릇하게 볶습니다.",
-      "간장과 올리고당을 넣고 센 불에서 윤기 나게 조려냅니다."
-    ]
+    "part": "Part 4 평생 국탕찌개",
+    "ingredientsRequired": [],
+    "steps": []
   },
   {
-    "id": "r_31",
-    "name": "토마토 계란 볶음",
-    "mainIngredient": "계란",
-    "category": "반찬",
-    "themes": [
-      "긴급",
-      "만원"
-    ],
-    "cookTimeMinutes": 8,
-    "caloriesKcal": 210,
-    "servings": 1,
-    "bookPage": 138,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 210,
-      "carbs": 12,
-      "protein": 12,
-      "fat": 12
-    },
-    "tags": [
-      "계란",
-      "반찬",
-      "간단아침",
-      "건강식"
-    ],
-    "description": "달콤 상큼한 완숙 토마토와 부드러운 계란이 어우러진 가벼운 브런치",
-    "ingredientsRequired": [
-      {
-        "name": "신선란",
-        "amount": "2알",
-        "usageType": "ALL"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "진간장",
-        "amount": "1작은술",
-        "usageType": "PART"
-      },
-      {
-        "name": "토마토",
-        "amount": "1개",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "계란을 풀어 스크램블한 뒤 그릇에 잠시 덜어둡니다.",
-      "팬에 파기름을 내고 큼직하게 썬 토마토를 볶아 즙을 냅니다.",
-      "스크램블 에그를 다시 넣고 굴소스와 간장으로 빠르게 섞어냅니다."
-    ]
-  },
-  {
-    "id": "r_32",
-    "name": "고등어 무조림",
-    "mainIngredient": "해산물·생선",
-    "category": "반찬",
-    "themes": [
-      "해산물"
-    ],
-    "cookTimeMinutes": 35,
-    "servings": 2,
-    "bookPage": 142,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "tags": [
-      "해산물·생선",
-      "반찬",
-      "밥도둑",
-      "칼칼한"
-    ],
-    "description": "달큰한 무에 매콤 칼칼한 생선 조림 양념이 푹 배어든 밥도둑 고등어 조림",
-    "ingredientsRequired": [
-      {
-        "name": "대파",
-        "amount": "1대",
-        "usageType": "ALL"
-      },
-      {
-        "name": "고춧가루",
-        "amount": "3큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "진간장",
-        "amount": "4큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "자반고등어",
-        "amount": "1손",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "냄비 바닥에 도톰하게 썬 무를 깔고 물 2컵을 붓습니다.",
-      "고등어를 올리고 매콤한 양념장을 끼얹어 센 불로 끓입니다.",
-      "무가 푹 무르면 대파와 청양고추를 넣고 약불로 국물을 조립니다."
-    ]
-  },
-  {
-    "id": "r_33",
-    "name": "닭안심 카레라이스",
+    "id": "r_p4_09",
+    "name": "녹두삼계탕",
     "mainIngredient": "닭",
-    "category": "밥",
+    "category": "국·탕·찌개",
     "themes": [
+      "국물",
       "닭"
     ],
-    "cookTimeMinutes": 25,
-    "caloriesKcal": 490,
+    "cookTimeMinutes": 0,
     "servings": 2,
-    "bookPage": 146,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 490,
-      "carbs": 68,
-      "protein": 32,
-      "fat": 10
-    },
-    "tags": [
-      "닭",
-      "밥",
-      "카레",
-      "온가족"
-    ],
-    "description": "담백한 닭안심과 큼직한 감자, 양파를 듬뿍 넣고 끓여낸 정통 일본식 고형 카레",
-    "ingredientsRequired": [
-      {
-        "name": "수미감자",
-        "amount": "1개",
-        "usageType": "ALL"
-      },
-      {
-        "name": "양파",
-        "amount": "1개",
-        "usageType": "ALL"
-      },
-      {
-        "name": "닭안심",
-        "amount": "200g",
-        "usageType": "ALL"
-      },
-      {
-        "name": "카레블록",
-        "amount": "2조각",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "양파를 캐러멜색이 날 때까지 버터에 충분히 볶습니다.",
-      "닭안심과 감자를 넣고 함께 볶다가 물을 붓고 15분간 끓입니다.",
-      "불을 끄고 카레를 풀어 넣은 뒤 약불에서 5분간 저어가며 끓입니다."
-    ]
+    "part": "Part 4 평생 국탕찌개",
+    "ingredientsRequired": [],
+    "steps": []
   },
   {
-    "id": "r_34",
-    "name": "매운 라볶이",
+    "id": "r_p4_10",
+    "name": "러브 황태해장국",
+    "mainIngredient": "해산물·생선",
+    "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "해산물"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 4 평생 국탕찌개",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p4_11",
+    "name": "평생 육개장",
+    "mainIngredient": "소",
+    "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "소"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "part": "Part 4 평생 국탕찌개",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p5_01",
+    "name": "즉석 떡볶이",
     "mainIngredient": "채소",
     "category": "분식",
-    "dishGroupId": "tteokbokki",
     "themes": [
       "떡볶이",
-      "긴급",
-      "만원"
-    ],
-    "cookTimeMinutes": 15,
-    "caloriesKcal": 580,
-    "servings": 2,
-    "bookPage": 150,
-    "part": "Part 4 별미 특식",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 580,
-      "carbs": 102,
-      "protein": 14,
-      "fat": 12
-    },
-    "tags": [
-      "채소",
-      "분식",
-      "면·파스타",
-      "매운맛"
-    ],
-    "description": "매콤달콤한 떡볶이 양념에 라면 사리가 쏙 배어든 분식집 인기 1위 메뉴",
-    "ingredientsRequired": [
-      {
-        "name": "대파",
-        "amount": "1대",
-        "usageType": "ALL"
-      },
-      {
-        "name": "고춧가루",
-        "amount": "2큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "밀떡",
-        "amount": "150g",
-        "usageType": "ALL"
-      },
-      {
-        "name": "라면사리",
-        "amount": "1개",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "육수에 고추장과 고춧가루, 설탕을 풀고 끓입니다.",
-      "떡이 부풀어 오르면 라면사리를 넣고 센 불로 끓입니다.",
-      "대파를 얹고 국물이 면에 촉촉하게 밸 때 불을 끕니다."
-    ]
-  },
-  {
-    "id": "r_35",
-    "name": "소고기 뭇국",
-    "mainIngredient": "소",
-    "category": "국·탕·찌개",
-    "themes": [
-      "국물",
-      "소"
-    ],
-    "cookTimeMinutes": 30,
-    "servings": 2,
-    "bookPage": 154,
-    "part": "Part 1 국·탕·찌개",
-    "isVerified": true,
-    "tags": [
-      "소",
-      "국·탕·찌개",
-      "맑은국",
-      "깔끔한"
-    ],
-    "description": "맑고 투명한 국물에 무의 시원한 단맛과 소고기 육즙이 살아있는 잔칫집 뭇국",
-    "ingredientsRequired": [
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "참기름",
-        "amount": "1작은술",
-        "usageType": "PART"
-      },
-      {
-        "name": "다진마늘",
-        "amount": "1작은술",
-        "usageType": "ALL"
-      },
-      {
-        "name": "소고기양지",
-        "amount": "150g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "참기름에 소고기 양지와 나박 썬 무를 볶습니다.",
-      "고기가 익으면 물을 붓고 끓어오르는 거품을 걷어냅니다.",
-      "국간장과 소금, 다진 마늘로 맑고 개운하게 간을 합니다."
-    ]
-  },
-  {
-    "id": "r_36",
-    "name": "마늘 베이컨 알리오 올리오",
-    "mainIngredient": "돼지",
-    "category": "면·파스타",
-    "themes": [
-      "파스타",
-      "긴급",
-      "양식"
-    ],
-    "cookTimeMinutes": 15,
-    "caloriesKcal": 480,
-    "servings": 1,
-    "bookPage": 158,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 480,
-      "carbs": 64,
-      "protein": 15,
-      "fat": 18
-    },
-    "tags": [
-      "돼지",
-      "면·파스타",
-      "오일파스타",
-      "마늘향"
-    ],
-    "description": "올리브유에 듬뿍 볶아낸 황금빛 마늘과 짭조름한 베이컨이 면에 착 감기는 파스타",
-    "ingredientsRequired": [
-      {
-        "name": "파스타면",
-        "amount": "100g",
-        "usageType": "ALL"
-      },
-      {
-        "name": "베이컨",
-        "amount": "3줄",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "끓는 물에 소금을 넣고 파스타 면을 알덴테로 8분간 삶습니다.",
-      "팬에 올리브유를 넉넉히 두르고 편마늘과 베이컨을 노릇하게 볶습니다.",
-      "면과 면수를 넣고 만테카레(유화)하여 오일 소스를 면에 흡수시킵니다."
-    ]
-  },
-  {
-    "id": "r_37",
-    "name": "계란 샌드위치",
-    "mainIngredient": "계란",
-    "category": "간식",
-    "themes": [
-      "긴급",
       "간식",
-      "샌드위치"
+      "분식"
     ],
-    "cookTimeMinutes": 12,
-    "caloriesKcal": 360,
-    "servings": 1,
-    "bookPage": 162,
-    "part": "Part 4 별미 특식",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 360,
-      "carbs": 32,
-      "protein": 14,
-      "fat": 19
-    },
-    "tags": [
-      "계란",
-      "간식",
-      "브런치",
-      "부드러운"
-    ],
-    "description": "완숙 계란을 으깨 마요네즈와 홀그레인 머스터드로 버무려 듬뿍 채운 샌드위치",
-    "ingredientsRequired": [
-      {
-        "name": "신선란",
-        "amount": "2알",
-        "usageType": "ALL"
-      },
-      {
-        "name": "식빵",
-        "amount": "2장",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "계란을 끓는 물에 11분간 삶아 찬물에 헹궈 껍질을 벗깁니다.",
-      "볼에 계란을 넣고 포크로 곱게 으깬 뒤 마요네즈, 소금, 후추로 버무립니다.",
-      "식빵 사이에 도톰하게 샌드한 뒤 반으로 잘라냅니다."
-    ]
-  },
-  {
-    "id": "r_38",
-    "name": "얼큰 순두부찌개",
-    "mainIngredient": "두부",
-    "category": "국·탕·찌개",
-    "themes": [
-      "국물",
-      "만원"
-    ],
-    "cookTimeMinutes": 18,
-    "caloriesKcal": 290,
+    "cookTimeMinutes": 0,
     "servings": 2,
-    "bookPage": 166,
-    "part": "Part 1 국·탕·찌개",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 290,
-      "carbs": 14,
-      "protein": 19,
-      "fat": 17
-    },
-    "tags": [
-      "두부",
-      "국·탕·찌개",
-      "고추기름",
-      "뚝배기"
-    ],
-    "description": "고추기름에 바지락과 돼지고기를 볶아 칼칼하게 끓여낸 뚝배기 순두부찌개",
-    "ingredientsRequired": [
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "신선란",
-        "amount": "1알",
-        "usageType": "ALL"
-      },
-      {
-        "name": "고춧가루",
-        "amount": "2큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "순두부",
-        "amount": "1봉",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "식용유와 고춧가루를 볶아 고추기름을 냅니다.",
-      "물 1컵과 순두부를 큼직하게 넣고 보글보글 끓입니다.",
-      "마지막에 날계란 한 알과 송송 썬 대파를 얹어 냅니다."
-    ]
+    "bookPage": 210,
+    "part": "Part 5 평생 간식",
+    "dishGroupId": "tteokbokki",
+    "ingredientsRequired": [],
+    "steps": []
   },
   {
-    "id": "r_39",
-    "name": "양배추 계란 토스트",
-    "mainIngredient": "계란",
-    "category": "간식",
-    "themes": [
-      "긴급",
-      "만원",
-      "간식",
-      "샌드위치"
-    ],
-    "cookTimeMinutes": 10,
-    "servings": 1,
-    "bookPage": 170,
-    "part": "Part 4 별미 특식",
-    "isVerified": true,
-    "tags": [
-      "계란",
-      "간식",
-      "길거리토스트",
-      "아삭한"
-    ],
-    "description": "채 썬 양배추와 계란을 부쳐 버터에 구운 빵 사이에 넣고 설탕을 솔솔 뿌린 토스트",
-    "ingredientsRequired": [
-      {
-        "name": "신선란",
-        "amount": "1알",
-        "usageType": "ALL"
-      },
-      {
-        "name": "양배추",
-        "amount": "1줌",
-        "usageType": "ALL"
-      },
-      {
-        "name": "식빵",
-        "amount": "2장",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "채 썬 양배추에 계란을 풀고 소금을 약간 섞습니다.",
-      "버터를 두른 팬에 네모 모양으로 노릇하게 부칩니다.",
-      "구운 식빵 위에 얹고 케첩과 설탕을 살짝 뿌려 덮습니다."
-    ]
-  },
-  {
-    "id": "r_40",
-    "name": "바지락 칼국수",
-    "mainIngredient": "해산물·생선",
-    "category": "면·파스타",
-    "themes": [
-      "국물",
-      "해산물"
-    ],
-    "cookTimeMinutes": 20,
-    "caloriesKcal": 450,
-    "servings": 2,
-    "bookPage": 174,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 450,
-      "carbs": 82,
-      "protein": 18,
-      "fat": 4
-    },
-    "tags": [
-      "해산물·생선",
-      "면·파스타",
-      "시원한",
-      "비오는날"
-    ],
-    "description": "해감한 싱싱한 바지락과 애호박을 듬뿍 넣어 시원하고 쫄깃한 손칼국수",
-    "ingredientsRequired": [
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "칼국수생면",
-        "amount": "2인분",
-        "usageType": "ALL"
-      },
-      {
-        "name": "바지락",
-        "amount": "1봉",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "바지락을 끓여 뽀얀 국물이 우러나면 건져둡니다.",
-      "육수에 칼국수 면을 찬물에 헹궈 넣고 6분간 끓입니다.",
-      "애호박과 대파, 바지락을 다시 넣고 한소끔 끓여냅니다."
-    ]
-  },
-  {
-    "id": "r_41",
-    "name": "시금치 된장국",
+    "id": "r_p5_02",
+    "name": "평생 떡볶이",
     "mainIngredient": "채소",
-    "category": "반찬",
-    "themes": [
-      "국물",
-      "만원"
-    ],
-    "cookTimeMinutes": 15,
-    "caloriesKcal": 467,
-    "servings": 2,
-    "bookPage": 102,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 467,
-      "carbs": 56,
-      "protein": 23,
-      "fat": 14
-    },
-    "tags": [
-      "채소",
-      "반찬",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 시금치 된장국입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "채소 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_42",
-    "name": "고추장 삼겹살 구이",
-    "mainIngredient": "닭",
-    "category": "밥",
-    "themes": [
-      "돼지"
-    ],
-    "cookTimeMinutes": 20,
-    "servings": 2,
-    "bookPage": 104,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "tags": [
-      "닭",
-      "밥",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 고추장 삼겹살 구이입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "닭 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_43",
-    "name": "닭가슴살 볶음밥",
-    "mainIngredient": "돼지",
     "category": "분식",
     "themes": [
-      "긴급",
-      "닭"
-    ],
-    "cookTimeMinutes": 25,
-    "caloriesKcal": 481,
-    "servings": 2,
-    "bookPage": 106,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 481,
-      "carbs": 58,
-      "protein": 24,
-      "fat": 14
-    },
-    "tags": [
-      "돼지",
-      "분식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 닭가슴살 볶음밥입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "돼지 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_44",
-    "name": "묵은지 꽁치조림",
-    "mainIngredient": "소",
-    "category": "간식",
-    "themes": [
-      "만원",
-      "해산물"
-    ],
-    "cookTimeMinutes": 30,
-    "caloriesKcal": 488,
-    "servings": 2,
-    "bookPage": 108,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 488,
-      "carbs": 59,
-      "protein": 24,
-      "fat": 15
-    },
-    "tags": [
-      "소",
+      "떡볶이",
       "간식",
-      "집밥",
-      "추천"
+      "분식"
     ],
-    "description": "엄선된 집밥 레시피북에 수록된 묵은지 꽁치조림입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "소 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_45",
-    "name": "달걀 만두국",
-    "mainIngredient": "해산물·생선",
-    "category": "국·탕·찌개",
-    "themes": [
-      "국물"
-    ],
-    "cookTimeMinutes": 35,
+    "cookTimeMinutes": 0,
     "servings": 2,
-    "bookPage": 110,
-    "part": "Part 1 국·탕·찌개",
-    "isVerified": true,
-    "tags": [
-      "해산물·생선",
-      "국·탕·찌개",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 달걀 만두국입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "해산물·생선 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
+    "bookPage": 212,
+    "part": "Part 5 평생 간식",
+    "dishGroupId": "tteokbokki",
+    "ingredientsRequired": [],
+    "steps": []
   },
   {
-    "id": "r_46",
-    "name": "마파두부 덮밥",
-    "mainIngredient": "계란",
-    "category": "특식",
-    "themes": [
-      "만원",
-      "돼지"
-    ],
-    "cookTimeMinutes": 40,
-    "caloriesKcal": 502,
-    "servings": 2,
-    "bookPage": 112,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 502,
-      "carbs": 60,
-      "protein": 25,
-      "fat": 15
-    },
-    "tags": [
-      "계란",
-      "특식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 마파두부 덮밥입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "계란 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_47",
-    "name": "소고기 야채 전골",
-    "mainIngredient": "두부",
-    "category": "면·파스타",
-    "themes": [
-      "국물",
-      "소"
-    ],
-    "cookTimeMinutes": 45,
-    "caloriesKcal": 509,
-    "servings": 2,
-    "bookPage": 114,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 509,
-      "carbs": 61,
-      "protein": 25,
-      "fat": 15
-    },
-    "tags": [
-      "두부",
-      "면·파스타",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 소고기 야채 전골입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "두부 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_48",
-    "name": "김치 비빔국수",
+    "id": "r_p5_03",
+    "name": "짜장 떡볶이",
     "mainIngredient": "채소",
-    "category": "반찬",
-    "themes": [
-      "긴급",
-      "만원"
-    ],
-    "cookTimeMinutes": 10,
-    "servings": 2,
-    "bookPage": 116,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "tags": [
-      "채소",
-      "반찬",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 김치 비빔국수입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "채소 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_49",
-    "name": "애호박 새우전",
-    "mainIngredient": "닭",
-    "category": "밥",
-    "themes": [
-      "해산물"
-    ],
-    "cookTimeMinutes": 15,
-    "caloriesKcal": 523,
-    "servings": 2,
-    "bookPage": 118,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 523,
-      "carbs": 63,
-      "protein": 26,
-      "fat": 16
-    },
-    "tags": [
-      "닭",
-      "밥",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 애호박 새우전입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "닭 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_50",
-    "name": "간장 돼지불고기",
-    "mainIngredient": "돼지",
     "category": "분식",
     "themes": [
-      "돼지"
+      "떡볶이",
+      "간식",
+      "분식"
     ],
-    "cookTimeMinutes": 20,
-    "caloriesKcal": 530,
+    "cookTimeMinutes": 0,
     "servings": 2,
-    "bookPage": 120,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 530,
-      "carbs": 64,
-      "protein": 27,
-      "fat": 16
-    },
-    "tags": [
-      "돼지",
-      "분식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 간장 돼지불고기입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "돼지 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
+    "bookPage": 214,
+    "part": "Part 5 평생 간식",
+    "dishGroupId": "tteokbokki",
+    "ingredientsRequired": [],
+    "steps": []
   },
   {
-    "id": "r_51",
-    "name": "치킨 가라아게",
+    "id": "r_p5_04",
+    "name": "궁중 떡볶이",
     "mainIngredient": "소",
-    "category": "간식",
-    "themes": [
-      "간식",
-      "닭"
-    ],
-    "cookTimeMinutes": 25,
-    "servings": 2,
-    "bookPage": 122,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "tags": [
-      "소",
-      "간식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 치킨 가라아게입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "소 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_52",
-    "name": "해물 파전",
-    "mainIngredient": "해산물·생선",
-    "category": "국·탕·찌개",
-    "themes": [
-      "간식",
-      "해산물"
-    ],
-    "cookTimeMinutes": 30,
-    "caloriesKcal": 184,
-    "servings": 2,
-    "bookPage": 124,
-    "part": "Part 1 국·탕·찌개",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 184,
-      "carbs": 22,
-      "protein": 9,
-      "fat": 6
-    },
-    "tags": [
-      "해산물·생선",
-      "국·탕·찌개",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 해물 파전입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "해산물·생선 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_53",
-    "name": "뚝배기 계란찜",
-    "mainIngredient": "계란",
-    "category": "특식",
-    "themes": [
-      "긴급",
-      "만원"
-    ],
-    "cookTimeMinutes": 35,
-    "caloriesKcal": 191,
-    "servings": 2,
-    "bookPage": 126,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 191,
-      "carbs": 23,
-      "protein": 10,
-      "fat": 6
-    },
-    "tags": [
-      "계란",
-      "특식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 뚝배기 계란찜입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "계란 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_54",
-    "name": "두부 버섯 전골",
-    "mainIngredient": "두부",
-    "category": "면·파스타",
-    "themes": [
-      "국물",
-      "만원"
-    ],
-    "cookTimeMinutes": 40,
-    "servings": 2,
-    "bookPage": 128,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "tags": [
-      "두부",
-      "면·파스타",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 두부 버섯 전골입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "두부 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_55",
-    "name": "소고기 육개장",
-    "mainIngredient": "채소",
-    "category": "반찬",
-    "themes": [
-      "국물",
-      "소"
-    ],
-    "cookTimeMinutes": 45,
-    "caloriesKcal": 205,
-    "servings": 2,
-    "bookPage": 130,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 205,
-      "carbs": 25,
-      "protein": 10,
-      "fat": 6
-    },
-    "tags": [
-      "채소",
-      "반찬",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 소고기 육개장입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "채소 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_56",
-    "name": "열무 비빔밥",
-    "mainIngredient": "닭",
-    "category": "밥",
-    "themes": [
-      "긴급",
-      "만원"
-    ],
-    "cookTimeMinutes": 10,
-    "caloriesKcal": 212,
-    "servings": 2,
-    "bookPage": 132,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 212,
-      "carbs": 25,
-      "protein": 11,
-      "fat": 6
-    },
-    "tags": [
-      "닭",
-      "밥",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 열무 비빔밥입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "닭 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_57",
-    "name": "잔치국수",
-    "mainIngredient": "돼지",
     "category": "분식",
     "themes": [
-      "국물",
-      "만원"
+      "떡볶이",
+      "간식",
+      "소",
+      "분식"
     ],
-    "cookTimeMinutes": 15,
+    "cookTimeMinutes": 0,
     "servings": 2,
-    "bookPage": 134,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "tags": [
-      "돼지",
-      "분식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 잔치국수입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "돼지 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
+    "bookPage": 216,
+    "part": "Part 5 평생 간식",
+    "dishGroupId": "tteokbokki",
+    "ingredientsRequired": [],
+    "steps": []
   },
   {
-    "id": "r_58",
-    "name": "소떡소떡",
-    "mainIngredient": "소",
+    "id": "r_p5_05",
+    "name": "휴게소 버터감자",
+    "mainIngredient": "채소",
     "category": "간식",
     "themes": [
-      "만원",
       "간식"
     ],
-    "cookTimeMinutes": 20,
-    "caloriesKcal": 226,
+    "cookTimeMinutes": 0,
     "servings": 2,
-    "bookPage": 136,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 226,
-      "carbs": 27,
-      "protein": 11,
-      "fat": 7
-    },
-    "tags": [
-      "소",
-      "간식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 소떡소떡입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "소 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
+    "bookPage": 218,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
   },
   {
-    "id": "r_59",
-    "name": "연어 구이",
-    "mainIngredient": "해산물·생선",
-    "category": "국·탕·찌개",
+    "id": "r_p5_06",
+    "name": "크레이지 고구마",
+    "mainIngredient": "채소",
+    "category": "간식",
     "themes": [
+      "간식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 220,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p5_07",
+    "name": "달걀 샌드위치",
+    "mainIngredient": "계란",
+    "category": "간식",
+    "themes": [
+      "간식",
+      "샌드위치"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 222,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p5_08",
+    "name": "콘치즈",
+    "mainIngredient": "채소",
+    "category": "간식",
+    "themes": [
+      "간식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 226,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p5_09",
+    "name": "꿀새우피자",
+    "mainIngredient": "해산물·생선",
+    "category": "간식",
+    "themes": [
+      "간식",
       "양식",
       "해산물"
     ],
-    "cookTimeMinutes": 25,
-    "caloriesKcal": 233,
+    "cookTimeMinutes": 0,
     "servings": 2,
-    "bookPage": 138,
-    "part": "Part 1 국·탕·찌개",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 233,
-      "carbs": 28,
-      "protein": 12,
-      "fat": 7
-    },
-    "tags": [
-      "해산물·생선",
-      "국·탕·찌개",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 연어 구이입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "해산물·생선 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
+    "bookPage": 229,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
   },
   {
-    "id": "r_60",
-    "name": "돼지고기 김치찜",
-    "mainIngredient": "계란",
-    "category": "특식",
-    "themes": [
-      "돼지"
-    ],
-    "cookTimeMinutes": 30,
-    "servings": 2,
-    "bookPage": 140,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "tags": [
-      "계란",
-      "특식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 돼지고기 김치찜입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "계란 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_61",
-    "name": "닭개장",
-    "mainIngredient": "두부",
-    "category": "면·파스타",
-    "themes": [
-      "국물",
-      "닭"
-    ],
-    "cookTimeMinutes": 35,
-    "caloriesKcal": 247,
-    "servings": 2,
-    "bookPage": 142,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 247,
-      "carbs": 30,
-      "protein": 12,
-      "fat": 7
-    },
-    "tags": [
-      "두부",
-      "면·파스타",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 닭개장입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "두부 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_62",
-    "name": "오삼불고기",
-    "mainIngredient": "채소",
-    "category": "반찬",
+    "id": "r_p5_10",
+    "name": "한 판 굴전",
+    "mainIngredient": "해산물·생선",
+    "category": "간식",
     "themes": [
       "해산물",
-      "돼지"
+      "전"
     ],
-    "cookTimeMinutes": 40,
-    "caloriesKcal": 254,
+    "cookTimeMinutes": 0,
     "servings": 2,
-    "bookPage": 144,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 254,
-      "carbs": 30,
-      "protein": 13,
-      "fat": 8
-    },
-    "tags": [
-      "채소",
-      "반찬",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 오삼불고기입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "채소 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
+    "bookPage": 232,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
   },
   {
-    "id": "r_63",
-    "name": "간장 계란밥",
-    "mainIngredient": "닭",
-    "category": "밥",
-    "themes": [
-      "긴급",
-      "만원"
-    ],
-    "cookTimeMinutes": 45,
-    "servings": 2,
-    "bookPage": 146,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "tags": [
-      "닭",
-      "밥",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 간장 계란밥입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "닭 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_64",
-    "name": "두부 스테이크",
-    "mainIngredient": "돼지",
-    "category": "분식",
-    "themes": [
-      "만원",
-      "양식"
-    ],
-    "cookTimeMinutes": 10,
-    "caloriesKcal": 268,
-    "servings": 2,
-    "bookPage": 148,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 268,
-      "carbs": 32,
-      "protein": 13,
-      "fat": 8
-    },
-    "tags": [
-      "돼지",
-      "분식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 두부 스테이크입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "돼지 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_65",
-    "name": "차돌박이 숙주볶음",
-    "mainIngredient": "소",
-    "category": "간식",
-    "themes": [
-      "긴급",
-      "소"
-    ],
-    "cookTimeMinutes": 15,
-    "caloriesKcal": 275,
-    "servings": 2,
-    "bookPage": 150,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 275,
-      "carbs": 33,
-      "protein": 14,
-      "fat": 8
-    },
-    "tags": [
-      "소",
-      "간식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 차돌박이 숙주볶음입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "소 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_66",
-    "name": "들깨 수제비",
-    "mainIngredient": "해산물·생선",
-    "category": "국·탕·찌개",
-    "themes": [
-      "국물",
-      "만원"
-    ],
-    "cookTimeMinutes": 20,
-    "servings": 2,
-    "bookPage": 152,
-    "part": "Part 1 국·탕·찌개",
-    "isVerified": true,
-    "tags": [
-      "해산물·생선",
-      "국·탕·찌개",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 들깨 수제비입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "해산물·생선 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_67",
-    "name": "오징어 튀김",
-    "mainIngredient": "계란",
-    "category": "특식",
-    "themes": [
-      "간식",
-      "해산물"
-    ],
-    "cookTimeMinutes": 25,
-    "caloriesKcal": 289,
-    "servings": 2,
-    "bookPage": 154,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 289,
-      "carbs": 35,
-      "protein": 14,
-      "fat": 9
-    },
-    "tags": [
-      "계란",
-      "특식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 오징어 튀김입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "계란 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_68",
-    "name": "돈까스 덮밥(가츠동)",
-    "mainIngredient": "두부",
-    "category": "면·파스타",
-    "themes": [
-      "돼지"
-    ],
-    "cookTimeMinutes": 30,
-    "caloriesKcal": 296,
-    "servings": 2,
-    "bookPage": 156,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 296,
-      "carbs": 36,
-      "protein": 15,
-      "fat": 9
-    },
-    "tags": [
-      "두부",
-      "면·파스타",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 돈까스 덮밥(가츠동)입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "두부 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_69",
-    "name": "닭봉 간장조림",
+    "id": "r_p5_11",
+    "name": "한 판 떡꼬치",
     "mainIngredient": "채소",
-    "category": "반찬",
-    "themes": [
-      "닭"
-    ],
-    "cookTimeMinutes": 35,
-    "servings": 2,
-    "bookPage": 158,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "tags": [
-      "채소",
-      "반찬",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 닭봉 간장조림입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "채소 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_70",
-    "name": "낙지 탕탕이 비빔밥",
-    "mainIngredient": "닭",
-    "category": "밥",
-    "themes": [
-      "해산물"
-    ],
-    "cookTimeMinutes": 40,
-    "caloriesKcal": 310,
-    "servings": 2,
-    "bookPage": 20,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 310,
-      "carbs": 37,
-      "protein": 16,
-      "fat": 9
-    },
-    "tags": [
-      "닭",
-      "밥",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 낙지 탕탕이 비빔밥입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "닭 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_71",
-    "name": "치즈 계란말이",
-    "mainIngredient": "돼지",
     "category": "분식",
     "themes": [
-      "긴급",
-      "만원"
+      "간식",
+      "분식"
     ],
-    "cookTimeMinutes": 45,
-    "caloriesKcal": 317,
+    "cookTimeMinutes": 0,
     "servings": 2,
-    "bookPage": 22,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 317,
-      "carbs": 38,
-      "protein": 16,
-      "fat": 10
-    },
-    "tags": [
-      "돼지",
-      "분식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 치즈 계란말이입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "돼지 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
+    "bookPage": 234,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
   },
   {
-    "id": "r_72",
-    "name": "순두부 그라탕",
-    "mainIngredient": "소",
+    "id": "r_p5_12",
+    "name": "크림치즈 연어 샌드위치",
+    "mainIngredient": "해산물·생선",
     "category": "간식",
     "themes": [
+      "샌드위치",
+      "해산물",
       "양식"
     ],
-    "cookTimeMinutes": 10,
+    "cookTimeMinutes": 0,
     "servings": 2,
-    "bookPage": 24,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "tags": [
-      "소",
-      "간식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 순두부 그라탕입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "소 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
+    "bookPage": 237,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
   },
   {
-    "id": "r_73",
-    "name": "소고기 찹스테이크",
-    "mainIngredient": "해산물·생선",
-    "category": "국·탕·찌개",
+    "id": "r_p5_13",
+    "name": "원조 길거리 토스트",
+    "mainIngredient": "계란",
+    "category": "간식",
     "themes": [
+      "간식",
+      "샌드위치"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 241,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p5_14",
+    "name": "치즈 퐁뒤",
+    "mainIngredient": "채소",
+    "category": "간식",
+    "themes": [
+      "간식",
+      "양식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 245,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p5_15",
+    "name": "허니마요 떡볶이",
+    "mainIngredient": "채소",
+    "category": "분식",
+    "themes": [
+      "떡볶이",
+      "간식",
+      "분식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 249,
+    "part": "Part 5 평생 간식",
+    "dishGroupId": "tteokbokki",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p5_16",
+    "name": "만두피 추로스",
+    "mainIngredient": "채소",
+    "category": "간식",
+    "themes": [
+      "간식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 253,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p5_17",
+    "name": "프렌치 토스트",
+    "mainIngredient": "계란",
+    "category": "간식",
+    "themes": [
+      "간식",
+      "양식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 254,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p5_18",
+    "name": "사치빵",
+    "mainIngredient": "계란",
+    "category": "간식",
+    "themes": [
+      "간식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 256,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p5_19",
+    "name": "감자 수프",
+    "mainIngredient": "채소",
+    "category": "간식",
+    "themes": [
+      "수프",
+      "양식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 258,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p5_20",
+    "name": "호감 수프",
+    "mainIngredient": "채소",
+    "category": "간식",
+    "themes": [
+      "수프",
+      "양식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 260,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p5_21",
+    "name": "당근 수프",
+    "mainIngredient": "채소",
+    "category": "간식",
+    "themes": [
+      "수프",
+      "양식"
+    ],
+    "cookTimeMinutes": 0,
+    "servings": 2,
+    "bookPage": 262,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
+  },
+  {
+    "id": "r_p5_22",
+    "name": "새우 타파스",
+    "mainIngredient": "해산물·생선",
+    "category": "간식",
+    "themes": [
+      "간식",
       "양식",
-      "소"
-    ],
-    "cookTimeMinutes": 15,
-    "caloriesKcal": 331,
-    "servings": 2,
-    "bookPage": 26,
-    "part": "Part 1 국·탕·찌개",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 331,
-      "carbs": 40,
-      "protein": 17,
-      "fat": 10
-    },
-    "tags": [
-      "해산물·생선",
-      "국·탕·찌개",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 소고기 찹스테이크입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "해산물·생선 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_74",
-    "name": "도토리묵 무침",
-    "mainIngredient": "계란",
-    "category": "특식",
-    "themes": [
-      "긴급",
-      "만원"
-    ],
-    "cookTimeMinutes": 20,
-    "caloriesKcal": 338,
-    "servings": 2,
-    "bookPage": 28,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 338,
-      "carbs": 41,
-      "protein": 17,
-      "fat": 10
-    },
-    "tags": [
-      "계란",
-      "특식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 도토리묵 무침입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "계란 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_75",
-    "name": "볶음 우동",
-    "mainIngredient": "두부",
-    "category": "면·파스타",
-    "themes": [
-      "긴급"
-    ],
-    "cookTimeMinutes": 25,
-    "servings": 2,
-    "bookPage": 30,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "tags": [
-      "두부",
-      "면·파스타",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 볶음 우동입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "두부 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_76",
-    "name": "순대 볶음",
-    "mainIngredient": "채소",
-    "category": "반찬",
-    "themes": [
-      "만원",
-      "돼지"
-    ],
-    "cookTimeMinutes": 30,
-    "caloriesKcal": 352,
-    "servings": 2,
-    "bookPage": 32,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 352,
-      "carbs": 42,
-      "protein": 18,
-      "fat": 11
-    },
-    "tags": [
-      "채소",
-      "반찬",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 순대 볶음입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "채소 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_77",
-    "name": "황태 해장국",
-    "mainIngredient": "닭",
-    "category": "밥",
-    "themes": [
-      "국물",
       "해산물"
     ],
-    "cookTimeMinutes": 35,
-    "caloriesKcal": 359,
+    "cookTimeMinutes": 0,
     "servings": 2,
-    "bookPage": 34,
-    "part": "Part 2 든든한 밥·면",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 359,
-      "carbs": 43,
-      "protein": 18,
-      "fat": 11
-    },
-    "tags": [
-      "닭",
-      "밥",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 황태 해장국입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "닭 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_78",
-    "name": "돼지갈비찜",
-    "mainIngredient": "돼지",
-    "category": "분식",
-    "themes": [
-      "돼지"
-    ],
-    "cookTimeMinutes": 40,
-    "servings": 2,
-    "bookPage": 36,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "tags": [
-      "돼지",
-      "분식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 돼지갈비찜입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "돼지 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
-  },
-  {
-    "id": "r_79",
-    "name": "삼계탕",
-    "mainIngredient": "소",
-    "category": "간식",
-    "themes": [
-      "국물",
-      "닭"
-    ],
-    "cookTimeMinutes": 45,
-    "caloriesKcal": 373,
-    "servings": 2,
-    "bookPage": 38,
-    "part": "Part 3 매일 반찬",
-    "isVerified": true,
-    "nutrition": {
-      "calories": 373,
-      "carbs": 45,
-      "protein": 19,
-      "fat": 11
-    },
-    "tags": [
-      "소",
-      "간식",
-      "집밥",
-      "추천"
-    ],
-    "description": "엄선된 집밥 레시피북에 수록된 삼계탕입니다.",
-    "ingredientsRequired": [
-      {
-        "name": "진간장",
-        "amount": "1큰술",
-        "usageType": "PART"
-      },
-      {
-        "name": "대파",
-        "amount": "1/2대",
-        "usageType": "PART"
-      },
-      {
-        "name": "소 주재료",
-        "amount": "200g",
-        "usageType": "ALL"
-      }
-    ],
-    "steps": [
-      "신선한 재료를 손질하여 분량의 양념을 준비합니다.",
-      "예열된 냄비나 팬에서 주재료를 알맞게 볶거나 끓입니다.",
-      "마무리 간을 맞추고 그릇에 정갈하게 담아냅니다."
-    ]
+    "bookPage": 265,
+    "part": "Part 5 평생 간식",
+    "ingredientsRequired": [],
+    "steps": []
   }
 ]

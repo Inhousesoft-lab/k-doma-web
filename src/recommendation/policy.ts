@@ -25,6 +25,7 @@ export const THEME_MAX_RECIPES = 10;
 /** 테마 후보 (03-2 3.6). 요리가 0개인 테마만 뺀다 */
 export const THEMES = [
   '파스타',
+  '면',
   '떡볶이',
   '국물',
   '긴급',
@@ -40,4 +41,6 @@ export const THEMES = [
   '소',
   '돼지',
   '닭',
+  '스팸',
+  '전',
 ] as const;

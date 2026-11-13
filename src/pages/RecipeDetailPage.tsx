@@ -275,7 +275,7 @@ export const RecipeDetailPage: React.FC = () => {
                 <span>·</span>
                 <span>{recipe.category}</span>
                 <span>·</span>
-                <span>{recipe.isVerified !== false ? `${recipe.cookTimeMinutes}분` : '미확인'}</span>
+                <span>{recipe.cookTimeMinutes > 0 ? `${recipe.cookTimeMinutes}분` : '미확인'}</span>
                 {recipe.bookPage && (
                   <>
                     <span>·</span>

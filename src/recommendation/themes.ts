@@ -58,6 +58,7 @@ export function pickThemes(
 ): ThemeSection[] {
   const candidates = THEMES.map((theme) => ({
     theme: theme as string,
+    // 테마에 속하면 재료 정보 유무와 상관없이 모두 노출한다
     recipes: recipes.filter((r) => r.themes?.includes(theme)),
   })).filter((section) => section.recipes.length > 0);
 

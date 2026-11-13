@@ -339,7 +339,7 @@ export const RecipesPage: React.FC = () => {
                     {recipe.name}
                   </h3>
                   <p className="text-[13px] text-ink-muted mt-1">
-                    {recipe.mainIngredient} · {recipe.category} · {recipe.cookTimeMinutes}분
+                    {recipe.mainIngredient} · {recipe.category}{recipe.cookTimeMinutes > 0 ? ` · ${recipe.cookTimeMinutes}분` : ''}
                   </p>
                   {statusLine && (
                     <p className="text-[13px] font-medium text-ink-secondary mt-0.5">{statusLine}</p>
@@ -416,7 +416,7 @@ export const RecipesPage: React.FC = () => {
                     {recipe.name}
                   </h3>
                   <p className="text-[13px] text-ink-muted mt-1">
-                    {recipe.mainIngredient} · {recipe.category} · {recipe.cookTimeMinutes}분 ·{' '}
+                    {recipe.mainIngredient} · {recipe.category}{recipe.cookTimeMinutes > 0 ? ` · ${recipe.cookTimeMinutes}분` : ''} ·{' '}
                     {recipe.servings || 2}인분
                   </p>
                 </div>

@@ -156,7 +156,7 @@ export const LikesPage: React.FC = () => {
                   {recipe.name}
                 </h3>
                 <p className="text-[13px] text-ink-muted mt-1">
-                  {recipe.category} · {recipe.cookTimeMinutes}분
+                  {recipe.category}{recipe.cookTimeMinutes > 0 ? ` · ${recipe.cookTimeMinutes}분` : ''}
                 </p>
                 {recipe.caloriesKcal && (
                   <p className="text-[13px] font-medium text-ink-secondary mt-0.5">
@@ -216,7 +216,7 @@ export const LikesPage: React.FC = () => {
                   {recipe.name}
                 </h4>
                 <p className="text-[12px] text-ink-muted mt-0.5">
-                  {recipe.category} · {recipe.cookTimeMinutes}분
+                  {recipe.category}{recipe.cookTimeMinutes > 0 ? ` · ${recipe.cookTimeMinutes}분` : ''}
                   {recipe.caloriesKcal ? ` · ${recipe.caloriesKcal} kcal` : ''}
                 </p>
               </div>
