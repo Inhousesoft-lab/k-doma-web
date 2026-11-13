@@ -190,7 +190,9 @@
     "imageKey": "egg",
     "aliases": [
       "달걀",
-      "신선란"
+      "신선란",
+      "달걀노른자",
+      "달걀 노른자"
     ]
   },
   {
@@ -211,7 +213,8 @@
     "imageKey": "kimchi",
     "aliases": [
       "배추김치",
-      "신김치"
+      "신김치",
+      "김치 국물"
     ]
   },
   {
@@ -229,8 +232,6 @@
     "zone": "FRIDGE",
     "imageKey": "pork",
     "aliases": [
-      "돼지고기 앞다리살",
-      "삼겹살",
       "목살"
     ]
   },
@@ -271,9 +272,7 @@
     "aliases": [
       "소고기 양지",
       "소고기 홍두깨",
-      "다진소고기",
-      "차돌박이",
-      "우삼겹"
+      "다진소고기"
     ]
   },
   {
@@ -440,7 +439,8 @@
     "zone": "FRIDGE",
     "imageKey": "laver",
     "aliases": [
-      "조미김"
+      "조미김",
+      "김가루"
     ]
   },
   {
@@ -451,13 +451,6 @@
     "aliases": [
       "런천미트"
     ]
-  },
-  {
-    "id": "m_ing_132",
-    "name": "묵은지",
-    "zone": "FRIDGE",
-    "imageKey": "aged_kimchi",
-    "aliases": []
   },
   {
     "id": "m_ing_133",
@@ -473,15 +466,6 @@
     "imageKey": "somen",
     "aliases": [
       "국수"
-    ]
-  },
-  {
-    "id": "m_ing_135",
-    "name": "모짜렐라치즈",
-    "zone": "FRIDGE",
-    "imageKey": "mozzarella",
-    "aliases": [
-      "모차렐라치즈"
     ]
   },
   {
@@ -510,13 +494,6 @@
     ]
   },
   {
-    "id": "m_ing_139",
-    "name": "슬라이스치즈",
-    "zone": "FRIDGE",
-    "imageKey": "sliced_cheese",
-    "aliases": []
-  },
-  {
     "id": "m_ing_140",
     "name": "올리브유",
     "zone": "SEASONING",
@@ -530,7 +507,9 @@
     "name": "쌀",
     "zone": "FRIDGE",
     "imageKey": "rice",
-    "aliases": []
+    "aliases": [
+      "밥"
+    ]
   },
   {
     "id": "m_ing_142",
@@ -545,15 +524,6 @@
     "zone": "FRIDGE",
     "imageKey": "enoki",
     "aliases": []
-  },
-  {
-    "id": "m_ing_144",
-    "name": "무염버터",
-    "zone": "FRIDGE",
-    "imageKey": "unsalted_butter",
-    "aliases": [
-      "버터"
-    ]
   },
   {
     "id": "m_ing_145",
@@ -579,25 +549,6 @@
     "aliases": []
   },
   {
-    "id": "m_ing_148",
-    "name": "토마토 파스타소스",
-    "zone": "SEASONING",
-    "imageKey": "tomato_pasta_sauce",
-    "aliases": [
-      "토마토소스",
-      "파스타소스"
-    ]
-  },
-  {
-    "id": "m_ing_149",
-    "name": "대패삼겹살",
-    "zone": "FRIDGE",
-    "imageKey": "thin_pork_belly",
-    "aliases": [
-      "대패삼겹"
-    ]
-  },
-  {
     "id": "m_ing_150",
     "name": "떡국떡",
     "zone": "FRIDGE",
@@ -618,6 +569,115 @@
     "imageKey": "broth_coin",
     "aliases": [
       "육수코인"
+    ]
+  },
+  {
+    "id": "m_ing_153",
+    "name": "다진생강",
+    "zone": "SEASONING",
+    "imageKey": "ginger_minced",
+    "aliases": [
+      "간생강"
+    ]
+  },
+  {
+    "id": "m_ing_154",
+    "name": "새우젓",
+    "zone": "SEASONING",
+    "imageKey": "salted_shrimp",
+    "aliases": [
+      "육젓",
+      "추젓"
+    ]
+  },
+  {
+    "id": "m_ing_155",
+    "name": "식용유",
+    "zone": "SEASONING",
+    "imageKey": "cooking_oil",
+    "aliases": [
+      "카놀라유",
+      "포도씨유",
+      "콩기름"
+    ]
+  },
+  {
+    "id": "m_ing_156",
+    "name": "차돌박이",
+    "zone": "FRIDGE",
+    "imageKey": "beef_brisket",
+    "aliases": [
+      "차돌"
+    ]
+  },
+  {
+    "id": "m_ing_157",
+    "name": "우삼겹",
+    "zone": "FRIDGE",
+    "imageKey": "beef_short_plate",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_158",
+    "name": "돼지고기 앞다리살",
+    "zone": "FRIDGE",
+    "imageKey": "pork_shoulder",
+    "aliases": [
+      "앞다리살",
+      "돼지고기 앞다리살 찌개용",
+      "찌개용 앞다리살"
+    ]
+  },
+  {
+    "id": "m_ing_159",
+    "name": "돼지고기 삼겹살",
+    "zone": "FRIDGE",
+    "imageKey": "pork_belly",
+    "aliases": [
+      "삼겹살",
+      "통삼겹"
+    ]
+  },
+  {
+    "id": "m_ing_159",
+    "name": "즉석밥",
+    "zone": "FRIDGE",
+    "imageKey": "instant_rice",
+    "aliases": [
+      "햇반",
+      "즉석 밥"
+    ]
+  },
+  {
+    "id": "m_ing_160",
+    "name": "양송이버섯",
+    "zone": "FRIDGE",
+    "imageKey": "button_mushroom",
+    "aliases": [
+      "양송이"
+    ]
+  },
+  {
+    "id": "m_ing_161",
+    "name": "슬라이스 체다치즈",
+    "zone": "FRIDGE",
+    "imageKey": "sliced_cheddar",
+    "aliases": [
+      "슬라이스 치즈",
+      "슬라이스 체더치즈",
+      "체다치즈",
+      "체더치즈",
+      "체다 치즈"
+    ]
+  },
+  {
+    "id": "m_ing_162",
+    "name": "버터",
+    "zone": "FRIDGE",
+    "imageKey": "butter",
+    "aliases": [
+      "무염버터",
+      "가염버터"
     ]
   }
 ]

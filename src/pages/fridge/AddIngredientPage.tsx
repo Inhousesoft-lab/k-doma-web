@@ -7,15 +7,16 @@ import { isSameIngredient } from '../../utils/ingredient';
 import SearchInput from '../../components/common/SearchInput';
 import Button from '../../components/common/Button';
 import Toast from '../../components/common/Toast';
+import IngredientImage from '../../components/common/IngredientImage';
 
 /** 많이 고르는 순서. 여기 없는 재료는 뒤에 가나다순으로 붙는다 */
 const POPULAR_ORDER = [
   '계란', '양파', '대파', '참치캔', '고추장', '간장', '두부', '감자',
-  '양배추', '고추', '김', '된장', '당근', '우유', '돼지고기', '스팸',
-  '굴소스', '애호박', '참기름', '묵은지', '마요네즈', '사과', '고춧가루', '다진마늘',
-  '케첩', '소면', '소금', '후추', '모짜렐라치즈', '쌈장', '오이', '파스타면',
-  '참치액젓', '슬라이스치즈', '식초', '올리브유', '쌀', '고등어', '무', '팽이버섯',
-  '설탕', '무염버터', '마늘', '닭가슴살', '들기름', '식빵', '토마토 파스타소스', '대패삼겹살',
+  '양배추', '고추', '김', '된장', '당근', '우유', '돼지고기', '돼지고기 삼겹살', '돼지고기 앞다리살', '스팸',
+  '굴소스', '애호박', '참기름', '마요네즈', '사과', '고춧가루', '다진마늘',
+  '케첩', '소면', '소금', '후추', '쌈장', '오이', '파스타면',
+  '참치액젓', '식초', '올리브유', '쌀', '고등어', '무', '팽이버섯',
+  '설탕', '마늘', '닭가슴살', '들기름', '식빵',
   '오징어', '떡국떡', '부침가루', '코인육수',
 ];
 
@@ -134,11 +135,15 @@ export const AddIngredientPage: React.FC = () => {
                 }`}
               >
                 <div
-                  className={`relative w-full aspect-square max-w-[80px] rounded-[18px] bg-thumb flex items-center justify-center text-[10px] text-ink-muted font-medium transition-shadow ${
+                  className={`relative w-full aspect-square max-w-[80px] rounded-[18px] bg-fill-subtle transition-shadow ${
                     selected ? 'ring-[2.5px] ring-primary ring-offset-2' : ''
                   }`}
                 >
-                  AI 이미지
+                  <IngredientImage
+                    name={item.name}
+                    imageKey={item.imageKey}
+                    className="w-full h-full rounded-[18px] p-1.5"
+                  />
                   {selected && (
                     <span className="absolute -top-1.5 -right-1.5 w-[22px] h-[22px] rounded-full bg-primary text-white flex items-center justify-center shadow-xs">
                       <Check className="w-3.5 h-3.5 stroke-[3]" />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Trash2 } from 'lucide-react';
 import { Ingredient, IngredientStatus } from '../../types';
+import IngredientImage from '../../components/common/IngredientImage';
 
 export interface FridgeListRowProps {
   ingredient: Ingredient;
@@ -43,9 +44,13 @@ export const FridgeListRow: React.FC<FridgeListRowProps> = ({
     <div className="min-h-[56px] py-2.5 px-2 flex items-center justify-between border-b border-line-subtle last:border-b-0 hover:bg-fill-subtle rounded-[10px] transition-colors">
       {/* 1. 좌측: 이미지 (32x32) + 재료명 */}
       <div className="flex items-center gap-2.5 min-w-0 mr-2">
-        <div className="w-8 h-8 rounded-[8px] bg-thumb flex items-center justify-center text-[9px] text-ink-muted font-semibold shrink-0 select-none">
-          AI
-        </div>
+        <IngredientImage
+          name={ingredient.name}
+          imageKey={ingredient.imageKey}
+          className="w-8 h-8 rounded-[8px]"
+          placeholder="AI"
+          placeholderClassName="text-[9px] font-semibold"
+        />
         <span
           className={`text-[15px] font-semibold truncate ${
             isNone ? 'text-ink-muted line-through decoration-1' : 'text-ink'
