@@ -10,7 +10,6 @@ import {
 } from '../types';
 import {
   buildPlans,
-  cartsData,
   clone,
   favoritesData,
   ingredientsData,
@@ -38,20 +37,25 @@ import {
 import { FirebaseError } from 'firebase/app';
 import { auth } from '../lib/firebase';
 import {
+  addCartItems,
+  cachedCart,
   cachedFridge,
+  deleteCartItem,
   deleteIngredient,
+  loadCart,
   loadFridge,
+  moveCartItemToFridge,
   setIngredientStatus,
   setStatusesBatch,
-  startFridgeSync,
-  stopFridgeSync,
+  startHouseholdSync,
+  stopHouseholdSync,
+  updateCartItem,
   upsertIngredient,
-} from './fridgeStore';
+} from './householdStore';
 
 // 메모리 저장소: 앱을 열 때 JSON(src/data)으로 채우고, 바뀐 값은 메모리에만 둔다 (새로고침하면 초기화)
-// 냉장고는 Firestore(fridgeStore.ts)에 저장한다
+// 냉장고·장바구니는 가구 공유로 Firestore(householdStore.ts)에 저장한다
 const inMemoryRecipes: Recipe[] = clone(recipesData);
-const userCarts: Record<string, CartItem[]> = clone(cartsData); // 계정별 장바구니
 const userFavorites: Record<string, Set<string>> = Object.fromEntries(
   Object.entries(favoritesData).map(([userId, ids]) => [userId, new Set(ids)])
 ); // 계정별 찜 (KD-27)
@@ -79,7 +83,7 @@ export const authReady: Promise<void> = setPersistence(auth, browserSessionPersi
           const nextId = toAppUserId(user);
           const changed = nextId !== currentUserId;
           currentUserId = nextId;
-          syncFridge(user, nextId);
+          syncHousehold(user, nextId);
           resolve();
           if (changed) notifyListeners();
         });
@@ -101,13 +105,13 @@ const requireUser = (): string => {
 /** 지금 로그인한 계정 id (비로그인이면 빈 문자열 → 계정별 데이터는 비어 있음) */
 const uid = (): string => currentUserId ?? '';
 
-/** 로그인하면 가구 냉장고(Firestore) 구독을 시작하고, 로그아웃하면 멈춘다 */
-function syncFridge(user: User | null, appUserId: string | null) {
+/** 로그인하면 가구 냉장고·장바구니(Firestore) 구독을 시작하고, 로그아웃하면 멈춘다 */
+function syncHousehold(user: User | null, appUserId: string | null) {
   if (user && appUserId) {
     const householdName = usersData.find((u) => u.id === appUserId)?.householdName ?? '우리 집';
-    startFridgeSync(user.uid, householdName, notifyListeners);
+    startHouseholdSync(user.uid, householdName, notifyListeners);
   } else {
-    stopFridgeSync();
+    stopHouseholdSync();
   }
 }
 
@@ -116,6 +120,9 @@ function syncFridge(user: User | null, appUserId: string | null) {
  * 비로그인: 빈 냉장고 (KD-47). Today 추천·요리 목록 부족 계산도 빈 냉장고 기준. 바꾸기는 로그인 필요
  */
 const fridge = async (): Promise<Ingredient[]> => (currentUserId ? loadFridge() : []);
+
+/** 지금 계정 가구의 장바구니 (가구 공유). 비로그인은 빈 장바구니 (KD-49) */
+const cart = async (): Promise<CartItem[]> => (currentUserId ? loadCart() : []);
 
 // 리스너 패턴 (냉장고/계획/장바구니 변경 시 자동 갱신)
 type ChangeListener = () => void;
@@ -138,30 +145,29 @@ export const subscribeToDataChanges = (listener: ChangeListener) => {
   };
 };
 
-const newId = (prefix: string) => `${prefix}_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`;
-
 /** 재료 사전 기준 구역. 사전에 없으면 냉장고 */
 const zoneOf = (name: string): StorageZone => findMasterIngredient(name)?.zone ?? 'FRIDGE';
 
-/** 냉장고에 '있음'으로 등록. 이미 있으면(있음·적음·없음) 있음으로 바꾼다 (KD-28) */
-const registerAsHave = async (name: string): Promise<void> => {
-  const match = findByIngredientName(name, await fridge());
-  if (match) {
-    await setIngredientStatus(match.id, 'HAVE');
-    return;
-  }
-  const master = findMasterIngredient(name);
-  await upsertIngredient({
-    name: master?.name ?? canonicalName(name),
-    zone: master?.zone ?? 'FRIDGE',
-    status: 'HAVE',
-    imageKey: master?.imageKey ?? null,
-  });
-};
+/** 장바구니 문서 값. 표준 이름·재료 사전 구역으로 맞춘다 */
+const toCartUpsert = (name: string, isUrgent: boolean) => ({
+  name: canonicalName(name),
+  zone: zoneOf(name),
+  isUrgent,
+});
 
-const getUserCart = (userId: string): CartItem[] => {
-  if (!userCarts[userId]) userCarts[userId] = [];
-  return userCarts[userId];
+/** 장바구니 재료를 냉장고 '있음'으로 옮긴다. 이미 냉장고에 있으면(있음·적음·없음) 있음으로 바꾼다 (KD-28) */
+const moveToFridge = async (name: string, cartItemId: string): Promise<void> => {
+  const match = findByIngredientName(name, await fridge());
+  const master = findMasterIngredient(name);
+  await moveCartItemToFridge(cartItemId, {
+    existingFridgeId: match?.id,
+    upsert: {
+      name: master?.name ?? canonicalName(name),
+      zone: master?.zone ?? 'FRIDGE',
+      status: 'HAVE',
+      imageKey: master?.imageKey ?? null,
+    },
+  });
 };
 
 export const recipeService = {
@@ -300,137 +306,93 @@ export const ingredientService = {
 };
 
 export const cartService = {
-  async getCartItems(userId: string = uid()): Promise<CartItem[]> {
-    return [...getUserCart(userId)];
+  async getCartItems(): Promise<CartItem[]> {
+    return [...(await cart())];
   },
 
-  async getCartCount(userId: string = uid()): Promise<number> {
-    return (userCarts[userId] || []).length;
+  async getCartCount(): Promise<number> {
+    return (await cart()).length;
   },
 
-  isItemInCart(name: string, userId: string = uid()): boolean {
-    return Boolean(findByIngredientName(name, userCarts[userId] || []));
+  isItemInCart(name: string): boolean {
+    return Boolean(currentUserId && findByIngredientName(name, cachedCart()));
   },
 
-  async toggleItemCheck(id: string, userId: string = uid()): Promise<void> {
+  async toggleItemCheck(id: string): Promise<void> {
     requireUser();
-    const item = getUserCart(userId).find((i) => i.id === id);
-    if (item) {
-      item.checked = !item.checked;
-      notifyListeners();
-    }
+    const item = (await cart()).find((i) => i.id === id);
+    if (item) await updateCartItem(id, { checked: !item.checked });
   },
 
   /**
    * 재료를 장바구니에 담거나 빼기 ('꼭 사야 해요')
    * 같은 재료는 표준 이름 한 줄로 합친다 (KD-R05)
    */
-  async toggleItem(name: string, isUrgent: boolean = true, userId: string = uid()): Promise<boolean> {
+  async toggleItem(name: string, isUrgent: boolean = true): Promise<boolean> {
     requireUser();
-    const list = getUserCart(userId);
-    const existingIndex = list.findIndex((i) => isSameIngredient(i.name, name));
-
-    if (existingIndex >= 0) {
-      list.splice(existingIndex, 1);
-      notifyListeners();
+    const existing = findByIngredientName(name, await cart());
+    if (existing) {
+      await deleteCartItem(existing.id);
       return false;
     }
-    list.push({
-      id: newId('cart'),
-      name: canonicalName(name),
-      isUrgent,
-      checked: false,
-      zone: zoneOf(name),
-    });
-    notifyListeners();
+    await addCartItems([toCartUpsert(name, isUrgent)]);
     return true;
   },
 
   /**
-   * 여러 재료 한 번에 장바구니에 담기
+   * 여러 재료 한 번에 장바구니에 담기 (이미 담긴 재료는 건너뛴다)
    */
-  async addItems(names: string[], isUrgent: boolean = true, userId: string = uid()): Promise<number> {
+  async addItems(names: string[], isUrgent: boolean = true): Promise<number> {
     requireUser();
-    const list = getUserCart(userId);
-    let addedCount = 0;
-    names.forEach((name) => {
-      if (findByIngredientName(name, list)) return;
-      list.push({
-        id: newId('cart'),
-        name: canonicalName(name),
-        isUrgent,
-        checked: false,
-        zone: zoneOf(name),
-      });
-      addedCount++;
-    });
-
-    if (addedCount > 0) {
-      notifyListeners();
-    }
-    return addedCount;
+    const current = await cart();
+    const toAdd = names.filter(
+      (name, index) =>
+        !findByIngredientName(name, current) &&
+        names.findIndex((other) => isSameIngredient(other, name)) === index
+    );
+    await addCartItems(toAdd.map((name) => toCartUpsert(name, isUrgent)));
+    return toAdd.length;
   },
 
   /**
-   * [집에 있어요]: 냉장고에 '있음(HAVE)'으로 저장하고 장바구니에서 지운다.
+   * [집에 있어요]: 냉장고에 '있음(HAVE)'으로 저장하고 장바구니에서 지운다 (한 번에 저장)
    */
-  async markAsInFridge(itemName: string, cartItemId: string, userId: string = uid()): Promise<void> {
+  async markAsInFridge(itemName: string, cartItemId: string): Promise<void> {
     requireUser();
-    await registerAsHave(itemName);
-    userCarts[userId] = getUserCart(userId).filter((i) => i.id !== cartItemId);
-    notifyListeners();
+    await moveToFridge(itemName, cartItemId);
   },
 
   /**
    * [+ 살 목록에]: 더 사두면 좋아요에서 꼭 사야 해요로 옮긴다.
    */
-  async moveToUrgentCart(itemName: string, userId: string = uid()): Promise<void> {
+  async moveToUrgentCart(itemName: string): Promise<void> {
     requireUser();
-    const list = getUserCart(userId);
-    const existing = findByIngredientName(itemName, list);
+    const existing = findByIngredientName(itemName, await cart());
     if (existing) {
-      existing.isUrgent = true;
+      await updateCartItem(existing.id, { isUrgent: true });
     } else {
-      list.push({
-        id: newId('cart'),
-        name: canonicalName(itemName),
-        isUrgent: true,
-        checked: false,
-        zone: zoneOf(itemName),
-      });
+      await addCartItems([toCartUpsert(itemName, true)]);
     }
-    notifyListeners();
   },
 
   /**
    * [체크한 n개 냉장고에 등록]:
    * 체크한 재료를 냉장고에 '있음(HAVE)'으로 저장하고, 저장된 항목만 목록에서 지운다.
-   * 실패한 항목은 체크된 채로 남김 (KD-36).
+   * 항목마다 따로 저장해서, 실패한 항목만 체크된 채로 남긴다 (KD-36).
    */
-  async registerCheckedToFridge(
-    itemIds: string[],
-    userId: string = uid()
-  ): Promise<{ successIds: string[]; failedIds: string[] }> {
+  async registerCheckedToFridge(itemIds: string[]): Promise<{ successIds: string[]; failedIds: string[] }> {
     requireUser();
-    const list = getUserCart(userId);
     const successIds: string[] = [];
     const failedIds: string[] = [];
-
-    // 항목마다 따로 저장해서, 실패한 항목만 체크된 채로 남긴다 (KD-36)
-    for (const item of list.filter((i) => itemIds.includes(i.id))) {
+    for (const item of (await cart()).filter((i) => itemIds.includes(i.id))) {
       try {
-        await registerAsHave(item.name);
+        await moveToFridge(item.name, item.id);
         successIds.push(item.id);
       } catch (e) {
         console.error(e);
         failedIds.push(item.id);
       }
     }
-
-    const successSet = new Set(successIds);
-    userCarts[userId] = list.filter((i) => !successSet.has(i.id));
-
-    notifyListeners();
     return { successIds, failedIds };
   },
 
@@ -438,10 +400,8 @@ export const cartService = {
    * 냉장고에 등록된 재료 중 적음·없음 (더 사두면 좋아요, KD-35)
    * 이미 꼭 사야 해요에 있는 재료는 제외
    */
-  async getNeedBuyFromFridge(
-    userId: string = uid()
-  ): Promise<Array<{ id: string; name: string; status: IngredientStatus; zone: StorageZone }>> {
-    const cartList = userCarts[userId] || [];
+  async getNeedBuyFromFridge(): Promise<Array<{ id: string; name: string; status: IngredientStatus; zone: StorageZone }>> {
+    const cartList = await cart();
     return (await fridge())
       .filter(
         (ing) =>
@@ -607,7 +567,7 @@ export const authService = {
         return failed;
       }
       currentUserId = appUserId; // onAuthStateChanged 보다 먼저 화면이 바뀌어도 맞게
-      syncFridge(user, appUserId); // 화면이 바로 냉장고를 읽어도 되도록 구독을 먼저 시작한다
+      syncHousehold(user, appUserId); // 화면이 바로 냉장고·장바구니를 읽어도 되도록 구독을 먼저 시작한다
       notifyListeners();
       return { success: true };
     } catch (e) {

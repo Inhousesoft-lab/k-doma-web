@@ -124,8 +124,16 @@ export const RecipeDetailPage: React.FC = () => {
   };
 
   // 로그인 직후: 고른 재료를 장바구니에 '담기' (토글이 아니라 추가 → 이미 담긴 재료를 빼지 않음)
+  const CART_SAVE_FAILED = '장바구니에 저장하지 못했어요. 잠시 후 다시 시도해 주세요.';
+
   const addToCartAfterLogin = (names: string[]) => async () => {
-    await cartService.addItems(names, true);
+    try {
+      await cartService.addItems(names, true);
+    } catch (e) {
+      console.error(e);
+      showToastMessage(CART_SAVE_FAILED);
+      return;
+    }
     showToastMessage(
       names.length === 1 ? `'${names[0]}' 재료를 장바구니에 담았어요` : `재료 ${names.length}개를 장바구니에 담았어요`
     );
@@ -133,7 +141,15 @@ export const RecipeDetailPage: React.FC = () => {
 
   // 4. 재료 장바구니 토글 (단건)
   const handleToggleCartItem = async (ingredientName: string) => {
-    await requireLogin(() => cartService.toggleItem(ingredientName, true).then(() => undefined), {
+    const toggle = async () => {
+      try {
+        await cartService.toggleItem(ingredientName, true);
+      } catch (e) {
+        console.error(e);
+        showToastMessage(CART_SAVE_FAILED);
+      }
+    };
+    await requireLogin(toggle, {
       afterLogin: addToCartAfterLogin([ingredientName]),
       description: '장바구니에 담으려면 로그인해 주세요.',
     });
@@ -144,7 +160,13 @@ export const RecipeDetailPage: React.FC = () => {
     if (missingNames.length === 0) return;
     await requireLogin(
       async () => {
-        await cartService.addItems(missingNames, true);
+        try {
+          await cartService.addItems(missingNames, true);
+        } catch (e) {
+          console.error(e);
+          showToastMessage(CART_SAVE_FAILED);
+          return;
+        }
         showToastMessage(`없는 재료 ${missingNames.length}개를 장바구니에 담았어요`);
       },
       {

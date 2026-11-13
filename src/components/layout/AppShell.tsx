@@ -14,7 +14,7 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
   const location = useLocation();
   const [cartCount, setCartCount] = useState<number>(0);
 
-  // 장바구니를 담거나 빼면 바로 배지에 반영한다. 비로그인은 0 (KD-27: 장바구니는 계정별)
+  // 장바구니를 담거나 빼면 바로 배지에 반영한다. 비로그인은 0 (장바구니는 가구 공유)
   useEffect(() => {
     const refresh = () => {
       if (!authService.isLoggedIn()) {

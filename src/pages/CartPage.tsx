@@ -22,7 +22,7 @@ export const CartPage: React.FC = () => {
   // 3. 로딩 상태 (비로그인은 불러올 데이터가 없어 로딩을 켜지 않는다)
   const [isLoading, setIsLoading] = useState<boolean>(() => authService.isLoggedIn());
 
-  // 4. 로그인 상태 (KD-27 장바구니는 계정별). 비로그인이어도 화면은 연다 (KD-49)
+  // 4. 로그인 상태 (장바구니는 가구 공유). 비로그인이어도 화면은 연다 (KD-49)
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(authService.isLoggedIn());
 
   // 5. 토스트 메시지
@@ -71,14 +71,30 @@ export const CartPage: React.FC = () => {
 
 
   // 꼭 사야 해요 체크 토글 (체크는 '샀다' 표시일 뿐, 재고는 즉시 안 바뀜)
+  const SAVE_FAILED = '저장하지 못했어요. 잠시 후 다시 시도해 주세요.';
+  const showSaveFailed = (e: unknown) => {
+    console.error(e);
+    setToastType('error');
+    setToastMessage(SAVE_FAILED);
+  };
+
   const handleToggleCheck = async (id: string) => {
-    await cartService.toggleItemCheck(id);
+    try {
+      await cartService.toggleItemCheck(id);
+    } catch (e) {
+      showSaveFailed(e);
+    }
     await loadData();
   };
 
   // [집에 있어요] 클릭: 냉장고에 있음으로 저장하고 목록에서 지움
   const handleMarkInFridge = async (item: CartItem) => {
-    await cartService.markAsInFridge(item.name, item.id);
+    try {
+      await cartService.markAsInFridge(item.name, item.id);
+    } catch (e) {
+      showSaveFailed(e);
+      return;
+    }
     await loadData();
     setToastType('success');
     setToastMessage(`'${item.name}'을(를) 냉장고에 '있음'으로 등록했어요.`);
@@ -86,7 +102,12 @@ export const CartPage: React.FC = () => {
 
   // [+ 살 목록에] 클릭: 더 사두면 좋아요에서 꼭 사야 해요로 이동
   const handleMoveToUrgent = async (name: string) => {
-    await cartService.moveToUrgentCart(name);
+    try {
+      await cartService.moveToUrgentCart(name);
+    } catch (e) {
+      showSaveFailed(e);
+      return;
+    }
     await loadData();
     setToastType('info');
     setToastMessage(`'${name}'을(를) 꼭 사야 해요에 추가했어요.`);
