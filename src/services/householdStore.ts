@@ -276,6 +276,24 @@ export const updateCartItem = (id: string, fields: Partial<Pick<CartItem, 'isUrg
 
 export const deleteCartItem = (id: string): Promise<void> => deleteDoc(cartDoc(active().householdId, id));
 
+/** 여러 장바구니 재료의 체크를 한 번에 바꾼다 (전체 선택·해제) */
+export const setCartItemsChecked = async (ids: string[], checked: boolean): Promise<void> => {
+  if (ids.length === 0) return;
+  const hid = active().householdId;
+  const batch = writeBatch(db);
+  ids.forEach((id) => batch.update(cartDoc(hid, id), { checked, ...stamp() }));
+  await batch.commit();
+};
+
+/** 여러 장바구니 재료를 한 번에 지운다 (선택 삭제) */
+export const deleteCartItems = async (ids: string[]): Promise<void> => {
+  if (ids.length === 0) return;
+  const hid = active().householdId;
+  const batch = writeBatch(db);
+  ids.forEach((id) => batch.delete(cartDoc(hid, id)));
+  await batch.commit();
+};
+
 /**
  * 장바구니 재료를 냉장고에 '있음'으로 저장하고 장바구니에서 지운다.
  * 둘을 한 번에 저장해서(batch) 한쪽만 바뀌는 일이 없다.

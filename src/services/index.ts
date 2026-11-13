@@ -51,6 +51,8 @@ import {
   startHouseholdSync,
   stopHouseholdSync,
   updateCartItem,
+  setCartItemsChecked,
+  deleteCartItems,
   upsertIngredient,
   type InventoryWrite,
 } from './householdStore';
@@ -347,6 +349,19 @@ export const cartService = {
     requireUser();
     const item = (await cart()).find((i) => i.id === id);
     if (item) await updateCartItem(id, { checked: !item.checked });
+  },
+
+  /** 전체 선택(true)·전체 해제(false) */
+  async setAllChecked(checked: boolean): Promise<void> {
+    requireUser();
+    const ids = (await cart()).filter((i) => Boolean(i.checked) !== checked).map((i) => i.id);
+    await setCartItemsChecked(ids, checked);
+  },
+
+  /** 체크한 재료를 장바구니에서 지운다 (냉장고는 그대로) */
+  async deleteItems(ids: string[]): Promise<void> {
+    requireUser();
+    await deleteCartItems(ids);
   },
 
   /**

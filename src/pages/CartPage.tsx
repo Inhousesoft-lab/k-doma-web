@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Check } from 'lucide-react';
+import Modal from '../components/common/Modal';
 import { CartItem } from '../types';
 import { cartService, authService, subscribeToDataChanges } from '../services';
 import StatusSignal from '../components/common/StatusSignal';
@@ -117,6 +118,33 @@ export const CartPage: React.FC = () => {
   const checkedCount = useMemo(() => {
     return urgentItems.filter((i) => i.checked).length;
   }, [urgentItems]);
+  const isAllChecked = urgentItems.length > 0 && checkedCount === urgentItems.length;
+
+  // [전체 선택] 클릭: 모두 체크돼 있으면 전체 해제, 아니면 전체 체크
+  const handleToggleAll = async () => {
+    try {
+      await cartService.setAllChecked(!isAllChecked);
+    } catch (e) {
+      showSaveFailed(e);
+    }
+    await loadData();
+  };
+
+  // [선택 삭제]: 확인 후 체크한 재료를 장바구니에서만 지운다
+  const [confirmDeleteOpen, setConfirmDeleteOpen] = useState<boolean>(false);
+  const handleDeleteChecked = async () => {
+    setConfirmDeleteOpen(false);
+    const ids = urgentItems.filter((i) => i.checked).map((i) => i.id);
+    try {
+      await cartService.deleteItems(ids);
+    } catch (e) {
+      showSaveFailed(e);
+      return;
+    }
+    await loadData();
+    setToastType('info');
+    setToastMessage(`${ids.length}개 재료를 장바구니에서 삭제했어요.`);
+  };
 
   // [체크한 n개 냉장고에 등록] 클릭
   const handleRegisterChecked = async () => {
@@ -195,6 +223,42 @@ export const CartPage: React.FC = () => {
           </div>
         ) : (
           <div className="flex flex-col">
+            {/* 전체 선택 · 선택 삭제 */}
+            <div className="flex items-center justify-between py-2.5 border-b border-line-subtle">
+              <div
+                onClick={handleToggleAll}
+                className="flex items-center cursor-pointer select-none group"
+                role="checkbox"
+                aria-checked={isAllChecked}
+                aria-label="전체 선택"
+              >
+                <div
+                  className={`w-[22px] h-[22px] rounded-[6px] flex items-center justify-center transition-colors shrink-0 ${
+                    isAllChecked
+                      ? 'bg-ink text-white border border-ink'
+                      : 'border border-line-strong bg-white group-hover:border-ink-muted'
+                  }`}
+                >
+                  {isAllChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
+                </div>
+                <span className="text-[14px] font-medium text-ink ml-3">
+                  전체 선택{' '}
+                  <span className="text-ink-muted">
+                    ({checkedCount}/{urgentItems.length})
+                  </span>
+                </span>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setConfirmDeleteOpen(true)}
+                disabled={checkedCount === 0}
+                className="text-[13px] font-medium text-ink-secondary px-2 py-1 rounded-[8px] hover:bg-fill-subtle disabled:text-ink-disabled disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed select-none"
+              >
+                선택 삭제
+              </button>
+            </div>
+
             {urgentItems.map((item) => (
               <CartUrgentRow
                 key={item.id}
@@ -277,6 +341,16 @@ export const CartPage: React.FC = () => {
           returnTo="/cart"
         />
       )}
+
+      {/* 선택 삭제 확인 */}
+      <Modal
+        isOpen={confirmDeleteOpen}
+        onClose={() => setConfirmDeleteOpen(false)}
+        title={`${checkedCount}개 재료를 삭제할까요?`}
+        description="장바구니에서만 지워지고, 냉장고는 바뀌지 않아요."
+        confirmText="삭제"
+        onConfirm={handleDeleteChecked}
+      />
 
       {/* 5. 토스트 알림 */}
       {toastMessage && (
