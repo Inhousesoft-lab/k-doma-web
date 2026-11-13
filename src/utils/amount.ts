@@ -6,6 +6,7 @@
  * - 분수: '1/2모', '1/5큰술', '½개'(유니코드 분수)
  * - 대분수: '1 1/2컵', '1½컵'
  * - 앞에 말이 붙은 양: '듬뿍 3큰술', '약 200g'
+ * - 괄호 안 보조 양: '¼포기(약 600g)' (괄호 안 숫자도 함께 바꾼다)
  * 숫자가 없는 양('약간', '적당량')은 그대로 둔다.
  */
 
@@ -65,5 +66,7 @@ export function scaleAmount(amount: string | undefined, currentServings: number,
 
   const [, prefix, token, suffix] = match;
   const scaled = parseNumber(token) * (currentServings / baseServings);
-  return `${prefix}${formatNumber(scaled)}${suffix}`;
+  // 괄호 안 보조 양도 함께 바꾼다: '¼포기(약 600g)' → '½포기(약 1200g)'
+  const scaledSuffix = suffix.replace(/\(([^)]*)\)/g, (_, inner: string) => `(${scaleAmount(inner, currentServings, baseServings)})`);
+  return `${prefix}${formatNumber(scaled)}${scaledSuffix}`;
 }

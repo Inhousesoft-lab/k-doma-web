@@ -128,9 +128,12 @@ export const RecipeDetailPage: React.FC = () => {
 
   // 재료 복사: 지금 고른 인분 기준으로 "재료명 양, 재료명 양, ..." 한 줄로 복사
   const handleCopyIngredients = async () => {
-    if (!recipe?.ingredientsRequired?.length) return;
-    const text = recipe.ingredientsRequired
-      .map((item) => `${item.name} ${scaleAmount(item.amount, servings, recipe.servings || 2)}`.trim())
+    if (!recipe) return;
+    const text = (recipe.ingredientsRequired ?? [])
+      .map((item) => {
+        const qty = scaleAmount(item.amount, servings, recipe.servings || 2);
+        return qty === '-' ? item.name : `${item.name} ${qty}`; // 양 없는 재료(식용유 등)는 이름만
+      })
       .join(', ');
     try {
       await navigator.clipboard.writeText(text);
