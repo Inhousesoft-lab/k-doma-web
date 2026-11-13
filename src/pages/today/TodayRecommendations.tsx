@@ -17,6 +17,13 @@ export interface TodayRecommendationsProps {
   onRefreshTheme: () => void;
 }
 
+/** 추천 1순위 카드의 추천 이유 (KD-67). 비로그인은 재고를 모르므로 쓰지 않는다 */
+const reasonOf = (missingCount: number) => {
+  if (missingCount === 0) return '재료 모두 있어요';
+  if (missingCount <= 2) return `재료 ${missingCount}개만 사면 돼요`;
+  return '오늘의 추천'; // 많이 사야 하면 '~만'이 어색하다
+};
+
 /** 카드 가로 줄 하나 (드래그 직후 클릭은 무시) */
 const CardRow: React.FC<{
   items: TodayRecipeItem[];
@@ -34,6 +41,7 @@ const CardRow: React.FC<{
             missingCount={missingCount}
             index={index}
             showStock={showStock}
+            reason={index === 0 && showStock ? reasonOf(missingCount) : undefined}
             onOpen={(id) => {
               if (wasDragged()) return;
               navigate(`/recipe/${id}`);
@@ -57,7 +65,7 @@ export const TodayRecommendations: React.FC<TodayRecommendationsProps> = ({
   onToggleFavorite,
   onRefreshTheme,
 }) => (
-  <section className="flex flex-col gap-6">
+  <section className="flex flex-col flex-1 gap-6">
     {/* 1. 추천 요리: '오늘 한끼 뭐먹지?' */}
     <div>
       <h2 className="text-[22px] font-black text-ink tracking-tight mb-3">오늘 한끼 뭐먹지?</h2>
@@ -70,18 +78,18 @@ export const TodayRecommendations: React.FC<TodayRecommendationsProps> = ({
       )}
     </div>
 
-    {/* 2. 테마 요리: '추천 테마: OO' + 새로고침 버튼 + 2열 n행 카드 */}
+    {/* 2. 테마 요리: 옅은 배경 안 보조 영역 (KD-67). '추천 테마: OO' + 새로고침 + 2열 n행 카드 */}
     {themes.map(({ theme, items }) => (
-      <div key={theme}>
-        <div className="flex items-center justify-between gap-2 mb-3">
-          <h3 className="text-[18px] font-bold text-ink">추천 테마: {theme}</h3>
+      <div key={theme} className="-mx-5 px-5 pt-3.5 pb-[108px] bg-fill rounded-t-[20px] grow">
+        <div className="flex items-center justify-between gap-2 mb-2.5">
+          <h3 className="text-[16px] font-bold text-ink-secondary">추천 테마: {theme}</h3>
           <button
             type="button"
             onClick={onRefreshTheme}
             aria-label="다른 테마 보기"
-            className="w-11 h-11 shrink-0 rounded-[10px] border border-line bg-white flex items-center justify-center text-ink-secondary hover:text-ink active:scale-95 transition cursor-pointer"
+            className="w-11 h-11 -mr-2.5 shrink-0 rounded-[10px] flex items-center justify-center text-ink-secondary hover:text-ink hover:bg-white/70 active:scale-95 transition cursor-pointer"
           >
-            <RotateCw className="w-5 h-5" />
+            <RotateCw className="w-[18px] h-[18px]" />
           </button>
         </div>
         <CardGrid items={items} showStock={showStock} onToggleFavorite={onToggleFavorite} />
@@ -98,7 +106,7 @@ const CardGrid: React.FC<{
 }> = ({ items, showStock, onToggleFavorite }) => {
   const navigate = useNavigate();
   return (
-    <div className="grid grid-cols-2 gap-x-3.5 gap-y-5">
+    <div className="grid grid-cols-2 gap-x-3 gap-y-4">
       {items.map(({ recipe, missingCount }, index) => (
         <RecipeCard
           key={recipe.id}

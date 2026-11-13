@@ -20,8 +20,10 @@ export interface RecipeCardProps {
   index: number;
   /** false 면 재료 정보 줄을 그리지 않는다 (비로그인, KD-44) */
   showStock: boolean;
-  /** true 면 칸 너비에 맞춘다 (테마 2열 그리드). 기본은 가로 스크롤용 고정 너비 */
+  /** true 면 칸 너비에 맞춘다 (테마 2열 그리드, 사진 3:2·글자 작게). 기본은 추천 요리 가로 스크롤용 큰 카드 (KD-67) */
   fullWidth?: boolean;
+  /** 추천 이유 한 줄 (추천 요리 첫 카드만). 사진 아래 검은 배지 (KD-67) */
+  reason?: string;
   onOpen: (recipeId: string) => void;
   onToggleFavorite: (recipeId: string) => void;
 }
@@ -33,6 +35,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
   index,
   showStock,
   fullWidth = false,
+  reason,
   onOpen,
   onToggleFavorite,
 }) => {
@@ -40,11 +43,11 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
   return (
     <div
       onClick={() => onOpen(recipe.id)}
-      className={`${fullWidth ? 'w-full min-w-0' : 'w-[180px] shrink-0'} cursor-pointer group select-none flex flex-col`}
+      className={`${fullWidth ? 'w-full min-w-0' : 'w-[260px] shrink-0'} cursor-pointer group select-none flex flex-col`}
     >
       {/* 상단 파스텔 이미지 썸네일 박스 */}
       <div
-        className={`w-full aspect-[4/3] rounded-[18px] ${tint} flex items-center justify-center overflow-hidden transition-transform group-active:scale-[0.98] shadow-2xs`}
+        className={`w-full ${fullWidth ? 'aspect-[3/2] rounded-[14px]' : 'aspect-[4/3] rounded-[18px]'} ${tint} flex items-center justify-center overflow-hidden transition-transform group-active:scale-[0.98] shadow-2xs`}
       >
         {recipe.photoUrl ? (
           <img
@@ -60,10 +63,14 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
 
       {/* 아래 요리명 및 메타 */}
       <div className="pt-2.5 flex flex-col">
-        <h4 className="text-[16px] font-bold text-ink leading-snug truncate">{recipe.name}</h4>
+        {reason && (
+          <span className="self-start mb-1.5 px-2 py-[3px] rounded-[6px] bg-ink text-white text-[12px] font-bold">{reason}</span>
+        )}
+        <h4 className={`${fullWidth ? 'text-[15px]' : 'text-[17px]'} font-bold text-ink leading-snug truncate`}>{recipe.name}</h4>
         <p className="text-[13px] text-ink-muted mt-0.5">
-          {recipe.cookTimeMinutes}분
-          {recipe.caloriesKcal ? ` · ${recipe.caloriesKcal} kcal` : ''}
+          {[recipe.cookTimeMinutes > 0 ? `${recipe.cookTimeMinutes}분` : '', recipe.caloriesKcal ? `${recipe.caloriesKcal} kcal` : '']
+            .filter(Boolean)
+            .join(' · ')}
         </p>
 
         {/* 하트 찜 버튼 */}

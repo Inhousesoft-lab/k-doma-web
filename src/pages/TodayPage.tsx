@@ -107,7 +107,8 @@ export const TodayPage: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col px-5 pt-3 pb-8 gap-4 bg-white min-h-[calc(100vh-80px)]">
+    <div className="flex flex-col flex-1 px-5 pt-3 gap-4 bg-white min-h-[calc(100vh-80px)] -mb-[76px]">
+      {/* -mb-[76px]: 레이아웃의 하단 탭 여백(pb-[76px])까지 테마 회색 배경이 이어지게 한다 */}
       {/* 추천 요리 + 테마 요리 (냉장고가 비어 있어도 그대로 보여 준다, KD-50·51) */}
       {recommendations && (
         <TodayRecommendations
