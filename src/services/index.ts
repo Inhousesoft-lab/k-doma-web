@@ -11,7 +11,6 @@ import {
 import {
   buildPlans,
   clone,
-  favoritesData,
   ingredientsData,
   recipesData,
   toProfile,
@@ -52,13 +51,20 @@ import {
   updateCartItem,
   upsertIngredient,
 } from './householdStore';
+import {
+  addFavorite as saveFavorite,
+  cachedFavoriteSet,
+  favoritesReady,
+  loadFavoriteIds,
+  removeFavorite,
+  startFavoritesSync,
+  stopFavoritesSync,
+} from './favoritesStore';
 
 // 메모리 저장소: 앱을 열 때 JSON(src/data)으로 채우고, 바뀐 값은 메모리에만 둔다 (새로고침하면 초기화)
 // 냉장고·장바구니는 가구 공유로 Firestore(householdStore.ts)에 저장한다
+// 찜은 계정별로 Firestore(favoritesStore.ts)에 저장한다 (KD-27)
 const inMemoryRecipes: Recipe[] = clone(recipesData);
-const userFavorites: Record<string, Set<string>> = Object.fromEntries(
-  Object.entries(favoritesData).map(([userId, ids]) => [userId, new Set(ids)])
-); // 계정별 찜 (KD-27)
 const inMemoryPlans: MealPlan[] = buildPlans(); // 계정별 요리 기록
 
 // 로그인 상태: Firebase Auth 가 관리한다. 세션 유지(browserSessionPersistence)라 새로고침해도 유지되고 탭을 닫으면 풀린다.
@@ -105,15 +111,25 @@ const requireUser = (): string => {
 /** 지금 로그인한 계정 id (비로그인이면 빈 문자열 → 계정별 데이터는 비어 있음) */
 const uid = (): string => currentUserId ?? '';
 
-/** 로그인하면 가구 냉장고·장바구니(Firestore) 구독을 시작하고, 로그아웃하면 멈춘다 */
+/** 로그인하면 가구 냉장고·장바구니와 내 찜(Firestore) 구독을 시작하고, 로그아웃하면 멈춘다 */
 function syncHousehold(user: User | null, appUserId: string | null) {
   if (user && appUserId) {
     const householdName = usersData.find((u) => u.id === appUserId)?.householdName ?? '우리 집';
     startHouseholdSync(user.uid, householdName, notifyListeners);
+    startFavoritesSync(user.uid, notifyListeners);
   } else {
     stopHouseholdSync();
+    stopFavoritesSync();
   }
 }
+
+/** 내 찜 (비로그인은 빈 찜). 하트를 그릴 때 바로 쓴다 */
+const favoriteSet = (): ReadonlySet<string> => (currentUserId ? cachedFavoriteSet() : new Set<string>());
+
+/** 로그인 상태면 찜 첫 목록을 받을 때까지 기다린다 (첫 화면에서 하트가 깜빡이지 않게) */
+const waitFavorites = async (): Promise<void> => {
+  if (currentUserId) await favoritesReady();
+};
 
 /**
  * 지금 계정 가구의 냉장고 목록
@@ -172,38 +188,52 @@ const moveToFridge = async (name: string, cartItemId: string): Promise<void> => 
 
 export const recipeService = {
   async getRecipes(): Promise<Recipe[]> {
-    return inMemoryRecipes.map((r) => ({
-      ...r,
-      isFavorite: userFavorites[uid()]?.has(r.id) ?? false,
-    }));
+    await waitFavorites();
+    const favs = favoriteSet();
+    return inMemoryRecipes.map((r) => ({ ...r, isFavorite: favs.has(r.id) }));
   },
 
   async getRecipeById(id: string): Promise<Recipe | undefined> {
     const r = inMemoryRecipes.find((recipe) => recipe.id === id);
     if (!r) return undefined;
-    return { ...r, isFavorite: userFavorites[uid()]?.has(r.id) ?? false };
+    await waitFavorites();
+    return { ...r, isFavorite: favoriteSet().has(r.id) };
   },
 
-  async getFavoriteRecipes(userId: string = uid()): Promise<Recipe[]> {
-    const favSet = userFavorites[userId] || new Set();
-    return inMemoryRecipes.filter((r) => favSet.has(r.id)).map((r) => ({ ...r, isFavorite: true }));
+  /** 내 찜 목록 (최근 찜한 순). 비로그인은 빈 목록. 불러오기에 실패하면 오류를 던진다 */
+  async getFavoriteRecipes(): Promise<Recipe[]> {
+    if (!currentUserId) return [];
+    const ids = await loadFavoriteIds();
+    const byId = new Map(inMemoryRecipes.map((r) => [r.id, r]));
+    return ids.flatMap((id) => {
+      const r = byId.get(id);
+      return r ? [{ ...r, isFavorite: true }] : []; // 없어진 요리는 건너뛴다
+    });
   },
 
-  async toggleFavorite(id: string, userId: string = uid()): Promise<boolean> {
+  /** 찜 켜기/끄기. 바뀐 뒤 상태를 돌려준다 */
+  async toggleFavorite(id: string): Promise<boolean> {
     requireUser();
-    if (!userFavorites[userId]) {
-      userFavorites[userId] = new Set();
+    await favoritesReady(); // 찜 목록을 받기 전이면 지금 상태를 잘못 보고 반대로 바꿀 수 있다
+    if (favoriteSet().has(id)) {
+      await removeFavorite(id);
+      return false;
     }
-    const set = userFavorites[userId];
-    const nextState = !set.has(id);
-    if (nextState) set.add(id);
-    else set.delete(id);
-    notifyListeners();
-    return nextState;
+    await saveFavorite(id);
+    return true;
   },
 
-  isFavorite(id: string, userId: string = uid()): boolean {
-    return userFavorites[userId]?.has(id) ?? false;
+  /**
+   * 찜 켜기 (이미 찜했어도 그대로). 로그인 직후 찜할 때 쓴다:
+   * 아직 찜 목록을 못 받았어도 토글처럼 꺼 버리지 않는다
+   */
+  async addFavorite(id: string): Promise<void> {
+    requireUser();
+    await saveFavorite(id);
+  },
+
+  isFavorite(id: string): boolean {
+    return favoriteSet().has(id);
   },
 
   /**

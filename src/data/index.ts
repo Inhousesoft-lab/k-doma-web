@@ -11,7 +11,6 @@ import ingredientsJson from './ingredients.json';
 import usersJson from './users.json';
 import fridgeJson from './fridge.json';
 import cartsJson from './carts.json';
-import favoritesJson from './favorites.json';
 import plansJson from './plans.json';
 
 /** 계정 프로필 (로그인 확인은 Firebase Auth 가 한다. 아이디 = Auth 이메일의 @ 앞부분) */
@@ -36,8 +35,6 @@ export const usersData = usersJson as UserAccount[];
 export const fridgeData = fridgeJson as Record<string, Ingredient[]>;
 /** 계정별 장바구니 */
 export const cartsData = cartsJson as Record<string, CartItem[]>;
-/** 계정별 찜 (recipeId 목록) */
-export const favoritesData = favoritesJson as Record<string, string[]>;
 export const planSeeds = plansJson as PlanSeed[];
 
 /** JSON 원본이 바뀌지 않도록 깊은 복사본을 쓴다 */

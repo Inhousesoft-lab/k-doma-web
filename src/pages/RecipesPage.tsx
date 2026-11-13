@@ -84,12 +84,14 @@ export const RecipesPage: React.FC = () => {
   const handleToggleFavorite = async (e: React.MouseEvent, recipeId: string) => {
     e.stopPropagation();
     // 비로그인: 로그인 유도 모달 → 로그인하면 찜을 켠다 (KD-27 찜은 계정별)
-    await requireLogin(() => recipeService.toggleFavorite(recipeId).then(() => undefined), {
-      afterLogin: async () => {
-        if (!recipeService.isFavorite(recipeId)) await recipeService.toggleFavorite(recipeId);
-      },
-      description: '찜하려면 로그인해 주세요.',
-    });
+    try {
+      await requireLogin(() => recipeService.toggleFavorite(recipeId).then(() => undefined), {
+        afterLogin: () => recipeService.addFavorite(recipeId),
+        description: '찜하려면 로그인해 주세요.',
+      });
+    } catch (err) {
+      console.error('찜을 저장하지 못했어요', err);
+    }
   };
 
   // 필터링 및 검색 계산 (전환해도 검색·필터 유지)

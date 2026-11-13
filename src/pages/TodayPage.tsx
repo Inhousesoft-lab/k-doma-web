@@ -75,12 +75,14 @@ export const TodayPage: React.FC = () => {
 
   // 찜 상태 토글 (비로그인: 로그인 유도 모달 → 로그인하면 찜을 켠다)
   const handleToggleFavorite = async (recipeId: string) => {
-    await requireLogin(() => recipeService.toggleFavorite(recipeId).then(() => undefined), {
-      afterLogin: async () => {
-        if (!recipeService.isFavorite(recipeId)) await recipeService.toggleFavorite(recipeId);
-      },
-      description: '찜하려면 로그인해 주세요.',
-    });
+    try {
+      await requireLogin(() => recipeService.toggleFavorite(recipeId).then(() => undefined), {
+        afterLogin: () => recipeService.addFavorite(recipeId),
+        description: '찜하려면 로그인해 주세요.',
+      });
+    } catch (e) {
+      console.error('찜을 저장하지 못했어요', e);
+    }
   };
 
   if (loading) {

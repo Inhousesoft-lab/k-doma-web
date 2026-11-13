@@ -97,12 +97,15 @@ export const RecipeDetailPage: React.FC = () => {
   const handleToggleFavorite = async () => {
     if (!recipe) return;
     const id = recipe.id;
-    await requireLogin(() => recipeService.toggleFavorite(id).then(() => undefined), {
-      afterLogin: async () => {
-        if (!recipeService.isFavorite(id)) await recipeService.toggleFavorite(id);
-      },
-      description: '찜하려면 로그인해 주세요.',
-    });
+    try {
+      await requireLogin(() => recipeService.toggleFavorite(id).then(() => undefined), {
+        afterLogin: () => recipeService.addFavorite(id),
+        description: '찜하려면 로그인해 주세요.',
+      });
+    } catch (e) {
+      console.error(e);
+      showToastMessage('찜을 저장하지 못했어요. 다시 시도해 주세요');
+    }
   };
 
   // 2. 공유 링크 복사 (기획서 4.1: www.kdoma.com/recipe/{recipeId} 형식)

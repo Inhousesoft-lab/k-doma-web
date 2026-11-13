@@ -3,6 +3,7 @@ rules_version = '2';
 // K-Doma Firestore 보안 규칙
 // - 가구(households/{hid}) 문서 id = 만든 사람의 uid. 구성원(memberIds)만 가구 데이터(냉장고·장바구니)를 읽고 쓴다.
 // - 가구 합류 기능 전까지 구성원 변경(update)은 막는다.
+// - 찜(users/{uid}/favorites)은 계정별이라 본인만 읽고 쓴다.
 service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() {
@@ -50,6 +51,16 @@ service cloud.firestore {
         allow read, delete: if isMember(hid);
         allow create, update: if isMember(hid) && validCartItem(request.resource.data);
       }
+    }
+
+    // 찜 (계정별, KD-27). 문서 id = 요리 id. 본인만 읽고 쓴다.
+    // 이미 찜한 요리를 다시 저장(setDoc)하면 update 라서 update 도 허용한다.
+    match /users/{uid}/favorites/{recipeId} {
+      allow read, delete: if signedIn() && request.auth.uid == uid;
+      allow create, update: if signedIn() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['createdAt'])
+        && request.resource.data.createdAt == request.time
+        && recipeId.size() > 0 && recipeId.size() <= 64;
     }
   }
 }

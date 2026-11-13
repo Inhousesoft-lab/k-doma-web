@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Heart, LayoutList, LayoutGrid } from 'lucide-react';
 import { Recipe } from '../types';
-import { recipeService, authService, subscribeToDataChanges } from '../services';
+import { recipeService, subscribeToDataChanges } from '../services';
 import StateView from '../components/common/StateView';
 import Button from '../components/common/Button';
 import NoImage from '../components/common/NoImage';
@@ -14,19 +14,21 @@ export const LikesPage: React.FC = () => {
   const [viewMode, setViewMode] = useState<'list' | 'photo'>('list');
   const [favorites, setFavorites] = useState<Recipe[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [loadFailed, setLoadFailed] = useState<boolean>(false);
 
-  const userId = authService.getCurrentUser().id;
-
+  // 내 찜 목록 (Firestore users/{uid}/favorites, 최근 찜한 순)
   const loadData = useCallback(async () => {
     try {
-      const favs = await recipeService.getFavoriteRecipes(userId);
+      const favs = await recipeService.getFavoriteRecipes();
       setFavorites(favs);
+      setLoadFailed(false);
     } catch (e) {
       console.error(e);
+      setLoadFailed(true);
     } finally {
       setLoading(false);
     }
-  }, [userId]);
+  }, []);
 
   useEffect(() => {
     loadData();
@@ -36,15 +38,33 @@ export const LikesPage: React.FC = () => {
     return () => unsubscribe();
   }, [loadData]);
 
-  // 찜 해제 (꽉 찬 하트 클릭 시 해제)
+  // 찜 해제 (꽉 찬 하트 클릭 시 해제). 목록은 구독(subscribeToDataChanges)이 다시 불러온다
   const handleRemoveFavorite = async (e: React.MouseEvent, recipeId: string) => {
     e.stopPropagation();
-    await recipeService.toggleFavorite(recipeId, userId);
-    await loadData();
+    try {
+      await recipeService.toggleFavorite(recipeId);
+    } catch (err) {
+      console.error('찜을 해제하지 못했어요', err);
+    }
   };
 
   if (loading) {
     return <StateView type="loading" />;
+  }
+
+  if (loadFailed) {
+    return (
+      <StateView
+        type="error"
+        title="찜 목록을 불러오지 못했어요"
+        description="잠시 후 다시 시도해 주세요."
+        actionText="다시 시도"
+        onAction={() => {
+          setLoading(true);
+          loadData();
+        }}
+      />
+    );
   }
 
   return (
