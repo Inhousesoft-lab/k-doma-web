@@ -126,6 +126,16 @@
     ]
   },
   {
+    "id": "m_ing_173",
+    "name": "꿀",
+    "zone": "SEASONING",
+    "imageKey": "honey",
+    "aliases": [
+      "벌꿀",
+      "아카시아꿀"
+    ]
+  },
+  {
     "id": "m_ing_14",
     "name": "굴소스",
     "zone": "SEASONING",
@@ -678,6 +688,18 @@
     "aliases": [
       "삼겹살",
       "통삼겹"
+    ]
+  },
+  {
+    "id": "m_ing_172",
+    "name": "껍질 붙은 통삼겹",
+    "zone": "FRIDGE",
+    "imageKey": "pork_belly_skin_on",
+    "aliases": [
+      "돼지 껍질 붙은 통삼겹",
+      "오겹살",
+      "통오겹살",
+      "껍데기 붙은 통삼겹"
     ]
   },
   {
