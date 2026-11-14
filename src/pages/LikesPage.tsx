@@ -1,42 +1,21 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Heart, LayoutList, LayoutGrid } from 'lucide-react';
-import { Recipe } from '../types';
-import { recipeService, subscribeToDataChanges } from '../services';
+import { recipeService } from '../services';
 import StateView from '../components/common/StateView';
 import Button from '../components/common/Button';
 import NoImage from '../components/common/NoImage';
+import useServiceData from '../hooks/useServiceData';
 
 export const LikesPage: React.FC = () => {
   const navigate = useNavigate();
 
   // 보기 모드: 목록형 vs 사진형
   const [viewMode, setViewMode] = useState<'list' | 'photo'>('list');
-  const [favorites, setFavorites] = useState<Recipe[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [loadFailed, setLoadFailed] = useState<boolean>(false);
 
   // 내 찜 목록 (Firestore users/{uid}/favorites, 최근 찜한 순)
-  const loadData = useCallback(async () => {
-    try {
-      const favs = await recipeService.getFavoriteRecipes();
-      setFavorites(favs);
-      setLoadFailed(false);
-    } catch (e) {
-      console.error(e);
-      setLoadFailed(true);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    loadData();
-    const unsubscribe = subscribeToDataChanges(() => {
-      loadData();
-    });
-    return () => unsubscribe();
-  }, [loadData]);
+  const { data, loading, error: loadFailed, retry } = useServiceData(() => recipeService.getFavoriteRecipes());
+  const favorites = data ?? [];
 
   // 찜 해제 (꽉 찬 하트 클릭 시 해제). 목록은 구독(subscribeToDataChanges)이 다시 불러온다
   const handleRemoveFavorite = async (e: React.MouseEvent, recipeId: string) => {
@@ -59,10 +38,7 @@ export const LikesPage: React.FC = () => {
         title="찜 목록을 불러오지 못했어요"
         description="잠시 후 다시 시도해 주세요."
         actionText="다시 시도"
-        onAction={() => {
-          setLoading(true);
-          loadData();
-        }}
+        onAction={retry}
       />
     );
   }

@@ -1,16 +1,15 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Heart, LayoutList, LayoutGrid, Search } from 'lucide-react';
-import { Recipe, Ingredient } from '../types';
 import {
   recipeService,
   ingredientService,
   authService,
-  subscribeToDataChanges,
 } from '../services';
 import StateView from '../components/common/StateView';
 import NoImage from '../components/common/NoImage';
 import useLoginGate from '../hooks/useLoginGate';
+import useServiceData from '../hooks/useServiceData';
 
 const MAIN_INGREDIENTS = [
   '전체',
@@ -47,39 +46,19 @@ export const RecipesPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('전체');
 
   // 데이터 상태
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+  const { data, loading, error, retry } = useServiceData(async () => {
+    const [recipes, ingredients] = await Promise.all([
+      recipeService.getRecipes(),
+      ingredientService.getIngredients(),
+    ]);
+    return { recipes, ingredients };
+  });
+  const recipes = useMemo(() => data?.recipes ?? [], [data]);
+  const ingredients = useMemo(() => data?.ingredients ?? [], [data]);
   // 비로그인이면 요리별 보유 상태(바로 가능·부족 n개)를 보여 주지 않는다 (KD-44). 로그인 상태가 바뀌면 데이터 변경 알림으로 다시 그린다
   const isLoggedIn = authService.isLoggedIn();
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<boolean>(false);
 
   const { requireLogin, loginModal } = useLoginGate();
-
-  const loadData = useCallback(async () => {
-    try {
-      const [allRecipes, allIngredients] = await Promise.all([
-        recipeService.getRecipes(),
-        ingredientService.getIngredients(),
-      ]);
-      setRecipes(allRecipes);
-      setIngredients(allIngredients);
-      setError(false);
-    } catch (e) {
-      console.error(e);
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    loadData();
-    const unsubscribe = subscribeToDataChanges(() => {
-      loadData();
-    });
-    return () => unsubscribe();
-  }, [loadData]);
 
   // 찜 토글
   const handleToggleFavorite = async (e: React.MouseEvent, recipeId: string) => {
@@ -98,12 +77,11 @@ export const RecipesPage: React.FC = () => {
   // 필터링 및 검색 계산 (전환해도 검색·필터 유지)
   const filteredRecipes = useMemo(() => {
     return recipes.filter((r) => {
-      // 1. 주재료 필터
+      // 1. 주재료 필터: 주재료·태그만 본다. 요리 이름은 보지 않는다 ('소' → 리소토·소면·휴게소가 섞이는 문제)
       if (selectedMain !== '전체') {
         const matchesMain =
           r.mainIngredient === selectedMain ||
-          r.tags?.includes(selectedMain) ||
-          r.name.includes(selectedMain);
+          r.tags?.includes(selectedMain);
         if (!matchesMain) return false;
       }
 
@@ -150,7 +128,7 @@ export const RecipesPage: React.FC = () => {
         title="요리 목록을 불러오지 못했어요"
         description="네트워크 연결을 확인하고 다시 시도해주세요."
         actionText="다시 시도"
-        onAction={loadData}
+        onAction={retry}
       />
     );
   }
