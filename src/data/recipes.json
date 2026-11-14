@@ -1512,7 +1512,10 @@
     "bookPage": 226,
     "part": "Part 5 평생 간식",
     "ingredientsRequired": [],
-    "steps": []
+    "steps": [],
+    "tags": [
+      "치즈"
+    ]
   },
   {
     "id": "r_p5_09",
@@ -1578,7 +1581,10 @@
     "bookPage": 237,
     "part": "Part 5 평생 간식",
     "ingredientsRequired": [],
-    "steps": []
+    "steps": [],
+    "tags": [
+      "치즈"
+    ]
   },
   {
     "id": "r_p5_13",
@@ -1610,7 +1616,10 @@
     "bookPage": 245,
     "part": "Part 5 평생 간식",
     "ingredientsRequired": [],
-    "steps": []
+    "steps": [],
+    "tags": [
+      "치즈"
+    ]
   },
   {
     "id": "r_p5_15",

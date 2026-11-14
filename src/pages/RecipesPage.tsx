@@ -98,12 +98,11 @@ export const RecipesPage: React.FC = () => {
   // 필터링 및 검색 계산 (전환해도 검색·필터 유지)
   const filteredRecipes = useMemo(() => {
     return recipes.filter((r) => {
-      // 1. 주재료 필터
+      // 1. 주재료 필터: 주재료·태그만 본다. 요리 이름은 보지 않는다 ('소' → 리소토·소면·휴게소가 섞이는 문제)
       if (selectedMain !== '전체') {
         const matchesMain =
           r.mainIngredient === selectedMain ||
-          r.tags?.includes(selectedMain) ||
-          r.name.includes(selectedMain);
+          r.tags?.includes(selectedMain);
         if (!matchesMain) return false;
       }
 
