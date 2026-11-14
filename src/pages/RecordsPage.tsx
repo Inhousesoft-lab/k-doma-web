@@ -108,13 +108,6 @@ export const RecordsPage: React.FC = () => {
     setIsInventorySheetOpen(true);
   };
 
-  // 타임라인 날짜 줄 → 달력 보기로 바꾸고 그 날짜 선택. 타임라인을 내려 둔 상태라 맨 위로 올린다
-  const handleTimelineSelectDate = (date: string) => {
-    setSelectedDate(date);
-    setViewMode('calendar');
-    window.scrollTo({ top: 0 });
-  };
-
   // 요리 카드 (달력 보기·타임라인 보기 공통)
   const renderPlanCard = (plan: MealPlan) => (
     <PlanCard
@@ -210,7 +203,7 @@ export const RecordsPage: React.FC = () => {
           className="grow"
         />
       ) : (
-        <RecordsTimeline plans={cookedPlans} renderCard={renderPlanCard} onSelectDate={handleTimelineSelectDate} />
+        <RecordsTimeline plans={cookedPlans} renderCard={renderPlanCard} />
       )}
 
       {/* 3. 재고 변경 바텀시트 (로그인 상태에서만) */}

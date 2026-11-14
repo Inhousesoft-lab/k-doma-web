@@ -1,5 +1,4 @@
 import React from 'react';
-import { ChevronRight } from 'lucide-react';
 import { MealPlan } from '../../types';
 import { formatMonthDayWeekday, formatYearMonth, monthKey } from '../../utils/date';
 
@@ -8,8 +7,6 @@ export interface RecordsTimelineProps {
   plans: MealPlan[];
   /** 카드 그리기. 달력 보기와 같은 PlanCard 를 그대로 쓴다 */
   renderCard: (plan: MealPlan) => React.ReactNode;
-  /** 날짜 줄 누름 → 달력 보기로 바꾸고 그 날짜 선택 */
-  onSelectDate: (date: string) => void;
 }
 
 interface DayGroup {
@@ -34,10 +31,10 @@ export function groupByDateDesc(plans: MealPlan[]): DayGroup[] {
  * 기록 탭 타임라인 보기
  * - 요리 완료한 날만, 최신 날짜가 위
  * - 달이 바뀌면 월 제목 ('2026년 11월')
- * - 왼쪽 세로선 + 날짜마다 동그라미, 오른쪽에 날짜 줄과 그 날의 요리 카드
+ * - 왼쪽 세로선 + 날짜마다 동그라미, 오른쪽에 날짜(글자만, 누를 수 없음)와 그 날의 요리 카드
  * - 나중에 리팩토링 필요: 기록이 아주 많아지면 나눠 그리기(가상 스크롤/페이지)
  */
-export const RecordsTimeline: React.FC<RecordsTimelineProps> = ({ plans, renderCard, onSelectDate }) => {
+export const RecordsTimeline: React.FC<RecordsTimelineProps> = ({ plans, renderCard }) => {
   const groups = groupByDateDesc(plans);
 
   return (
@@ -62,14 +59,9 @@ export const RecordsTimeline: React.FC<RecordsTimelineProps> = ({ plans, renderC
 
               {/* 오른쪽: 날짜 줄 + 카드 */}
               <div className="flex-1 min-w-0 flex flex-col gap-2.5 pb-6">
-                <button
-                  type="button"
-                  onClick={() => onSelectDate(group.date)}
-                  className="self-start h-11 -my-2.5 flex items-center gap-1 text-[15px] font-bold text-ink hover:text-primary transition-colors cursor-pointer"
-                >
+                <h3 className="h-6 flex items-center text-[15px] font-bold text-ink">
                   {formatMonthDayWeekday(group.date)}
-                  <ChevronRight className="w-3.5 h-3.5 text-ink-muted stroke-[2.5]" aria-hidden="true" />
-                </button>
+                </h3>
                 {group.plans.map((plan) => (
                   <React.Fragment key={plan.id}>{renderCard(plan)}</React.Fragment>
                 ))}
