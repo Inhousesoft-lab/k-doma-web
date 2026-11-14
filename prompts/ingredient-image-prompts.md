@@ -135,7 +135,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 ### 3.3 추가 예정(재료 사전 미등록)
 
 이미지를 먼저 만들고, 재료 사전(`src/data/ingredients.json`)에 등록할 때 아래 값을 쓴다.
-**등록됨** 표시는 이미 사전에 들어간 항목이다(실제 id·별칭은 사전 기준). 다음 새 id는 `m_ing_179`부터.
+**등록됨** 표시는 이미 사전에 들어간 항목이다(실제 id·별칭은 사전 기준). 다음 새 id는 `m_ing_180`부터.
 
 | imageKey | 재료 | 사전 등록안 | SUBJECT |
 |---|---|---|---|
@@ -154,6 +154,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | eggplant | 가지 | **등록됨** id `m_ing_176`, name `가지`, zone `FRIDGE`, aliases `[]` | two long glossy dark purple Korean eggplants with green calyx, crossed |
 | potato_starch | 감자전분 | **등록됨** id `m_ing_177`, name `감자전분`, zone `SEASONING`, aliases `["전분", "녹말가루", "감자녹말", "전분가루"]` | clear plastic bag of fine white potato starch powder, top folded open, a small mound of powder spilled in front, no label |
 | whole_chicken | 생닭 | **등록됨** id `m_ing_178`, name `생닭`, zone `FRIDGE`, aliases `["통닭", "백숙용 닭", "삼계탕용 닭", "영계"]`. 닭볶음탕용 닭(토막)과는 별도 | one whole raw plucked chicken, pale pink skin, legs tucked, wings folded |
+| aged_kimchi | 묵은지 | **등록됨** id `m_ing_179`, name `묵은지`, zone `FRIDGE`, aliases `["묵은김치", "묵은지 국물"]`. 김치(`m_ing_105`)와는 별도 | one whole quarter-head of long-fermented napa cabbage kimchi, darker yellow-orange leaves coated in red seasoning |
 
 - **물엿**: 따로 등록하지 않고 올리고당(`m_ing_13`)의 별칭으로 둔다(2026-11-14 사용자 결정).
 - 캔 디자인(색·배 그림·빨간 배지)은 실제 상품대로 쓰고 **'갈아만든 배' 로고 글자만 뺀다**(2026-11-14 사용자 결정, 저작권 문제 없음 확인). 캔 하나만, 옆에 배를 두지 않는다.

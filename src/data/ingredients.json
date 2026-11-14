@@ -230,6 +230,16 @@
     ]
   },
   {
+    "id": "m_ing_179",
+    "name": "묵은지",
+    "zone": "FRIDGE",
+    "imageKey": "aged_kimchi",
+    "aliases": [
+      "묵은김치",
+      "묵은지 국물"
+    ]
+  },
+  {
     "id": "m_ing_106",
     "name": "우유",
     "zone": "FRIDGE",

@@ -1190,11 +1190,101 @@
     "themes": [
       "돼지"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 70,
     "servings": 2,
+    "bookPage": 60,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "묵은지",
+        "amount": "500g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "묵은지 국물",
+        "amount": "약간",
+        "usageType": "PART"
+      },
+      {
+        "name": "돼지고기 앞다리살",
+        "amount": "500g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "소금",
+        "amount": "1꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "1L",
+        "usageType": "PART"
+      },
+      {
+        "name": "새우젓",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파(흰 부분)",
+        "amount": "2~3대",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "멸치액젓",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "듬뿍 1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "2바퀴",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "돼지고기 앞다리살에 소금 1꼬집을 뿌려 간한다. (돼지고기 앞다리살은 기름이 많은 부위가 훨씬 더 맛있습니다.)",
+      "달군 냄비에 식용유 2바퀴를 두른 뒤, 돼지고기 앞다리살을 통으로 넣고 노릇하게 굽는다.",
+      "중불로 줄이고 묵은지와 김치 국물을 약간 넣는다. (돼지고기와 묵은지는 같은 양을 넣어야 합니다.)",
+      "물 1L를 붓고, 대파는 김치 크기로 길쭉하게 썰어 넣고, 마늘 1줌을 넣는다.",
+      "새우젓 1큰술, 멸치액젓 2큰술, 간장 1큰술, 설탕 1큰술을 넣고 간한 뒤, 뚜껑 덮고 중불에 50분 끓인다. (30~40분 끓이면 쫄깃한 수육 식감의 고기를, 50분 이상 끓이면 야들야들 부드러운 식감의 고기를 맛볼 수 있습니다. 설탕을 넣으면 묵은지의 '시큼'이 '새콤'으로 바뀌어요. 설탕이 싫다면 양파를 사용하세요.)",
+      "다진 마늘 듬뿍 1큰술을 넣고 뚜껑 덮은 뒤, 약불에 5분 뜸 들인다. (다진 마늘은 마지막에 넣어야 마늘 향이 훨씬 살고 맛있어집니다. 김치가 덜 익어 산미가 부족하다면, 식초 2큰술을 넣어도 좋아요.)",
+      "큰 그릇에 고기를 먹기 좋게 썰어 담고 김치를 통으로 올린 뒤, 국물을 부으면 완성!"
+    ],
+    "caloriesKcal": 810,
+    "nutrition": {
+      "calories": 810,
+      "carbs": 31,
+      "protein": 57,
+      "fat": 51
+    },
+    "tags": [
+      "돼지",
+      "특식",
+      "국물",
+      "밥도둑"
+    ],
+    "description": "기름진 앞다리살을 통으로 구워 같은 양의 묵은지와 50분 푹 끓인, 고기가 야들야들한 김치찜",
+    "photoUrl": "/images/recipes/r_p1_12.jpg"
   },
   {
     "id": "r_p1_13",
