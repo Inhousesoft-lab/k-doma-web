@@ -19,7 +19,9 @@ export interface PlanCardProps {
 /**
  * 선택한 날짜의 요리 카드 컴포넌트 (공용 위치: src/components/plan/PlanCard.tsx)
  * - 요리 예정(PLANNED): [취소] [요리 완료]
- * - 요리 완료(COOKED): [요리를 완성했어요. 재고 변경할까요?] 또는 '재고 반영됨', [삭제]
+ * - 요리 완료(COOKED): 위쪽 줄 오른쪽 끝 [삭제]. 재고 미반영이면 아래 [요리를 완성했어요. 재고 변경할까요?],
+ *   반영했으면 칩 옆 '재고 반영됨' (아래 버튼 줄 없음)
+ * - 달력 보기·타임라인 보기에서 같이 쓴다
  * - 재고 반영은 한 번만. [다시 수정]은 없다 (KD-57)
  * - 요리명 아래 메타 줄: 요리 시간 · 칼로리 (오늘 탭 요리 카드와 같은 형식)
  * - 영양 데이터가 있으면 탄수화물·단백질·지방 줄을 덧붙인다
@@ -43,6 +45,7 @@ export const PlanCard: React.FC<PlanCardProps> = ({
   };
 
   const isCooked = plan.status === 'COOKED';
+  const hasBottomActions = !isCooked || !plan.inventoryUpdated;
 
   const kcal = recipe?.nutrition?.calories ?? recipe?.caloriesKcal;
   const meta = [
@@ -63,23 +66,45 @@ export const PlanCard: React.FC<PlanCardProps> = ({
       onClick={handleCardClick}
       className="bg-white rounded-card border border-line p-4 cursor-pointer active:scale-[0.99] transition-all"
     >
-      {/* 1. 상단 칩 (● 요리 완료 / ○ 요리 예정) */}
-      <div className="mb-3">
-        {isCooked ? (
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink text-white text-[12px] font-bold">
-            <span className="w-1.5 h-1.5 rounded-full bg-white inline-block" />
-            <span>요리 완료</span>
-          </span>
-        ) : (
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-ink text-ink text-[12px] font-bold">
-            <span className="w-1.5 h-1.5 rounded-full border border-ink inline-block" />
-            <span>요리 예정</span>
-          </span>
+      {/* 1. 상단 줄: 칩 (● 요리 완료 / ○ 요리 예정) + 재고 반영됨 ……… 오른쪽 끝 [삭제] (요리 완료만)
+             [삭제] 누르는 영역은 44px, 위아래 여백을 겹쳐 줄 높이는 칩 높이로 둔다 */}
+      <div className="flex items-center justify-between mb-3 min-h-[26px]">
+        <div className="flex items-center gap-2">
+          {isCooked ? (
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink text-white text-[12px] font-bold">
+              <span className="w-1.5 h-1.5 rounded-full bg-white inline-block" />
+              <span>요리 완료</span>
+            </span>
+          ) : (
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-ink text-ink text-[12px] font-bold">
+              <span className="w-1.5 h-1.5 rounded-full border border-ink inline-block" />
+              <span>요리 예정</span>
+            </span>
+          )}
+          {isCooked && plan.inventoryUpdated && (
+            <span className="text-[12px] font-bold text-mint flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-mint" />
+              재고 반영됨
+            </span>
+          )}
+        </div>
+        {isCooked && (
+          <button
+            type="button"
+            disabled={busy}
+            onClick={(e) => {
+              e.stopPropagation();
+              onDelete(plan);
+            }}
+            className="h-[44px] -my-[9px] -mr-2 px-2 text-[13px] text-ink-muted font-bold hover:text-ink cursor-pointer disabled:opacity-50 disabled:cursor-default"
+          >
+            삭제
+          </button>
         )}
       </div>
 
       {/* 2. 중간 행: 사각 썸네일(책 사진) + 요리명 */}
-      <div className="flex items-center gap-3.5 mb-4">
+      <div className={`flex items-center gap-3.5 ${hasBottomActions ? 'mb-4' : ''}`}>
         <div className="w-[64px] h-[64px] rounded-btn bg-line flex items-center justify-center shrink-0 overflow-hidden text-ink-tertiary font-medium text-[12px]">
           {photoUrl ? (
             <img
@@ -106,72 +131,47 @@ export const PlanCard: React.FC<PlanCardProps> = ({
         </div>
       </div>
 
-      {/* 3. 하단 액션 버튼 */}
-      <div>
-        {!isCooked ? (
-          <div className="flex gap-2.5">
-            <button
-              type="button"
-              disabled={busy}
-              onClick={(e) => {
-                e.stopPropagation();
-                onCancel(plan.id);
-              }}
-              className="h-[48px] rounded-[12px] border border-line-strong bg-white hover:bg-fill-subtle text-ink font-bold text-[14px] flex-1 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-default"
-            >
-              취소
-            </button>
-            <button
-              type="button"
-              disabled={busy}
-              onClick={(e) => {
-                e.stopPropagation();
-                onComplete(plan.id);
-              }}
-              className="h-[48px] rounded-[12px] bg-ink hover:bg-black text-white font-bold text-[14px] flex-1 flex items-center justify-center transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-default"
-            >
-              요리 완료
-            </button>
-          </div>
-        ) : (
-          <div className="flex flex-col gap-2">
-            {!plan.inventoryUpdated && (
-              <button
-                type="button"
-                disabled={busy}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onOpenInventorySheet(plan);
-                }}
-                className="w-full h-[48px] rounded-[12px] border border-ink bg-white hover:bg-fill-subtle text-ink font-bold text-[14px] flex items-center justify-center transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-default"
-              >
-                요리를 완성했어요. 재고 변경할까요?
-              </button>
-            )}
-            <div className="flex items-center justify-between text-[13px] px-1 min-h-[44px]">
-              {plan.inventoryUpdated ? (
-                <span className="font-bold text-mint flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-mint" />
-                  재고 반영됨
-                </span>
-              ) : (
-                <span />
-              )}
-              <button
-                type="button"
-                disabled={busy}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onDelete(plan);
-                }}
-                className="h-[44px] px-2 text-ink-muted font-bold hover:text-ink cursor-pointer disabled:opacity-50 disabled:cursor-default"
-              >
-                삭제
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
+      {/* 3. 하단 액션 버튼: 요리 예정 [취소][요리 완료] / 요리 완료·재고 미반영 [재고 변경] / 재고 반영됨이면 없음 */}
+      {!isCooked ? (
+        <div className="flex gap-2.5">
+          <button
+            type="button"
+            disabled={busy}
+            onClick={(e) => {
+              e.stopPropagation();
+              onCancel(plan.id);
+            }}
+            className="h-[48px] rounded-[12px] border border-line-strong bg-white hover:bg-fill-subtle text-ink font-bold text-[14px] flex-1 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-default"
+          >
+            취소
+          </button>
+          <button
+            type="button"
+            disabled={busy}
+            onClick={(e) => {
+              e.stopPropagation();
+              onComplete(plan.id);
+            }}
+            className="h-[48px] rounded-[12px] bg-ink hover:bg-black text-white font-bold text-[14px] flex-1 flex items-center justify-center transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-default"
+          >
+            요리 완료
+          </button>
+        </div>
+      ) : (
+        !plan.inventoryUpdated && (
+          <button
+            type="button"
+            disabled={busy}
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpenInventorySheet(plan);
+            }}
+            className="w-full h-[48px] rounded-[12px] border border-ink bg-white hover:bg-fill-subtle text-ink font-bold text-[14px] flex items-center justify-center transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-default"
+          >
+            요리를 완성했어요. 재고 변경할까요?
+          </button>
+        )
+      )}
     </div>
   );
 };

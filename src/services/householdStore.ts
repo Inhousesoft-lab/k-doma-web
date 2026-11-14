@@ -3,6 +3,8 @@
  * - 냉장고: households/{householdId}/fridge/{재료키}
  * - 장바구니: households/{householdId}/cart/{재료키}
  * - 요리 기록: households/{householdId}/plans/{날짜}_{요리id} (KD-57, KD-61)
+ *   기간을 나눠 받는다: 로그인하면 지난달 1일부터(끝 없음) 구독하고, 더 이전 달은 extendPlansFrom 으로
+ *   [시작일, 받은 범위 시작) 구간 구독을 더한다. 구간은 겹치지 않아 같은 문서를 두 번 읽지 않는다
  * - 가구 id 는 currentHouseholdId() 한 곳에서만 정한다. 지금(MVP 1)은 내 uid = 내 1인 가구 (KD-58)
  *   MVP 2에서는 이 함수만 users/{uid}.householdId 를 읽게 바꾼다
  * - 냉장고·장바구니 문서 id = ingredientKey(이름) → 같은 재료는 한 문서라 중복 등록이 생기지 않는다 (KD-R05)
@@ -13,13 +15,16 @@ import {
   doc,
   getDoc,
   onSnapshot,
+  query,
   runTransaction,
   serverTimestamp,
   setDoc,
   updateDoc,
   deleteDoc,
+  where,
   writeBatch,
   type DocumentData,
+  type Query,
   type QuerySnapshot,
   type Unsubscribe,
   type WriteBatch,
@@ -27,6 +32,7 @@ import {
 import { db } from '../lib/firebase';
 import { CartItem, Ingredient, IngredientStatus, MealPlan, StorageZone } from '../types';
 import { ingredientKey } from '../utils/ingredient';
+import { addMonths, todayStr } from '../utils/date';
 
 type SyncKey = 'fridge' | 'cart' | 'plans';
 
@@ -44,7 +50,15 @@ interface HouseholdSession {
   householdId: string;
   fridge: Ingredient[];
   cart: CartItem[];
+  /** 받은 범위의 기록 전체 (구간별 결과를 합친 것) */
   plans: MealPlan[];
+  /** 구간별 기록. 키 = 구간 시작일 (YYYY-MM-01) */
+  planRanges: Map<string, MealPlan[]>;
+  /** 받은 범위의 시작일 (YYYY-MM-01). 이 날부터 끝까지 메모리에 있다 */
+  plansFrom: string;
+  /** 진행 중인 범위 넓히기 (동시에 여러 번 불러도 하나씩) */
+  plansExtending: Promise<void> | null;
+  onChange: () => void;
   /** 구독이 실패한 목록. 그 목록을 다음에 읽을 때 그 목록만 다시 구독하고, 또 실패하면 HouseholdLoadError */
   errors: Partial<Record<SyncKey, HouseholdLoadError>>;
   /** 목록별 (다시) 구독 함수. 첫 목록을 받거나 실패하면 끝난다 */
@@ -145,12 +159,18 @@ export const startHouseholdSync = (uid: string, onChange: () => void): void => {
   stopHouseholdSync();
   lastStart = { uid, onChange };
 
+  // 기본 구독 시작일. 다시 구독할 때도 이 값을 쓴다 (넓힌 구간과 겹치지 않게)
+  const basePlansFrom = addMonths(todayStr(), -1);
   const current: HouseholdSession = {
     uid,
     householdId: currentHouseholdId(uid),
     fridge: [],
     cart: [],
     plans: [],
+    planRanges: new Map(),
+    plansFrom: basePlansFrom,
+    plansExtending: null,
+    onChange,
     errors: {},
     resubscribe: {},
     planWaiters: new Set(),
@@ -162,7 +182,7 @@ export const startHouseholdSync = (uid: string, onChange: () => void): void => {
   /** 컬렉션 하나를 구독하고, 첫 목록을 받거나 실패하면 끝나는 Promise. 다시 구독할 수 있게 세션에 남긴다 */
   const subscribe = <T,>(
     key: SyncKey,
-    col: ReturnType<typeof collection>,
+    col: Query<DocumentData>,
     map: (snap: QuerySnapshot<DocumentData>) => T[],
     assign: (items: T[]) => void,
     label: string
@@ -194,10 +214,14 @@ export const startHouseholdSync = (uid: string, onChange: () => void): void => {
     Promise.all([
       subscribe('fridge', fridgeCol(hid), toIngredient, (items) => (current.fridge = items), '냉장고'),
       subscribe('cart', cartCol(hid), toCartItem, (items) => (current.cart = items), '장바구니'),
-      subscribe('plans', plansCol(hid), toPlans, (items) => {
-        current.plans = items;
-        current.planWaiters.forEach((w) => w());
-      }, '요리 기록'),
+      // 기록: 지난달 1일부터 (추천 최근 3주·달 경계 주의 달력 점까지 들어간다)
+      subscribe(
+        'plans',
+        query(plansCol(hid), where('date', '>=', basePlansFrom)),
+        toPlans,
+        (items) => setPlanRange(current, basePlansFrom, items),
+        '요리 기록'
+      ),
     ]).then(() => undefined)
   );
   current.ready.catch((error) => {
@@ -379,6 +403,62 @@ export class PlanNotFoundError extends Error {
 }
 
 export const loadPlans = (): Promise<MealPlan[]> => loaded('plans');
+
+/** 구간 하나의 기록을 바꾸고 전체 목록을 다시 합친다 (날짜순, 같은 날은 추가한 순) */
+const setPlanRange = (s: HouseholdSession, from: string, items: MealPlan[]): void => {
+  s.planRanges.set(from, items);
+  s.plans = [...s.planRanges.values()]
+    .flat()
+    .sort((a, b) => a.date.localeCompare(b.date) || a.plannedAt - b.plannedAt);
+  s.planWaiters.forEach((w) => w());
+};
+
+/** 받은 범위의 시작일 (YYYY-MM-01). 구독 전·비로그인은 null */
+export const plansLoadedFrom = (): string | null => session?.plansFrom ?? null;
+
+/**
+ * 받은 범위를 from(YYYY-MM-01)까지 넓힌다. 이미 받은 범위면 바로 끝난다.
+ * [from, 지금 받은 범위 시작) 구간을 구독하고 첫 목록을 받으면 끝난다 (실시간 반영은 계속된다).
+ * 실패하면 범위를 넓히지 않고 HouseholdLoadError. 동시에 불러도 하나씩 처리한다
+ */
+export const extendPlansFrom = async (from: string): Promise<void> => {
+  await loaded('plans'); // 기본 구독이 먼저 있어야 한다
+  const s = active();
+  while (s.plansExtending) await s.plansExtending.catch(() => undefined);
+  if (s.stopped || from >= s.plansFrom) return;
+
+  const to = s.plansFrom;
+  const job = new Promise<void>((resolve, reject) => {
+    let first = true;
+    const unsubscribe = onSnapshot(
+      query(plansCol(s.householdId), where('date', '>=', from), where('date', '<', to)),
+      (snap) => {
+        if (s.stopped) return;
+        setPlanRange(s, from, toPlans(snap));
+        if (first) {
+          first = false;
+          s.plansFrom = from;
+          resolve();
+        }
+        s.onChange();
+      },
+      (error) => {
+        console.error('이전 요리 기록을 불러오지 못했어요', error);
+        if (first) {
+          first = false;
+          reject(new HouseholdLoadError('요리 기록', error));
+        }
+      }
+    );
+    s.unsubscribes.push(unsubscribe);
+  });
+  s.plansExtending = job;
+  try {
+    await job;
+  } finally {
+    if (s.plansExtending === job) s.plansExtending = null;
+  }
+};
 
 /** 지금 메모리에 있는 기록 (구독 전이면 빈 목록) */
 export const cachedPlans = (): MealPlan[] => session?.plans ?? [];
