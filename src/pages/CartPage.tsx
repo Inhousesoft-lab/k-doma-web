@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ShoppingCart, Check } from 'lucide-react';
 import Modal from '../components/common/Modal';
 import { CartItem } from '../types';
-import { cartService, authService, subscribeToDataChanges } from '../services';
+import { cartService, authService } from '../services';
+import useServiceData from '../hooks/useServiceData';
 import StatusSignal from '../components/common/StatusSignal';
 import StateView from '../components/common/StateView';
 import Toast from '../components/common/Toast';
@@ -14,17 +15,28 @@ import CartExtraRow, { ExtraIngredientItem } from './cart/CartExtraRow';
 export const CartPage: React.FC = () => {
   const navigate = useNavigate();
 
-  // 1. 장바구니 항목들 (꼭 사야 해요)
-  const [urgentItems, setUrgentItems] = useState<CartItem[]>([]);
-
-  // 2. 냉장고 적음·없음 항목들 (더 사두면 좋아요)
-  const [extraItems, setExtraItems] = useState<ExtraIngredientItem[]>([]);
-
-  // 3. 로딩 상태 (비로그인은 불러올 데이터가 없어 로딩을 켜지 않는다)
-  const [isLoading, setIsLoading] = useState<boolean>(() => authService.isLoggedIn());
-
-  // 4. 로그인 상태 (장바구니는 가구 공유). 비로그인이어도 화면은 연다 (KD-49)
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(authService.isLoggedIn());
+  // 1~4. 장바구니(꼭 사야 해요) · 냉장고 적음·없음(더 사두면 좋아요) · 로그인 상태
+  // 장바구니는 가구 공유. 비로그인이어도 화면은 연다 → 두 영역 모두 0개 (KD-49)
+  // 불러오기 실패(네트워크·권한)는 빈 장바구니로 보이지 않게 오류 화면을 띄운다
+  const {
+    data,
+    loading: isLoading,
+    error: loadError,
+    reload: loadData,
+    retry,
+  } = useServiceData(async () => {
+    if (!authService.isLoggedIn()) {
+      return { isLoggedIn: false, urgentItems: [] as CartItem[], extraItems: [] as ExtraIngredientItem[] };
+    }
+    const [urgentItems, extraItems] = await Promise.all([
+      cartService.getCartItems(),
+      cartService.getNeedBuyFromFridge(),
+    ]);
+    return { isLoggedIn: true, urgentItems, extraItems };
+  });
+  const urgentItems = useMemo(() => data?.urgentItems ?? [], [data]);
+  const extraItems = data?.extraItems ?? [];
+  const isLoggedIn = data?.isLoggedIn ?? authService.isLoggedIn();
 
   // 5. 토스트 메시지
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -32,54 +44,6 @@ export const CartPage: React.FC = () => {
 
   // 6. 하단 버튼 제출 중 상태 (중복 클릭 방지)
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-
-  // 7. 불러오기 실패 (네트워크·권한). 빈 장바구니로 보이지 않게 오류 화면을 띄운다
-  const [loadError, setLoadError] = useState<boolean>(false);
-
-  // 데이터 로드 함수
-  const loadData = useCallback(async () => {
-    // 비로그인: 데이터를 불러오지 않는다 → 두 영역 모두 0개 (KD-49)
-    if (!authService.isLoggedIn()) {
-      setUrgentItems([]);
-      setExtraItems([]);
-      setLoadError(false);
-      return;
-    }
-
-    try {
-      const [cart, needBuy] = await Promise.all([
-        cartService.getCartItems(),
-        cartService.getNeedBuyFromFridge(),
-      ]);
-
-      // 꼭 사야 해요 (isUrgent: true 또는 기본 장바구니 품목)
-      setUrgentItems(cart);
-
-      // 더 사두면 좋아요 (냉장고 적음·없음 중 장바구니에 없는 것)
-      setExtraItems(needBuy);
-      setLoadError(false);
-    } catch (e) {
-      console.error(e);
-      setLoadError(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    setIsLoading(authService.isLoggedIn());
-    loadData().finally(() => {
-      setIsLoading(false);
-    });
-
-    const unsubscribe = subscribeToDataChanges(() => {
-      setIsLoggedIn(authService.isLoggedIn());
-      loadData();
-    });
-
-    return () => {
-      unsubscribe();
-    };
-  }, [loadData]);
-
 
   // 꼭 사야 해요 체크 토글 (체크는 '샀다' 표시일 뿐, 재고는 즉시 안 바뀜)
   const SAVE_FAILED = '저장하지 못했어요. 잠시 후 다시 시도해 주세요.';
@@ -200,10 +164,7 @@ export const CartPage: React.FC = () => {
           type="error"
           title="장바구니를 불러오지 못했어요"
           description="네트워크 연결을 확인하고 다시 시도해 주세요."
-          onAction={() => {
-            setIsLoading(true);
-            loadData().finally(() => setIsLoading(false));
-          }}
+          onAction={retry}
         />
       </div>
     );

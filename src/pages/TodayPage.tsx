@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useRef } from 'react';
 import {
   recommendationService,
   recipeService,
-  subscribeToDataChanges,
   authService,
   type TodayRecipeItem,
   type TodayThemeSection,
@@ -11,6 +10,7 @@ import { TODAY_RECOMMEND_COUNT } from '../recommendation';
 import TodayRecommendations from './today/TodayRecommendations';
 import StateView from '../components/common/StateView';
 import useLoginGate from '../hooks/useLoginGate';
+import useServiceData from '../hooks/useServiceData';
 
 /**
  * Today (/) — 오늘 요리 추천에만 집중
@@ -18,46 +18,28 @@ import useLoginGate from '../hooks/useLoginGate';
  * (달력, 요리 카드, 구분선은 기록 탭 /records 로 이동 완료)
  */
 export const TodayPage: React.FC = () => {
-  const [recommendations, setRecommendations] = useState<{
-    recommended: TodayRecipeItem[];
-    themes: TodayThemeSection[];
-  } | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<boolean>(false);
   /** 테마 새로고침 횟수. 재고가 바뀌어 다시 불러와도 지금 보던 테마를 유지한다 */
   const themeRoundRef = useRef<number>(0);
 
-  const currentUser = authService.getCurrentUser();
-
-  const loadData = useCallback(async () => {
-    try {
-      const [recs, themes] = await Promise.all([
-        recommendationService.getRecommendations(),
-        recommendationService.getThemes(themeRoundRef.current),
-      ]);
-      setRecommendations({
-        recommended: recs
-          .slice(0, TODAY_RECOMMEND_COUNT)
-          .map(({ recipe, missingCount }) => ({ recipe, missingCount })),
-        themes,
-      });
-      setError(false);
-    } catch (e) {
-      console.error(e);
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  }, [currentUser?.id]);
-
-  useEffect(() => {
-    loadData();
-    // 냉장고 재고 등 변경 시 추천 목록 자동 재계산
-    const unsubscribe = subscribeToDataChanges(() => {
-      loadData();
-    });
-    return () => unsubscribe();
-  }, [loadData]);
+  // 냉장고 재고·로그인 등이 바뀌면 추천 목록을 자동으로 다시 계산한다
+  const {
+    data: recommendations,
+    setData: setRecommendations,
+    loading,
+    error,
+    retry,
+  } = useServiceData(async (): Promise<{ recommended: TodayRecipeItem[]; themes: TodayThemeSection[] }> => {
+    const [recs, themes] = await Promise.all([
+      recommendationService.getRecommendations(),
+      recommendationService.getThemes(themeRoundRef.current),
+    ]);
+    return {
+      recommended: recs
+        .slice(0, TODAY_RECOMMEND_COUNT)
+        .map(({ recipe, missingCount }) => ({ recipe, missingCount })),
+      themes,
+    };
+  });
 
   // 추천 테마 새로고침: 오늘 섞은 순서에서 다음 테마로 바꾼다 (추천 요리는 그대로)
   const handleRefreshTheme = async () => {
@@ -100,7 +82,7 @@ export const TodayPage: React.FC = () => {
           title="화면을 불러오지 못했어요"
           description="네트워크 상태를 확인하고 다시 시도해주세요."
           actionText="다시 시도"
-          onAction={loadData}
+          onAction={retry}
         />
       </div>
     );

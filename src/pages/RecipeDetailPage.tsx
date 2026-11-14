@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   Heart,
@@ -10,7 +10,6 @@ import {
   CalendarPlus,
   Copy,
 } from 'lucide-react';
-import { Recipe, Ingredient } from '../types';
 import { todayStr } from '../utils/date';
 import { fridgeStatusOf, getMissingIngredientNames } from '../utils/ingredient';
 import {
@@ -19,7 +18,6 @@ import {
   cartService,
   mealPlanService,
   authService,
-  subscribeToDataChanges,
   DuplicatePlanError,
   PlanLimitError,
 } from '../services';
@@ -27,6 +25,7 @@ import StatusSignal from '../components/common/StatusSignal';
 import Button from '../components/common/Button';
 import Toast from '../components/common/Toast';
 import useLoginGate from '../hooks/useLoginGate';
+import useServiceData from '../hooks/useServiceData';
 import { scaleAmount } from '../utils/amount';
 import StateView from '../components/common/StateView';
 import NoImage from '../components/common/NoImage';
@@ -34,12 +33,6 @@ import NoImage from '../components/common/NoImage';
 export const RecipeDetailPage: React.FC = () => {
   const { recipeId } = useParams<{ recipeId: string }>();
   const navigate = useNavigate();
-
-  // 데이터 상태
-  const [recipe, setRecipe] = useState<Recipe | undefined>(undefined);
-  const [fridgeIngredients, setFridgeIngredients] = useState<Ingredient[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<boolean>(false);
 
   // 인분 조절 상태 (기본 레시피 인분 수 or 2인분)
   const [servings, setServings] = useState<number>(2);
@@ -58,40 +51,22 @@ export const RecipeDetailPage: React.FC = () => {
 
   const isLoggedIn = authService.isLoggedIn();
 
-  const loadData = useCallback(async () => {
-    if (!recipeId) return;
-    try {
-      const [r, ingredients] = await Promise.all([
-        recipeService.getRecipeById(recipeId),
-        ingredientService.getIngredients(),
-      ]);
-
-      if (!r) {
-        setError(true);
-      } else {
-        setRecipe(r);
-        if (servingsInitializedFor.current !== r.id) {
-          servingsInitializedFor.current = r.id;
-          setServings(r.servings || 2);
-        }
-        setFridgeIngredients(ingredients);
-        setError(false);
-      }
-    } catch (e) {
-      console.error(e);
-      setError(true);
-    } finally {
-      setLoading(false);
+  // 데이터 상태. 없는 요리 id 면 오류 화면
+  const { data, loading, error } = useServiceData(async () => {
+    if (!recipeId) throw new Error('요리 id 가 없어요');
+    const [r, ingredients] = await Promise.all([
+      recipeService.getRecipeById(recipeId),
+      ingredientService.getIngredients(),
+    ]);
+    if (!r) throw new Error(`요리를 찾을 수 없어요: ${recipeId}`);
+    if (servingsInitializedFor.current !== r.id) {
+      servingsInitializedFor.current = r.id;
+      setServings(r.servings || 2);
     }
+    return { recipe: r, fridgeIngredients: ingredients };
   }, [recipeId]);
-
-  useEffect(() => {
-    loadData();
-    const unsubscribe = subscribeToDataChanges(() => {
-      loadData();
-    });
-    return () => unsubscribe();
-  }, [loadData]);
+  const recipe = data?.recipe;
+  const fridgeIngredients = useMemo(() => data?.fridgeIngredients ?? [], [data]);
 
   const showToastMessage = (message: string) => {
     setToastMessage(message);
