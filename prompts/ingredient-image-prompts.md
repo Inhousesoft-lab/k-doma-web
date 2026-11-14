@@ -155,6 +155,9 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | aged_kimchi | 묵은지 | id `m_ing_179`, name `묵은지`, zone `FRIDGE`, aliases `["묵은지 김치", "묵은김치", "오래된 김치", "숙성김치"]` | one whole uncut quarter head of long-aged Korean napa cabbage kimchi (mukeunji), limp and softened leaves, deeper olive-yellow cabbage with darker brick-red seasoning, laid lengthwise |
 | dried_parsley | 파슬리 가루 | id `m_ing_180`, name `파슬리 가루`, zone `SEASONING`, aliases `["파슬리가루", "파슬리", "건조 파슬리", "말린 파슬리"]` | small glass spice jar with no lid filled with dried green parsley flakes, a small heap of the flakes spilled in front |
 | cherry_tomato | 방울토마토 | id `m_ing_181`, name `방울토마토`, zone `FRIDGE`, aliases `["방울 토마토", "체리토마토", "대추방울토마토", "미니토마토"]` | small cluster of five glossy red cherry tomatoes, two still attached to a green vine stem |
+| pepperoncino | 페퍼론치노 | id `m_ing_182`, name `페퍼론치노`, zone `SEASONING`, aliases `["페페론치노", "페퍼론치니", "이탈리안 건고추", "건고추"]` | small heap of whole dried small red Italian chili peppers (peperoncino), shiny wrinkled crimson skin, a few crushed flakes scattered |
+| ramen_soup_packet | 라면 수프 | id `m_ing_183`, name `라면 수프`, zone `SEASONING`, aliases `["라면스프", "라면 스프", "라면수프", "분말스프"]` | one small plain unprinted red-orange foil seasoning sachet torn open at the corner, a little reddish-orange soup powder spilled in front |
+| baguette | 바게트 빵 | id `m_ing_184`, name `바게트 빵`, zone `FRIDGE`, aliases `["바게트", "바게뜨", "프랑스빵"]` | one whole golden-brown crusty French baguette with diagonal scores, lying diagonally, two round slices cut in front |
 | perilla_leaf | 깻잎 | id `m_ing_165`, name `깻잎`, zone `FRIDGE`, aliases `["깻잎순", "들깻잎", "깻잎장아찌"]` | small neat stack of fresh green Korean perilla leaves (kkaennip), slightly fanned so the serrated edges and pointed tips are visible |
 
 - **물엿 등록 시**: 올리고당(`m_ing_13`)의 별칭 `물엿`을 지운다. 올리고당은 노란 짜는 병, 물엿은 넓은 투명 통으로 구분한다.
