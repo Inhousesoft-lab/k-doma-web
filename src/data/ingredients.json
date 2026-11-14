@@ -567,6 +567,13 @@
     ]
   },
   {
+    "id": "m_ing_176",
+    "name": "가지",
+    "zone": "FRIDGE",
+    "imageKey": "eggplant",
+    "aliases": []
+  },
+  {
     "id": "m_ing_165",
     "name": "깻잎",
     "zone": "FRIDGE",
@@ -623,6 +630,18 @@
     "zone": "SEASONING",
     "imageKey": "pancake_mix",
     "aliases": []
+  },
+  {
+    "id": "m_ing_177",
+    "name": "감자전분",
+    "zone": "SEASONING",
+    "imageKey": "potato_starch",
+    "aliases": [
+      "전분",
+      "녹말가루",
+      "감자녹말",
+      "전분가루"
+    ]
   },
   {
     "id": "m_ing_152",

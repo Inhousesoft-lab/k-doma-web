@@ -935,11 +935,179 @@
     "themes": [
       "중식"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 40,
     "servings": 2,
+    "bookPage": 54,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "가지",
+        "amount": "2개",
+        "usageType": "ALL"
+      },
+      {
+        "name": "식용유",
+        "amount": "1L",
+        "usageType": "PART"
+      },
+      {
+        "name": "감자전분",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "생강",
+        "amount": "1톨",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "청양고추",
+        "amount": "4개",
+        "usageType": "PART"
+      },
+      {
+        "name": "물엿(올리고당)",
+        "amount": "6큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "케첩",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "1½큰술",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "가지는 꼭지를 제거하고 지그재그로 돌려가며 큼직하게 썬다.",
+      "볼에 썬 가지를 넣고 설탕 1큰술, 소금 ½큰술을 뿌려 가지에서 수분이 나올 때까지 잠시 둔다.",
+      "수분이 빠진 가지에 감자전분 4큰술을 넣고 섞는다. (물은 넣지 않고 가지의 수분만 사용해야 바삭한 튀김이 됩니다.)",
+      "강불로 달군 웍에 식용유를 충분히 붓는다. (기름이 넉넉할수록 완성도가 높아져요. 튀김 반죽을 기름에 조금 넣었을 때 보글보글 끓어오르면 적당한 온도가 된 거예요.)",
+      "가지를 넣고 중강불에서 4분 튀긴다. (좀 더 바삭하게 먹고 싶다면 한 번 더 튀기세요. 가지튀김에 그냥 소금만 찍어 먹어도 맛있습니다.)"
+    ],
+    "sauce": {
+      "name": "어향 소스",
+      "ingredients": [
+        {
+          "name": "생강",
+          "amount": "1톨",
+          "usageType": "PART"
+        },
+        {
+          "name": "마늘",
+          "amount": "1줌",
+          "usageType": "PART"
+        },
+        {
+          "name": "대파",
+          "amount": "1대",
+          "usageType": "PART"
+        },
+        {
+          "name": "청양고추",
+          "amount": "4개",
+          "usageType": "PART"
+        },
+        {
+          "name": "설탕",
+          "amount": "1큰술",
+          "usageType": "PART"
+        },
+        {
+          "name": "물엿(올리고당)",
+          "amount": "6큰술",
+          "usageType": "PART"
+        },
+        {
+          "name": "간장",
+          "amount": "2큰술",
+          "usageType": "PART"
+        },
+        {
+          "name": "식초",
+          "amount": "1큰술",
+          "usageType": "PART"
+        },
+        {
+          "name": "케첩",
+          "amount": "2큰술",
+          "usageType": "PART"
+        },
+        {
+          "name": "소금",
+          "amount": "2꼬집",
+          "usageType": "PART"
+        },
+        {
+          "name": "전분물",
+          "amount": "2큰술",
+          "usageType": "PART"
+        },
+        {
+          "name": "식용유",
+          "amount": "4바퀴",
+          "usageType": "PART"
+        }
+      ],
+      "steps": [
+        "생강은 편 썰고, 마늘은 다지고, 대파는 송송 썬다. 청양고추는 손가락 1마디 크기로 숭덩숭덩 썬다. 감자전분과 물을 1:3 비율로 섞어 전분물을 만든다.",
+        "중불로 달군 팬에 식용유 4바퀴를 두르고 중약불로 줄인 뒤, 편으로 썬 생강을 넣어 쪼그라들 때까지 3~4분 볶는다.",
+        "생강을 건져낸 기름에 다진 마늘을 넣고 마늘이 노릇해질 때까지 볶는다.",
+        "대파와 청양고추를 넣은 후, 대파가 투명해지고 청양고추가 숨이 살짝 죽을 때까지 볶는다. (채소를 한꺼번에 넣으면 기름을 내기 어려우니 꼭 순서대로 넣어주세요.)",
+        "약불로 줄인 뒤 설탕 1큰술을 넣고 잘 섞는다.",
+        "물엿 6큰술, 간장 2큰술, 식초 1큰술, 케첩 2큰술, 소금 2꼬집을 넣고 섞는다.",
+        "전분물 2큰술을 넣고 소스가 걸쭉해질 때까지 살짝 끓인다. (나무 주걱으로 팬 바닥을 긁었을 때 길이 생기면 소스화가 잘된 거예요.)",
+        "만들어둔 가지튀김에 어향 소스를 끼얹으면 완성!"
+      ]
+    },
+    "caloriesKcal": 790,
+    "nutrition": {
+      "calories": 790,
+      "carbs": 93,
+      "protein": 5,
+      "fat": 45
+    },
+    "tags": [
+      "채소",
+      "특식",
+      "중식",
+      "새콤달콤"
+    ],
+    "description": "전분만 묻혀 바삭하게 튀긴 가지에 생강·마늘 향을 낸 새콤달콤 어향 소스를 끼얹은 가성비 중식",
+    "photoUrl": "/images/recipes/r_p1_10.jpg"
   },
   {
     "id": "r_p1_11",
