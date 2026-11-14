@@ -28,12 +28,27 @@ import { db } from '../lib/firebase';
 import { CartItem, Ingredient, IngredientStatus, MealPlan, StorageZone } from '../types';
 import { ingredientKey } from '../utils/ingredient';
 
+type SyncKey = 'fridge' | 'cart' | 'plans';
+
+/** 냉장고·장바구니·기록을 서버에서 받지 못했다 (네트워크·권한 오류). 빈 목록으로 보이지 않게 화면에 오류로 알린다 */
+export class HouseholdLoadError extends Error {
+  constructor(label: string, cause?: unknown) {
+    super(`${label}을(를) 불러오지 못했어요`);
+    this.name = 'HouseholdLoadError';
+    this.cause = cause;
+  }
+}
+
 interface HouseholdSession {
   uid: string;
   householdId: string;
   fridge: Ingredient[];
   cart: CartItem[];
   plans: MealPlan[];
+  /** 구독이 실패한 목록. 그 목록을 다음에 읽을 때 그 목록만 다시 구독하고, 또 실패하면 HouseholdLoadError */
+  errors: Partial<Record<SyncKey, HouseholdLoadError>>;
+  /** 목록별 (다시) 구독 함수. 첫 목록을 받거나 실패하면 끝난다 */
+  resubscribe: Partial<Record<SyncKey, () => Promise<void>>>;
   /** 기록 목록이 바뀔 때마다 부르는 대기자 (저장한 기록이 목록에 들어올 때까지 기다리기) */
   planWaiters: Set<() => void>;
   ready: Promise<void>;
@@ -136,20 +151,23 @@ export const startHouseholdSync = (uid: string, onChange: () => void): void => {
     fridge: [],
     cart: [],
     plans: [],
+    errors: {},
+    resubscribe: {},
     planWaiters: new Set(),
     ready: Promise.resolve(),
     unsubscribes: [],
     stopped: false,
   };
 
-  /** 컬렉션 하나를 구독하고, 첫 목록을 받으면 끝나는 Promise */
+  /** 컬렉션 하나를 구독하고, 첫 목록을 받거나 실패하면 끝나는 Promise. 다시 구독할 수 있게 세션에 남긴다 */
   const subscribe = <T,>(
+    key: SyncKey,
     col: ReturnType<typeof collection>,
     map: (snap: QuerySnapshot<DocumentData>) => T[],
     assign: (items: T[]) => void,
     label: string
-  ) =>
-    new Promise<void>((resolve) => {
+  ): Promise<void> => {
+    const run = () => new Promise<void>((resolve) => {
       if (current.stopped) return resolve();
       current.unsubscribes.push(
         onSnapshot(
@@ -160,18 +178,23 @@ export const startHouseholdSync = (uid: string, onChange: () => void): void => {
             onChange();
           },
           (error) => {
+            // onChange 는 부르지 않는다: 실패할 때마다 화면이 다시 읽어 재구독을 반복하지 않게
             console.error(`${label}을(를) 불러오지 못했어요`, error);
+            current.errors[key] = new HouseholdLoadError(label, error);
             resolve();
           }
         )
       );
     });
+    current.resubscribe[key] = run;
+    return run();
+  };
 
   current.ready = ensureHousehold(uid).then((hid) =>
     Promise.all([
-      subscribe(fridgeCol(hid), toIngredient, (items) => (current.fridge = items), '냉장고'),
-      subscribe(cartCol(hid), toCartItem, (items) => (current.cart = items), '장바구니'),
-      subscribe(plansCol(hid), toPlans, (items) => {
+      subscribe('fridge', fridgeCol(hid), toIngredient, (items) => (current.fridge = items), '냉장고'),
+      subscribe('cart', cartCol(hid), toCartItem, (items) => (current.cart = items), '장바구니'),
+      subscribe('plans', plansCol(hid), toPlans, (items) => {
         current.plans = items;
         current.planWaiters.forEach((w) => w());
       }, '요리 기록'),
@@ -195,19 +218,34 @@ export const stopHouseholdSync = (): void => {
   session = null;
 };
 
-/** 첫 목록을 받을 때까지 기다린 세션 */
-const loaded = async (): Promise<HouseholdSession> => {
+/**
+ * 첫 목록을 받을 때까지 기다린 목록. 실패했으면 HouseholdLoadError (빈 목록으로 숨기지 않는다).
+ * 실패한 목록은 읽을 때마다 다시 구독한다 → 화면의 [다시 시도]가 재연결이 된다
+ */
+const loaded = async <K extends SyncKey>(key: K): Promise<HouseholdSession[K]> => {
   if (!session && lastStart) startHouseholdSync(lastStart.uid, lastStart.onChange);
   const s = active();
-  await s.ready.catch(() => undefined);
-  return s;
+  try {
+    await s.ready;
+  } catch (e) {
+    throw new HouseholdLoadError('가구 정보', e);
+  }
+  // 실패한 목록이면 그 목록만 다시 구독한다 (다른 목록은 그대로라 반복 재시작이 생기지 않는다)
+  const retry = s.resubscribe[key];
+  if (s.errors[key] && retry) {
+    delete s.errors[key];
+    await retry();
+  }
+  const error = s.errors[key];
+  if (error) throw error;
+  return s[key];
 };
 
 const stamp = () => ({ updatedAt: serverTimestamp(), updatedBy: active().uid });
 
 /* ───────── 냉장고 ───────── */
 
-export const loadFridge = async (): Promise<Ingredient[]> => (await loaded()).fridge;
+export const loadFridge = (): Promise<Ingredient[]> => loaded('fridge');
 
 /** 지금 메모리에 있는 냉장고 목록 (구독 전이면 빈 목록) */
 export const cachedFridge = (): Ingredient[] => session?.fridge ?? [];
@@ -242,7 +280,7 @@ export const upsertIngredient = (item: FridgeUpsert): Promise<void> =>
 
 /* ───────── 장바구니 ───────── */
 
-export const loadCart = async (): Promise<CartItem[]> => (await loaded()).cart;
+export const loadCart = (): Promise<CartItem[]> => loaded('cart');
 
 /** 지금 메모리에 있는 장바구니 (구독 전이면 빈 목록) */
 export const cachedCart = (): CartItem[] => session?.cart ?? [];
@@ -340,7 +378,7 @@ export class PlanNotFoundError extends Error {
   }
 }
 
-export const loadPlans = async (): Promise<MealPlan[]> => (await loaded()).plans;
+export const loadPlans = (): Promise<MealPlan[]> => loaded('plans');
 
 /** 지금 메모리에 있는 기록 (구독 전이면 빈 목록) */
 export const cachedPlans = (): MealPlan[] => session?.plans ?? [];

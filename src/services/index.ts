@@ -39,6 +39,7 @@ import {
   deleteIngredient,
   deletePlan as removePlan,
   DuplicatePlanError,
+  HouseholdLoadError,
   InventoryAlreadyAppliedError,
   loadCart,
   loadFridge,
@@ -462,7 +463,7 @@ export class PlanLimitError extends Error {
   }
 }
 
-export { DuplicatePlanError, InventoryAlreadyAppliedError, PlanNotFoundError };
+export { DuplicatePlanError, HouseholdLoadError, InventoryAlreadyAppliedError, PlanNotFoundError };
 
 /** 재고 시트의 재료 하나: 사용자가 고른 최종 상태 */
 export interface InventoryChoice {

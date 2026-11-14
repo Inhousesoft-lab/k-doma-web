@@ -44,6 +44,8 @@ export const FridgePage: React.FC = () => {
   // 3. 재료 데이터 상태
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  // 불러오기 실패 (네트워크·권한). 빈 냉장고로 보이지 않게 오류 화면을 띄운다
+  const [loadError, setLoadError] = useState<boolean>(false);
 
   // 4. 재료 추가 화면(/fridge/add) 이동 · 돌아왔을 때 추가 개수 토스트
   const navigate = useNavigate();
@@ -75,7 +77,15 @@ export const FridgePage: React.FC = () => {
   // 초기 데이터 로드 및 정렬 순서 고정
   const loadIngredients = async (preserveOrder: boolean = true) => {
     // 비로그인 = 빈 냉장고 (KD-47)
-    const rawList = authService.isLoggedIn() ? await ingredientService.getIngredients() : [];
+    let rawList: Ingredient[];
+    try {
+      rawList = authService.isLoggedIn() ? await ingredientService.getIngredients() : [];
+      setLoadError(false);
+    } catch (e) {
+      console.error(e);
+      setLoadError(true);
+      return;
+    }
 
     if (!preserveOrder || displayOrderRef.current.size === 0) {
       // 새로운 정렬 순서 확정
@@ -219,6 +229,23 @@ export const FridgePage: React.FC = () => {
     return (
       <div className="flex flex-col min-h-[calc(100vh-140px)] items-center justify-center px-5 py-10 bg-white">
         <StateView type="loading" title="냉장고 재료를 불러오는 중이에요" />
+      </div>
+    );
+  }
+
+  // 불러오기 실패: [다시 시도]하면 서비스가 구독을 다시 시작한다
+  if (loadError) {
+    return (
+      <div className="flex flex-col min-h-[calc(100vh-140px)] items-center justify-center px-5 py-10 bg-white">
+        <StateView
+          type="error"
+          title="냉장고 재료를 불러오지 못했어요"
+          description="네트워크 연결을 확인하고 다시 시도해 주세요."
+          onAction={() => {
+            setIsLoading(true);
+            loadIngredients(false).finally(() => setIsLoading(false));
+          }}
+        />
       </div>
     );
   }

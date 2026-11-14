@@ -33,25 +33,35 @@ export const CartPage: React.FC = () => {
   // 6. 하단 버튼 제출 중 상태 (중복 클릭 방지)
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
+  // 7. 불러오기 실패 (네트워크·권한). 빈 장바구니로 보이지 않게 오류 화면을 띄운다
+  const [loadError, setLoadError] = useState<boolean>(false);
+
   // 데이터 로드 함수
   const loadData = useCallback(async () => {
     // 비로그인: 데이터를 불러오지 않는다 → 두 영역 모두 0개 (KD-49)
     if (!authService.isLoggedIn()) {
       setUrgentItems([]);
       setExtraItems([]);
+      setLoadError(false);
       return;
     }
 
-    const [cart, needBuy] = await Promise.all([
-      cartService.getCartItems(),
-      cartService.getNeedBuyFromFridge(),
-    ]);
+    try {
+      const [cart, needBuy] = await Promise.all([
+        cartService.getCartItems(),
+        cartService.getNeedBuyFromFridge(),
+      ]);
 
-    // 꼭 사야 해요 (isUrgent: true 또는 기본 장바구니 품목)
-    setUrgentItems(cart);
+      // 꼭 사야 해요 (isUrgent: true 또는 기본 장바구니 품목)
+      setUrgentItems(cart);
 
-    // 더 사두면 좋아요 (냉장고 적음·없음 중 장바구니에 없는 것)
-    setExtraItems(needBuy);
+      // 더 사두면 좋아요 (냉장고 적음·없음 중 장바구니에 없는 것)
+      setExtraItems(needBuy);
+      setLoadError(false);
+    } catch (e) {
+      console.error(e);
+      setLoadError(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -178,6 +188,23 @@ export const CartPage: React.FC = () => {
     return (
       <div className="flex flex-col min-h-[calc(100vh-140px)] items-center justify-center px-5 py-10 bg-white">
         <StateView type="loading" title="장바구니를 불러오는 중이에요" />
+      </div>
+    );
+  }
+
+  // 불러오기 실패: [다시 시도]하면 서비스가 구독을 다시 시작한다
+  if (loadError) {
+    return (
+      <div className="flex flex-col min-h-[calc(100vh-140px)] items-center justify-center px-5 py-10 bg-white">
+        <StateView
+          type="error"
+          title="장바구니를 불러오지 못했어요"
+          description="네트워크 연결을 확인하고 다시 시도해 주세요."
+          onAction={() => {
+            setIsLoading(true);
+            loadData().finally(() => setIsLoading(false));
+          }}
+        />
       </div>
     );
   }
