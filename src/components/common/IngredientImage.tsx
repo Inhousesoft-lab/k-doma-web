@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { findMasterIngredient } from '../../utils/ingredient';
 
-/** 재료 아이콘 파일 위치. public/images/ingredients/{imageKey}.png */
+/** 재료 아이콘 파일 위치. public/images/ingredients/{imageKey}.webp (원본 PNG: assets/ingredients-src, 변환: scripts/build-ingredient-images.py) */
 export const INGREDIENT_IMAGE_DIR = '/images/ingredients';
 
 /** imageKey 가 없으면(예전에 저장된 냉장고 재료) 재료 사전에서 이름으로 찾는다 */
 export function ingredientImageSrc(name: string, imageKey?: string | null): string | null {
   const key = imageKey ?? findMasterIngredient(name)?.imageKey ?? null;
-  return key ? `${INGREDIENT_IMAGE_DIR}/${key}.png` : null;
+  return key ? `${INGREDIENT_IMAGE_DIR}/${key}.webp` : null;
 }
 
 export interface IngredientImageProps {
