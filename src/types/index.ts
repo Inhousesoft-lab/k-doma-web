@@ -94,11 +94,19 @@ export interface UserProfile {
   email?: string; // 로그인 아이디(이메일). 로그인한 본인 프로필에만 채운다
 }
 
+/**
+ * 재료 추가 화면의 카테고리(섹션). 구역(zone)과는 별개다.
+ * - zone: 냉장고 화면에서 양념 선반/냉장고 중 어디에 둘지
+ * - category: 재료 추가 화면에서 어느 섹션에 보여 줄지
+ */
+export type IngredientCategory = 'SAUCE' | 'MEAT' | 'SEAFOOD' | 'PRODUCE' | 'GRAIN' | 'DAIRY' | 'ETC';
+
 /** 재료 사전 항목 (src/data/ingredients.json) */
 export interface MasterIngredient {
   id: string;
   name: string;
   zone: StorageZone;
+  category: IngredientCategory;
   imageKey: string | null;
   aliases?: string[];
 }
