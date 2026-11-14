@@ -132,6 +132,16 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 
 > 돼지고기(pork)·소고기(beef)·닭고기(chicken)·치즈(cheese)는 재료 사전에서 빠질 예정이라 만들지 않는다.
 
+### 3.3 추가 예정(재료 사전 미등록)
+
+이미지를 먼저 만들고, 재료 사전(`src/data/ingredients.json`)에 등록할 때 아래 값을 쓴다.
+
+| imageKey | 재료 | 사전 등록안 | SUBJECT |
+|---|---|---|---|
+| pear_juice | 배 음료(갈아만든 배 238ml 1캔) | id `m_ing_164`, name `배 음료`, zone `FRIDGE`, aliases `["갈아만든배", "갈아만든 배", "배음료", "배주스"]` | single slim 238ml aluminum beverage can of Korean pear juice, plain pale cream and light green can with no text and no logo, one fresh Asian pear beside it |
+
+- 상품명 '갈아만든 배'는 상표라 이미지·imageKey에는 쓰지 않는다. 검색용 별칭(aliases)에만 넣는다.
+
 ## 4. 2차 다시 만들 대상
 
 48px에서 서로 헷갈리거나 상표가 떠오르는 이미지. **2차 단계에서 진행.**
