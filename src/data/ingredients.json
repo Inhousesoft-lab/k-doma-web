@@ -669,6 +669,16 @@
     ]
   },
   {
+    "id": "m_ing_168",
+    "name": "돼지등갈비",
+    "zone": "FRIDGE",
+    "imageKey": "pork_back_ribs",
+    "aliases": [
+      "등갈비",
+      "돼지 등갈비"
+    ]
+  },
+  {
     "id": "m_ing_163",
     "name": "즉석밥",
     "zone": "FRIDGE",

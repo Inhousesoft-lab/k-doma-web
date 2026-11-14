@@ -439,12 +439,97 @@
     "themes": [
       "돼지"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 75,
     "servings": 2,
+    "bookPage": 38,
     "part": "Part 1 평생 특식",
     "dishGroupId": "deunggalbi",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "돼지등갈비",
+        "amount": "600g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "대파",
+        "amount": "2대",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "진간장",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "참치액",
+        "amount": "3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "갈아만든 배",
+        "amount": "238ml 1캔",
+        "usageType": "ALL"
+      },
+      {
+        "name": "설탕",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "3꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "300ml",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "1바퀴",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "등갈비는 1대씩 썰고 물에 씻은 뒤, 키친타월로 물기를 제거한다. 대파, 양파는 최대한 얇게 썰고, 마늘은 껍질을 깐다. 진간장 4큰술, 참치액 3큰술을 섞어 등갈비 양념을 만든다. (손질 시에는 칼을 뼈에 바짝 붙여서 잘라주세요. 뼛가루가 남아 있을 수 있으니 꼭 물에 한 번 씻어주세요.)",
+      "중불로 프라이팬을 충분히 예열하고 등갈비를 올린다.",
+      "식용유를 1바퀴 두르고 소금 3꼬집을 뿌려 2~3분 노릇하게 한쪽 면을 굽는다. (고기의 수분을 날리기 위해 강불로 구워주세요.)",
+      "등갈비를 뒤집고 중불로 줄인 뒤, 양념을 넣고 태우듯이 3분 볶는다. (등갈비에 양념이 배어 진한 색이 날 때까지 볶아주세요.)",
+      "설탕 4큰술을 넣고 중불에서 조금 더 볶다가 양념이 바글바글 끓으면 손질한 대파, 양파를 넣고 강불에서 볶는다. (양념이 골고루 배도록 중간에 한 번 정도 뒤집어주세요. 기름이 끓기 시작하면 눌어붙은 양념을 등갈비에 묻혀 불맛을 입히는 게 포인트입니다.)",
+      "대파, 양파의 숨이 죽으면 마늘, 갈아만든 배 1캔, 물 300ml, 식초 2큰술을 넣고 강불에서 바글바글 끓으면, 뚜껑을 덮어 약불에서 40분 끓인다. (등갈비가 골고루 물에 잠기도록 넣어주세요.)",
+      "뚜껑을 열고 강불에서 10분 더 졸이면 완성! (수분이 다 날아가고 기름이 자글자글 끓을 때까지 졸여주세요.)"
+    ],
+    "caloriesKcal": 820,
+    "nutrition": {
+      "calories": 820,
+      "carbs": 66,
+      "protein": 38,
+      "fat": 45
+    },
+    "tags": [
+      "돼지",
+      "특식",
+      "단짠",
+      "손님상"
+    ],
+    "description": "간장·참치액으로 태우듯 볶아 불맛을 입히고 배 음료로 달콤하게 졸인 원 팬 등갈비",
+    "photoUrl": "/images/recipes/r_p1_05.jpg"
   },
   {
     "id": "r_p1_06",
