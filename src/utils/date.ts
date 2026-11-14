@@ -69,3 +69,17 @@ export function addMonths(dateStr: string, months: number): string {
   const { year, monthIndex } = parseDateStr(dateStr);
   return makeDateStr(year, monthIndex + months, 1);
 }
+
+const WEEKDAY_NAMES = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+
+/** 'YYYY-MM-DD' → '2026년 11월' */
+export function formatYearMonth(dateStr: string): string {
+  const { year, monthIndex } = parseDateStr(dateStr);
+  return `${year}년 ${monthIndex + 1}월`;
+}
+
+/** 'YYYY-MM-DD' → '11월 12일 목요일' */
+export function formatMonthDayWeekday(dateStr: string): string {
+  const { monthIndex, day } = parseDateStr(dateStr);
+  return `${monthIndex + 1}월 ${day}일 ${WEEKDAY_NAMES[dayOfWeek(dateStr)]}`;
+}

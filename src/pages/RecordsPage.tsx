@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import { Calendar as CalendarIcon } from 'lucide-react';
+import { Calendar as CalendarIcon, Utensils } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { MealPlan, Recipe } from '../types';
 import useServiceData from '../hooks/useServiceData';
 import {
@@ -12,6 +13,9 @@ import PlanCard from '../components/plan/PlanCard';
 import InventoryUpdateSheet from '../components/plan/InventoryUpdateSheet';
 import StateView from '../components/common/StateView';
 import LoginNoticeBox from '../components/common/LoginNoticeBox';
+import NoticeBox from '../components/common/NoticeBox';
+import ViewToggle, { RecordsViewMode } from '../components/records/ViewToggle';
+import RecordsTimeline from '../components/records/RecordsTimeline';
 import Modal from '../components/common/Modal';
 import Toast from '../components/common/Toast';
 import { todayStr } from '../utils/date';
@@ -22,9 +26,14 @@ const SAVE_FAILED = '저장하지 못했어요. 다시 시도해 주세요';
  * 기록 탭 (KD-43, KD-57)
  * - 가구의 요리 기록을 달력으로 본다. 다른 구성원의 기록도 바로 반영된다 (실시간)
  * - 선택한 날짜의 요리 카드를 모두 보여 준다 (하루 최대 10개, 추가한 순)
+ * - 보기 전환 [달력 | 타임라인] (달력 위 오른쪽). 기본 = 달력. 탭을 다시 열면 달력으로 시작
+ * - 타임라인: 요리 완료한 날만, 최신 날짜가 위. 카드는 달력 보기와 같은 PlanCard
+ * - 달력 보기에서 고른 날에 기록이 없으면 안내 박스. [요리 보러 가기]는 오늘만 (기록은 오늘 날짜로만 추가된다)
  */
 export const RecordsPage: React.FC = () => {
+  const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState<string>(() => todayStr());
+  const [viewMode, setViewMode] = useState<RecordsViewMode>('calendar');
   // 로그인 상태 (비로그인이어도 화면은 연다, KD-48)
   // 비로그인: 기록이 없다 → 달력에 점이 없고, 달력 아래는 로그인 안내 박스
   // 카드에 요리 시간·칼로리·탄단지를 보여 주려고 레시피를 id로 찾는다
@@ -60,6 +69,9 @@ export const RecordsPage: React.FC = () => {
   const hideToast = useCallback(() => setShowToast(false), []);
 
   const dayPlans = plans.filter((p) => p.date === selectedDate);
+  const cookedPlans = plans.filter((p) => p.status === 'COOKED');
+  const cookedDayCount = new Set(cookedPlans.map((p) => p.date)).size;
+  const isTodaySelected = selectedDate === todayStr();
 
   /** 카드 버튼 동작. 실패하면 토스트. 기록이 바뀌면 구독이 화면을 다시 그린다 */
   const runPlanAction = async (planId: string, action: () => Promise<void>) => {
@@ -96,6 +108,35 @@ export const RecordsPage: React.FC = () => {
     setIsInventorySheetOpen(true);
   };
 
+  // 타임라인 날짜 줄 → 달력 보기로 바꾸고 그 날짜 선택. 타임라인을 내려 둔 상태라 맨 위로 올린다
+  const handleTimelineSelectDate = (date: string) => {
+    setSelectedDate(date);
+    setViewMode('calendar');
+    window.scrollTo({ top: 0 });
+  };
+
+  // 요리 카드 (달력 보기·타임라인 보기 공통)
+  const renderPlanCard = (plan: MealPlan) => (
+    <PlanCard
+      plan={plan}
+      recipe={recipesById.get(plan.recipeId)}
+      busy={busyPlanId === plan.id}
+      onComplete={handleCompletePlan}
+      onCancel={handleCancelPlan}
+      onDelete={setDeleteTarget}
+      onOpenInventorySheet={handleOpenInventorySheet}
+    />
+  );
+
+  const loginNotice = (
+    <LoginNoticeBox
+      icon={<CalendarIcon className="w-8 h-8 text-ink-disabled" aria-hidden="true" />}
+      title="요리 기록을 보려면 로그인해 주세요."
+      description="로그인하면 내가 만든 요리와 예정한 요리가 달력에 표시돼요."
+      returnTo="/records"
+    />
+  );
+
   if (loading) {
     return (
       <div className="flex flex-col min-h-[calc(100vh-140px)] items-center justify-center px-5 py-10 bg-white">
@@ -120,35 +161,56 @@ export const RecordsPage: React.FC = () => {
 
   return (
     <div className="flex flex-col px-5 pt-3 pb-8 gap-4 bg-white min-h-[calc(100vh-80px)]">
-      {/* 1. 달력: 연월 접힘/펼침, 요일 줄, 접힌 상태 1주, 선택일 검은 원, 완료● / 예정○ 점 */}
-      <Calendar selectedDate={selectedDate} onSelectDate={setSelectedDate} plans={plans} />
+      {/* 0. 보기 전환 토글: 오른쪽 끝. 타임라인일 때만 왼쪽에 '요리한 날 N일' */}
+      <div className="flex items-center justify-between">
+        {viewMode === 'timeline' && isLoggedIn && cookedDayCount > 0 ? (
+          <span className="text-[13px] text-ink-tertiary">
+            요리한 날 <b className="text-ink">{cookedDayCount}일</b>
+          </span>
+        ) : (
+          <span />
+        )}
+        <ViewToggle value={viewMode} onChange={setViewMode} />
+      </div>
 
-      {/* 2. 로그인: 선택한 날짜의 요리 카드 모두 (없으면 카드 영역 숨기고 비워 둠)
-             비로그인: 어느 날짜를 골라도 로그인 안내 박스 (KD-48) */}
-      {isLoggedIn ? (
-        dayPlans.length > 0 && (
-          <div className="flex flex-col gap-3">
-            {dayPlans.map((plan) => (
-              <PlanCard
-                key={plan.id}
-                plan={plan}
-                recipe={recipesById.get(plan.recipeId)}
-                busy={busyPlanId === plan.id}
-                onComplete={handleCompletePlan}
-                onCancel={handleCancelPlan}
-                onDelete={setDeleteTarget}
-                onOpenInventorySheet={handleOpenInventorySheet}
-              />
-            ))}
-          </div>
-        )
-      ) : (
-        <LoginNoticeBox
-          icon={<CalendarIcon className="w-8 h-8 text-ink-disabled" aria-hidden="true" />}
-          title="요리 기록을 보려면 로그인해 주세요."
-          description="로그인하면 내가 만든 요리와 예정한 요리가 달력에 표시돼요."
-          returnTo="/records"
+      {viewMode === 'calendar' ? (
+        <>
+          {/* 1. 달력: 연월 접힘/펼침, 요일 줄, 접힌 상태 1주, 선택일 검은 원, 완료● / 예정○ 점 */}
+          <Calendar selectedDate={selectedDate} onSelectDate={setSelectedDate} plans={plans} />
+
+          {/* 2. 로그인: 선택한 날짜의 요리 카드 모두. 없으면 안내 박스 ([요리 보러 가기]는 오늘만)
+                 비로그인: 어느 날짜를 골라도 로그인 안내 박스 (KD-48) */}
+          {!isLoggedIn ? (
+            loginNotice
+          ) : dayPlans.length > 0 ? (
+            <div className="flex flex-col gap-3">
+              {dayPlans.map((plan) => (
+                <React.Fragment key={plan.id}>{renderPlanCard(plan)}</React.Fragment>
+              ))}
+            </div>
+          ) : (
+            <NoticeBox
+              icon={<Utensils className="w-8 h-8 text-ink-disabled" aria-hidden="true" />}
+              title="이 날은 요리 기록이 없어요"
+              description={isTodaySelected ? '레시피에서 [오늘 기록에 추가]를 누르면\n여기에 표시돼요.' : '요리를 기록한 날에는 달력에 점이 표시돼요.'}
+              actionText={isTodaySelected ? '요리 보러 가기' : undefined}
+              onAction={isTodaySelected ? () => navigate('/recipes') : undefined}
+            />
+          )}
+        </>
+      ) : !isLoggedIn ? (
+        loginNotice
+      ) : cookedPlans.length === 0 ? (
+        <StateView
+          type="empty"
+          title="아직 완성한 요리가 없어요"
+          description="요리를 완성하면 날짜별로 여기에 쌓여요."
+          actionText="요리 보러 가기"
+          onAction={() => navigate('/recipes')}
+          className="grow"
         />
+      ) : (
+        <RecordsTimeline plans={cookedPlans} renderCard={renderPlanCard} onSelectDate={handleTimelineSelectDate} />
       )}
 
       {/* 3. 재고 변경 바텀시트 (로그인 상태에서만) */}

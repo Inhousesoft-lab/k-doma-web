@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from './Button';
+import NoticeBox from './NoticeBox';
 
 export interface LoginNoticeBoxProps {
   /** 흐린 색 아이콘 (예: <Calendar className="w-8 h-8 text-ink-disabled" aria-hidden="true" />) */
@@ -20,20 +20,13 @@ export const LoginNoticeBox: React.FC<LoginNoticeBoxProps> = ({ icon, title, des
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center text-center gap-2 px-5 py-9 rounded-card border border-line bg-fill-subtle">
-      {icon}
-      <h3 className="mt-1 text-[15px] font-bold text-ink">{title}</h3>
-      <p className="text-[13px] text-ink-muted leading-relaxed">{description}</p>
-      <Button
-        variant="primary"
-        size="md"
-        fullWidth={false}
-        className="mt-3"
-        onClick={() => navigate(`/login?returnTo=${encodeURIComponent(returnTo)}`)}
-      >
-        로그인하기
-      </Button>
-    </div>
+    <NoticeBox
+      icon={icon}
+      title={title}
+      description={description}
+      actionText="로그인하기"
+      onAction={() => navigate(`/login?returnTo=${encodeURIComponent(returnTo)}`)}
+    />
   );
 };
 
