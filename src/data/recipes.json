@@ -7,12 +7,114 @@
     "themes": [
       "돼지"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 30,
     "servings": 2,
+    "bookPage": 25,
     "part": "Part 1 평생 특식",
     "dishGroupId": "jeyuk",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "돼지고기 앞다리살",
+        "amount": "600g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "설탕",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고추장",
+        "amount": "듬뿍 3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "갈아만든 배",
+        "amount": "238ml 1캔",
+        "usageType": "ALL"
+      },
+      {
+        "name": "참기름",
+        "amount": "⅘큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "청양고추",
+        "amount": "3개",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "3꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "약간",
+        "usageType": "PART"
+      },
+      {
+        "name": "통깨",
+        "amount": "약간",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "넉넉히 1바퀴",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "돼지고기 앞다리살은 키친타월로 핏물을 제거하고, 먹기 좋은 크기로 썬다. 청양고추는 길게 반으로 가른 뒤 송송 썰고, 양파는 채썰고, 대파는 어슷썬다.",
+      "밀폐용기에 설탕 2큰술, 간장 3큰술, 식초 2큰술, 고추장 듬뿍 3큰술, 다진 마늘 2큰술, 소금 2꼬집을 넣고 설탕이 녹을 때까지 잘 섞는다.",
+      "갈아만든 배 1캔을 넣고 섞는다. (밀폐용기의 뚜껑을 닫고 흔들면 더 잘 섞입니다.)",
+      "돼지고기 앞다리살을 뭉치지 않게 떼어서 넣고 잘 버무린 뒤, 참기름 ⅘큰술, 청양고추를 넣고 섞는다.",
+      "양파, 대파를 고기 위에 올리고 소금 1꼬집을 뿌린 뒤, 밀폐용기 뚜껑을 닫는다. (양파, 대파는 버무리지 말고 그냥 올리세요. 하루 정도 숙성하면 더 맛있습니다.)",
+      "달군 프라이팬에 식용유를 넉넉히 1바퀴 두르고, 양념한 고기를 먼저 굽는다. (고기를 올린 뒤 뒤적이지 말고 기다려주세요. 기름이 모자라면 식용유를 추가하세요.)",
+      "거뭇거뭇한 부분이 생기면 골고루 섞어가며 볶는다.",
+      "양파, 대파를 넣은 뒤 뒤적인다.",
+      "뚜껑을 덮고 3분 더 익힌 뒤, 그릇에 담고 후추, 통깨, 청양고추를 올려 마무리한다."
+    ],
+    "caloriesKcal": 980,
+    "nutrition": {
+      "calories": 980,
+      "carbs": 62,
+      "protein": 60,
+      "fat": 55
+    },
+    "tags": [
+      "돼지",
+      "특식",
+      "매콤한",
+      "밥도둑"
+    ],
+    "description": "배 음료로 재운 앞다리살을 센 불에 거뭇하게 구워 볶은 매콤달콤 제육볶음",
+    "photoUrl": "/images/recipes/r_p1_01.jpg"
   },
   {
     "id": "r_p1_02",
@@ -23,12 +125,97 @@
       "긴급",
       "돼지"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 15,
     "servings": 2,
+    "bookPage": 28,
     "part": "Part 1 평생 특식",
     "dishGroupId": "jeyuk",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "삼겹살",
+        "amount": "300g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "½개",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "깻잎",
+        "amount": "10장",
+        "usageType": "ALL"
+      },
+      {
+        "name": "설탕",
+        "amount": "1½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "진간장",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고추장",
+        "amount": "듬뿍 2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "참기름",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "10바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "통깨",
+        "amount": "약간",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "대파는 반으로 가르고 3~4cm 길이로 썬다. 양파는 채썰고, 깻잎은 먹기 좋은 크기로 썬다. 삼겹살의 오돌뼈는 칼집을 낸다. (오돌뼈는 잘라내도 무방합니다. 삼겹살 양을 600g으로 늘릴 경우, 양념 계량은 간장만 2큰술로 바꿔주세요.)",
+      "예열한 팬에 삼겹살을 올려 강불로 굽는다.",
+      "아랫면이 익으면 중불로 낮추고 뒤집어 굽는다.",
+      "삼겹살이 80% 정도 익으면 한입 크기로 자른다.",
+      "불을 끄고 설탕 1½큰술, 진간장 1큰술, 고추장 듬뿍 2큰술을 넣은 뒤, 강불로 올려 볶는다.",
+      "양념이 끓으면 중불로 낮춰 마늘, 대파, 양파를 넣어 1분 볶고, 식초 1큰술, 참기름 1큰술, 후추 10바퀴를 넣어 1분 볶는다. (늘어붙은 양념을 섞어가며 볶으세요.)",
+      "깻잎을 넣고 뚜껑을 덮어 약불로 10초 뜸 들인 후 통깨를 뿌린다. (매운맛을 원할 경우, 청양고추를 추가하세요.)"
+    ],
+    "caloriesKcal": 720,
+    "nutrition": {
+      "calories": 720,
+      "carbs": 36,
+      "protein": 30,
+      "fat": 50
+    },
+    "tags": [
+      "돼지",
+      "특식",
+      "간단한",
+      "밥도둑"
+    ],
+    "description": "삼겹살을 통으로 굽다 잘라 팬에서 바로 양념해 15분 만에 끝내는 긴급 제육볶음",
+    "photoUrl": "/images/recipes/r_p1_02.jpg"
   },
   {
     "id": "r_p1_03",
@@ -39,11 +226,97 @@
       "만원",
       "닭"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 51,
     "servings": 2,
+    "bookPage": 31,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "닭볶음탕용 닭",
+        "amount": "1마리",
+        "usageType": "ALL"
+      },
+      {
+        "name": "감자",
+        "amount": "2개",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "청양고추",
+        "amount": "4개",
+        "usageType": "PART"
+      },
+      {
+        "name": "진간장",
+        "amount": "8큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고춧가루",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "쌈장",
+        "amount": "듬뿍 1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "3꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "800ml",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "닭은 흐르는 물에 잘 씻고, 붙어 있는 내장을 뗀다. 감자는 껍질을 깎고 1cm 두께로 썬다. 대파는 굵게 송송 썰고, 양파는 굵게 채썰고, 청양고추는 송송 썬다. (닭 기름은 떼지 마세요.)",
+      "예열한 웍에 손질한 닭을 껍질이 아래로 가도록 올린 뒤 소금 3꼬집을 뿌려 강불로 3분 굽는다. (닭은 기름이 많은 부위부터 하나씩 올리고, 뒤적이지 않고 그대로 구워요. 기름기가 없는 닭일 경우 식용유 1큰술을 두르세요.)",
+      "닭에서 기름이 나오면 다진 마늘 1큰술, 파를 넣고 볶는다.",
+      "닭을 한쪽으로 몰아 진간장 8큰술을 넣고 바르르 끓인 뒤, 중불로 낮춰 고춧가루 4큰술, 설탕 3큰술을 넣고 볶는다. (간장을 바르르 끓이는 것이 포인트예요!)",
+      "고추기름이 나오면 물 800ml, 쌈장 듬뿍 1큰술을 넣어 강불로 끓인다.",
+      "물이 끓으면 뚜껑을 덮고 10분 끓인다.",
+      "감자, 양파, 파를 넣고 뚜껑을 덮어 중불로 15분 더 끓인다. (감자를 웍 가장자리 쪽에 넣으면 부서지지 않습니다.)",
+      "간을 보고 싱거우면 취향에 맞게 더 졸인 뒤, 그릇에 담고 청양고추를 올려 마무리한다. (홍고추 등 고명용 채소를 올리면 더욱 예쁘게 완성할 수 있습니다.)"
+    ],
+    "caloriesKcal": 950,
+    "nutrition": {
+      "calories": 950,
+      "carbs": 75,
+      "protein": 62,
+      "fat": 44
+    },
+    "tags": [
+      "닭",
+      "특식",
+      "얼큰한",
+      "밥도둑"
+    ],
+    "description": "고추장 없이 간장·고춧가루로 칼칼하게 끓인 만 원 닭볶음탕",
+    "photoUrl": "/images/recipes/r_p1_03.jpg"
   },
   {
     "id": "r_p1_04",
@@ -54,11 +327,109 @@
       "만원",
       "돼지"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 70,
     "servings": 2,
+    "bookPage": 35,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "돼지갈비",
+        "amount": "1kg",
+        "usageType": "ALL"
+      },
+      {
+        "name": "대파",
+        "amount": "2대",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "2꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "5큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "진간장",
+        "amount": "5큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "참치액",
+        "amount": "5큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고춧가루",
+        "amount": "3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "듬뿍 3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "케첩",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "20바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "500ml",
+        "usageType": "PART"
+      },
+      {
+        "name": "청양고추",
+        "amount": "2개",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "돼지갈비는 흐르는 물에 1~2회 주무르듯 씻어낸다. 대파는 송송 썰고, 양파는 채썰고, 청양고추는 송송 썬다.",
+      "예열한 웍에 갈비를 올리고 소금 2꼬집을 뿌린 뒤, 기름이 나올 때까지 강불로 3분 굽는다. (지방 부분이 아래로 가게 두세요. 뒤적이지 않고 그대로 구워주세요.)",
+      "연기가 나면 고기를 뒤집고 중불로 줄여 설탕 5큰술을 넣고 볶는다.",
+      "겉면에 설탕이 코팅되면 식초 1큰술을 넣는다.",
+      "진간장 5큰술, 참치액 5큰술을 넣어 바르르 끓인다.",
+      "고춧가루 3큰술을 넣고 살짝 볶듯이 섞는다.",
+      "파, 양파, 다진 마늘 듬뿍 3큰술, 케첩 2큰술을 넣고 강불로 3분 볶는다. (양파의 숨이 죽을 때까지, 눌어붙은 양념을 긁어가며 볶으세요.)",
+      "물 500ml, 후추 20바퀴를 넣고 물이 끓으면 뚜껑을 덮어 약불로 40분 졸인다.",
+      "뚜껑을 열고 강불로 5분 더 졸인다. (양념이 걸쭉해지면 불을 끄세요.)",
+      "송송 썬 청양고추를 올려 마무리한다."
+    ],
+    "caloriesKcal": 1080,
+    "nutrition": {
+      "calories": 1080,
+      "carbs": 69,
+      "protein": 52,
+      "fat": 66
+    },
+    "tags": [
+      "돼지",
+      "특식",
+      "단짠",
+      "손님상"
+    ],
+    "description": "설탕으로 겉을 코팅하고 간장·참치액으로 졸여 단짠하게 만든 만 원 돼지갈비찜",
+    "photoUrl": "/images/recipes/r_p1_04.jpg"
   },
   {
     "id": "r_p1_05",
@@ -68,26 +439,212 @@
     "themes": [
       "돼지"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 75,
     "servings": 2,
+    "bookPage": 38,
     "part": "Part 1 평생 특식",
     "dishGroupId": "deunggalbi",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "돼지등갈비",
+        "amount": "600g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "대파",
+        "amount": "2대",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "진간장",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "참치액",
+        "amount": "3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "갈아만든 배",
+        "amount": "238ml 1캔",
+        "usageType": "ALL"
+      },
+      {
+        "name": "설탕",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "3꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "300ml",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "1바퀴",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "등갈비는 1대씩 썰고 물에 씻은 뒤, 키친타월로 물기를 제거한다. 대파, 양파는 최대한 얇게 썰고, 마늘은 껍질을 깐다. 진간장 4큰술, 참치액 3큰술을 섞어 등갈비 양념을 만든다. (손질 시에는 칼을 뼈에 바짝 붙여서 잘라주세요. 뼛가루가 남아 있을 수 있으니 꼭 물에 한 번 씻어주세요.)",
+      "중불로 프라이팬을 충분히 예열하고 등갈비를 올린다.",
+      "식용유를 1바퀴 두르고 소금 3꼬집을 뿌려 2~3분 노릇하게 한쪽 면을 굽는다. (고기의 수분을 날리기 위해 강불로 구워주세요.)",
+      "등갈비를 뒤집고 중불로 줄인 뒤, 양념을 넣고 태우듯이 3분 볶는다. (등갈비에 양념이 배어 진한 색이 날 때까지 볶아주세요.)",
+      "설탕 4큰술을 넣고 중불에서 조금 더 볶다가 양념이 바글바글 끓으면 손질한 대파, 양파를 넣고 강불에서 볶는다. (양념이 골고루 배도록 중간에 한 번 정도 뒤집어주세요. 기름이 끓기 시작하면 눌어붙은 양념을 등갈비에 묻혀 불맛을 입히는 게 포인트입니다.)",
+      "대파, 양파의 숨이 죽으면 마늘, 갈아만든 배 1캔, 물 300ml, 식초 2큰술을 넣고 강불에서 바글바글 끓으면, 뚜껑을 덮어 약불에서 40분 끓인다. (등갈비가 골고루 물에 잠기도록 넣어주세요.)",
+      "뚜껑을 열고 강불에서 10분 더 졸이면 완성! (수분이 다 날아가고 기름이 자글자글 끓을 때까지 졸여주세요.)"
+    ],
+    "caloriesKcal": 820,
+    "nutrition": {
+      "calories": 820,
+      "carbs": 66,
+      "protein": 38,
+      "fat": 45
+    },
+    "tags": [
+      "돼지",
+      "특식",
+      "단짠",
+      "손님상"
+    ],
+    "description": "간장·참치액으로 태우듯 볶아 불맛을 입히고 배 음료로 달콤하게 졸인 원 팬 등갈비",
+    "photoUrl": "/images/recipes/r_p1_05.jpg"
   },
   {
     "id": "r_p1_06",
-    "name": "꼬리멸치 치킨",
-    "mainIngredient": "해산물·생선",
+    "name": "꽈리멸치 치킨",
+    "mainIngredient": "닭",
     "category": "특식",
     "themes": [
+      "만원",
+      "닭",
       "해산물"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 45,
     "servings": 2,
+    "bookPage": 41,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "닭볶음탕용 닭",
+        "amount": "1kg",
+        "usageType": "ALL"
+      },
+      {
+        "name": "잔멸치",
+        "amount": "1공기",
+        "usageType": "PART"
+      },
+      {
+        "name": "꽈리고추",
+        "amount": "200g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "4꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "멸치액젓",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "굴소스",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "진간장",
+        "amount": "5큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "물엿(올리고당)",
+        "amount": "½컵",
+        "usageType": "PART"
+      },
+      {
+        "name": "참기름",
+        "amount": "½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "4바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "통깨",
+        "amount": "약간",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "닭은 키친타월로 물기를 제거한 뒤 힘줄을 자른다. 대파는 3~4cm 길이로 썬다. 꽈리고추는 씻어서 꼭지 부분을 자른 뒤, 포크로 찍어 구멍을 낸다. (꽈리고추의 끝을 자르면 양념이 안까지 잘 스며듭니다.)",
+      "강불로 예열한 팬에 잔멸치를 넣고 중불에서 노릇노릇하게 볶아 비린내를 날린다. (국물용 멸치는 쓴맛이 날 수 있어 잔멸치를 쓰는 것이 좋습니다. 연기가 나기 시작하면 불을 끄세요.)",
+      "강불로 달군 웍에 식용유 3바퀴를 두르고 손질한 닭을 껍질부터 넣은 뒤, 소금 4꼬집을 뿌려 3분 굽는다. (금방 익는 가슴살은 다른 살 위에 올려서 익혀주세요.)",
+      "중불로 줄이고 닭을 뒤집은 뒤, 식용유 1바퀴를 두르고 뚜껑을 덮어 10분 굽는다.",
+      "마늘, 대파를 넣고 살짝 볶은 뒤, 뚜껑을 덮어 5분 굽는다. (타지 않도록 중간에 한두 번 흔들어 섞어주세요.)",
+      "손질한 꽈리고추, 볶아둔 잔멸치를 넣고 볶는다.",
+      "웍 가장자리에 멸치액젓 1큰술, 굴소스 1큰술을 넣고 살짝 볶아 비린내를 날린다. (액젓부터 넣어야 비린내를 날릴 수 있습니다. 비린내가 날아갈 때까지 충분히 볶아주세요.)",
+      "재료를 한쪽으로 몰고, 빈 공간에 진간장 5큰술을 넣고 팬을 한쪽으로 기울여 끓인 뒤 잘 섞는다. (간장을 끓이면 산미가 날아가고 풍미가 생깁니다.)",
+      "설탕 1큰술, 물엿 ½컵을 넣고 볶는다.",
+      "뚜껑을 덮고 중약불에서 3분 뜸 들인다. (집마다 화력이 다르므로, 타는 것 같으면 약불로 줄여주세요.)",
+      "불을 끈 뒤, 참기름 ½큰술을 넣고 잘 섞은 후 통깨를 뿌린다. (참기름은 향이 금방 날아가기 때문에 마지막에 넣으세요.)"
+    ],
+    "caloriesKcal": 1210,
+    "nutrition": {
+      "calories": 1210,
+      "carbs": 77,
+      "protein": 72,
+      "fat": 66
+    },
+    "tags": [
+      "닭",
+      "특식",
+      "단짠",
+      "밥도둑"
+    ],
+    "description": "노릇하게 구운 닭에 꽈리고추·볶은 잔멸치를 넣고 간장·물엿으로 단짠하게 볶아낸 밥도둑 치킨",
+    "photoUrl": "/images/recipes/r_p1_06.jpg"
   },
   {
     "id": "r_p1_07",
@@ -97,11 +654,92 @@
     "themes": [
       "돼지"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 40,
     "servings": 2,
+    "bookPage": 45,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "껍질 붙은 통삼겹",
+        "amount": "600g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "마늘",
+        "amount": "1공기",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "1바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "8꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "꿀",
+        "amount": "3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "통깨",
+        "amount": "2큰술",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "통삼겹은 껍질에 격자 모양으로 큼직하게 칼집을 넣고 4등분한다. 모든 면에 소금을 문지르는 느낌으로 발라 밑간한다. (한 덩어리당 소금 2꼬집 정도 사용하면 됩니다.)",
+      "냄비를 중불에서 3~4분 연기가 날 정도로 충분히 달군 뒤 식용유 1바퀴를 두른다. (두께감 있는 스테인리스 냄비를 사용하면 좋습니다. 식용유를 넣었을 때 냄비 바닥에 물결이 생기면 충분히 예열된 것입니다.)",
+      "밑간한 통삼겹을 껍질 부분이 아래로 가도록 넣고 뚜껑을 덮은 뒤 중약불로 줄인다.",
+      "중간중간 고기를 뒤집어가며 모든 면이 노릇해지도록 10분 익힌다. (오븐 효과를 유지하려면 고기를 뒤집고 뚜껑을 꼭 덮어야 합니다.)",
+      "마늘 1공기를 모두 넣고 뚜껑을 덮은 뒤 10분 익힌다. (마늘의 3분의 1이 고기 기름에 잠겨야 하고, 기름이 모자란 경우 식용유를 추가하세요. 파, 양파 등 수분이 있는 채소를 넣으면 바비큐가 아니라 수육처럼 될 수 있으니 반드시 마늘만 넣어주세요. 마늘이 타지 않도록 중간중간 냄비를 흔들어주세요.)",
+      "마늘 위에 통삼겹을 올리고 뚜껑을 덮은 뒤 약불에서 5분 뜸 들이듯 익힌다. (고기의 총 조리 시간은 25분을 넘기지 않아야 합니다.)",
+      "고기를 꺼내 접시에 담은 뒤, 대접이나 면기로 덮어 5분 그대로 둔다. (육즙이 전체적으로 퍼지게 하는 레스팅 과정입니다.)",
+      "먹기 좋은 크기로 썬다. (육즙은 페스토에 사용하니 버리지 마세요.)"
+    ],
+    "sauce": {
+      "name": "허니 마늘 페스토",
+      "ingredients": [
+        {
+          "name": "꿀",
+          "amount": "3큰술",
+          "usageType": "PART"
+        },
+        {
+          "name": "통깨",
+          "amount": "2큰술",
+          "usageType": "PART"
+        },
+        {
+          "name": "소금",
+          "amount": "½큰술",
+          "usageType": "PART"
+        }
+      ],
+      "steps": [
+        "지퍼백에 고기 기름에 구운 마늘을 담는다.",
+        "꿀 3큰술, 통깨 2큰술, 소금 ½큰술을 넣어 으깬다.",
+        "고기 육즙을 넣고 잘 섞어서 마무리한다. (냄비 바비큐에 곁들여 드세요. 시판 바비큐 소스와 섞어 먹으면 색다른 맛이 있습니다.)"
+      ]
+    },
+    "caloriesKcal": 1030,
+    "nutrition": {
+      "calories": 1030,
+      "carbs": 45,
+      "protein": 53,
+      "fat": 71
+    },
+    "tags": [
+      "돼지",
+      "특식",
+      "손님상",
+      "간단한"
+    ],
+    "description": "껍질 붙은 통삼겹을 냄비 뚜껑 덮어 오븐처럼 굽고, 고기 기름에 구운 마늘로 허니 마늘 페스토까지 만드는 25분 바비큐",
+    "photoUrl": "/images/recipes/r_p1_07.jpg"
   },
   {
     "id": "r_p1_08",
@@ -112,11 +750,84 @@
       "긴급",
       "소"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 25,
     "servings": 2,
+    "bookPage": 49,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "불고깃감 소고기",
+        "amount": "600g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "참기름",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "굴소스",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "20바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "3바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "통깨",
+        "amount": "약간",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "소고기는 손가락 너비로 썬다. (고기는 지방이 많은 부위가 맛있습니다.)",
+      "볼에 소고기를 넣고 다진 마늘 1큰술, 설탕 2큰술, 간장 3큰술, 식초 ½큰술, 참기름 1큰술, 굴소스 1큰술, 후추 20바퀴를 넣고 잘 버무려 재운다. (덩어리가 없도록 손으로 고기를 잘 주물러야 식감이 좋아집니다.)",
+      "종이포일 위에 2의 불고기를 야구공 크기(약 200g)로 올리고, 납작하게 잘 펴준다. (최대한 균일한 두께로 펴되, 가운데는 잘 안 익을 수 있으니 조금 더 얇게 눌러주세요. 구우면 크기가 줄어들기 때문에 크게 펼쳐주세요. 이대로 지퍼백에 넣어 냉동실에 보관하면 1개월 동안 먹을 수 있습니다.)",
+      "중불에 달군 팬에 식용유를 3바퀴 두르고, 잘 펴둔 고기를 넣어 2분 굽는다. (프라이팬을 충분히 달군 뒤 구워야 합니다. 고기가 오그라들 수 있으니 윗면에는 종이포일을 붙인 채로 굽고, 끝부분을 눌러가며 구워주세요.)",
+      "종이포일을 떼고 고기를 뒤집어 2분 더 구운 뒤, 취향껏 통깨를 뿌리면 완성!"
+    ],
+    "caloriesKcal": 940,
+    "nutrition": {
+      "calories": 940,
+      "carbs": 18,
+      "protein": 59,
+      "fat": 69
+    },
+    "tags": [
+      "소",
+      "특식",
+      "간단한",
+      "밥도둑"
+    ],
+    "description": "양념한 불고기를 종이포일 위에 얇게 펴서 앞뒤 2분씩 바싹 구워내는 초간단 불고기",
+    "photoUrl": "/images/recipes/r_p1_08.jpg"
   },
   {
     "id": "r_p1_09",
@@ -126,12 +837,95 @@
     "themes": [
       "닭"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 40,
     "servings": 2,
+    "bookPage": 51,
     "part": "Part 1 평생 특식",
     "dishGroupId": "chicken",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "닭볶음탕용 닭(10호)",
+        "amount": "1마리",
+        "usageType": "ALL"
+      },
+      {
+        "name": "대파",
+        "amount": "2대",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "3꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "생강",
+        "amount": "1톨",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "굴소스",
+        "amount": "듬뿍 1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "물엿(올리고당)",
+        "amount": "6큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "3바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "통깨",
+        "amount": "넉넉히",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "닭날개는 끝부분을 제거하고, 닭다리는 힘줄 부분을 자른다. 손질한 닭은 흐르는 물에 씻어 불순물을 제거하고, 키친타월로 물기를 닦는다. 대파는 반을 가르고 4~5cm 길이로 썰고, 생강은 편 썬다. (닭에 물기가 있으면 구워지지 않고 쪄질 수 있으니 물기를 잘 제거해주세요.)",
+      "강불로 달군 웍에 식용유 3바퀴를 두르고 손질한 닭을 껍질이 아래로 가도록 넣은 뒤, 소금 3꼬집을 뿌려 강불에서 3분 굽는다. (닭을 구울 때 뒤적이지 마세요.)",
+      "중불로 줄이고 닭을 뒤집은 뒤, 뚜껑을 덮고 3분 굽는다.",
+      "생강을 넣은 후 뚜껑을 덮고 닭을 10분 더 굽는다. (닭이 타지 않게 중간중간 뒤적이면서 눌어붙은 곳을 긁어주세요.)",
+      "마늘, 대파를 넣고 잘 볶는다.",
+      "설탕 1큰술을 넣고 잘 섞는다.",
+      "닭과 채소를 한쪽으로 몰고, 빈 공간에 간장 3큰술을 넣어 살짝 태우듯이 끓이고 섞는다.",
+      "굴소스 듬뿍 1큰술, 물엿 6큰술을 넣고 잘 섞는다. (물엿 대신 올리고당을 사용해도 괜찮아요.)",
+      "약불로 줄이고 뚜껑을 덮어 5분 뜸 들인 후, 뚜껑을 열고 강불로 색이 진해질 때까지 바싹 졸인다.",
+      "그릇에 치킨을 담고 통깨를 넉넉히 뿌려 마무리한다. (총 조리 시간은 25분을 넘기지 않아야 부드러운 닭을 먹을 수 있습니다.)"
+    ],
+    "caloriesKcal": 1020,
+    "nutrition": {
+      "calories": 1020,
+      "carbs": 66,
+      "protein": 56,
+      "fat": 58
+    },
+    "tags": [
+      "닭",
+      "특식",
+      "단짠",
+      "밥도둑"
+    ],
+    "description": "닭을 바싹 구워 간장·굴소스·물엿으로 갈비처럼 달짝지근하게 졸인 25분 갈비치킨",
+    "photoUrl": "/images/recipes/r_p1_09.jpg"
   },
   {
     "id": "r_p1_10",
@@ -141,11 +935,179 @@
     "themes": [
       "중식"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 40,
     "servings": 2,
+    "bookPage": 54,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "가지",
+        "amount": "2개",
+        "usageType": "ALL"
+      },
+      {
+        "name": "식용유",
+        "amount": "1L",
+        "usageType": "PART"
+      },
+      {
+        "name": "감자전분",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "생강",
+        "amount": "1톨",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "청양고추",
+        "amount": "4개",
+        "usageType": "PART"
+      },
+      {
+        "name": "물엿(올리고당)",
+        "amount": "6큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "케첩",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "1½큰술",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "가지는 꼭지를 제거하고 지그재그로 돌려가며 큼직하게 썬다.",
+      "볼에 썬 가지를 넣고 설탕 1큰술, 소금 ½큰술을 뿌려 가지에서 수분이 나올 때까지 잠시 둔다.",
+      "수분이 빠진 가지에 감자전분 4큰술을 넣고 섞는다. (물은 넣지 않고 가지의 수분만 사용해야 바삭한 튀김이 됩니다.)",
+      "강불로 달군 웍에 식용유를 충분히 붓는다. (기름이 넉넉할수록 완성도가 높아져요. 튀김 반죽을 기름에 조금 넣었을 때 보글보글 끓어오르면 적당한 온도가 된 거예요.)",
+      "가지를 넣고 중강불에서 4분 튀긴다. (좀 더 바삭하게 먹고 싶다면 한 번 더 튀기세요. 가지튀김에 그냥 소금만 찍어 먹어도 맛있습니다.)"
+    ],
+    "sauce": {
+      "name": "어향 소스",
+      "ingredients": [
+        {
+          "name": "생강",
+          "amount": "1톨",
+          "usageType": "PART"
+        },
+        {
+          "name": "마늘",
+          "amount": "1줌",
+          "usageType": "PART"
+        },
+        {
+          "name": "대파",
+          "amount": "1대",
+          "usageType": "PART"
+        },
+        {
+          "name": "청양고추",
+          "amount": "4개",
+          "usageType": "PART"
+        },
+        {
+          "name": "설탕",
+          "amount": "1큰술",
+          "usageType": "PART"
+        },
+        {
+          "name": "물엿(올리고당)",
+          "amount": "6큰술",
+          "usageType": "PART"
+        },
+        {
+          "name": "간장",
+          "amount": "2큰술",
+          "usageType": "PART"
+        },
+        {
+          "name": "식초",
+          "amount": "1큰술",
+          "usageType": "PART"
+        },
+        {
+          "name": "케첩",
+          "amount": "2큰술",
+          "usageType": "PART"
+        },
+        {
+          "name": "소금",
+          "amount": "2꼬집",
+          "usageType": "PART"
+        },
+        {
+          "name": "전분물",
+          "amount": "2큰술",
+          "usageType": "PART"
+        },
+        {
+          "name": "식용유",
+          "amount": "4바퀴",
+          "usageType": "PART"
+        }
+      ],
+      "steps": [
+        "생강은 편 썰고, 마늘은 다지고, 대파는 송송 썬다. 청양고추는 손가락 1마디 크기로 숭덩숭덩 썬다. 감자전분과 물을 1:3 비율로 섞어 전분물을 만든다.",
+        "중불로 달군 팬에 식용유 4바퀴를 두르고 중약불로 줄인 뒤, 편으로 썬 생강을 넣어 쪼그라들 때까지 3~4분 볶는다.",
+        "생강을 건져낸 기름에 다진 마늘을 넣고 마늘이 노릇해질 때까지 볶는다.",
+        "대파와 청양고추를 넣은 후, 대파가 투명해지고 청양고추가 숨이 살짝 죽을 때까지 볶는다. (채소를 한꺼번에 넣으면 기름을 내기 어려우니 꼭 순서대로 넣어주세요.)",
+        "약불로 줄인 뒤 설탕 1큰술을 넣고 잘 섞는다.",
+        "물엿 6큰술, 간장 2큰술, 식초 1큰술, 케첩 2큰술, 소금 2꼬집을 넣고 섞는다.",
+        "전분물 2큰술을 넣고 소스가 걸쭉해질 때까지 살짝 끓인다. (나무 주걱으로 팬 바닥을 긁었을 때 길이 생기면 소스화가 잘된 거예요.)",
+        "만들어둔 가지튀김에 어향 소스를 끼얹으면 완성!"
+      ]
+    },
+    "caloriesKcal": 790,
+    "nutrition": {
+      "calories": 790,
+      "carbs": 93,
+      "protein": 5,
+      "fat": 45
+    },
+    "tags": [
+      "채소",
+      "특식",
+      "중식",
+      "새콤달콤"
+    ],
+    "description": "전분만 묻혀 바삭하게 튀긴 가지에 생강·마늘 향을 낸 새콤달콤 어향 소스를 끼얹은 가성비 중식",
+    "photoUrl": "/images/recipes/r_p1_10.jpg"
   },
   {
     "id": "r_p1_11",
@@ -156,11 +1118,69 @@
       "국물",
       "닭"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 75,
     "servings": 2,
+    "bookPage": 59,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "생닭(12호)",
+        "amount": "1마리",
+        "usageType": "ALL"
+      },
+      {
+        "name": "생강",
+        "amount": "20g",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "3L",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "½큰술",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "닭의 꽁지 앞뒤에 붙어 있는 지방, 목덜미 지방을 가위로 제거한다. 피가 고여 있는 닭다리 끝, 날개 끝 관절을 잘라내고 잔지방을 제거한 뒤, 흐르는 물에 닭 내부를 깨끗이 씻는다. 생강은 편으로 썰어 4조각으로 만들고, 대파는 냄비에 들어갈 크기로 숭덩 자른다.",
+      "손질한 닭 안에 생강, 마늘을 넣는다.",
+      "닭의 한쪽 다리 힘줄 옆에 칼집을 넣고, 반대쪽 다리를 칼집 낸 곳에 넣어 꼬아준다. (힘줄이 끊어지지 않도록 주의하세요.)",
+      "냄비에 물 3L와 닭, 양파, 대파를 넣고 뚜껑을 덮어 50분~1시간 끓인다. (물 양은 닭이 잠길 정도로만 붓고, 물이 반으로 줄어들 때까지 끓이면 됩니다. 강불에서 와르르 끓기 시작하면 뚜껑을 덮고 중불에서 끓여주세요.)",
+      "불순물을 걷어내고 소금 ½큰술로 간한 뒤 마무리한다."
+    ],
+    "caloriesKcal": 800,
+    "nutrition": {
+      "calories": 800,
+      "carbs": 16,
+      "protein": 88,
+      "fat": 42
+    },
+    "tags": [
+      "닭",
+      "특식",
+      "국물",
+      "보양식"
+    ],
+    "description": "가위로 손질한 생닭에 생강·마늘을 채워 1시간 푹 끓인, 국물까지 깔끔한 여름 보양 닭백숙",
+    "photoUrl": "/images/recipes/r_p1_11.jpg"
   },
   {
     "id": "r_p1_12",
@@ -170,11 +1190,101 @@
     "themes": [
       "돼지"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 70,
     "servings": 2,
+    "bookPage": 60,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "묵은지",
+        "amount": "500g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "묵은지 국물",
+        "amount": "약간",
+        "usageType": "PART"
+      },
+      {
+        "name": "돼지고기 앞다리살",
+        "amount": "500g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "소금",
+        "amount": "1꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "1L",
+        "usageType": "PART"
+      },
+      {
+        "name": "새우젓",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파(흰 부분)",
+        "amount": "2~3대",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "멸치액젓",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "듬뿍 1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "2바퀴",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "돼지고기 앞다리살에 소금 1꼬집을 뿌려 간한다. (돼지고기 앞다리살은 기름이 많은 부위가 훨씬 더 맛있습니다.)",
+      "달군 냄비에 식용유 2바퀴를 두른 뒤, 돼지고기 앞다리살을 통으로 넣고 노릇하게 굽는다.",
+      "중불로 줄이고 묵은지와 김치 국물을 약간 넣는다. (돼지고기와 묵은지는 같은 양을 넣어야 합니다.)",
+      "물 1L를 붓고, 대파는 김치 크기로 길쭉하게 썰어 넣고, 마늘 1줌을 넣는다.",
+      "새우젓 1큰술, 멸치액젓 2큰술, 간장 1큰술, 설탕 1큰술을 넣고 간한 뒤, 뚜껑 덮고 중불에 50분 끓인다. (30~40분 끓이면 쫄깃한 수육 식감의 고기를, 50분 이상 끓이면 야들야들 부드러운 식감의 고기를 맛볼 수 있습니다. 설탕을 넣으면 묵은지의 '시큼'이 '새콤'으로 바뀌어요. 설탕이 싫다면 양파를 사용하세요.)",
+      "다진 마늘 듬뿍 1큰술을 넣고 뚜껑 덮은 뒤, 약불에 5분 뜸 들인다. (다진 마늘은 마지막에 넣어야 마늘 향이 훨씬 살고 맛있어집니다. 김치가 덜 익어 산미가 부족하다면, 식초 2큰술을 넣어도 좋아요.)",
+      "큰 그릇에 고기를 먹기 좋게 썰어 담고 김치를 통으로 올린 뒤, 국물을 부으면 완성!"
+    ],
+    "caloriesKcal": 810,
+    "nutrition": {
+      "calories": 810,
+      "carbs": 31,
+      "protein": 57,
+      "fat": 51
+    },
+    "tags": [
+      "돼지",
+      "특식",
+      "국물",
+      "밥도둑"
+    ],
+    "description": "기름진 앞다리살을 통으로 구워 같은 양의 묵은지와 50분 푹 끓인, 고기가 야들야들한 김치찜",
+    "photoUrl": "/images/recipes/r_p1_12.jpg"
   },
   {
     "id": "r_p1_13",
@@ -182,13 +1292,70 @@
     "mainIngredient": "해산물·생선",
     "category": "특식",
     "themes": [
-      "해산물"
+      "해산물",
+      "양식"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 15,
     "servings": 2,
+    "bookPage": 63,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "냉동새우",
+        "amount": "400g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "버터",
+        "amount": "40g",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "½작은술",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "5쪽",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "10바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "파슬리 가루",
+        "amount": "약간",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "냉동새우는 흐르는 물에 씻어 체에 밭쳐둔다. 마늘 5쪽은 편 썰어서 준비한다.",
+      "중불에 달군 팬에 버터 40g, 냉동새우, 소금 ½작은술, 다진 마늘 2큰술, 편마늘, 후추 10바퀴 순서로 넣고 볶는다. (새우는 5분 이내로 조리해야 탱글하고 맛있습니다. 새우를 넣은 뒤에는 버터가 탈 수 있으니 약불로 줄여주세요.)",
+      "파슬리 가루를 뿌려 마무리한다. (방울토마토와 꿀을 올려 먹으면 더욱 맛있습니다. 버터 새우 소스에 빵을 찍어 먹거나 파스타 면을 곁들여 먹어도 훌륭합니다.)"
+    ],
+    "caloriesKcal": 350,
+    "nutrition": {
+      "calories": 350,
+      "carbs": 7,
+      "protein": 40,
+      "fat": 18
+    },
+    "tags": [
+      "해산물",
+      "특식",
+      "간단한",
+      "양식"
+    ],
+    "description": "버터에 냉동새우와 마늘을 볶아 5분 만에 끝내는 와인 안주, 빵이나 파스타와 곁들이기 좋은 버터 새우",
+    "photoUrl": "/images/recipes/r_p1_13.jpg"
   },
   {
     "id": "r_p1_14",
@@ -199,11 +1366,89 @@
       "양식",
       "해산물"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 25,
     "servings": 2,
+    "bookPage": 65,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "냉동새우",
+        "amount": "400g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "방울토마토",
+        "amount": "1공기",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "버터",
+        "amount": "60g",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "½컵",
+        "usageType": "PART"
+      },
+      {
+        "name": "페퍼론치노",
+        "amount": "약간",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "½작은술",
+        "usageType": "PART"
+      },
+      {
+        "name": "라면 수프",
+        "amount": "½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "파슬리 가루",
+        "amount": "약간",
+        "usageType": "PART"
+      },
+      {
+        "name": "꿀",
+        "amount": "약간",
+        "usageType": "PART"
+      },
+      {
+        "name": "바게트",
+        "amount": "약간",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "냉동새우는 물로 헹군 뒤 키친타월로 물기를 완벽하게 제거한다.",
+      "토마토는 꼭지를 제거하고 팬에 식용유 ½컵과 함께 넣어 중약불에서 뚜껑을 덮어 끓인다.",
+      "토마토 껍질이 슬슬 벗겨지면 버터 60g, 다진 마늘 3큰술, 소금 ½작은술, 라면 수프 ½큰술, 새우를 넣고 섞는다. (마늘이 노릇해질 때까지 끓이는 것이 좋습니다. 굵은 소금을 제외한 고운 소금이나 정제소금을 사용해주세요. 불 세기에 따라 5~7분 익히고, 8분 이상 익히면 새우가 퍽퍽해집니다. 라면 수프가 없다면 치킨스톡이나 비슷한 조미료를 쓰셔도 무방해요.)",
+      "페퍼론치노를 약간 넣고 뚜껑을 덮어 중불에서 5분 익힌다.",
+      "마무리로 파슬리 가루를 뿌리면 감바스 완성! (바게트 빵은 사선으로 길게 잘라 곁들이고, 꿀도 따로 소스 종지에 담아 냅니다. 바질 잎이나 바질 페스토를 올리면 풍미가 올라갑니다.)"
+    ],
+    "caloriesKcal": 1020,
+    "nutrition": {
+      "calories": 1020,
+      "carbs": 42,
+      "protein": 43,
+      "fat": 76
+    },
+    "tags": [
+      "해산물",
+      "특식",
+      "양식",
+      "손님상"
+    ],
+    "description": "식용유에 방울토마토를 뭉근히 익히고 버터·마늘·라면 수프로 맛을 낸, 바게트를 찍어 먹는 버터 감바스",
+    "photoUrl": "/images/recipes/r_p1_14.jpg"
   },
   {
     "id": "r_p1_15",
