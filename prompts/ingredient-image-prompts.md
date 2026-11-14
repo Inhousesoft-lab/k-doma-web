@@ -150,7 +150,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | pork_belly_skin_on | 껍질 붙은 통삼겹 | **등록됨** id `m_ing_172`, name `껍질 붙은 통삼겹`, zone `FRIDGE`, aliases `["돼지 껍질 붙은 통삼겹", "오겹살", "통오겹살", "껍데기 붙은 통삼겹"]` | one thick rectangular block of raw skin-on pork belly, pale skin on top and layered meat and fat visible on the side |
 | honey | 꿀 | **등록됨** id `m_ing_173`, name `꿀`, zone `SEASONING`, aliases `["벌꿀", "아카시아꿀"]` | clear glass jar of golden honey with a wooden honey dipper resting on top, a thick drip running down the side, no label |
 | beef_bulgogi | 불고깃감 소고기 | **등록됨** id `m_ing_174`, name `불고깃감 소고기`, zone `FRIDGE`, aliases `["불고기용 소고기", "불고깃감", "불고기감", "소고기 불고기용"]` | loose pile of thin raw beef slices for bulgogi, bright red with light marbling, softly folded |
-| ginger | 생강 | **등록됨** id `m_ing_175`, name `생강`, zone `FRIDGE`, aliases `["통생강", "생강 1톨"]` (이미지 아직 없음). 다진생강(`m_ing_153`, `ginger_minced`)과는 별도 | one fresh knobby ginger root with light tan skin, a small piece cut off showing pale yellow flesh |
+| ginger | 생강 | **등록됨** id `m_ing_175`, name `생강`, zone `FRIDGE`, aliases `["통생강", "생강 1톨"]`. 다진생강(`m_ing_153`, `ginger_minced`)과는 별도 | one fresh knobby ginger root with light tan skin, a small piece cut off showing pale yellow flesh |
 
 - **물엿**: 따로 등록하지 않고 올리고당(`m_ing_13`)의 별칭으로 둔다(2026-11-14 사용자 결정).
 - 캔 디자인(색·배 그림·빨간 배지)은 실제 상품대로 쓰고 **'갈아만든 배' 로고 글자만 뺀다**(2026-11-14 사용자 결정, 저작권 문제 없음 확인). 캔 하나만, 옆에 배를 두지 않는다.
