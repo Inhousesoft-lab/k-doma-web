@@ -9,7 +9,7 @@ export interface RecordsTimelineProps {
   plans: MealPlan[];
   /** 카드 그리기. 달력 보기와 같은 PlanCard 를 그대로 쓴다 */
   renderCard: (plan: MealPlan) => React.ReactNode;
-  /** 아래 [더 보기] 문구 ('10월 기록 더 보기'). null 이면 더 받을 달이 없어 버튼을 숨긴다 */
+  /** 아래 [더보기] 문구. null 이면 더 받을 달이 없어 버튼을 숨긴다 */
   loadMoreLabel: string | null;
   loadingMore: boolean;
   onLoadMore: () => void;
@@ -38,7 +38,7 @@ export function groupByDateDesc(plans: MealPlan[]): DayGroup[] {
  * - 요리 완료한 날만, 최신 날짜가 위
  * - 달이 바뀌면 월 제목 ('2026년 11월')
  * - 왼쪽 세로선 + 날짜마다 동그라미, 오른쪽에 날짜(글자만, 누를 수 없음)와 그 날의 요리 카드
- * - 받은 범위(지난달 1일~)만 그린다. 이전 달은 아래 [N월 기록 더 보기]로 한 달씩 더 받는다
+ * - 받은 범위(지난달 1일~)만 그린다. 이전 달은 아래 [더보기]로 한 달씩 더 받는다
  */
 export const RecordsTimeline: React.FC<RecordsTimelineProps> = ({ plans, renderCard, loadMoreLabel, loadingMore, onLoadMore }) => {
   const groups = groupByDateDesc(plans);
