@@ -1292,13 +1292,70 @@
     "mainIngredient": "해산물·생선",
     "category": "특식",
     "themes": [
-      "해산물"
+      "해산물",
+      "양식"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 15,
     "servings": 2,
+    "bookPage": 63,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "냉동새우",
+        "amount": "400g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "버터",
+        "amount": "40g",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "½작은술",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "5쪽",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "10바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "파슬리 가루",
+        "amount": "약간",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "냉동새우는 흐르는 물에 씻어 체에 밭쳐둔다. 마늘 5쪽은 편 썰어서 준비한다.",
+      "중불에 달군 팬에 버터 40g, 냉동새우, 소금 ½작은술, 다진 마늘 2큰술, 편마늘, 후추 10바퀴 순서로 넣고 볶는다. (새우는 5분 이내로 조리해야 탱글하고 맛있습니다. 새우를 넣은 뒤에는 버터가 탈 수 있으니 약불로 줄여주세요.)",
+      "파슬리 가루를 뿌려 마무리한다. (방울토마토와 꿀을 올려 먹으면 더욱 맛있습니다. 버터 새우 소스에 빵을 찍어 먹거나 파스타 면을 곁들여 먹어도 훌륭합니다.)"
+    ],
+    "caloriesKcal": 350,
+    "nutrition": {
+      "calories": 350,
+      "carbs": 7,
+      "protein": 40,
+      "fat": 18
+    },
+    "tags": [
+      "해산물",
+      "특식",
+      "간단한",
+      "양식"
+    ],
+    "description": "버터에 냉동새우와 마늘을 볶아 5분 만에 끝내는 와인 안주, 빵이나 파스타와 곁들이기 좋은 버터 새우",
+    "photoUrl": "/images/recipes/r_p1_13.jpg"
   },
   {
     "id": "r_p1_14",

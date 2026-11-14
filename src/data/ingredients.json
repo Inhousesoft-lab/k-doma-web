@@ -115,6 +115,17 @@
     ]
   },
   {
+    "id": "m_ing_180",
+    "name": "파슬리 가루",
+    "zone": "SEASONING",
+    "imageKey": "parsley_flakes",
+    "aliases": [
+      "파슬리",
+      "건조 파슬리",
+      "파슬리가루"
+    ]
+  },
+  {
     "id": "m_ing_13",
     "name": "올리고당(물엿)",
     "zone": "SEASONING",
