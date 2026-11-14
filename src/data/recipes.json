@@ -837,12 +837,95 @@
     "themes": [
       "닭"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 40,
     "servings": 2,
+    "bookPage": 51,
     "part": "Part 1 평생 특식",
     "dishGroupId": "chicken",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "닭볶음탕용 닭(10호)",
+        "amount": "1마리",
+        "usageType": "ALL"
+      },
+      {
+        "name": "대파",
+        "amount": "2대",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "3꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "생강",
+        "amount": "1톨",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "굴소스",
+        "amount": "듬뿍 1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "물엿(올리고당)",
+        "amount": "6큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "3바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "통깨",
+        "amount": "넉넉히",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "닭날개는 끝부분을 제거하고, 닭다리는 힘줄 부분을 자른다. 손질한 닭은 흐르는 물에 씻어 불순물을 제거하고, 키친타월로 물기를 닦는다. 대파는 반을 가르고 4~5cm 길이로 썰고, 생강은 편 썬다. (닭에 물기가 있으면 구워지지 않고 쪄질 수 있으니 물기를 잘 제거해주세요.)",
+      "강불로 달군 웍에 식용유 3바퀴를 두르고 손질한 닭을 껍질이 아래로 가도록 넣은 뒤, 소금 3꼬집을 뿌려 강불에서 3분 굽는다. (닭을 구울 때 뒤적이지 마세요.)",
+      "중불로 줄이고 닭을 뒤집은 뒤, 뚜껑을 덮고 3분 굽는다.",
+      "생강을 넣은 후 뚜껑을 덮고 닭을 10분 더 굽는다. (닭이 타지 않게 중간중간 뒤적이면서 눌어붙은 곳을 긁어주세요.)",
+      "마늘, 대파를 넣고 잘 볶는다.",
+      "설탕 1큰술을 넣고 잘 섞는다.",
+      "닭과 채소를 한쪽으로 몰고, 빈 공간에 간장 3큰술을 넣어 살짝 태우듯이 끓이고 섞는다.",
+      "굴소스 듬뿍 1큰술, 물엿 6큰술을 넣고 잘 섞는다. (물엿 대신 올리고당을 사용해도 괜찮아요.)",
+      "약불로 줄이고 뚜껑을 덮어 5분 뜸 들인 후, 뚜껑을 열고 강불로 색이 진해질 때까지 바싹 졸인다.",
+      "그릇에 치킨을 담고 통깨를 넉넉히 뿌려 마무리한다. (총 조리 시간은 25분을 넘기지 않아야 부드러운 닭을 먹을 수 있습니다.)"
+    ],
+    "caloriesKcal": 1020,
+    "nutrition": {
+      "calories": 1020,
+      "carbs": 66,
+      "protein": 56,
+      "fat": 58
+    },
+    "tags": [
+      "닭",
+      "특식",
+      "단짠",
+      "밥도둑"
+    ],
+    "description": "닭을 바싹 구워 간장·굴소스·물엿으로 갈비처럼 달짝지근하게 졸인 25분 갈비치킨",
+    "photoUrl": "/images/recipes/r_p1_09.jpg"
   },
   {
     "id": "r_p1_10",

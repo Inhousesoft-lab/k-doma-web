@@ -557,6 +557,16 @@
     ]
   },
   {
+    "id": "m_ing_175",
+    "name": "생강",
+    "zone": "FRIDGE",
+    "imageKey": "ginger",
+    "aliases": [
+      "통생강",
+      "생강 1톨"
+    ]
+  },
+  {
     "id": "m_ing_165",
     "name": "깻잎",
     "zone": "FRIDGE",
