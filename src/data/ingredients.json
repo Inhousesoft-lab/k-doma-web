@@ -1792,11 +1792,15 @@
   },
   {
     "id": "m_ing_255",
-    "name": "왕만두피",
+    "name": "만두피",
     "zone": "FRIDGE",
     "category": "GRAIN",
     "imageKey": "dumpling_wrapper",
     "aliases": [
+      "만두 피",
+      "일반 만두피",
+      "물만두피",
+      "왕만두피",
       "왕 만두피"
     ]
   },
@@ -1890,18 +1894,6 @@
       "튀김 가루",
       "튀김믹스",
       "바삭튀김가루"
-    ]
-  },
-  {
-    "id": "m_ing_266",
-    "name": "만두피",
-    "zone": "FRIDGE",
-    "category": "GRAIN",
-    "imageKey": "dumpling_skin",
-    "aliases": [
-      "일반 만두피",
-      "물만두피",
-      "만두 피"
     ]
   }
 ]
