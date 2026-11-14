@@ -7,12 +7,113 @@
     "themes": [
       "돼지"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 25,
     "servings": 2,
     "part": "Part 1 평생 특식",
     "dishGroupId": "jeyuk",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "돼지고기 앞다리살",
+        "amount": "600g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "설탕",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고추장",
+        "amount": "듬뿍 3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "갈아만든 배",
+        "amount": "238ml 1캔",
+        "usageType": "ALL"
+      },
+      {
+        "name": "참기름",
+        "amount": "⅘큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "청양고추",
+        "amount": "3개",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "3꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "약간",
+        "usageType": "PART"
+      },
+      {
+        "name": "통깨",
+        "amount": "약간",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "넉넉히 1바퀴",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "돼지고기 앞다리살은 키친타월로 핏물을 제거하고, 먹기 좋은 크기로 썬다. 청양고추는 길게 반으로 가른 뒤 송송 썰고, 양파는 채썰고, 대파는 어슷썬다.",
+      "밀폐용기에 설탕 2큰술, 간장 3큰술, 식초 2큰술, 고추장 듬뿍 3큰술, 다진 마늘 2큰술, 소금 2꼬집을 넣고 설탕이 녹을 때까지 잘 섞는다.",
+      "갈아만든 배 1캔을 넣고 섞는다. (밀폐용기의 뚜껑을 닫고 흔들면 더 잘 섞입니다.)",
+      "돼지고기 앞다리살을 뭉치지 않게 떼어서 넣고 잘 버무린 뒤, 참기름 ⅘큰술, 청양고추를 넣고 섞는다.",
+      "양파, 대파를 고기 위에 올리고 소금 1꼬집을 뿌린 뒤, 밀폐용기 뚜껑을 닫는다. (양파, 대파는 버무리지 말고 그냥 올리세요. 하루 정도 숙성하면 더 맛있습니다.)",
+      "달군 프라이팬에 식용유를 넉넉히 1바퀴 두르고, 양념한 고기를 먼저 굽는다. (고기를 올린 뒤 뒤적이지 말고 기다려주세요. 기름이 모자라면 식용유를 추가하세요.)",
+      "거뭇거뭇한 부분이 생기면 골고루 섞어가며 볶는다.",
+      "양파, 대파를 넣은 뒤 뒤적인다.",
+      "뚜껑을 덮고 3분 더 익힌 뒤, 그릇에 담고 후추, 통깨, 청양고추를 올려 마무리한다."
+    ],
+    "caloriesKcal": 990,
+    "nutrition": {
+      "calories": 990,
+      "carbs": 50,
+      "protein": 60,
+      "fat": 60
+    },
+    "tags": [
+      "돼지",
+      "특식",
+      "매콤한",
+      "밥도둑"
+    ],
+    "description": "배 음료로 재운 앞다리살을 센 불에 거뭇하게 구워 볶은 매콤달콤 제육볶음",
+    "photoUrl": "/images/recipes/r_p1_01.jpg"
   },
   {
     "id": "r_p1_02",
