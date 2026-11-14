@@ -135,17 +135,18 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 ### 3.3 추가 예정(재료 사전 미등록)
 
 이미지를 먼저 만들고, 재료 사전(`src/data/ingredients.json`)에 등록할 때 아래 값을 쓴다.
+**등록됨** 표시는 이미 사전에 들어간 항목이다(실제 id·별칭은 사전 기준). 다음 새 id는 `m_ing_169`부터.
 
 | imageKey | 재료 | 사전 등록안 | SUBJECT |
 |---|---|---|---|
-| pear_juice | 배 음료(갈아만든 배 238ml 1캔) | id `m_ing_164`, name `배 음료`, zone `FRIDGE`, aliases `["갈아만든배", "갈아만든 배", "배음료", "배주스"]` | 아래 전용 프롬프트 |
-| pork_ribs | 돼지갈비 | id `m_ing_166`, name `돼지갈비`, zone `FRIDGE`, aliases `["돼지 갈비", "찜갈비", "갈비찜용"]` | several raw pork spare rib pieces cut for braising, pink meat with white bones visible at the cut ends, loosely piled |
-| pork_back_ribs | 돼지등갈비 | id `m_ing_168`, name `돼지등갈비`, zone `FRIDGE`, aliases `["등갈비", "돼지 등갈비", "쪽갈비", "베이비백립", "립"]` | one whole raw rack of pork baby back ribs, long curved row of parallel bones with meat on top, lying diagonally |
-| chicken_stew_cut | 닭볶음탕용 닭 | id `m_ing_167`, name `닭볶음탕용 닭`, zone `FRIDGE`, aliases `["볶음탕용 닭", "닭볶음탕용", "닭도리탕용", "토막닭", "절단닭", "생닭"]` | pile of raw whole chicken cut into bone-in pieces for stew (drumsticks, wings, thighs), pale pink skin-on, loosely piled |
+| pear_juice | 배 음료(갈아만든 배 238ml 1캔) | **등록됨** id `m_ing_164`, name `배 음료`, zone `FRIDGE`, aliases `["갈아만든배", "갈아만든 배", "배음료", "배주스"]` | 아래 전용 프롬프트 |
+| pork_ribs | 돼지갈비 | **등록됨** id `m_ing_167`, name `돼지갈비`, zone `FRIDGE`, aliases `["돼지 갈비", "찜갈비", "돼지갈비찜용"]` | several raw pork spare rib pieces cut for braising, pink meat with white bones visible at the cut ends, loosely piled |
+| pork_back_ribs | 돼지등갈비 | **등록됨** id `m_ing_168`, name `돼지등갈비`, zone `FRIDGE`, aliases `["등갈비", "돼지 등갈비"]` | one whole raw rack of pork baby back ribs, long curved row of parallel bones with meat on top, lying diagonally |
+| chicken_stew_cut | 닭볶음탕용 닭 | **등록됨** id `m_ing_166`, name `닭볶음탕용 닭`, zone `FRIDGE`, aliases `["토막닭", "닭볶음탕용 닭고기", "볶음탕용 닭"]` | pile of raw whole chicken cut into bone-in pieces for stew (drumsticks, wings, thighs), pale pink skin-on, loosely piled |
 | shishito_pepper | 꽈리고추 | id `m_ing_169`, name `꽈리고추`, zone `FRIDGE`, aliases `["꽈리 고추"]` | small pile of fresh bright green shishito peppers, short and wrinkled with crinkly skin and green stems |
 | dried_baby_anchovy | 잔멸치 | id `m_ing_170`, name `잔멸치`, zone `FRIDGE`, aliases `["잔 멸치", "지리멸치", "볶음멸치", "세멸치", "멸치"]` | small heap of tiny dried silvery baby anchovies (jan-myeolchi), each about 2cm long |
 | starch_syrup | 물엿 | id `m_ing_171`, name `물엿`, zone `SEASONING`, aliases `["쌀엿", "조청"]` | wide clear plastic tub with a white lid set beside it, filled with thick colorless glossy starch syrup, a thick drip of syrup running over the rim, no label |
-| perilla_leaf | 깻잎 | id `m_ing_165`, name `깻잎`, zone `FRIDGE`, aliases `["깻잎순", "들깻잎", "깻잎장아찌"]` | small neat stack of fresh green Korean perilla leaves (kkaennip), slightly fanned so the serrated edges and pointed tips are visible |
+| perilla_leaf | 깻잎 | **등록됨** id `m_ing_165`, name `깻잎`, zone `FRIDGE`, aliases `["깻잎순"]` | small neat stack of fresh green Korean perilla leaves (kkaennip), slightly fanned so the serrated edges and pointed tips are visible |
 
 - **물엿 등록 시**: 올리고당(`m_ing_13`)의 별칭 `물엿`을 지운다. 올리고당은 노란 짜는 병, 물엿은 넓은 투명 통으로 구분한다.
 - 캔 디자인(색·배 그림·빨간 배지)은 실제 상품대로 쓰고 **'갈아만든 배' 로고 글자만 뺀다**(2026-11-14 사용자 결정, 저작권 문제 없음 확인). 캔 하나만, 옆에 배를 두지 않는다.
