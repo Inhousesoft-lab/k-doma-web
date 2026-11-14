@@ -51,6 +51,9 @@ export const PlanCard: React.FC<PlanCardProps> = ({
   ]
     .filter(Boolean)
     .join(' · ');
+  // 사진: 지금 레시피 사진을 먼저 쓴다. 예전에 저장된 기록은 .jpg 경로라 .webp 로 바꿔 쓴다 (사진 WebP 전환)
+  const photoUrl = recipe?.photoUrl ?? plan.photoUrl?.replace(/^(\/images\/recipes\/.+)\.jpg$/, '$1.webp') ?? null;
+
   const macros = recipe?.nutrition
     ? `탄 ${recipe.nutrition.carbs}g · 단 ${recipe.nutrition.protein}g · 지 ${recipe.nutrition.fat}g`
     : '';
@@ -78,9 +81,11 @@ export const PlanCard: React.FC<PlanCardProps> = ({
       {/* 2. 중간 행: 사각 썸네일(책 사진) + 요리명 */}
       <div className="flex items-center gap-3.5 mb-4">
         <div className="w-[64px] h-[64px] rounded-btn bg-line flex items-center justify-center shrink-0 overflow-hidden text-ink-tertiary font-medium text-[12px]">
-          {plan.photoUrl ? (
+          {photoUrl ? (
             <img
-              src={plan.photoUrl}
+              src={photoUrl}
+              loading="lazy"
+              decoding="async"
               alt={plan.recipeName}
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"

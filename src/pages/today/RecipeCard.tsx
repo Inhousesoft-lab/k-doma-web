@@ -52,6 +52,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
         {recipe.photoUrl ? (
           <img
             src={recipe.photoUrl}
+            loading="lazy"
+            decoding="async"
             alt={recipe.name}
             className="w-full h-full object-cover pointer-events-none"
             referrerPolicy="no-referrer"

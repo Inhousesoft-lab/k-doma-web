@@ -114,7 +114,7 @@
       "밥도둑"
     ],
     "description": "배 음료로 재운 앞다리살을 센 불에 거뭇하게 구워 볶은 매콤달콤 제육볶음",
-    "photoUrl": "/images/recipes/r_p1_01.jpg"
+    "photoUrl": "/images/recipes/r_p1_01.webp"
   },
   {
     "id": "r_p1_02",
@@ -215,7 +215,7 @@
       "밥도둑"
     ],
     "description": "삼겹살을 통으로 굽다 잘라 팬에서 바로 양념해 15분 만에 끝내는 긴급 제육볶음",
-    "photoUrl": "/images/recipes/r_p1_02.jpg"
+    "photoUrl": "/images/recipes/r_p1_02.webp"
   },
   {
     "id": "r_p1_03",
@@ -316,7 +316,7 @@
       "밥도둑"
     ],
     "description": "고추장 없이 간장·고춧가루로 칼칼하게 끓인 만 원 닭볶음탕",
-    "photoUrl": "/images/recipes/r_p1_03.jpg"
+    "photoUrl": "/images/recipes/r_p1_03.webp"
   },
   {
     "id": "r_p1_04",
@@ -429,7 +429,7 @@
       "손님상"
     ],
     "description": "설탕으로 겉을 코팅하고 간장·참치액으로 졸여 단짠하게 만든 만 원 돼지갈비찜",
-    "photoUrl": "/images/recipes/r_p1_04.jpg"
+    "photoUrl": "/images/recipes/r_p1_04.webp"
   },
   {
     "id": "r_p1_05",
@@ -529,7 +529,7 @@
       "손님상"
     ],
     "description": "간장·참치액으로 태우듯 볶아 불맛을 입히고 배 음료로 달콤하게 졸인 원 팬 등갈비",
-    "photoUrl": "/images/recipes/r_p1_05.jpg"
+    "photoUrl": "/images/recipes/r_p1_05.webp"
   },
   {
     "id": "r_p1_06",
@@ -644,7 +644,7 @@
       "밥도둑"
     ],
     "description": "노릇하게 구운 닭에 꽈리고추·볶은 잔멸치를 넣고 간장·물엿으로 단짠하게 볶아낸 밥도둑 치킨",
-    "photoUrl": "/images/recipes/r_p1_06.jpg"
+    "photoUrl": "/images/recipes/r_p1_06.webp"
   },
   {
     "id": "r_p1_07",
@@ -739,7 +739,7 @@
       "간단한"
     ],
     "description": "껍질 붙은 통삼겹을 냄비 뚜껑 덮어 오븐처럼 굽고, 고기 기름에 구운 마늘로 허니 마늘 페스토까지 만드는 25분 바비큐",
-    "photoUrl": "/images/recipes/r_p1_07.jpg"
+    "photoUrl": "/images/recipes/r_p1_07.webp"
   },
   {
     "id": "r_p1_08",
@@ -827,7 +827,7 @@
       "밥도둑"
     ],
     "description": "양념한 불고기를 종이포일 위에 얇게 펴서 앞뒤 2분씩 바싹 구워내는 초간단 불고기",
-    "photoUrl": "/images/recipes/r_p1_08.jpg"
+    "photoUrl": "/images/recipes/r_p1_08.webp"
   },
   {
     "id": "r_p1_09",
@@ -925,7 +925,7 @@
       "밥도둑"
     ],
     "description": "닭을 바싹 구워 간장·굴소스·물엿으로 갈비처럼 달짝지근하게 졸인 25분 갈비치킨",
-    "photoUrl": "/images/recipes/r_p1_09.jpg"
+    "photoUrl": "/images/recipes/r_p1_09.webp"
   },
   {
     "id": "r_p1_10",
@@ -1107,7 +1107,7 @@
       "새콤달콤"
     ],
     "description": "전분만 묻혀 바삭하게 튀긴 가지에 생강·마늘 향을 낸 새콤달콤 어향 소스를 끼얹은 가성비 중식",
-    "photoUrl": "/images/recipes/r_p1_10.jpg"
+    "photoUrl": "/images/recipes/r_p1_10.webp"
   },
   {
     "id": "r_p1_11",
@@ -1180,7 +1180,7 @@
       "보양식"
     ],
     "description": "가위로 손질한 생닭에 생강·마늘을 채워 1시간 푹 끓인, 국물까지 깔끔한 여름 보양 닭백숙",
-    "photoUrl": "/images/recipes/r_p1_11.jpg"
+    "photoUrl": "/images/recipes/r_p1_11.webp"
   },
   {
     "id": "r_p1_12",
@@ -1284,7 +1284,7 @@
       "밥도둑"
     ],
     "description": "기름진 앞다리살을 통으로 구워 같은 양의 묵은지와 50분 푹 끓인, 고기가 야들야들한 김치찜",
-    "photoUrl": "/images/recipes/r_p1_12.jpg"
+    "photoUrl": "/images/recipes/r_p1_12.webp"
   },
   {
     "id": "r_p1_13",
@@ -1355,7 +1355,7 @@
       "양식"
     ],
     "description": "버터에 냉동새우와 마늘을 볶아 5분 만에 끝내는 와인 안주, 빵이나 파스타와 곁들이기 좋은 버터 새우",
-    "photoUrl": "/images/recipes/r_p1_13.jpg"
+    "photoUrl": "/images/recipes/r_p1_13.webp"
   },
   {
     "id": "r_p1_14",
@@ -1448,7 +1448,7 @@
       "손님상"
     ],
     "description": "식용유에 방울토마토를 뭉근히 익히고 버터·마늘·라면 수프로 맛을 낸, 바게트를 찍어 먹는 버터 감바스",
-    "photoUrl": "/images/recipes/r_p1_14.jpg"
+    "photoUrl": "/images/recipes/r_p1_14.webp"
   },
   {
     "id": "r_p1_15",
@@ -1715,7 +1715,7 @@
       "단짠"
     ],
     "description": "으깬 스팸을 꼬들하게 볶아 간장으로 단짠하게 졸인 간단 덮밥",
-    "photoUrl": "/images/recipes/r_p2_05.jpg"
+    "photoUrl": "/images/recipes/r_p2_05.webp"
   },
   {
     "id": "r_risotto",
@@ -1810,7 +1810,7 @@
       "걸쭉하게 소스화가 되면 약불로 줄이고, 즉석밥을 넣어 30~40초 잘 섞은 뒤 불을 끈다. (주걱으로 바닥을 긁었을 때 길이 생기면 충분히 소스화가 된 것입니다.)",
       "그릇에 리소토를 담고 후추를 넉넉히 뿌린 뒤, 달걀노른자를 올려 마무리한다. (달걀노른자 대신 화이트 트러플오일을 8방울 정도 뿌려도 맛있어요.)"
     ],
-    "photoUrl": "/images/recipes/r_risotto.jpg"
+    "photoUrl": "/images/recipes/r_risotto.webp"
   },
   {
     "id": "r_egg_rice_bowl",
@@ -1888,7 +1888,7 @@
       "풀어둔 달걀물을 넣고 어느 정도 익으면 뚜껑을 덮은 뒤 불을 끄고 잔열로 1분 익힌다. (달걀은 취향껏 익히면 됩니다.)",
       "그릇에 밥을 담고 4를 얹어 마무리한다."
     ],
-    "photoUrl": "/images/recipes/r_egg_rice_bowl.jpg"
+    "photoUrl": "/images/recipes/r_egg_rice_bowl.webp"
   },
   {
     "id": "r_p2_08",
@@ -2318,7 +2318,7 @@
       "바글바글 끓기 시작하면 중불로 줄이고 뚜껑을 덮어 40분 끓인다. (짜면 물을 소주잔 1컵 정도 추가하고, 싱거우면 10분 더 졸여주세요.)",
       "두부와 식초 1큰술을 넣고, 두부가 따뜻해질 때까지 더 끓이면 완성!"
     ],
-    "photoUrl": "/images/recipes/r_kimchi_stew.jpg"
+    "photoUrl": "/images/recipes/r_kimchi_stew.webp"
   },
   {
     "id": "r_soybean_stew",
@@ -2416,7 +2416,7 @@
       "차돌박이, 두부, 청양고추를 넣고 뚜껑 덮어 강불에 끓인다.",
       "바르르 끓으면 중불로 낮춰 3분 더 끓이면 완성! 부족한 간은 취향에 따라 소금으로 맞춘다."
     ],
-    "photoUrl": "/images/recipes/r_soybean_stew.jpg"
+    "photoUrl": "/images/recipes/r_soybean_stew.webp"
   },
   {
     "id": "r_p4_06",
@@ -2562,7 +2562,7 @@
       "애호박을 넣고 중강불로 줄여 뚜껑을 덮고 10분 끓인다.",
       "식초 1큰술을 넣고 한 김 날린 뒤 불을 끄면 완성! 간이 부족하면 조금 더 졸이거나 고추장을 추가한다."
     ],
-    "photoUrl": "/images/recipes/r_gochujang_stew.jpg"
+    "photoUrl": "/images/recipes/r_gochujang_stew.webp"
   },
   {
     "id": "r_p4_08",
