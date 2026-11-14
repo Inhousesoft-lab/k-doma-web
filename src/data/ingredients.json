@@ -119,8 +119,16 @@
     "name": "올리고당",
     "zone": "SEASONING",
     "imageKey": "syrup",
+    "aliases": []
+  },
+  {
+    "id": "m_ing_171",
+    "name": "물엿",
+    "zone": "SEASONING",
+    "imageKey": "starch_syrup",
     "aliases": [
-      "물엿"
+      "쌀엿",
+      "조청"
     ]
   },
   {
@@ -551,6 +559,27 @@
     "imageKey": "perilla_leaf",
     "aliases": [
       "깻잎순"
+    ]
+  },
+  {
+    "id": "m_ing_169",
+    "name": "꽈리고추",
+    "zone": "FRIDGE",
+    "imageKey": "shishito_pepper",
+    "aliases": [
+      "꽈리 고추"
+    ]
+  },
+  {
+    "id": "m_ing_170",
+    "name": "잔멸치",
+    "zone": "FRIDGE",
+    "imageKey": "dried_baby_anchovy",
+    "aliases": [
+      "잔 멸치",
+      "지리멸치",
+      "볶음멸치",
+      "세멸치"
     ]
   },
   {
