@@ -7,7 +7,7 @@
     "themes": [
       "돼지"
     ],
-    "cookTimeMinutes": 25,
+    "cookTimeMinutes": 30,
     "servings": 2,
     "bookPage": 25,
     "part": "Part 1 평생 특식",
@@ -100,12 +100,12 @@
       "양파, 대파를 넣은 뒤 뒤적인다.",
       "뚜껑을 덮고 3분 더 익힌 뒤, 그릇에 담고 후추, 통깨, 청양고추를 올려 마무리한다."
     ],
-    "caloriesKcal": 990,
+    "caloriesKcal": 980,
     "nutrition": {
-      "calories": 990,
-      "carbs": 50,
+      "calories": 980,
+      "carbs": 62,
       "protein": 60,
-      "fat": 60
+      "fat": 55
     },
     "tags": [
       "돼지",
