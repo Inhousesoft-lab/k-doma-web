@@ -1118,11 +1118,69 @@
       "국물",
       "닭"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 75,
     "servings": 2,
+    "bookPage": 59,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "생닭(12호)",
+        "amount": "1마리",
+        "usageType": "ALL"
+      },
+      {
+        "name": "생강",
+        "amount": "20g",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "3L",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "½큰술",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "닭의 꽁지 앞뒤에 붙어 있는 지방, 목덜미 지방을 가위로 제거한다. 피가 고여 있는 닭다리 끝, 날개 끝 관절을 잘라내고 잔지방을 제거한 뒤, 흐르는 물에 닭 내부를 깨끗이 씻는다. 생강은 편으로 썰어 4조각으로 만들고, 대파는 냄비에 들어갈 크기로 숭덩 자른다.",
+      "손질한 닭 안에 생강, 마늘을 넣는다.",
+      "닭의 한쪽 다리 힘줄 옆에 칼집을 넣고, 반대쪽 다리를 칼집 낸 곳에 넣어 꼬아준다. (힘줄이 끊어지지 않도록 주의하세요.)",
+      "냄비에 물 3L와 닭, 양파, 대파를 넣고 뚜껑을 덮어 50분~1시간 끓인다. (물 양은 닭이 잠길 정도로만 붓고, 물이 반으로 줄어들 때까지 끓이면 됩니다. 강불에서 와르르 끓기 시작하면 뚜껑을 덮고 중불에서 끓여주세요.)",
+      "불순물을 걷어내고 소금 ½큰술로 간한 뒤 마무리한다."
+    ],
+    "caloriesKcal": 800,
+    "nutrition": {
+      "calories": 800,
+      "carbs": 16,
+      "protein": 88,
+      "fat": 42
+    },
+    "tags": [
+      "닭",
+      "특식",
+      "국물",
+      "보양식"
+    ],
+    "description": "가위로 손질한 생닭에 생강·마늘을 채워 1시간 푹 끓인, 국물까지 깔끔한 여름 보양 닭백숙",
+    "photoUrl": "/images/recipes/r_p1_11.jpg"
   },
   {
     "id": "r_p1_12",

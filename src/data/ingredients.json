@@ -310,6 +310,18 @@
     ]
   },
   {
+    "id": "m_ing_178",
+    "name": "생닭",
+    "zone": "FRIDGE",
+    "imageKey": "whole_chicken",
+    "aliases": [
+      "통닭",
+      "백숙용 닭",
+      "삼계탕용 닭",
+      "영계"
+    ]
+  },
+  {
     "id": "m_ing_113",
     "name": "오징어",
     "zone": "FRIDGE",
