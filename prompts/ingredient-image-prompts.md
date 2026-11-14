@@ -139,7 +139,8 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | imageKey | 재료 | 사전 등록안 | SUBJECT |
 |---|---|---|---|
 | pear_juice | 배 음료(갈아만든 배 238ml 1캔) | id `m_ing_164`, name `배 음료`, zone `FRIDGE`, aliases `["갈아만든배", "갈아만든 배", "배음료", "배주스"]` | 아래 전용 프롬프트 |
-| pork_ribs | 돼지갈비 | id `m_ing_166`, name `돼지갈비`, zone `FRIDGE`, aliases `["돼지 갈비", "찜갈비", "갈비찜용", "등갈비", "쪽갈비"]` | several raw pork spare rib pieces cut for braising, pink meat with white bones visible at the cut ends, loosely piled |
+| pork_ribs | 돼지갈비 | id `m_ing_166`, name `돼지갈비`, zone `FRIDGE`, aliases `["돼지 갈비", "찜갈비", "갈비찜용"]` | several raw pork spare rib pieces cut for braising, pink meat with white bones visible at the cut ends, loosely piled |
+| pork_back_ribs | 돼지등갈비 | id `m_ing_168`, name `돼지등갈비`, zone `FRIDGE`, aliases `["등갈비", "돼지 등갈비", "쪽갈비", "베이비백립", "립"]` | one whole raw rack of pork baby back ribs, long curved row of parallel bones with meat on top, lying diagonally |
 | chicken_stew_cut | 닭볶음탕용 닭 | id `m_ing_167`, name `닭볶음탕용 닭`, zone `FRIDGE`, aliases `["볶음탕용 닭", "닭볶음탕용", "닭도리탕용", "토막닭", "절단닭", "생닭"]` | pile of raw whole chicken cut into bone-in pieces for stew (drumsticks, wings, thighs), pale pink skin-on, loosely piled |
 | perilla_leaf | 깻잎 | id `m_ing_165`, name `깻잎`, zone `FRIDGE`, aliases `["깻잎순", "들깻잎", "깻잎장아찌"]` | small neat stack of fresh green Korean perilla leaves (kkaennip), slightly fanned so the serrated edges and pointed tips are visible |
 
