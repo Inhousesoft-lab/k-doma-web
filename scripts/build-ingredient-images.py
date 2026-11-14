@@ -12,10 +12,28 @@ OUT = os.path.join(ROOT, 'public', 'images', 'ingredients')
 SIZE = 192      # 48px 타일 × 3배 화면
 QUALITY = 82
 
+# 크기 맞추기: 재료(그림자 포함)의 테두리 상자를 기준으로 화면 차지 정도를 비슷하게 맞춘다
+WHITE_DIFF = 10     # 흰색과 이 값 넘게 다르면 재료로 본다(옅은 그림자 포함)
+TARGET_AREA = 0.62  # 테두리 상자 넓이 / 전체 넓이 목표
+MAX_SIDE = 0.90     # 긴 변 최대 비율(여백 5%씩). 병처럼 가는 재료는 여기서 멈춘다
+
 
 def build(path: str) -> Image.Image:
     im = Image.open(path).convert('RGB')
-    return im.resize((SIZE, SIZE), Image.LANCZOS)
+    w, h = im.size
+    mask = im.point(lambda v: 255 if v < 255 - WHITE_DIFF else 0).convert('L')
+    bbox = mask.getbbox()
+    if not bbox:
+        return im.resize((SIZE, SIZE), Image.LANCZOS)
+    obj = im.crop(bbox)
+    ow, oh = obj.size
+    scale_area = (TARGET_AREA * w * h / (ow * oh)) ** 0.5
+    scale_fit = MAX_SIDE * min(w / ow, h / oh)
+    k = min(scale_area, scale_fit) * SIZE / w
+    nw, nh = max(1, round(ow * k)), max(1, round(oh * k))
+    canvas = Image.new('RGB', (SIZE, SIZE), (255, 255, 255))
+    canvas.paste(obj.resize((nw, nh), Image.LANCZOS), ((SIZE - nw) // 2, (SIZE - nh) // 2))
+    return canvas
 
 
 def main() -> None:
