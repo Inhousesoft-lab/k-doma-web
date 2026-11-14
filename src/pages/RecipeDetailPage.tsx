@@ -1,17 +1,8 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import {
-  Heart,
-  Share2,
-  Minus,
-  Plus,
-  ShoppingBag,
-  Check,
-  CalendarPlus,
-  Copy,
-} from 'lucide-react';
+import { Heart, Share2, CalendarPlus } from 'lucide-react';
 import { todayStr } from '../utils/date';
-import { fridgeStatusOf, getMissingIngredientNames } from '../utils/ingredient';
+import { getMissingIngredientNames } from '../utils/ingredient';
 import {
   recipeService,
   ingredientService,
@@ -21,7 +12,6 @@ import {
   DuplicatePlanError,
   PlanLimitError,
 } from '../services';
-import StatusSignal from '../components/common/StatusSignal';
 import Button from '../components/common/Button';
 import Toast from '../components/common/Toast';
 import useLoginGate from '../hooks/useLoginGate';
@@ -29,6 +19,9 @@ import useServiceData from '../hooks/useServiceData';
 import { scaleAmount } from '../utils/amount';
 import StateView from '../components/common/StateView';
 import NoImage from '../components/common/NoImage';
+import NutritionSection from './recipe/NutritionSection';
+import IngredientsSection from './recipe/IngredientsSection';
+import StepsSection from './recipe/StepsSection';
 
 export const RecipeDetailPage: React.FC = () => {
   const { recipeId } = useParams<{ recipeId: string }>();
@@ -306,198 +299,23 @@ export const RecipeDetailPage: React.FC = () => {
         </div>
 
         {/* 3. 영양성분 섹션 (영양 데이터가 DB에 있는 요리만 표시! 없으면 완전히 미표시) */}
-        {recipe.nutrition && (
-          <section className="bg-white rounded-card p-4.5 border border-line">
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-[16px] font-bold text-ink">영양성분</h3>
-              <span className="text-[12px] text-ink-muted">
-                1인분 · 재료 분석 추정치
-              </span>
-            </div>
-
-            <div className="grid grid-cols-4 gap-2 text-center">
-              <div className="bg-fill rounded-[12px] py-2 px-1">
-                <span className="block text-[11px] text-ink-muted font-medium">칼로리</span>
-                <span className="block text-[14px] font-bold text-ink mt-0.5">
-                  {recipe.nutrition.calories}kcal
-                </span>
-              </div>
-              <div className="bg-fill rounded-[12px] py-2 px-1">
-                <span className="block text-[11px] text-ink-muted font-medium">탄수화물</span>
-                <span className="block text-[14px] font-bold text-ink mt-0.5">
-                  {recipe.nutrition.carbs}g
-                </span>
-              </div>
-              <div className="bg-fill rounded-[12px] py-2 px-1">
-                <span className="block text-[11px] text-ink-muted font-medium">단백질</span>
-                <span className="block text-[14px] font-bold text-ink mt-0.5">
-                  {recipe.nutrition.protein}g
-                </span>
-              </div>
-              <div className="bg-fill rounded-[12px] py-2 px-1">
-                <span className="block text-[11px] text-ink-muted font-medium">지방</span>
-                <span className="block text-[14px] font-bold text-ink mt-0.5">
-                  {recipe.nutrition.fat}g
-                </span>
-              </div>
-            </div>
-          </section>
-        )}
+        {recipe.nutrition && <NutritionSection nutrition={recipe.nutrition} />}
 
         {/* 4. 재료 섹션 */}
-        <section className="bg-white rounded-card p-4.5 border border-line">
-          {/* 헤더: 필요한 재료 + 인분 조절 (−/+) */}
-          <div className="flex items-center justify-between mb-3 pb-2 border-b border-line-subtle">
-            <div>
-              <div className="flex items-center gap-1.5">
-                <h3 className="text-[16px] font-bold text-ink">필요한 재료</h3>
-                <button
-                  type="button"
-                  onClick={handleCopyIngredients}
-                  className="flex items-center gap-1 px-2 py-1 rounded-[8px] bg-fill text-[12px] font-bold text-ink-secondary cursor-pointer"
-                  aria-label="재료 복사"
-                >
-                  <Copy className="w-3.5 h-3.5" />
-                  복사
-                </button>
-              </div>
-              {/* 비로그인 상태에서는 상태 신호 범례 숨김 (기획서 4.4) */}
-              {isLoggedIn && (
-                <span className="text-[11px] text-ink-muted">
-                  ● 있음 · ◐ 적음 · ◌ 없음
-                </span>
-              )}
-            </div>
-
-            {/* 인분 수 컨트롤러 (−/+) */}
-            <div className="flex items-center gap-2 bg-fill px-2 py-1 rounded-[12px]">
-              <button
-                type="button"
-                onClick={() => handleServingsChange(-1)}
-                disabled={servings <= 1}
-                className="w-6 h-6 rounded-full bg-white flex items-center justify-center text-ink disabled:opacity-30 cursor-pointer shadow-2xs"
-                aria-label="인분 줄이기"
-              >
-                <Minus className="w-3 h-3" />
-              </button>
-              <span className="text-[13px] font-bold text-ink min-w-[36px] text-center">
-                {servings}인분
-              </span>
-              <button
-                type="button"
-                onClick={() => handleServingsChange(1)}
-                disabled={servings >= 8}
-                className="w-6 h-6 rounded-full bg-white flex items-center justify-center text-ink disabled:opacity-30 cursor-pointer shadow-2xs"
-                aria-label="인분 늘리기"
-              >
-                <Plus className="w-3 h-3" />
-              </button>
-            </div>
-          </div>
-
-          {/* 재료 목록 행 */}
-          <div className="flex flex-col divide-y divide-line-subtle">
-            {recipe.ingredientsRequired?.map((item) => {
-              // 보유 상태 확인
-              const matchedStatus = fridgeStatusOf(item.name, fridgeIngredients);
-              const isInCart = cartService.isItemInCart(item.name);
-              const scaledQty = scaleAmount(item.amount, servings, recipe.servings || 2);
-
-              return (
-                <div
-                  key={item.name}
-                  className="py-3 flex items-center justify-between gap-3"
-                >
-                  {/* 좌측: 상태 신호(로그인 상태만) + 재료명(적음이면 '양 확인') */}
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    {isLoggedIn && (
-                      <StatusSignal status={matchedStatus} size={14} />
-                    )}
-                    <div className="flex items-center gap-1.5 truncate">
-                      <span className="text-[15px] font-bold text-ink truncate">
-                        {item.name}
-                      </span>
-                      {isLoggedIn && matchedStatus === 'LOW' && (
-                        <span className="text-[11px] font-bold text-warning bg-warning-light px-1.5 py-0.5 rounded-full shrink-0">
-                          양 확인
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* 우측: 수량 + 장바구니 버튼 */}
-                  <div className="flex items-center gap-3 shrink-0">
-                    <span className="text-[13px] text-ink-muted">
-                      {scaledQty}
-                    </span>
-
-                    <button
-                      type="button"
-                      onClick={() => handleToggleCartItem(item.name)}
-                      className={`h-[30px] px-2.5 rounded-full text-[12px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
-                        isInCart
-                          ? 'bg-mint-bg text-mint border border-mint/30'
-                          : 'bg-fill text-ink hover:bg-line'
-                      }`}
-                      aria-label={isInCart ? '장바구니에서 빼기' : '장바구니에 담기'}
-                    >
-                      {isInCart ? (
-                        <>
-                          <Check className="w-3.5 h-3.5 stroke-[2.5]" />
-                          <span>담김</span>
-                        </>
-                      ) : (
-                        <>
-                          <Plus className="w-3.5 h-3.5" />
-                          <span>담기</span>
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* 없는 재료 일괄 추가 버튼 */}
-          <div className="mt-4 pt-3 border-t border-line-subtle">
-            {missingIngredientNames.length > 0 ? (
-              <Button
-                variant="secondary"
-                size="md"
-                onClick={() => handleAddAllMissingToCart(missingIngredientNames)}
-                icon={<ShoppingBag className="w-4 h-4" />}
-              >
-                없는 재료 {missingIngredientNames.length}개 모두 장바구니에 추가
-              </Button>
-            ) : (
-              <div className="p-3 bg-mint-bg rounded-btn text-center text-[13px] font-bold text-mint flex items-center justify-center gap-1.5">
-                <Check className="w-4 h-4 stroke-[2.5]" />
-                <span>모든 재료가 냉장고에 준비되어 있어요</span>
-              </div>
-            )}
-          </div>
-        </section>
+        <IngredientsSection
+          recipe={recipe}
+          fridgeIngredients={fridgeIngredients}
+          missingIngredientNames={missingIngredientNames}
+          servings={servings}
+          isLoggedIn={isLoggedIn}
+          handleCopyIngredients={handleCopyIngredients}
+          handleServingsChange={handleServingsChange}
+          handleToggleCartItem={handleToggleCartItem}
+          handleAddAllMissingToCart={handleAddAllMissingToCart}
+        />
 
         {/* 5. 조리 순서 섹션 (책 원문 기준 단계) */}
-        <section className="bg-white rounded-card p-4.5 border border-line">
-          <h3 className="text-[16px] font-bold text-ink mb-3">
-            조리 순서
-          </h3>
-
-          <div className="flex flex-col gap-3.5">
-            {recipe.steps?.map((stepText, idx) => (
-              <div key={idx} className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-ink text-white text-[12px] font-bold flex items-center justify-center shrink-0 mt-0.5">
-                  {idx + 1}
-                </div>
-                <p className="text-[14px] text-ink leading-relaxed flex-1 pt-0.5">
-                  {stepText}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <StepsSection steps={recipe.steps ?? []} />
       </div>
 
       {/* 6. 하단 고정 액션 바: [오늘 기록에 추가] (기획서 4.3) */}
