@@ -148,7 +148,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | ~~starch_syrup~~ | 물엿 | **만들지 않음** — 올리고당(`m_ing_13`)과 합침. 별칭 `["물엿", "쌀엿", "조청"]`로 처리하고 아이콘은 `syrup` 사용 (2026-11-14 사용자 결정). id `m_ing_171`은 비워둔다 | - |
 | perilla_leaf | 깻잎 | **등록됨** id `m_ing_165`, name `깻잎`, zone `FRIDGE`, aliases `["깻잎순"]` | small neat stack of fresh green Korean perilla leaves (kkaennip), slightly fanned so the serrated edges and pointed tips are visible |
 | pork_belly_skin_on | 껍질 붙은 통삼겹 | **등록됨** id `m_ing_172`, name `껍질 붙은 통삼겹`, zone `FRIDGE`, aliases `["돼지 껍질 붙은 통삼겹", "오겹살", "통오겹살", "껍데기 붙은 통삼겹"]` | one thick rectangular block of raw skin-on pork belly, pale skin on top and layered meat and fat visible on the side |
-| honey | 꿀 | **등록됨** id `m_ing_173`, name `꿀`, zone `SEASONING`, aliases `["벌꿀", "아카시아꿀"]` (이미지 아직 없음) | clear glass jar of golden honey with a wooden honey dipper resting on top, a thick drip running down the side, no label |
+| honey | 꿀 | **등록됨** id `m_ing_173`, name `꿀`, zone `SEASONING`, aliases `["벌꿀", "아카시아꿀"]` | clear glass jar of golden honey with a wooden honey dipper resting on top, a thick drip running down the side, no label |
 
 - **물엿**: 따로 등록하지 않고 올리고당(`m_ing_13`)의 별칭으로 둔다(2026-11-14 사용자 결정).
 - 캔 디자인(색·배 그림·빨간 배지)은 실제 상품대로 쓰고 **'갈아만든 배' 로고 글자만 뺀다**(2026-11-14 사용자 결정, 저작권 문제 없음 확인). 캔 하나만, 옆에 배를 두지 않는다.
