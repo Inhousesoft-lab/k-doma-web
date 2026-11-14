@@ -135,7 +135,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 ### 3.3 추가 예정(재료 사전 미등록)
 
 이미지를 먼저 만들고, 재료 사전(`src/data/ingredients.json`)에 등록할 때 아래 값을 쓴다.
-**등록됨** 표시는 이미 사전에 들어간 항목이다(실제 id·별칭은 사전 기준). 다음 새 id는 `m_ing_181`부터.
+**등록됨** 표시는 이미 사전에 들어간 항목이다(실제 id·별칭은 사전 기준). 다음 새 id는 `m_ing_185`부터.
 
 | imageKey | 재료 | 사전 등록안 | SUBJECT |
 |---|---|---|---|
@@ -156,6 +156,10 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | whole_chicken | 생닭 | **등록됨** id `m_ing_178`, name `생닭`, zone `FRIDGE`, aliases `["통닭", "백숙용 닭", "삼계탕용 닭", "영계"]`. 닭볶음탕용 닭(토막)과는 별도 | one whole raw plucked chicken, pale pink skin, legs tucked, wings folded |
 | aged_kimchi | 묵은지 | **등록됨** id `m_ing_179`, name `묵은지`, zone `FRIDGE`, aliases `["묵은김치", "묵은지 국물"]`. 김치(`m_ing_105`)와는 별도 | one whole quarter-head of long-fermented napa cabbage kimchi, darker yellow-orange leaves coated in red seasoning |
 | parsley_flakes | 파슬리 가루 | **등록됨** id `m_ing_180`, name `파슬리 가루`, zone `SEASONING`, aliases `["파슬리", "건조 파슬리", "파슬리가루"]` | small open glass jar filled with dried green parsley flakes, a small pile spilled in front |
+| cherry_tomato | 방울토마토 | **등록됨** id `m_ing_181`, name `방울토마토`, zone `FRIDGE`, aliases `["방울 토마토", "체리토마토", "대추방울토마토"]` | small cluster of bright red cherry tomatoes on the vine with green stems |
+| peperoncino | 페퍼론치노 | **등록됨** id `m_ing_182`, name `페퍼론치노`, zone `SEASONING`, aliases `["페페론치노", "건고추", "베트남고추"]` (이미지 아직 없음) | small pile of whole dried red peperoncino chili peppers, slightly wrinkled and glossy |
+| ramen_soup_powder | 라면 수프 | **등록됨** id `m_ing_183`, name `라면 수프`, zone `SEASONING`, aliases `["라면스프", "라면 스프", "라면수프"]` (이미지 아직 없음) | one small torn-open plain silver foil sachet with reddish-orange instant noodle seasoning powder spilling out in a small mound, no print, no logo |
+| baguette | 바게트 | **등록됨** id `m_ing_184`, name `바게트`, zone `FRIDGE`, aliases `["바게트 빵", "바게뜨"]` (이미지 아직 없음) | one French baguette with a few diagonal slices cut at one end, golden crust and airy white crumb |
 
 - **물엿**: 따로 등록하지 않고 올리고당(`m_ing_13`)의 별칭으로 둔다(2026-11-14 사용자 결정).
 - 캔 디자인(색·배 그림·빨간 배지)은 실제 상품대로 쓰고 **'갈아만든 배' 로고 글자만 뺀다**(2026-11-14 사용자 결정, 저작권 문제 없음 확인). 캔 하나만, 옆에 배를 두지 않는다.

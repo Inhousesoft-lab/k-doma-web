@@ -1366,11 +1366,89 @@
       "양식",
       "해산물"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 25,
     "servings": 2,
+    "bookPage": 65,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "냉동새우",
+        "amount": "400g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "방울토마토",
+        "amount": "1공기",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "버터",
+        "amount": "60g",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "½컵",
+        "usageType": "PART"
+      },
+      {
+        "name": "페퍼론치노",
+        "amount": "약간",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "½작은술",
+        "usageType": "PART"
+      },
+      {
+        "name": "라면 수프",
+        "amount": "½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "파슬리 가루",
+        "amount": "약간",
+        "usageType": "PART"
+      },
+      {
+        "name": "꿀",
+        "amount": "약간",
+        "usageType": "PART"
+      },
+      {
+        "name": "바게트",
+        "amount": "약간",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "냉동새우는 물로 헹군 뒤 키친타월로 물기를 완벽하게 제거한다.",
+      "토마토는 꼭지를 제거하고 팬에 식용유 ½컵과 함께 넣어 중약불에서 뚜껑을 덮어 끓인다.",
+      "토마토 껍질이 슬슬 벗겨지면 버터 60g, 다진 마늘 3큰술, 소금 ½작은술, 라면 수프 ½큰술, 새우를 넣고 섞는다. (마늘이 노릇해질 때까지 끓이는 것이 좋습니다. 굵은 소금을 제외한 고운 소금이나 정제소금을 사용해주세요. 불 세기에 따라 5~7분 익히고, 8분 이상 익히면 새우가 퍽퍽해집니다. 라면 수프가 없다면 치킨스톡이나 비슷한 조미료를 쓰셔도 무방해요.)",
+      "페퍼론치노를 약간 넣고 뚜껑을 덮어 중불에서 5분 익힌다.",
+      "마무리로 파슬리 가루를 뿌리면 감바스 완성! (바게트 빵은 사선으로 길게 잘라 곁들이고, 꿀도 따로 소스 종지에 담아 냅니다. 바질 잎이나 바질 페스토를 올리면 풍미가 올라갑니다.)"
+    ],
+    "caloriesKcal": 1020,
+    "nutrition": {
+      "calories": 1020,
+      "carbs": 42,
+      "protein": 43,
+      "fat": 76
+    },
+    "tags": [
+      "해산물",
+      "특식",
+      "양식",
+      "손님상"
+    ],
+    "description": "식용유에 방울토마토를 뭉근히 익히고 버터·마늘·라면 수프로 맛을 낸, 바게트를 찍어 먹는 버터 감바스",
+    "photoUrl": "/images/recipes/r_p1_14.jpg"
   },
   {
     "id": "r_p1_15",

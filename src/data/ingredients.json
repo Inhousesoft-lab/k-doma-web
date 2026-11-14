@@ -126,6 +126,28 @@
     ]
   },
   {
+    "id": "m_ing_182",
+    "name": "페퍼론치노",
+    "zone": "SEASONING",
+    "imageKey": "peperoncino",
+    "aliases": [
+      "페페론치노",
+      "건고추",
+      "베트남고추"
+    ]
+  },
+  {
+    "id": "m_ing_183",
+    "name": "라면 수프",
+    "zone": "SEASONING",
+    "imageKey": "ramen_soup_powder",
+    "aliases": [
+      "라면스프",
+      "라면 스프",
+      "라면수프"
+    ]
+  },
+  {
     "id": "m_ing_13",
     "name": "올리고당(물엿)",
     "zone": "SEASONING",
@@ -607,6 +629,17 @@
     "aliases": []
   },
   {
+    "id": "m_ing_181",
+    "name": "방울토마토",
+    "zone": "FRIDGE",
+    "imageKey": "cherry_tomato",
+    "aliases": [
+      "방울 토마토",
+      "체리토마토",
+      "대추방울토마토"
+    ]
+  },
+  {
     "id": "m_ing_165",
     "name": "깻잎",
     "zone": "FRIDGE",
@@ -649,6 +682,16 @@
     "zone": "FRIDGE",
     "imageKey": "bread",
     "aliases": []
+  },
+  {
+    "id": "m_ing_184",
+    "name": "바게트",
+    "zone": "FRIDGE",
+    "imageKey": "baguette",
+    "aliases": [
+      "바게트 빵",
+      "바게뜨"
+    ]
   },
   {
     "id": "m_ing_150",
