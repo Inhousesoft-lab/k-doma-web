@@ -22,6 +22,7 @@ import NoImage from '../components/common/NoImage';
 import NutritionSection from './recipe/NutritionSection';
 import IngredientsSection from './recipe/IngredientsSection';
 import StepsSection from './recipe/StepsSection';
+import SauceSection from './recipe/SauceSection';
 
 export const RecipeDetailPage: React.FC = () => {
   const { recipeId } = useParams<{ recipeId: string }>();
@@ -316,9 +317,14 @@ export const RecipeDetailPage: React.FC = () => {
 
         {/* 5. 조리 순서 섹션 (책 원문 기준 단계) */}
         <StepsSection steps={recipe.steps ?? []} />
+
+        {/* 6. 소스 섹션 (곁들이는 소스가 있는 요리만) */}
+        {recipe.sauce && (
+          <SauceSection sauce={recipe.sauce} servings={servings} baseServings={recipe.servings || 2} />
+        )}
       </div>
 
-      {/* 6. 하단 고정 액션 바: [오늘 기록에 추가] (기획서 4.3) */}
+      {/* 7. 하단 고정 액션 바: [오늘 기록에 추가] (기획서 4.3) */}
       <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[630px] p-4 bg-white/95 backdrop-blur-md border-t border-line-subtle z-30">
         <Button
           variant="primary"
