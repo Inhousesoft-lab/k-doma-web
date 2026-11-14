@@ -327,11 +327,13 @@
   },
   {
     "id": "m_ing_109",
-    "name": "떡",
+    "name": "떡볶이용 가래떡",
     "zone": "FRIDGE",
     "category": "GRAIN",
     "imageKey": "rice_cake",
     "aliases": [
+      "떡",
+      "가래떡",
       "떡볶이떡",
       "밀떡"
     ]
@@ -466,13 +468,36 @@
   },
   {
     "id": "m_ing_123",
-    "name": "만두",
+    "name": "고기만두",
     "zone": "FRIDGE",
     "category": "GRAIN",
     "imageKey": "dumpling",
     "aliases": [
+      "만두",
+      "고기 만두",
       "냉동만두",
       "교자"
+    ]
+  },
+  {
+    "id": "m_ing_266",
+    "name": "김치만두",
+    "zone": "FRIDGE",
+    "category": "GRAIN",
+    "imageKey": "kimchi_dumpling",
+    "aliases": [
+      "김치 만두"
+    ]
+  },
+  {
+    "id": "m_ing_267",
+    "name": "물만두",
+    "zone": "FRIDGE",
+    "category": "GRAIN",
+    "imageKey": "mul_dumpling",
+    "aliases": [
+      "물 만두",
+      "냉동 물만두"
     ]
   },
   {
@@ -1790,12 +1815,15 @@
   },
   {
     "id": "m_ing_255",
-    "name": "왕만두피",
+    "name": "만두피",
     "zone": "FRIDGE",
     "category": "GRAIN",
     "imageKey": "dumpling_wrapper",
     "aliases": [
-      "만두피",
+      "만두 피",
+      "일반 만두피",
+      "물만두피",
+      "왕만두피",
       "왕 만두피"
     ]
   },
@@ -1864,6 +1892,31 @@
       "생크림",
       "휘핑크림",
       "동물성생크림"
+    ]
+  },
+  {
+    "id": "m_ing_264",
+    "name": "밀가루",
+    "zone": "SEASONING",
+    "category": "SAUCE",
+    "imageKey": "flour",
+    "aliases": [
+      "중력분",
+      "박력분",
+      "강력분",
+      "통밀가루"
+    ]
+  },
+  {
+    "id": "m_ing_265",
+    "name": "튀김가루",
+    "zone": "SEASONING",
+    "category": "SAUCE",
+    "imageKey": "frying_mix",
+    "aliases": [
+      "튀김 가루",
+      "튀김믹스",
+      "바삭튀김가루"
     ]
   }
 ]
