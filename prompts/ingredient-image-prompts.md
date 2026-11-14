@@ -150,6 +150,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | beef_bulgogi | 불고깃감 소고기 | id `m_ing_174`, name `불고깃감 소고기`, zone `FRIDGE`, aliases `["불고기용 소고기", "불고깃감", "불고기감", "소불고기용", "불고기용"]` | loose pile of thinly sliced raw lean beef for bulgogi, deep red meat with very little fat, slices gently ruffled and folded |
 | eggplant | 가지 | id `m_ing_175`, name `가지`, zone `FRIDGE`, aliases `["가지나물용"]` | two glossy deep purple Korean eggplants, long and slender with green caps, slightly crossed |
 | whole_chicken | 생닭 한 마리 | id `m_ing_176`, name `생닭 한 마리`, zone `FRIDGE`, aliases `["생닭", "통닭", "닭 한 마리", "백숙용 닭", "삼계탕용 닭", "영계"]` | one whole raw plucked chicken, uncut, pale pink skin, legs tucked, breast side up |
+| ginger | 생강 | id `m_ing_177`, name `생강`, zone `FRIDGE`, aliases `["통생강", "햇생강", "생강 뿌리"]` | one knobby piece of fresh ginger root with light tan skin, one small branch cut to show pale yellow fibrous flesh |
 | perilla_leaf | 깻잎 | id `m_ing_165`, name `깻잎`, zone `FRIDGE`, aliases `["깻잎순", "들깻잎", "깻잎장아찌"]` | small neat stack of fresh green Korean perilla leaves (kkaennip), slightly fanned so the serrated edges and pointed tips are visible |
 
 - **물엿 등록 시**: 올리고당(`m_ing_13`)의 별칭 `물엿`을 지운다. 올리고당은 노란 짜는 병, 물엿은 넓은 투명 통으로 구분한다.
@@ -192,7 +193,7 @@ square 1:1 composition
 | 소금 salt | 설탕과 같은 통 | small heap of coarse white sea salt crystals in a small white ceramic bowl |
 | 설탕 sugar | 〃 | small stack of white sugar cubes with granulated sugar spilled around |
 | 다진마늘 garlic_minced | 다진생강과 같은 병 | small mound of minced garlic with one whole peeled garlic clove beside it |
-| 다진생강 ginger_minced | 〃 | small mound of minced ginger with a piece of fresh ginger root beside it |
+| 다진생강 ginger_minced | 〃 | small mound of pale yellow minced ginger in a small white ceramic dish (통생강은 넣지 않는다: 생강 `ginger`과 헷갈림) |
 
 ### 4.2 상표가 떠오르는 이미지
 
