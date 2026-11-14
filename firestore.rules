@@ -4,6 +4,7 @@ rules_version = '2';
 // - 가구(households/{hid}) 문서 id = 만든 사람의 uid. 구성원(memberIds)만 가구 데이터(냉장고·장바구니·요리 기록)를 읽고 쓴다.
 // - 가구 합류 기능 전까지 구성원 변경(update)은 막는다.
 // - 찜(users/{uid}/favorites)은 계정별이라 본인만 읽고 쓴다.
+// - 시각(updatedAt·createdAt 등)은 앱이 serverTimestamp() 로만 쓴다 → 규칙에서 request.time 과 같은지 확인한다.
 service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() {
@@ -21,7 +22,8 @@ service cloud.firestore {
         && d.zone in ['SEASONING', 'FRIDGE']
         && d.status in ['HAVE', 'LOW', 'NONE']
         && (!('imageKey' in d) || d.imageKey == null || d.imageKey is string)
-        && d.updatedBy == request.auth.uid;
+        && d.updatedBy == request.auth.uid
+        && d.updatedAt == request.time;
     }
 
     function validCartItem(d) {
@@ -30,7 +32,8 @@ service cloud.firestore {
         && d.zone in ['SEASONING', 'FRIDGE']
         && d.isUrgent is bool
         && d.checked is bool
-        && d.updatedBy == request.auth.uid;
+        && d.updatedBy == request.auth.uid
+        && d.updatedAt == request.time;
     }
 
     // 요리 기록 만들기 (KD-57, KD-61). 문서 id = 날짜_요리id, 요리 예정으로만 만든다
@@ -72,7 +75,8 @@ service cloud.firestore {
       allow create: if signedIn() && hid == request.auth.uid
         && request.resource.data.keys().hasOnly(['name', 'memberIds', 'createdAt'])
         && request.resource.data.name is string
-        && request.resource.data.memberIds == [request.auth.uid];
+        && request.resource.data.memberIds == [request.auth.uid]
+        && request.resource.data.createdAt == request.time;
       allow update, delete: if false;
 
       match /fridge/{ingredientId} {

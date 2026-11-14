@@ -10,7 +10,7 @@ import {
 import BottomSheet from '../common/BottomSheet';
 import StatusSignal from '../common/StatusSignal';
 import Button from '../common/Button';
-import { findByIngredientName, isSameIngredient } from '../../utils/ingredient';
+import { findByIngredientName, isSameIngredient, stockIngredientsOf } from '../../utils/ingredient';
 
 export interface InventoryUpdateSheetProps {
   isOpen: boolean;
@@ -65,7 +65,8 @@ export const InventoryUpdateSheet: React.FC<InventoryUpdateSheetProps> = ({
       ]);
 
       // 같은 재료가 두 번 적힌 레시피는 한 줄로 합친다 (먼저 나온 것 기준)
-      const required = (recipe?.ingredientsRequired ?? []).filter(
+      // 물처럼 항상 있는 재료는 재고 반영 대상에서 뺀다
+      const required = (recipe ? stockIngredientsOf(recipe) : []).filter(
         (req, index, list) => list.findIndex((other) => isSameIngredient(other.name, req.name)) === index
       );
       setItems(

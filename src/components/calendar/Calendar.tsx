@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp } from 'lucide-react';
 import { MealPlan } from '../../types';
-import { addDays, dayOfWeek, makeDateStr, parseDateStr, todayStr, weekStartOf } from '../../utils/date';
+import { addDays, addMonths, dayOfWeek, makeDateStr, monthKey, parseDateStr, todayStr, weekStartOf } from '../../utils/date';
 
 export interface CalendarProps {
   selectedDate: string; // YYYY-MM-DD
@@ -9,6 +9,9 @@ export interface CalendarProps {
   plans: MealPlan[];
   todayDate?: string; // YYYY-MM-DD (기본: 오늘, Asia/Seoul)
 }
+
+/** 달력에서 볼 수 있는 가장 이른 달 (서비스 시작 달). 가장 늦은 달은 현재 월 */
+export const CALENDAR_MIN_MONTH = '2026-08-01';
 
 const WEEKDAYS = [
   { label: '일', isSunday: true, isSaturday: false },
@@ -62,6 +65,10 @@ function getMonthCells(year: number, monthIndex: number): DayCell[] {
  * - 기본은 접힌 상태(선택한 날짜가 있는 주 1줄). 달력 아래 짧은 회색 손잡이
  * - 오늘·선택한 날짜: 검은 원(ink) 안에 흰 글자
  * - 날짜 아래 점: ● 검은 원 = 요리 완료, ○ 테두리 원 = 요리 예정, 요리 없는 날은 점 없음
+ * - 펼친 달력: 연월 양옆 ◀ ▶ 로 이전/다음 달. 2026년 8월 ~ 현재 월까지만 (끝이면 화살표 비활성)
+ *   달을 옮기면 그 달 1일을 선택한다. 현재 월로 돌아오면 오늘을 선택한다
+ * - 접힌 달력에는 화살표가 없다
+ * - 흐린 앞뒤 달 날짜는 누를 수 없다 (달 이동은 화살표로만)
  */
 export const Calendar: React.FC<CalendarProps> = ({
   selectedDate,
@@ -108,25 +115,64 @@ export const Calendar: React.FC<CalendarProps> = ({
     onSelectDate(todayDate);
   };
 
+  // 이전/다음 달: 2026년 8월 ~ 현재 월
+  const viewKey = monthKey(selectedDate);
+  const canGoPrev = viewKey > monthKey(CALENDAR_MIN_MONTH);
+  const canGoNext = viewKey < monthKey(todayDate);
+
+  const handleMoveMonth = (delta: -1 | 1) => {
+    if (delta === -1 ? !canGoPrev : !canGoNext) return;
+    const target = addMonths(selectedDate, delta);
+    onSelectDate(monthKey(target) === monthKey(todayDate) ? todayDate : target);
+  };
+
+  const arrowClass =
+    'w-11 h-11 flex items-center justify-center rounded-full text-ink hover:bg-fill transition-colors cursor-pointer disabled:text-ink-disabled disabled:hover:bg-transparent disabled:cursor-default';
+
   const cells = isCollapsed ? getWeekCells(selectedDate, monthIndex) : getMonthCells(year, monthIndex);
 
   return (
     <div className="bg-white px-1 pt-1 pb-2 select-none">
       {/* 1. 위쪽 줄: 연월 ('2026년 11월 ⌄') + 오른쪽 [오늘] 버튼 */}
+      {/*    펼친 달력만 연월 양옆에 ◀ ▶ (버튼 영역 44px) */}
       <div className="flex items-center justify-between mb-4">
-        <button
-          type="button"
-          onClick={handleToggle}
-          className="flex items-center gap-1.5 text-[22px] font-black tracking-tight text-ink hover:text-primary transition-colors cursor-pointer"
-          aria-expanded={!isCollapsed}
-        >
-          <span>{year}년 {monthIndex + 1}월</span>
-          {isCollapsed ? (
-            <ChevronDown className="w-5 h-5 text-ink stroke-[2.5]" />
-          ) : (
-            <ChevronUp className="w-5 h-5 text-ink stroke-[2.5]" />
+        <div className="flex items-center">
+          {!isCollapsed && (
+            <button
+              type="button"
+              onClick={() => handleMoveMonth(-1)}
+              disabled={!canGoPrev}
+              className={`${arrowClass} -ml-2.5`}
+              aria-label="이전 달"
+            >
+              <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
+            </button>
           )}
-        </button>
+          <button
+            type="button"
+            onClick={handleToggle}
+            className="flex items-center gap-1.5 text-[22px] font-black tracking-tight text-ink hover:text-primary transition-colors cursor-pointer"
+            aria-expanded={!isCollapsed}
+          >
+            <span>{year}년 {monthIndex + 1}월</span>
+            {isCollapsed ? (
+              <ChevronDown className="w-5 h-5 text-ink stroke-[2.5]" />
+            ) : (
+              <ChevronUp className="w-5 h-5 text-ink stroke-[2.5]" />
+            )}
+          </button>
+          {!isCollapsed && (
+            <button
+              type="button"
+              onClick={() => handleMoveMonth(1)}
+              disabled={!canGoNext}
+              className={arrowClass}
+              aria-label="다음 달"
+            >
+              <ChevronRight className="w-5 h-5 stroke-[2.5]" />
+            </button>
+          )}
+        </div>
 
         <button
           type="button"
@@ -155,7 +201,7 @@ export const Calendar: React.FC<CalendarProps> = ({
         ))}
       </div>
 
-      {/* 3. 날짜 그리드: 접힘 = 선택한 날짜가 있는 주 1줄, 펼침 = 한 달 (앞뒤 달 날짜는 흐리게, 눌러서 이동) */}
+      {/* 3. 날짜 그리드: 접힘 = 선택한 날짜가 있는 주 1줄, 펼침 = 한 달 (앞뒤 달 날짜는 흐리게, 누를 수 없음) */}
       <div className={`grid grid-cols-7 text-center ${isCollapsed ? '' : 'gap-y-2'}`}>
         {cells.map((d) => {
           const isSelected = d.dateStr === selectedDate;
@@ -167,14 +213,15 @@ export const Calendar: React.FC<CalendarProps> = ({
               key={d.dateStr}
               type="button"
               onClick={() => onSelectDate(d.dateStr)}
-              className={`flex flex-col items-center justify-center py-1 cursor-pointer group ${
-                d.inMonth || isSelected ? '' : 'opacity-35'
+              disabled={!d.inMonth}
+              className={`flex flex-col items-center justify-center py-1 group ${
+                d.inMonth ? 'cursor-pointer' : 'opacity-35 cursor-default'
               }`}
             >
               {/* 선택한 날짜: 검은 원(ink) 안에 흰 글자 */}
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-[14px] font-bold transition-all ${
-                  isSelected ? 'bg-ink text-white shadow-xs' : `${dayColor} hover:bg-fill`
+                  isSelected ? 'bg-ink text-white shadow-xs' : `${dayColor} ${d.inMonth ? 'hover:bg-fill' : ''}`
                 }`}
               >
                 {d.dayNumber}

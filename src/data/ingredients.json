@@ -71,7 +71,6 @@
     "aliases": [
       "맛소금",
       "가는소금",
-      "가는 소금",
       "꽃소금"
     ]
   },
@@ -114,11 +113,63 @@
     ]
   },
   {
+    "id": "m_ing_180",
+    "name": "파슬리 가루",
+    "zone": "SEASONING",
+    "imageKey": "parsley_flakes",
+    "aliases": [
+      "파슬리",
+      "건조 파슬리",
+      "파슬리가루",
+      "말린 파슬리"
+    ]
+  },
+  {
+    "id": "m_ing_182",
+    "name": "페퍼론치노",
+    "zone": "SEASONING",
+    "imageKey": "peperoncino",
+    "aliases": [
+      "페페론치노",
+      "베트남고추",
+      "페퍼론치니",
+      "이탈리안 건고추"
+    ]
+  },
+  {
+    "id": "m_ing_183",
+    "name": "라면 수프",
+    "zone": "SEASONING",
+    "imageKey": "ramen_soup_powder",
+    "aliases": [
+      "라면스프",
+      "라면 스프",
+      "라면수프",
+      "분말스프"
+    ]
+  },
+  {
     "id": "m_ing_13",
-    "name": "올리고당",
+    "name": "올리고당(물엿)",
     "zone": "SEASONING",
     "imageKey": "syrup",
-    "aliases": []
+    "aliases": [
+      "물엿",
+      "쌀엿",
+      "조청",
+      "올리고당"
+    ]
+  },
+  {
+    "id": "m_ing_173",
+    "name": "꿀",
+    "zone": "SEASONING",
+    "imageKey": "honey",
+    "aliases": [
+      "벌꿀",
+      "아카시아꿀",
+      "잡화꿀"
+    ]
   },
   {
     "id": "m_ing_14",
@@ -213,6 +264,19 @@
     ]
   },
   {
+    "id": "m_ing_179",
+    "name": "묵은지",
+    "zone": "FRIDGE",
+    "imageKey": "aged_kimchi",
+    "aliases": [
+      "묵은김치",
+      "묵은지 국물",
+      "묵은지 김치",
+      "오래된 김치",
+      "숙성김치"
+    ]
+  },
+  {
     "id": "m_ing_106",
     "name": "우유",
     "zone": "FRIDGE",
@@ -248,6 +312,34 @@
     "imageKey": "potato",
     "aliases": [
       "수미감자"
+    ]
+  },
+  {
+    "id": "m_ing_166",
+    "name": "닭볶음탕용 닭",
+    "zone": "FRIDGE",
+    "imageKey": "chicken_stew_cut",
+    "aliases": [
+      "토막닭",
+      "닭볶음탕용 닭고기",
+      "볶음탕용 닭",
+      "닭볶음탕용",
+      "닭도리탕용",
+      "절단닭"
+    ]
+  },
+  {
+    "id": "m_ing_178",
+    "name": "생닭",
+    "zone": "FRIDGE",
+    "imageKey": "whole_chicken",
+    "aliases": [
+      "통닭",
+      "백숙용 닭",
+      "삼계탕용 닭",
+      "영계",
+      "생닭 한 마리",
+      "닭 한 마리"
     ]
   },
   {
@@ -394,8 +486,7 @@
     "aliases": [
       "조미김",
       "김가루",
-      "구운 김",
-      "구운김"
+      "구운 김"
     ]
   },
   {
@@ -490,6 +581,72 @@
     ]
   },
   {
+    "id": "m_ing_175",
+    "name": "생강",
+    "zone": "FRIDGE",
+    "imageKey": "ginger",
+    "aliases": [
+      "통생강",
+      "생강 1톨",
+      "햇생강",
+      "생강 뿌리"
+    ]
+  },
+  {
+    "id": "m_ing_176",
+    "name": "가지",
+    "zone": "FRIDGE",
+    "imageKey": "eggplant",
+    "aliases": [
+      "가지나물용"
+    ]
+  },
+  {
+    "id": "m_ing_181",
+    "name": "방울토마토",
+    "zone": "FRIDGE",
+    "imageKey": "cherry_tomato",
+    "aliases": [
+      "방울 토마토",
+      "체리토마토",
+      "대추방울토마토",
+      "미니토마토"
+    ]
+  },
+  {
+    "id": "m_ing_165",
+    "name": "깻잎",
+    "zone": "FRIDGE",
+    "imageKey": "perilla_leaf",
+    "aliases": [
+      "깻잎순",
+      "들깻잎",
+      "깻잎장아찌"
+    ]
+  },
+  {
+    "id": "m_ing_169",
+    "name": "꽈리고추",
+    "zone": "FRIDGE",
+    "imageKey": "shishito_pepper",
+    "aliases": [
+      "꽈리 고추"
+    ]
+  },
+  {
+    "id": "m_ing_170",
+    "name": "잔멸치",
+    "zone": "FRIDGE",
+    "imageKey": "dried_baby_anchovy",
+    "aliases": [
+      "잔 멸치",
+      "지리멸치",
+      "볶음멸치",
+      "세멸치",
+      "멸치"
+    ]
+  },
+  {
     "id": "m_ing_146",
     "name": "닭가슴살",
     "zone": "FRIDGE",
@@ -504,6 +661,17 @@
     "aliases": []
   },
   {
+    "id": "m_ing_184",
+    "name": "바게트",
+    "zone": "FRIDGE",
+    "imageKey": "baguette",
+    "aliases": [
+      "바게트 빵",
+      "바게뜨",
+      "프랑스빵"
+    ]
+  },
+  {
     "id": "m_ing_150",
     "name": "떡국떡",
     "zone": "FRIDGE",
@@ -516,6 +684,19 @@
     "zone": "SEASONING",
     "imageKey": "pancake_mix",
     "aliases": []
+  },
+  {
+    "id": "m_ing_177",
+    "name": "감자전분",
+    "zone": "SEASONING",
+    "imageKey": "potato_starch",
+    "aliases": [
+      "전분",
+      "녹말가루",
+      "감자녹말",
+      "전분가루",
+      "녹말"
+    ]
   },
   {
     "id": "m_ing_152",
@@ -573,6 +754,20 @@
     "aliases": []
   },
   {
+    "id": "m_ing_174",
+    "name": "불고깃감 소고기",
+    "zone": "FRIDGE",
+    "imageKey": "beef_bulgogi",
+    "aliases": [
+      "불고기용 소고기",
+      "불고깃감",
+      "불고기감",
+      "소고기 불고기용",
+      "소불고기용",
+      "불고기용"
+    ]
+  },
+  {
     "id": "m_ing_158",
     "name": "돼지고기 앞다리살",
     "zone": "FRIDGE",
@@ -593,6 +788,47 @@
       "통삼겹",
       "구이용 삼겹살",
       "구이용 돼지 삼겹살"
+    ]
+  },
+  {
+    "id": "m_ing_172",
+    "name": "껍질 붙은 통삼겹",
+    "zone": "FRIDGE",
+    "imageKey": "pork_belly_skin_on",
+    "aliases": [
+      "돼지 껍질 붙은 통삼겹",
+      "오겹살",
+      "통오겹살",
+      "껍데기 붙은 통삼겹",
+      "통오겹",
+      "껍데기 통삼겹",
+      "껍질 통삼겹",
+      "수육용 삼겹"
+    ]
+  },
+  {
+    "id": "m_ing_167",
+    "name": "돼지갈비",
+    "zone": "FRIDGE",
+    "imageKey": "pork_ribs",
+    "aliases": [
+      "돼지 갈비",
+      "찜갈비",
+      "돼지갈비찜용",
+      "갈비찜용"
+    ]
+  },
+  {
+    "id": "m_ing_168",
+    "name": "돼지등갈비",
+    "zone": "FRIDGE",
+    "imageKey": "pork_back_ribs",
+    "aliases": [
+      "등갈비",
+      "돼지 등갈비",
+      "쪽갈비",
+      "베이비백립",
+      "립"
     ]
   },
   {
@@ -658,229 +894,6 @@
       "굵은소금",
       "천일염",
       "왕소금"
-    ]
-  },
-  {
-    "id": "m_ing_166",
-    "name": "돼지갈비",
-    "zone": "FRIDGE",
-    "imageKey": "pork_ribs",
-    "aliases": [
-      "돼지 갈비",
-      "찜갈비",
-      "갈비찜용"
-    ]
-  },
-  {
-    "id": "m_ing_168",
-    "name": "돼지등갈비",
-    "zone": "FRIDGE",
-    "imageKey": "pork_back_ribs",
-    "aliases": [
-      "등갈비",
-      "돼지 등갈비",
-      "쪽갈비",
-      "베이비백립",
-      "립"
-    ]
-  },
-  {
-    "id": "m_ing_167",
-    "name": "닭볶음탕용 닭",
-    "zone": "FRIDGE",
-    "imageKey": "chicken_stew_cut",
-    "aliases": [
-      "볶음탕용 닭",
-      "닭볶음탕용",
-      "닭도리탕용",
-      "토막닭",
-      "절단닭"
-    ]
-  },
-  {
-    "id": "m_ing_169",
-    "name": "꽈리고추",
-    "zone": "FRIDGE",
-    "imageKey": "shishito_pepper",
-    "aliases": [
-      "꽈리 고추"
-    ]
-  },
-  {
-    "id": "m_ing_170",
-    "name": "잔멸치",
-    "zone": "FRIDGE",
-    "imageKey": "dried_baby_anchovy",
-    "aliases": [
-      "잔 멸치",
-      "지리멸치",
-      "볶음멸치",
-      "세멸치",
-      "멸치"
-    ]
-  },
-  {
-    "id": "m_ing_171",
-    "name": "물엿",
-    "zone": "SEASONING",
-    "imageKey": "starch_syrup",
-    "aliases": [
-      "쌀엿",
-      "조청"
-    ]
-  },
-  {
-    "id": "m_ing_172",
-    "name": "껍질 붙은 통삼겹",
-    "zone": "FRIDGE",
-    "imageKey": "pork_belly_skin_on",
-    "aliases": [
-      "오겹살",
-      "통오겹",
-      "껍데기 통삼겹",
-      "껍질 통삼겹",
-      "수육용 삼겹"
-    ]
-  },
-  {
-    "id": "m_ing_173",
-    "name": "꿀",
-    "zone": "SEASONING",
-    "imageKey": "honey",
-    "aliases": [
-      "벌꿀",
-      "아카시아꿀",
-      "잡화꿀"
-    ]
-  },
-  {
-    "id": "m_ing_174",
-    "name": "불고깃감 소고기",
-    "zone": "FRIDGE",
-    "imageKey": "beef_bulgogi",
-    "aliases": [
-      "불고기용 소고기",
-      "불고깃감",
-      "불고기감",
-      "소불고기용",
-      "불고기용"
-    ]
-  },
-  {
-    "id": "m_ing_175",
-    "name": "가지",
-    "zone": "FRIDGE",
-    "imageKey": "eggplant",
-    "aliases": [
-      "가지나물용"
-    ]
-  },
-  {
-    "id": "m_ing_176",
-    "name": "생닭 한 마리",
-    "zone": "FRIDGE",
-    "imageKey": "whole_chicken",
-    "aliases": [
-      "생닭",
-      "통닭",
-      "닭 한 마리",
-      "백숙용 닭",
-      "삼계탕용 닭",
-      "영계"
-    ]
-  },
-  {
-    "id": "m_ing_177",
-    "name": "생강",
-    "zone": "FRIDGE",
-    "imageKey": "ginger",
-    "aliases": [
-      "통생강",
-      "햇생강",
-      "생강 뿌리"
-    ]
-  },
-  {
-    "id": "m_ing_178",
-    "name": "감자전분",
-    "zone": "SEASONING",
-    "imageKey": "potato_starch",
-    "aliases": [
-      "감자 전분",
-      "전분",
-      "전분가루",
-      "녹말",
-      "감자녹말"
-    ]
-  },
-  {
-    "id": "m_ing_179",
-    "name": "묵은지",
-    "zone": "FRIDGE",
-    "imageKey": "aged_kimchi",
-    "aliases": [
-      "묵은지 김치",
-      "묵은김치",
-      "오래된 김치",
-      "숙성김치"
-    ]
-  },
-  {
-    "id": "m_ing_180",
-    "name": "파슬리 가루",
-    "zone": "SEASONING",
-    "imageKey": "dried_parsley",
-    "aliases": [
-      "파슬리가루",
-      "파슬리",
-      "건조 파슬리",
-      "말린 파슬리"
-    ]
-  },
-  {
-    "id": "m_ing_181",
-    "name": "방울토마토",
-    "zone": "FRIDGE",
-    "imageKey": "cherry_tomato",
-    "aliases": [
-      "방울 토마토",
-      "체리토마토",
-      "대추방울토마토",
-      "미니토마토"
-    ]
-  },
-  {
-    "id": "m_ing_182",
-    "name": "페퍼론치노",
-    "zone": "SEASONING",
-    "imageKey": "pepperoncino",
-    "aliases": [
-      "페페론치노",
-      "페퍼론치니",
-      "이탈리안 건고추"
-    ]
-  },
-  {
-    "id": "m_ing_183",
-    "name": "라면 수프",
-    "zone": "SEASONING",
-    "imageKey": "ramen_soup_packet",
-    "aliases": [
-      "라면스프",
-      "라면 스프",
-      "라면수프",
-      "분말스프"
-    ]
-  },
-  {
-    "id": "m_ing_184",
-    "name": "바게트 빵",
-    "zone": "FRIDGE",
-    "imageKey": "baguette",
-    "aliases": [
-      "바게트",
-      "바게뜨",
-      "프랑스빵"
     ]
   },
   {
@@ -1682,17 +1695,6 @@
       "생크림",
       "휘핑크림",
       "동물성생크림"
-    ]
-  },
-  {
-    "id": "m_ing_165",
-    "name": "깻잎",
-    "zone": "FRIDGE",
-    "imageKey": "perilla_leaf",
-    "aliases": [
-      "깻잎순",
-      "들깻잎",
-      "깻잎장아찌"
     ]
   }
 ]

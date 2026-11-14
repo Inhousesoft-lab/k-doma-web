@@ -2,7 +2,8 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { LayoutList, Grid } from 'lucide-react';
 import { Ingredient, IngredientStatus, StorageZone } from '../types';
-import { ingredientService, authService, subscribeToDataChanges } from '../services';
+import { ingredientService, authService } from '../services';
+import useServiceData from '../hooks/useServiceData';
 import StatusSignal, { STATUS_LABELS } from '../components/common/StatusSignal';
 import StateView from '../components/common/StateView';
 import IngredientImage from '../components/common/IngredientImage';
@@ -41,9 +42,16 @@ export const FridgePage: React.FC = () => {
   // 2. 상태 필터 (전체 / 있음 / 적음 / 없음)
   const [statusFilter, setStatusFilter] = useState<'ALL' | IngredientStatus>('ALL');
 
-  // 3. 재료 데이터 상태
-  const [ingredients, setIngredients] = useState<Ingredient[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  // 3. 재료 데이터 (비로그인 = 빈 냉장고, KD-47)
+  // 불러오기 실패(네트워크·권한)는 빈 냉장고로 보이지 않게 오류 화면을 띄운다
+  const {
+    data: rawIngredients,
+    setData: setRawIngredients,
+    loading: isLoading,
+    error: loadError,
+    reload,
+    retry,
+  } = useServiceData(async () => (authService.isLoggedIn() ? ingredientService.getIngredients() : []));
 
   // 4. 재료 추가 화면(/fridge/add) 이동 · 돌아왔을 때 추가 개수 토스트
   const navigate = useNavigate();
@@ -72,54 +80,34 @@ export const FridgePage: React.FC = () => {
     });
   };
 
-  // 초기 데이터 로드 및 정렬 순서 고정
-  const loadIngredients = async (preserveOrder: boolean = true) => {
-    // 비로그인 = 빈 냉장고 (KD-47)
-    const rawList = authService.isLoggedIn() ? await ingredientService.getIngredients() : [];
-
-    if (!preserveOrder || displayOrderRef.current.size === 0) {
-      // 새로운 정렬 순서 확정
-      const sorted = sortIngredients(rawList);
-      const newOrder = new Map<string, number>();
-      sorted.forEach((item, idx) => {
-        newOrder.set(item.id, idx);
-      });
-      displayOrderRef.current = newOrder;
-      setIngredients(sorted);
-    } else {
-      // 기존 순서 유지 (상태만 최신으로 반영)
-      const sorted = [...rawList].sort((a, b) => {
-        const orderA = displayOrderRef.current.get(a.id) ?? 9999;
-        const orderB = displayOrderRef.current.get(b.id) ?? 9999;
-        return orderA - orderB;
-      });
-      setIngredients(sorted);
+  // 정렬 순서는 처음 불러올 때(또는 다시 시도할 때) 한 번 정하고 유지한다
+  // → 상태를 바꿔도 타일이 자리를 옮기지 않는다. 새로 들어온 재료는 맨 뒤
+  const ingredients = useMemo(() => {
+    const list = rawIngredients ?? [];
+    if (displayOrderRef.current.size === 0) {
+      const sorted = sortIngredients(list);
+      displayOrderRef.current = new Map(sorted.map((item, idx) => [item.id, idx]));
+      return sorted;
     }
+    return [...list].sort((a, b) => {
+      const orderA = displayOrderRef.current.get(a.id) ?? 9999;
+      const orderB = displayOrderRef.current.get(b.id) ?? 9999;
+      return orderA - orderB;
+    });
+  }, [rawIngredients]);
+
+  /** 정렬 순서를 새로 정하고 다시 불러온다 (오류 화면 [다시 시도]) */
+  const retryWithNewOrder = () => {
+    displayOrderRef.current = new Map();
+    retry();
   };
-
-  useEffect(() => {
-    setIsLoading(true);
-    loadIngredients(false).finally(() => {
-      setIsLoading(false);
-    });
-
-    // 데이터 변경 구독 (장바구니에서 이동, 요리 완료 등)
-    const unsubscribe = subscribeToDataChanges(() => {
-      loadIngredients(true);
-    });
-
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-
 
   // 아이콘형 타일 클릭 시 상태 순환 (있음 -> 적음 -> 없음 -> 있음)
   const SAVE_FAILED = '저장하지 못했어요. 잠시 후 다시 시도해 주세요.';
 
   // 드래그앤드롭으로 구역 옮기기: 화면에 먼저 반영하고 바로 저장한다. 실패하면 원래대로 되돌린다
   const handleZoneDrop = async (ingredient: Ingredient, zone: StorageZone) => {
-    setIngredients((prev) => prev.map((i) => (i.id === ingredient.id ? { ...i, zone } : i)));
+    setRawIngredients((prev) => (prev ?? []).map((i) => (i.id === ingredient.id ? { ...i, zone } : i)));
     try {
       await ingredientService.moveIngredientZone(ingredient.id, zone);
       setToastMessage(`'${ingredient.name}'을(를) ${zone === 'SEASONING' ? '양념 선반' : '냉장고'}으로 옮겼어요.`);
@@ -127,7 +115,7 @@ export const FridgePage: React.FC = () => {
       console.error(e);
       setToastMessage(SAVE_FAILED);
     }
-    await loadIngredients(true);
+    await reload();
   };
 
   const { drag, startPress, consumeClick } = useZoneDrag(handleZoneDrop);
@@ -141,7 +129,7 @@ export const FridgePage: React.FC = () => {
       setToastMessage(SAVE_FAILED);
     }
     // order is preserved so tile does not bounce/reorder on screen
-    await loadIngredients(true);
+    await reload();
   };
 
   // 목록형 상태 직접 변경
@@ -152,7 +140,7 @@ export const FridgePage: React.FC = () => {
       console.error(e);
       setToastMessage(SAVE_FAILED);
     }
-    await loadIngredients(true);
+    await reload();
   };
 
   // 목록형 [빼기] (삭제)
@@ -166,7 +154,7 @@ export const FridgePage: React.FC = () => {
     }
     if (ok) {
       displayOrderRef.current.delete(id);
-      await loadIngredients(true);
+      await reload();
       setToastMessage(`'${name}'을(를) 냉장고에서 뺐어요.`);
     }
   };
@@ -219,6 +207,20 @@ export const FridgePage: React.FC = () => {
     return (
       <div className="flex flex-col min-h-[calc(100vh-140px)] items-center justify-center px-5 py-10 bg-white">
         <StateView type="loading" title="냉장고 재료를 불러오는 중이에요" />
+      </div>
+    );
+  }
+
+  // 불러오기 실패: [다시 시도]하면 서비스가 구독을 다시 시작한다
+  if (loadError) {
+    return (
+      <div className="flex flex-col min-h-[calc(100vh-140px)] items-center justify-center px-5 py-10 bg-white">
+        <StateView
+          type="error"
+          title="냉장고 재료를 불러오지 못했어요"
+          description="네트워크 연결을 확인하고 다시 시도해 주세요."
+          onAction={retryWithNewOrder}
+        />
       </div>
     );
   }

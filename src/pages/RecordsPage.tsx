@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Calendar as CalendarIcon } from 'lucide-react';
 import { MealPlan, Recipe } from '../types';
+import useServiceData from '../hooks/useServiceData';
 import {
   mealPlanService,
   recipeService,
   authService,
-  subscribeToDataChanges,
 } from '../services';
 import Calendar from '../components/calendar/Calendar';
 import PlanCard from '../components/plan/PlanCard';
@@ -25,15 +25,19 @@ const SAVE_FAILED = '저장하지 못했어요. 다시 시도해 주세요';
  */
 export const RecordsPage: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<string>(() => todayStr());
-  const [plans, setPlans] = useState<MealPlan[]>([]);
-  // 카드에 요리 시간·칼로리·탄단지를 보여 주려고 레시피를 id로 찾는다
-  const [recipesById, setRecipesById] = useState<Map<string, Recipe>>(new Map());
-
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<boolean>(false);
-
   // 로그인 상태 (비로그인이어도 화면은 연다, KD-48)
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(authService.isLoggedIn());
+  // 비로그인: 기록이 없다 → 달력에 점이 없고, 달력 아래는 로그인 안내 박스
+  // 카드에 요리 시간·칼로리·탄단지를 보여 주려고 레시피를 id로 찾는다
+  const { data, loading, error, retry } = useServiceData(async () => {
+    if (!authService.isLoggedIn()) {
+      return { isLoggedIn: false, plans: [] as MealPlan[], recipesById: new Map<string, Recipe>() };
+    }
+    const [plans, recipes] = await Promise.all([mealPlanService.getPlans(), recipeService.getRecipes()]);
+    return { isLoggedIn: true, plans, recipesById: new Map(recipes.map((r) => [r.id, r])) };
+  });
+  const plans = data?.plans ?? [];
+  const recipesById = data?.recipesById ?? new Map<string, Recipe>();
+  const isLoggedIn = data?.isLoggedIn ?? authService.isLoggedIn();
 
   // 재고 변경 바텀시트
   const [isInventorySheetOpen, setIsInventorySheetOpen] = useState<boolean>(false);
@@ -54,39 +58,6 @@ export const RecordsPage: React.FC = () => {
     setShowToast(true);
   };
   const hideToast = useCallback(() => setShowToast(false), []);
-
-  const loadData = useCallback(async () => {
-    if (!authService.isLoggedIn()) {
-      // 비로그인: 기록이 없다 → 달력에 점이 없고, 달력 아래는 로그인 안내 박스
-      setIsLoggedIn(false);
-      setPlans([]);
-      setError(false);
-      setLoading(false);
-      return;
-    }
-
-    setIsLoggedIn(true);
-    try {
-      const [nextPlans, recipes] = await Promise.all([mealPlanService.getPlans(), recipeService.getRecipes()]);
-      setPlans(nextPlans);
-      setRecipesById(new Map(recipes.map((r) => [r.id, r])));
-      setError(false);
-    } catch (e) {
-      console.error(e);
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    loadData();
-    const unsubscribe = subscribeToDataChanges(() => {
-      setIsLoggedIn(authService.isLoggedIn());
-      loadData();
-    });
-    return () => unsubscribe();
-  }, [loadData]);
 
   const dayPlans = plans.filter((p) => p.date === selectedDate);
 
@@ -141,7 +112,7 @@ export const RecordsPage: React.FC = () => {
           title="화면을 불러오지 못했어요"
           description="네트워크 상태를 확인하고 다시 시도해주세요."
           actionText="다시 시도"
-          onAction={loadData}
+          onAction={retry}
         />
       </div>
     );

@@ -57,3 +57,15 @@ export function parseDateStr(dateStr: string): { year: number; monthIndex: numbe
   const [y, m, d] = dateStr.split('-').map(Number);
   return { year: y, monthIndex: m - 1, day: d };
 }
+
+/** 연월 비교용 키 (예: 2026년 11월 → 202611). 큰 값이 나중 달 */
+export function monthKey(dateStr: string): number {
+  const { year, monthIndex } = parseDateStr(dateStr);
+  return year * 100 + monthIndex + 1;
+}
+
+/** months 만큼 옮긴 달의 1일 (YYYY-MM-01). 연도가 바뀌어도 맞게 계산한다 */
+export function addMonths(dateStr: string, months: number): string {
+  const { year, monthIndex } = parseDateStr(dateStr);
+  return makeDateStr(year, monthIndex + months, 1);
+}

@@ -30,6 +30,14 @@ export interface RecipeNutrition {
   fat: number; // g
 }
 
+/** 곁들이는 소스 (예: 허니 마늘 페스토). 요리 상세에서 조리 순서 뒤에 따로 보여준다 */
+export interface RecipeSauce {
+  name: string;
+  /** 소스 재료 표시용. 장보기 계산은 ingredientsRequired 에 함께 넣은 재료로 한다 */
+  ingredients?: RecipeIngredientRef[];
+  steps: string[];
+}
+
 export interface Recipe {
   id: string;
   name: string;
@@ -48,6 +56,7 @@ export interface Recipe {
   description?: string;
   ingredientsRequired?: RecipeIngredientRef[];
   steps?: string[];
+  sauce?: RecipeSauce;
   isFavorite?: boolean;
 }
 
