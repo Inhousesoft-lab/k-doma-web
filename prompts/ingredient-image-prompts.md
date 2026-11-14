@@ -152,7 +152,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | beef_bulgogi | 불고깃감 소고기 | **등록됨** id `m_ing_174`, name `불고깃감 소고기`, zone `FRIDGE`, aliases `["불고기용 소고기", "불고깃감", "불고기감", "소고기 불고기용"]` | loose pile of thin raw beef slices for bulgogi, bright red with light marbling, softly folded |
 | ginger | 생강 | **등록됨** id `m_ing_175`, name `생강`, zone `FRIDGE`, aliases `["통생강", "생강 1톨"]`. 다진생강(`m_ing_153`, `ginger_minced`)과는 별도 | one fresh knobby ginger root with light tan skin, a small piece cut off showing pale yellow flesh |
 | eggplant | 가지 | **등록됨** id `m_ing_176`, name `가지`, zone `FRIDGE`, aliases `[]` | two long glossy dark purple Korean eggplants with green calyx, crossed |
-| potato_starch | 감자전분 | **등록됨** id `m_ing_177`, name `감자전분`, zone `SEASONING`, aliases `["전분", "녹말가루", "감자녹말", "전분가루"]` (이미지 아직 없음) | clear plastic bag of fine white potato starch powder, top folded open, a small mound of powder spilled in front, no label |
+| potato_starch | 감자전분 | **등록됨** id `m_ing_177`, name `감자전분`, zone `SEASONING`, aliases `["전분", "녹말가루", "감자녹말", "전분가루"]` | clear plastic bag of fine white potato starch powder, top folded open, a small mound of powder spilled in front, no label |
 
 - **물엿**: 따로 등록하지 않고 올리고당(`m_ing_13`)의 별칭으로 둔다(2026-11-14 사용자 결정).
 - 캔 디자인(색·배 그림·빨간 배지)은 실제 상품대로 쓰고 **'갈아만든 배' 로고 글자만 뺀다**(2026-11-14 사용자 결정, 저작권 문제 없음 확인). 캔 하나만, 옆에 배를 두지 않는다.
