@@ -18,10 +18,11 @@ import ViewToggle, { RecordsViewMode } from '../components/records/ViewToggle';
 import RecordsTimeline from '../components/records/RecordsTimeline';
 import Modal from '../components/common/Modal';
 import Toast from '../components/common/Toast';
-import { addMonths, formatYearMonth, parseDateStr, todayStr } from '../utils/date';
+import { addMonths, todayStr } from '../utils/date';
 
 const SAVE_FAILED = '저장하지 못했어요. 다시 시도해 주세요';
 const LOAD_FAILED = '기록을 불러오지 못했어요. 다시 시도해 주세요';
+const NO_MORE_RECORDS = '더 이상 기록이 없어요';
 
 /**
  * 기록 탭 (KD-43, KD-57)
@@ -31,7 +32,7 @@ const LOAD_FAILED = '기록을 불러오지 못했어요. 다시 시도해 주�
  * - 타임라인: 요리 완료한 날만, 최신 날짜가 위. 카드는 달력 보기와 같은 PlanCard
  * - 달력 보기에서 고른 날에 기록이 없으면 안내 박스. [요리 보러 가기]는 오늘만 (기록은 오늘 날짜로만 추가된다)
  * - 기록은 지난달 1일부터 받는다. 달력에서 이전 달로 가면 그 전 달부터 더 받고(앞쪽 흐린 칸 점),
- *   타임라인은 아래 [N월 기록 더 보기]로 한 달씩 더 받는다 (요리 완료 없는 달은 건너뛴다)
+ *   타임라인은 아래 [더보기]로 한 달씩 더 받는다 (요리 완료 없는 달은 건너뛴다. 끝까지 없으면 버튼이 사라진다)
  */
 export const RecordsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -79,26 +80,21 @@ export const RecordsPage: React.FC = () => {
   const [loadingMore, setLoadingMore] = useState<boolean>(false);
   const [loadMoreFailed, setLoadMoreFailed] = useState<boolean>(false);
   const canLoadMore = isLoggedIn && mealPlanService.canLoadMorePlans();
-  const loadedFrom = mealPlanService.plansLoadedFrom();
-  const nextMonth = loadedFrom ? addMonths(loadedFrom, -1) : null;
-  const nextMonthLabel = nextMonth
-    ? parseDateStr(nextMonth).year === parseDateStr(todayStr()).year
-      ? `${parseDateStr(nextMonth).monthIndex + 1}월`
-      : formatYearMonth(nextMonth)
-    : '';
 
   const handleChangeView = (mode: RecordsViewMode) => {
     setLoadMoreFailed(false);
     setViewMode(mode);
   };
 
-  // 타임라인 [더 보기] (요리 완료 없는 달은 건너뛴다)
-  const handleLoadMore = async () => {
+  // 타임라인 [더보기] (요리 완료 없는 달은 건너뛴다)
+  // 받아 봤는데 서비스 시작 달까지 없으면 버튼이 사라지고, 버튼으로 누른 경우만 '더 이상 기록이 없어요' 안내
+  const handleLoadMore = async (fromButton = true) => {
     if (loadingMore) return;
     setLoadingMore(true);
     setLoadMoreFailed(false);
     try {
-      await mealPlanService.loadOlderCookedMonth();
+      const found = await mealPlanService.loadOlderCookedMonth();
+      if (!found && fromButton) showToastMessage(NO_MORE_RECORDS);
     } catch (e) {
       console.error(e);
       setLoadMoreFailed(true);
@@ -123,7 +119,7 @@ export const RecordsPage: React.FC = () => {
   const needsAutoLoad =
     viewMode === 'timeline' && isLoggedIn && !loading && cookedPlans.length === 0 && canLoadMore && !loadMoreFailed;
   useEffect(() => {
-    if (needsAutoLoad) void handleLoadMore();
+    if (needsAutoLoad) void handleLoadMore(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [needsAutoLoad]);
 
@@ -248,7 +244,7 @@ export const RecordsPage: React.FC = () => {
           title="기록을 불러오지 못했어요"
           description="네트워크 상태를 확인하고 다시 시도해주세요."
           actionText="다시 시도"
-          onAction={handleLoadMore}
+          onAction={() => handleLoadMore(false)}
           className="grow"
         />
       ) : cookedPlans.length === 0 ? (
@@ -264,9 +260,9 @@ export const RecordsPage: React.FC = () => {
         <RecordsTimeline
           plans={cookedPlans}
           renderCard={renderPlanCard}
-          loadMoreLabel={canLoadMore ? `${nextMonthLabel} 기록 더 보기` : null}
+          loadMoreLabel={canLoadMore ? '더보기' : null}
           loadingMore={loadingMore}
-          onLoadMore={handleLoadMore}
+          onLoadMore={() => handleLoadMore()}
         />
       )}
 
