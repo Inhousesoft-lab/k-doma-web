@@ -69,10 +69,10 @@
     "zone": "SEASONING",
     "imageKey": "salt",
     "aliases": [
-      "천일염",
       "맛소금",
-      "굵은소금",
-      "굵은 소금"
+      "가는소금",
+      "가는 소금",
+      "꽃소금"
     ]
   },
   {
@@ -100,8 +100,7 @@
     "zone": "SEASONING",
     "imageKey": "cooking_wine",
     "aliases": [
-      "미림",
-      "청주"
+      "미림"
     ]
   },
   {
@@ -153,8 +152,7 @@
     "zone": "SEASONING",
     "imageKey": "fish_sauce",
     "aliases": [
-      "액젓",
-      "까나리액젓"
+      "액젓"
     ]
   },
   {
@@ -179,8 +177,7 @@
     "zone": "FRIDGE",
     "imageKey": "scallion",
     "aliases": [
-      "파",
-      "쪽파"
+      "파"
     ]
   },
   {
@@ -363,8 +360,7 @@
     "zone": "FRIDGE",
     "imageKey": "bacon",
     "aliases": [
-      "햄",
-      "소시지"
+      "햄"
     ]
   },
   {
@@ -430,8 +426,7 @@
     "zone": "FRIDGE",
     "imageKey": "green_chili",
     "aliases": [
-      "풋고추",
-      "청고추"
+      "풋고추"
     ]
   },
   {
@@ -695,6 +690,17 @@
       "갈아만든 배",
       "배음료",
       "배주스"
+    ]
+  },
+  {
+    "id": "m_ing_208",
+    "name": "굵은 소금",
+    "zone": "SEASONING",
+    "imageKey": "coarse_salt",
+    "aliases": [
+      "굵은소금",
+      "천일염",
+      "왕소금"
     ]
   }
 ]

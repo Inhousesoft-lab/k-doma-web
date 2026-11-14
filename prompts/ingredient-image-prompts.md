@@ -169,6 +169,8 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | blue_crab | 꽃게 | id `m_ing_193`, name `꽃게`, zone `FRIDGE`, aliases `["꽃 게", "생꽃게", "냉동꽃게"]` | one whole raw blue swimming crab (kkotge) with mottled blue-grey shell and long claws |
 | dried_red_chili | 건고추 | id `m_ing_194`, name `건고추`, zone `SEASONING`, aliases `["마른고추", "마른 고추", "건홍고추", "태양초 고추"]` | small pile of whole long dried Korean red chili peppers, dark glossy crimson, slightly flattened and wrinkled |
 | white_wine | 화이트 와인 | id `m_ing_195`, name `화이트 와인`, zone `SEASONING`, aliases `["화이트와인", "요리용 화이트 와인", "백포도주"]` | one green glass wine bottle of white wine with a plain foil capsule, blank label |
+| red_wine | 레드 와인 | id `m_ing_262`, name `레드 와인`, zone `SEASONING`, aliases `["레드와인", "요리용 레드 와인", "적포도주"]` | one dark glass wine bottle of red wine with a plain dark foil capsule, blank label, a small pour of deep red wine in a short glass beside it |
+| korean_green_chili | 청고추 | id `m_ing_263`, name `청고추`, zone `FRIDGE`, aliases `["청 고추", "녹광고추"]` | three fresh long thick glossy dark green Korean chili peppers (cheong-gochu), smooth skin, gently curved, green stems |
 | ssanghwa_tang | 쌍화탕 | id `m_ing_196`, name `쌍화탕`, zone `FRIDGE`, aliases `["쌍화탕 120ml", "쌍화차", "한방음료"]` | one small 120ml brown glass medicine bottle of Korean herbal drink with a gold metal cap, dark brown liquid, plain blank label |
 | red_chili | 홍고추 | id `m_ing_197`, name `홍고추`, zone `FRIDGE`, aliases `["붉은고추", "빨간고추", "생홍고추"]` | two fresh long glossy red chili peppers with green stems, slightly crossed |
 | black_rice | 흑미밥 | id `m_ing_198`, name `흑미밥`, zone `FRIDGE`, aliases `["흑미 밥", "흑미즉석밥", "잡곡밥"]` | white microwavable rice tray with the film partly peeled, cooked purple-black mixed black rice visible, no print |
@@ -196,12 +198,11 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | lettuce | 상추 | id `m_ing_220`, name `상추`, zone `FRIDGE`, aliases `["적상추", "청상추", "꽃상추"]` | small bunch of fresh Korean leaf lettuce (sangchu), ruffled green leaves with reddish tips |
 | black_olives | 블랙 올리브 | id `m_ing_221`, name `블랙 올리브`, zone `FRIDGE`, aliases `["블랙올리브", "올리브", "슬라이스 올리브"]` | small heap of glossy whole pitted black olives, a few sliced rings |
 | baby_napa_cabbage | 알배추 | id `m_ing_222`, name `알배추`, zone `FRIDGE`, aliases `["알배기배추", "쌈배추"]` | one small whole baby napa cabbage head with pale yellow-green crinkly leaves |
-| instant_ramen | 라면 | id `m_ing_223`, name `라면`, zone `FRIDGE`, aliases `["진라면", "봉지라면", "인스턴트 라면", "라면사리"]` | one block of dry wavy instant ramen noodles, golden, square shape, no packaging |
+| instant_ramen | 라면 | id `m_ing_223`, name `라면`, zone `FRIDGE`, aliases `["진라면", "사리곰탕면", "사리곰탕", "곰탕면", "봉지라면", "인스턴트 라면", "라면사리"]` | one block of dry wavy instant ramen noodles, golden, square shape, no packaging |
 | dried_wakame | 건미역 | id `m_ing_224`, name `건미역`, zone `FRIDGE`, aliases `["미역", "마른미역", "자른미역"]` | small pile of dried dark green-black cut wakame seaweed (miyeok) |
 | beef_flank | 소고기 양지 | id `m_ing_225`, name `소고기 양지`, zone `FRIDGE`, aliases `["양지", "양지머리", "국거리 소고기", "국거리용 소고기"]` | one block of raw beef brisket flank (yangji) for soup, deep red meat with thin fat lines, a few cubes cut in front |
 | pork_neck_bones | 돼지등뼈 | id `m_ing_226`, name `돼지등뼈`, zone `FRIDGE`, aliases `["등뼈", "감자탕용 등뼈", "돼지 등뼈"]` | pile of raw pork neck bones for gamjatang, chunky bones with red meat attached |
 | young_napa_cabbage | 얼갈이배추 | id `m_ing_227`, name `얼갈이배추`, zone `FRIDGE`, aliases `["얼갈이", "얼갈이 배추"]` | bunch of young napa cabbage (eolgari), loose bright green leaves with white stems |
-| bone_broth_ramen | 곰탕 라면 | id `m_ing_228`, name `곰탕 라면`, zone `FRIDGE`, aliases `["사리곰탕면", "사리곰탕", "곰탕면"]` | one block of dry straight white instant ramen noodles for bone broth ramen, square shape, no packaging, a small plain white powder sachet beside it |
 | frankfurter | 프랑크소시지 | id `m_ing_229`, name `프랑크소시지`, zone `FRIDGE`, aliases `["프랑크 소시지", "소시지", "후랑크소시지"]` | three plump frankfurter sausages, reddish-brown casing, one cut showing the cross-section |
 | baked_beans | 베이크드 빈스 | id `m_ing_230`, name `베이크드 빈스`, zone `FRIDGE`, aliases `["베이크드빈스", "베이크드 빈"]` | opened plain silver tin can with no label, baked beans in orange tomato sauce visible inside |
 | glutinous_rice | 찹쌀 | id `m_ing_231`, name `찹쌀`, zone `FRIDGE`, aliases `["찹쌀 쌀"]` | small heap of uncooked opaque milky-white glutinous rice grains |
@@ -237,19 +238,22 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | heavy_cream | 동물성 생크림 | id `m_ing_261`, name `동물성 생크림`, zone `FRIDGE`, aliases `["생크림", "휘핑크림", "동물성생크림"]` | plain white unprinted milk carton style container of heavy cream next to a small dollop of thick whipped cream |
 | perilla_leaf | 깻잎 | id `m_ing_165`, name `깻잎`, zone `FRIDGE`, aliases `["깻잎순", "들깻잎", "깻잎장아찌"]` | small neat stack of fresh green Korean perilla leaves (kkaennip), slightly fanned so the serrated edges and pointed tips are visible |
 
-- **등록 시 기존 재료에서 옮길 별칭**(새 재료를 사전에 넣을 때 기존 쪽에서 지운다)
+- **기존 재료와 다른 재료**(2026-11-14 사용자 확인). 기존 재료의 별칭은 이미 지웠다.
 
-  | 별칭 | 기존 재료 → 새 재료 |
-  |---|---|
-  | `까나리액젓` | 멸치액젓 `fish_sauce` → 까나리 액젓 `sand_lance_fish_sauce` |
-  | `천일염`, `굵은소금`, `굵은 소금` | 소금 `salt` → 굵은 소금 `coarse_salt` |
-  | `청주` | 맛술 `cooking_wine` → 청주 `cheongju` |
-  | `쪽파` | 대파 `scallion` → 쪽파 `small_green_onion` |
-  | `소시지` | 베이컨 `bacon` → 프랑크소시지 `frankfurter` |
-  | `소고기 양지` | 소고기 `beef`(삭제 예정) → 소고기 양지 `beef_flank` |
-  | `피자치즈` | 치즈 `cheese`(삭제 예정) → 슈레드 피자치즈 `shredded_mozzarella` |
-- **새로 만들지 않고 기존 재료로 쓰는 것**: 양배추·올리브 오일·바지락·콩나물·두부·사과·사각어묵·식빵·미림(맛술) — 이미 있음. 구이용 돼지 삼겹살 → `pork_belly`, 구운 김 → `laver`, 청고추 → `green_chili`(별칭 추가함).
-- **상품명**: 진라면·사리곰탕면은 일반명(라면·곰탕 라면)으로 두고 상품명은 별칭에만 넣는다. 포장 없이 면만 그린다.
+  | 기존 재료 | 새 재료 | 기존에서 지운 별칭 |
+  |---|---|---|
+  | 멸치액젓 `fish_sauce` | 까나리 액젓 `sand_lance_fish_sauce` | `까나리액젓` |
+  | 소금(가는 소금) `salt` | 굵은 소금 `coarse_salt` — **사전 등록함**(레시피 3개가 사용, 이미지 대기) | `천일염`, `굵은소금`, `굵은 소금` |
+  | 맛술 `cooking_wine` | 청주 `cheongju` | `청주` |
+  | 대파 `scallion` | 쪽파 `small_green_onion` | `쪽파` |
+  | 베이컨 `bacon` | 프랑크소시지 `frankfurter` | `소시지` |
+  | 고추(풋고추) `green_chili` | 청고추 `korean_green_chili` | `청고추` |
+  | 소고기 `beef`(삭제 예정) | 소고기 양지 `beef_flank` | 등록 시 `소고기 양지` 이동 |
+  | 치즈 `cheese`(삭제 예정) | 슈레드 피자치즈 `shredded_mozzarella` | 등록 시 `피자치즈` 이동 |
+- **같은 재료로 보는 것**: 미림 = 맛술 `cooking_wine`. 진라면·사리곰탕면 = 라면 `instant_ramen`(`m_ing_228`은 쓰지 않음). 화이트 와인·레드 와인은 맛술과 별도.
+- **새로 만들지 않고 기존 재료로 쓰는 것**: 양배추·올리브 오일·바지락·콩나물·두부·사과·사각어묵·식빵 — 이미 있음. 구이용 돼지 삼겹살 → `pork_belly`, 구운 김 → `laver`(별칭 추가함).
+- **상품명**: 진라면·사리곰탕면은 상품명을 별칭에만 넣는다. 라면은 포장 없이 면만 그린다.
+- **흑미밥** `black_rice`: 즉석밥처럼 용기에 담긴 흑미밥으로 그린다.
 - **물엿 등록 시**: 올리고당(`m_ing_13`)의 별칭 `물엿`을 지운다. 올리고당은 노란 짜는 병, 물엿은 넓은 투명 통으로 구분한다.
 - 캔 디자인(색·배 그림·빨간 배지)은 실제 상품대로 쓰고 **'갈아만든 배' 로고 글자만 뺀다**(2026-11-14 사용자 결정, 저작권 문제 없음 확인). 캔 하나만, 옆에 배를 두지 않는다.
 - imageKey·재료명은 일반명(`pear_juice`, 배 음료)으로 두고 상품명은 별칭에만 넣는다.
