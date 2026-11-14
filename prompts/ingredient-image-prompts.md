@@ -1,6 +1,7 @@
 # 재료 이미지 AI 생성 프롬프트
 
 냉장고·재료 추가 화면의 재료 이미지(노션 '냉장고' 10장)를 만드는 프롬프트.
+노션 사본: '냉장고 > 냉장고 아이템 AI 생성' 페이지. 이 파일과 함께 고친다.
 도구에 상관없이 쓸 수 있게 영어 프롬프트로 쓴다(이미지 모델은 영어가 결과가 안정적).
 
 ## 1. 작업 순서
@@ -252,25 +253,28 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | heavy_cream | 동물성 생크림 | id `m_ing_261`, name `동물성 생크림`, zone `FRIDGE`, aliases `["생크림", "휘핑크림", "동물성생크림"]` | plain white unprinted milk carton style container of heavy cream next to a small dollop of thick whipped cream |
 | perilla_leaf | 깻잎 | id `m_ing_165`, name `깻잎`, zone `FRIDGE`, aliases `["깻잎순", "들깻잎", "깻잎장아찌"]` | small neat stack of fresh green Korean perilla leaves (kkaennip), slightly fanned so the serrated edges and pointed tips are visible |
 
-- **기존 재료와 다른 재료**(2026-11-14 사용자 확인). 기존 재료의 별칭은 이미 지웠다.
+### 3.4 같은 재료 / 다른 재료(2026-11-14 사용자 확인)
 
-  | 기존 재료 | 새 재료 | 기존에서 지운 별칭 |
-  |---|---|---|
-  | 멸치액젓 `fish_sauce` | 까나리 액젓 `sand_lance_fish_sauce` | `까나리액젓` |
-  | 소금(가는 소금) `salt` | 굵은 소금 `coarse_salt` | `천일염`, `굵은소금`, `굵은 소금` |
-  | 맛술 `cooking_wine` | 청주 `cheongju` | `청주` |
-  | 대파 `scallion` | 쪽파 `small_green_onion` | `쪽파` |
-  | 베이컨 `bacon` | 프랑크소시지 `frankfurter` | `소시지` |
-  | 고추(풋고추) `green_chili` | 청고추 `korean_green_chili` | `청고추` |
-  | 소고기 `beef`(삭제함) | 소고기 양지 `beef_flank` | — |
-  | 치즈 `cheese`(삭제함) | 슈레드 피자치즈 `shredded_mozzarella` | `피자치즈`는 새 재료 별칭으로 옮김 |
+기존 재료와 다른 재료는 기존 재료의 별칭에서 이미 지웠다.
+
+| 기존 재료 | 새 재료 | 기존에서 지운 별칭 |
+|---|---|---|
+| 멸치액젓 `fish_sauce` | 까나리 액젓 `sand_lance_fish_sauce` | `까나리액젓` |
+| 소금(가는 소금) `salt` | 굵은 소금 `coarse_salt` | `천일염`, `굵은소금`, `굵은 소금` |
+| 맛술 `cooking_wine` | 청주 `cheongju` | `청주` |
+| 대파 `scallion` | 쪽파 `small_green_onion` | `쪽파` |
+| 베이컨 `bacon` | 프랑크소시지 `frankfurter` | `소시지` |
+| 고추(풋고추) `green_chili` | 청고추 `korean_green_chili` | `청고추` |
+| 올리고당 `syrup` | 물엿 `starch_syrup` | `물엿` |
+| 소고기 `beef`(삭제함) | 소고기 양지 `beef_flank` | — |
+| 치즈 `cheese`(삭제함) | 슈레드 피자치즈 `shredded_mozzarella` | `피자치즈`는 새 재료 별칭으로 옮김 |
+
 - **같은 재료로 보는 것**: 미림 = 맛술 `cooking_wine`. 진라면·사리곰탕면 = 라면 `instant_ramen`(`m_ing_228`은 쓰지 않음). 화이트 와인·레드 와인은 맛술과 별도.
 - **새로 만들지 않고 기존 재료로 쓰는 것**: 양배추·올리브 오일·바지락·콩나물·두부·사과·사각어묵·식빵 — 이미 있음. 구이용 돼지 삼겹살 → `pork_belly`, 구운 김 → `laver`(별칭 추가함).
 - **상품명**: 진라면·사리곰탕면은 상품명을 별칭에만 넣는다. 라면은 포장 없이 면만 그린다.
 - **흑미밥** `black_rice`: 즉석밥처럼 용기에 담긴 흑미밥으로 그린다.
-- **물엿**: 올리고당(`m_ing_13`)과 다른 재료라 올리고당 별칭 `물엿`을 지웠다. 이미지는 올리고당은 노란 짜는 병, 물엿은 넓은 투명 통으로 구분한다.
-- **배 음료** `pear_juice`: 캔 디자인(색·배 그림·빨간 배지)은 실제 상품대로 쓰고 **'갈아만든 배' 로고 글자만 뺀다**(2026-11-14 사용자 결정, 저작권 문제 없음 확인). 캔 하나만, 옆에 배를 두지 않는다.
-- imageKey·재료명은 일반명(`pear_juice`, 배 음료)으로 두고 상품명은 별칭에만 넣는다.
+- **물엿**: 이미지는 올리고당은 노란 짜는 병, 물엿은 넓은 투명 통으로 구분한다.
+- **배 음료** `pear_juice`: 캔 디자인(색·배 그림·빨간 배지)은 실제 상품대로 쓰고 **'갈아만든 배' 로고 글자만 뺀다**(2026-11-14 사용자 결정, 저작권 문제 없음 확인). 캔 하나만, 옆에 배를 두지 않는다. imageKey·재료명은 일반명(`pear_juice`, 배 음료)으로 두고 상품명은 별칭에만 넣는다.
 
 #### pear_juice 전용 프롬프트
 
