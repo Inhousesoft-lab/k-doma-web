@@ -327,11 +327,108 @@
       "만원",
       "돼지"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 70,
     "servings": 2,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "돼지갈비",
+        "amount": "1kg",
+        "usageType": "ALL"
+      },
+      {
+        "name": "대파",
+        "amount": "2대",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "2꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "5큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "진간장",
+        "amount": "5큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "참치액",
+        "amount": "5큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고춧가루",
+        "amount": "3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "듬뿍 3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "케첩",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "20바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "500ml",
+        "usageType": "PART"
+      },
+      {
+        "name": "청양고추",
+        "amount": "2개",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "돼지갈비는 흐르는 물에 1~2회 주무르듯 씻어낸다. 대파는 송송 썰고, 양파는 채썰고, 청양고추는 송송 썬다.",
+      "예열한 웍에 갈비를 올리고 소금 2꼬집을 뿌린 뒤, 기름이 나올 때까지 강불로 3분 굽는다. (지방 부분이 아래로 가게 두세요. 뒤적이지 않고 그대로 구워주세요.)",
+      "연기가 나면 고기를 뒤집고 중불로 줄여 설탕 5큰술을 넣고 볶는다.",
+      "겉면에 설탕이 코팅되면 식초 1큰술을 넣는다.",
+      "진간장 5큰술, 참치액 5큰술을 넣어 바르르 끓인다.",
+      "고춧가루 3큰술을 넣고 살짝 볶듯이 섞는다.",
+      "파, 양파, 다진 마늘 듬뿍 3큰술, 케첩 2큰술을 넣고 강불로 3분 볶는다. (양파의 숨이 죽을 때까지, 눌어붙은 양념을 긁어가며 볶으세요.)",
+      "물 500ml, 후추 20바퀴를 넣고 물이 끓으면 뚜껑을 덮어 약불로 40분 졸인다.",
+      "뚜껑을 열고 강불로 5분 더 졸인다. (양념이 걸쭉해지면 불을 끄세요.)",
+      "송송 썬 청양고추를 올려 마무리한다."
+    ],
+    "caloriesKcal": 1290,
+    "nutrition": {
+      "calories": 1290,
+      "carbs": 69,
+      "protein": 64,
+      "fat": 83
+    },
+    "tags": [
+      "돼지",
+      "특식",
+      "단짠",
+      "손님상"
+    ],
+    "description": "설탕으로 겉을 코팅하고 간장·참치액으로 졸여 단짠하게 만든 만 원 돼지갈비찜",
+    "photoUrl": "/images/recipes/r_p1_04.jpg"
   },
   {
     "id": "r_p1_05",

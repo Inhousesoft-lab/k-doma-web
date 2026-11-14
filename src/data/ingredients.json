@@ -658,6 +658,17 @@
     ]
   },
   {
+    "id": "m_ing_167",
+    "name": "돼지갈비",
+    "zone": "FRIDGE",
+    "imageKey": "pork_ribs",
+    "aliases": [
+      "돼지 갈비",
+      "찜갈비",
+      "돼지갈비찜용"
+    ]
+  },
+  {
     "id": "m_ing_163",
     "name": "즉석밥",
     "zone": "FRIDGE",
