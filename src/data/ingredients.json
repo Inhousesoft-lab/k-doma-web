@@ -691,5 +691,14 @@
       "배음료",
       "배주스"
     ]
+  },
+  {
+    "id": "m_ing_165",
+    "name": "깻잎",
+    "zone": "FRIDGE",
+    "imageKey": "perilla_leaf",
+    "aliases": [
+      "깻잎순"
+    ]
   }
 ]
