@@ -138,9 +138,28 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 
 | imageKey | 재료 | 사전 등록안 | SUBJECT |
 |---|---|---|---|
-| pear_juice | 배 음료(갈아만든 배 238ml 1캔) | id `m_ing_164`, name `배 음료`, zone `FRIDGE`, aliases `["갈아만든배", "갈아만든 배", "배음료", "배주스"]` | single slim 238ml aluminum beverage can of Korean pear juice, plain pale cream and light green can with no text and no logo, one fresh Asian pear beside it |
+| pear_juice | 배 음료(갈아만든 배 238ml 1캔) | id `m_ing_164`, name `배 음료`, zone `FRIDGE`, aliases `["갈아만든배", "갈아만든 배", "배음료", "배주스"]` | 아래 전용 프롬프트 |
 
-- 상품명 '갈아만든 배'는 상표라 이미지·imageKey에는 쓰지 않는다. 검색용 별칭(aliases)에만 넣는다.
+- 캔 디자인(색·배 그림·빨간 배지)은 실제 상품대로 쓰고 **'갈아만든 배' 로고 글자만 뺀다**(2026-11-14 사용자 결정, 저작권 문제 없음 확인). 캔 하나만, 옆에 배를 두지 않는다.
+- imageKey·재료명은 일반명(`pear_juice`, 배 음료)으로 두고 상품명은 별칭에만 넣는다.
+
+#### pear_juice 전용 프롬프트
+
+```
+A single slim 238ml aluminum beverage can of Korean pear juice, standing upright, photorealistic studio product photograph, centered,
+can design: glossy ivory cream body, realistic yellow-green Asian pear with green leaves illustrated on the upper left,
+a halved pear showing white flesh and seeds illustrated on the lower right,
+a large red scalloped starburst badge in the center left completely blank with no lettering,
+a thin dark maroon horizontal band below the badge left blank, silver aluminum top and bottom rim,
+isolated on a pure white background (#FFFFFF), soft diffused lighting from the top left,
+a subtle soft contact shadow directly beneath, three-quarter front view from slightly above (about 30 degrees),
+sharp focus, natural true-to-life colors, the can fills about 70% of the frame height with even margins,
+no text, no letters, no logo, no brand name, no numbers on the can, no hands, no props, no fruit beside the can, no table surface,
+square 1:1 composition
+```
+
+- 네거티브: 공통 틀 + `korean text, hangul, english text, fruit next to can, multiple cans`
+- 글자가 조금이라도 생기면 다시 생성한다. 빨간 배지·갈색 띠는 비어 있어야 한다.
 
 ## 4. 2차 다시 만들 대상
 
