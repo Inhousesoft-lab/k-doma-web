@@ -327,11 +327,13 @@
   },
   {
     "id": "m_ing_109",
-    "name": "떡",
+    "name": "떡볶이용 가래떡",
     "zone": "FRIDGE",
     "category": "GRAIN",
     "imageKey": "rice_cake",
     "aliases": [
+      "떡",
+      "가래떡",
       "떡볶이떡",
       "밀떡"
     ]
