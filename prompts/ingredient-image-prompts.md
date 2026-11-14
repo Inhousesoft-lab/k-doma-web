@@ -155,11 +155,101 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | aged_kimchi | 묵은지 | id `m_ing_179`, name `묵은지`, zone `FRIDGE`, aliases `["묵은지 김치", "묵은김치", "오래된 김치", "숙성김치"]` | one whole uncut quarter head of long-aged Korean napa cabbage kimchi (mukeunji), limp and softened leaves, deeper olive-yellow cabbage with darker brick-red seasoning, laid lengthwise |
 | dried_parsley | 파슬리 가루 | id `m_ing_180`, name `파슬리 가루`, zone `SEASONING`, aliases `["파슬리가루", "파슬리", "건조 파슬리", "말린 파슬리"]` | small glass spice jar with no lid filled with dried green parsley flakes, a small heap of the flakes spilled in front |
 | cherry_tomato | 방울토마토 | id `m_ing_181`, name `방울토마토`, zone `FRIDGE`, aliases `["방울 토마토", "체리토마토", "대추방울토마토", "미니토마토"]` | small cluster of five glossy red cherry tomatoes, two still attached to a green vine stem |
-| pepperoncino | 페퍼론치노 | id `m_ing_182`, name `페퍼론치노`, zone `SEASONING`, aliases `["페페론치노", "페퍼론치니", "이탈리안 건고추", "건고추"]` | small heap of whole dried small red Italian chili peppers (peperoncino), shiny wrinkled crimson skin, a few crushed flakes scattered |
+| pepperoncino | 페퍼론치노 | id `m_ing_182`, name `페퍼론치노`, zone `SEASONING`, aliases `["페페론치노", "페퍼론치니", "이탈리안 건고추"]` | small heap of whole dried small red Italian chili peppers (peperoncino), shiny wrinkled crimson skin, a few crushed flakes scattered |
 | ramen_soup_packet | 라면 수프 | id `m_ing_183`, name `라면 수프`, zone `SEASONING`, aliases `["라면스프", "라면 스프", "라면수프", "분말스프"]` | one small plain unprinted red-orange foil seasoning sachet torn open at the corner, a little reddish-orange soup powder spilled in front |
 | baguette | 바게트 빵 | id `m_ing_184`, name `바게트 빵`, zone `FRIDGE`, aliases `["바게트", "바게뜨", "프랑스빵"]` | one whole golden-brown crusty French baguette with diagonal scores, lying diagonally, two round slices cut in front |
+| beef_yukhoe | 육회용 설깃살 | id `m_ing_185`, name `육회용 설깃살`, zone `FRIDGE`, aliases `["육회용 소고기", "설깃살", "육회용", "육회"]` | small mound of raw lean beef eye round cut into thin matchstick strips for yukhoe, bright deep red with no fat |
+| pear | 배 | id `m_ing_186`, name `배`, zone `FRIDGE`, aliases `["신고배", "한국배", "나주배"]` | one whole round golden-brown Korean Asian pear (nashi) with a short stem, speckled skin |
+| glass_noodles | 당면 | id `m_ing_187`, name `당면`, zone `FRIDGE`, aliases `["잡채면", "고구마당면", "납작당면"]` | bundle of dry grey translucent sweet potato glass noodles (dangmyeon), long strands folded in half |
+| jjajang_powder | 짜장가루 | id `m_ing_188`, name `짜장가루`, zone `SEASONING`, aliases `["짜장 가루", "짜장분말", "분말짜장"]` | small heap of dark brown jjajang black bean sauce powder, a few lumps |
+| chicken_drumettes | 닭봉 | id `m_ing_189`, name `닭봉`, zone `FRIDGE`, aliases `["닭 봉", "닭날개봉", "윙봉"]` | small pile of raw chicken drumettes, pale pink skin-on, bone-in |
+| curry_powder | 카레가루 | id `m_ing_190`, name `카레가루`, zone `SEASONING`, aliases `["카레 가루", "카레분말", "분말카레", "카레"]` | small heap of bright yellow-orange curry powder |
+| minari | 미나리 | id `m_ing_191`, name `미나리`, zone `FRIDGE`, aliases `["돌미나리", "물미나리"]` | bunch of fresh Korean water dropwort (minari), long thin pale green hollow stems with small serrated green leaves on top |
+| sand_lance_fish_sauce | 까나리 액젓 | id `m_ing_192`, name `까나리 액젓`, zone `SEASONING`, aliases `["까나리액젓", "까나리"]` | tall plastic jug with a handle filled with clear golden-brown sand lance fish sauce, white cap, blank label |
+| blue_crab | 꽃게 | id `m_ing_193`, name `꽃게`, zone `FRIDGE`, aliases `["꽃 게", "생꽃게", "냉동꽃게"]` | one whole raw blue swimming crab (kkotge) with mottled blue-grey shell and long claws |
+| dried_red_chili | 건고추 | id `m_ing_194`, name `건고추`, zone `SEASONING`, aliases `["마른고추", "마른 고추", "건홍고추", "태양초 고추"]` | small pile of whole long dried Korean red chili peppers, dark glossy crimson, slightly flattened and wrinkled |
+| white_wine | 화이트 와인 | id `m_ing_195`, name `화이트 와인`, zone `SEASONING`, aliases `["화이트와인", "요리용 화이트 와인", "백포도주"]` | one green glass wine bottle of white wine with a plain foil capsule, blank label |
+| ssanghwa_tang | 쌍화탕 | id `m_ing_196`, name `쌍화탕`, zone `FRIDGE`, aliases `["쌍화탕 120ml", "쌍화차", "한방음료"]` | one small 120ml brown glass medicine bottle of Korean herbal drink with a gold metal cap, dark brown liquid, plain blank label |
+| red_chili | 홍고추 | id `m_ing_197`, name `홍고추`, zone `FRIDGE`, aliases `["붉은고추", "빨간고추", "생홍고추"]` | two fresh long glossy red chili peppers with green stems, slightly crossed |
+| black_rice | 흑미밥 | id `m_ing_198`, name `흑미밥`, zone `FRIDGE`, aliases `["흑미 밥", "흑미즉석밥", "잡곡밥"]` | white microwavable rice tray with the film partly peeled, cooked purple-black mixed black rice visible, no print |
+| bulgogi_ham | 불고기맛 햄 | id `m_ing_199`, name `불고기맛 햄`, zone `FRIDGE`, aliases `["불고기햄", "불고기 햄", "김밥햄"]` | several long rectangular sticks of brown bulgogi-flavored ham for gimbap, lightly glazed |
+| pickled_radish_gimbap | 김밥용 단무지 | id `m_ing_200`, name `김밥용 단무지`, zone `FRIDGE`, aliases `["단무지", "김밥단무지"]` | several long bright yellow pickled radish strips (danmuji) for gimbap, neatly stacked |
+| burdock_gimbap | 김밥용 우엉 | id `m_ing_201`, name `김밥용 우엉`, zone `FRIDGE`, aliases `["우엉", "우엉조림", "김밥우엉"]` | small bundle of thin glossy brown braised burdock root strips for gimbap |
+| crab_stick | 게맛살 | id `m_ing_202`, name `게맛살`, zone `FRIDGE`, aliases `["맛살", "크래미", "게살"]` | several imitation crab sticks with red-orange outer layer and white inside, one peeled open, no wrapper |
+| truffle_oil | 트러플 오일 | id `m_ing_203`, name `트러플 오일`, zone `SEASONING`, aliases `["트러플오일", "송로버섯오일"]` | small slim glass bottle of golden truffle oil with a black cap, one small black truffle beside it, blank label |
+| canned_whole_tomato | 홀 토마토 | id `m_ing_204`, name `홀 토마토`, zone `FRIDGE`, aliases `["홀토마토", "토마토 통조림", "토마토캔"]` | opened plain silver tin can with no label, whole peeled red tomatoes in red juice visible inside |
+| chicken_powder | 치킨 파우더 | id `m_ing_205`, name `치킨 파우더`, zone `SEASONING`, aliases `["치킨파우더", "치킨스톡", "치킨 스톡", "치킨스톡 파우더"]` | small glass jar with no lid filled with pale yellow chicken stock powder, a little powder spilled in front, no label |
+| fresh_basil | 생 바질 | id `m_ing_206`, name `생 바질`, zone `FRIDGE`, aliases `["바질", "생바질", "스위트바질"]` | small bunch of fresh sweet basil, bright green glossy oval leaves on stems |
+| abalone | 전복 | id `m_ing_207`, name `전복`, zone `FRIDGE`, aliases `["활전복", "생전복"]` | two whole fresh abalone in shell, dark muscular foot visible, iridescent shell edge |
+| coarse_salt | 굵은 소금 | id `m_ing_208`, name `굵은 소금`, zone `SEASONING`, aliases `["굵은소금", "천일염", "왕소금"]` | small heap of large coarse grey-white sea salt crystals in a small wooden bowl |
+| pollock_roe | 명란젓 | id `m_ing_209`, name `명란젓`, zone `FRIDGE`, aliases `["명란", "명란젓갈", "백명란"]` | two whole salted pollock roe sacs (myeongnan), glossy pinkish-red |
+| grana_padano | 그라나 파다노 치즈 | id `m_ing_210`, name `그라나 파다노 치즈`, zone `FRIDGE`, aliases `["그라나파다노", "그라나 파다노"]` | one wedge of hard aged pale straw-yellow Italian cheese with a thick hard rind and grainy texture, no rind lettering |
+| parmigiano | 파르미지아노 레지아노 치즈 | id `m_ing_211`, name `파르미지아노 레지아노 치즈`, zone `FRIDGE`, aliases `["파르미지아노 레지아노", "파마산 치즈", "파마산치즈", "파르메산"]` | one wedge of hard aged golden Parmigiano cheese with a thick hard rind and crystalline crumbly texture, a few shards broken off in front, no rind lettering |
+| lobster | 랍스터 | id `m_ing_212`, name `랍스터`, zone `FRIDGE`, aliases `["랍스타", "바닷가재"]` | one whole raw lobster, dark blue-green shell, large claws, lying diagonally |
+| mussel | 홍합 | id `m_ing_213`, name `홍합`, zone `FRIDGE`, aliases `["생홍합", "담치"]` | small pile of fresh black-blue mussels in shell, one open showing orange meat |
+| corn | 옥수수 | id `m_ing_214`, name `옥수수`, zone `FRIDGE`, aliases `["찰옥수수", "생옥수수"]` | one ear of fresh yellow corn with the husk partly peeled back |
+| lemon | 레몬 | id `m_ing_215`, name `레몬`, zone `FRIDGE`, aliases `[]` | one whole bright yellow lemon and one half cut showing the juicy cross-section |
+| canned_whelk | 골뱅이 캔 | id `m_ing_216`, name `골뱅이 캔`, zone `FRIDGE`, aliases `["골뱅이", "골뱅이통조림", "골뱅이 통조림"]` | opened plain silver tin can with no label, brown whelk meat in brine visible inside |
+| dried_pollock_shreds | 황태채 | id `m_ing_217`, name `황태채`, zone `FRIDGE`, aliases `["황태", "북어채", "황태포"]` | small pile of shredded dried pollock (hwangtae-chae), fluffy pale yellow-white fibers |
+| dried_rice_noodles | 건쌀국수 면 | id `m_ing_218`, name `건쌀국수 면`, zone `FRIDGE`, aliases `["쌀국수면", "쌀국수", "건쌀국수"]` | bundle of dry flat white rice noodles, folded |
+| red_cabbage | 적양배추 | id `m_ing_219`, name `적양배추`, zone `FRIDGE`, aliases `["적채", "자색양배추"]` | one whole red cabbage head and one half cut showing purple and white layered cross-section |
+| lettuce | 상추 | id `m_ing_220`, name `상추`, zone `FRIDGE`, aliases `["적상추", "청상추", "꽃상추"]` | small bunch of fresh Korean leaf lettuce (sangchu), ruffled green leaves with reddish tips |
+| black_olives | 블랙 올리브 | id `m_ing_221`, name `블랙 올리브`, zone `FRIDGE`, aliases `["블랙올리브", "올리브", "슬라이스 올리브"]` | small heap of glossy whole pitted black olives, a few sliced rings |
+| baby_napa_cabbage | 알배추 | id `m_ing_222`, name `알배추`, zone `FRIDGE`, aliases `["알배기배추", "쌈배추"]` | one small whole baby napa cabbage head with pale yellow-green crinkly leaves |
+| instant_ramen | 라면 | id `m_ing_223`, name `라면`, zone `FRIDGE`, aliases `["진라면", "봉지라면", "인스턴트 라면", "라면사리"]` | one block of dry wavy instant ramen noodles, golden, square shape, no packaging |
+| dried_wakame | 건미역 | id `m_ing_224`, name `건미역`, zone `FRIDGE`, aliases `["미역", "마른미역", "자른미역"]` | small pile of dried dark green-black cut wakame seaweed (miyeok) |
+| beef_flank | 소고기 양지 | id `m_ing_225`, name `소고기 양지`, zone `FRIDGE`, aliases `["양지", "양지머리", "국거리 소고기", "국거리용 소고기"]` | one block of raw beef brisket flank (yangji) for soup, deep red meat with thin fat lines, a few cubes cut in front |
+| pork_neck_bones | 돼지등뼈 | id `m_ing_226`, name `돼지등뼈`, zone `FRIDGE`, aliases `["등뼈", "감자탕용 등뼈", "돼지 등뼈"]` | pile of raw pork neck bones for gamjatang, chunky bones with red meat attached |
+| young_napa_cabbage | 얼갈이배추 | id `m_ing_227`, name `얼갈이배추`, zone `FRIDGE`, aliases `["얼갈이", "얼갈이 배추"]` | bunch of young napa cabbage (eolgari), loose bright green leaves with white stems |
+| bone_broth_ramen | 곰탕 라면 | id `m_ing_228`, name `곰탕 라면`, zone `FRIDGE`, aliases `["사리곰탕면", "사리곰탕", "곰탕면"]` | one block of dry straight white instant ramen noodles for bone broth ramen, square shape, no packaging, a small plain white powder sachet beside it |
+| frankfurter | 프랑크소시지 | id `m_ing_229`, name `프랑크소시지`, zone `FRIDGE`, aliases `["프랑크 소시지", "소시지", "후랑크소시지"]` | three plump frankfurter sausages, reddish-brown casing, one cut showing the cross-section |
+| baked_beans | 베이크드 빈스 | id `m_ing_230`, name `베이크드 빈스`, zone `FRIDGE`, aliases `["베이크드빈스", "베이크드 빈"]` | opened plain silver tin can with no label, baked beans in orange tomato sauce visible inside |
+| glutinous_rice | 찹쌀 | id `m_ing_231`, name `찹쌀`, zone `FRIDGE`, aliases `["찹쌀 쌀"]` | small heap of uncooked opaque milky-white glutinous rice grains |
+| cheongju | 청주 | id `m_ing_232`, name `청주`, zone `SEASONING`, aliases `["정종", "요리용 청주"]` | one clear glass bottle of clear Korean rice wine (cheongju) with a white screw cap, blank label |
+| oyster_mushroom | 느타리버섯 | id `m_ing_233`, name `느타리버섯`, zone `FRIDGE`, aliases `["느타리", "애느타리"]` | cluster of fresh grey-brown oyster mushrooms with fan-shaped caps |
+| soup_soy_sauce | 국간장 | id `m_ing_234`, name `국간장`, zone `SEASONING`, aliases `["조선간장", "집간장", "국 간장"]` | one glass bottle of light brown Korean soup soy sauce with a green cap, blank label |
+| jjajang_ramen_soup | 짜장라면 수프 | id `m_ing_235`, name `짜장라면 수프`, zone `SEASONING`, aliases `["짜장라면 스프", "짜장스프", "짜장수프"]` | one small plain unprinted dark brown foil seasoning sachet torn open at the corner, a little dark brown jjajang powder spilled in front |
+| jjolmyeon_noodles | 쫄면사리 | id `m_ing_236`, name `쫄면사리`, zone `FRIDGE`, aliases `["쫄면", "쫄면 사리"]` | small coiled nest of thick chewy pale yellow jjolmyeon noodles, uncooked |
+| sweet_potato | 고구마 | id `m_ing_237`, name `고구마`, zone `FRIDGE`, aliases `["밤고구마", "호박고구마"]` | two whole sweet potatoes with purple-red skin, one cut showing yellow flesh |
+| shredded_mozzarella | 슈레드 피자치즈 | id `m_ing_238`, name `슈레드 피자치즈`, zone `FRIDGE`, aliases `["피자치즈", "모짜렐라", "모짜렐라 치즈", "슈레드치즈"]` | small heap of shredded white mozzarella pizza cheese |
+| vanilla_ice_cream | 바닐라 아이스크림 | id `m_ing_239`, name `바닐라 아이스크림`, zone `FRIDGE`, aliases `["아이스크림", "바닐라아이스크림"]` | two round scoops of creamy vanilla ice cream with tiny vanilla bean specks, stacked, no cone, no bowl |
+| dinner_roll | 모닝빵 | id `m_ing_240`, name `모닝빵`, zone `FRIDGE`, aliases `["모닝 빵", "미니빵"]` | three small soft golden-brown round dinner rolls, joined side by side |
+| strawberry_jam | 딸기잼 | id `m_ing_241`, name `딸기잼`, zone `FRIDGE`, aliases `["딸기 잼"]` | small round glass jar of red strawberry jam with no lid, no label |
+| canned_corn | 캔 옥수수 | id `m_ing_242`, name `캔 옥수수`, zone `FRIDGE`, aliases `["통조림 옥수수", "옥수수캔", "스위트콘"]` | opened plain silver tin can with no label, sweet yellow corn kernels visible inside |
+| tortilla | 또르티야 | id `m_ing_243`, name `또르티야`, zone `FRIDGE`, aliases `["토르티야", "또띠아", "토르티아"]` | small stack of round flour tortillas with light brown toasted spots, top one slightly folded |
+| oyster | 굴 | id `m_ing_244`, name `굴`, zone `FRIDGE`, aliases `["생굴", "석화"]` | small pile of fresh shucked raw oysters, glossy grey-white, one oyster on its half shell |
+| small_green_onion | 쪽파 | id `m_ing_245`, name `쪽파`, zone `FRIDGE`, aliases `["실파"]` | small bunch of thin Korean green onions (jjokpa) with small white bulbs and slender green leaves |
+| cream_cheese | 크림치즈 | id `m_ing_246`, name `크림치즈`, zone `FRIDGE`, aliases `["크림 치즈"]` | one rectangular block of white cream cheese with one corner scooped out, on its opened plain foil wrapper |
+| condensed_milk | 연유 | id `m_ing_247`, name `연유`, zone `FRIDGE`, aliases `[]` | small plain white squeeze tube of sweetened condensed milk with a thick drizzle of creamy condensed milk in front, no print |
+| smoked_salmon | 훈제 연어 | id `m_ing_248`, name `훈제 연어`, zone `FRIDGE`, aliases `["훈제연어", "연어"]` | several slices of smoked salmon, bright orange with white fat lines, gently folded |
+| arugula | 루꼴라 | id `m_ing_249`, name `루꼴라`, zone `FRIDGE`, aliases `["루콜라", "로켓"]` | small loose pile of fresh arugula leaves, dark green, lobed shape |
+| capers | 케이퍼 | id `m_ing_250`, name `케이퍼`, zone `FRIDGE`, aliases `["케이퍼스"]` | small heap of tiny round olive-green pickled capers, glossy |
+| margarine | 마가린 | id `m_ing_251`, name `마가린`, zone `FRIDGE`, aliases `[]` | small plain white plastic tub of pale yellow margarine with the lid off, a spread swirl on top, no print |
+| broccoli | 브로콜리 | id `m_ing_252`, name `브로콜리`, zone `FRIDGE`, aliases `[]` | one whole fresh head of broccoli with a thick stem |
+| gruyere | 그뤼에르 치즈 | id `m_ing_253`, name `그뤼에르 치즈`, zone `FRIDGE`, aliases `["그뤼에르", "그뤼예르"]` | one wedge of pale yellow Gruyere cheese with a brown natural rind and a few tiny holes |
+| emmental | 에멘탈 치즈 | id `m_ing_254`, name `에멘탈 치즈`, zone `FRIDGE`, aliases `["에멘탈", "에멘탈러"]` | one wedge of pale yellow Emmental cheese with large round holes |
+| dumpling_wrapper | 왕만두피 | id `m_ing_255`, name `왕만두피`, zone `FRIDGE`, aliases `["만두피", "왕 만두피"]` | small stack of large round thin white dumpling wrappers, top one slightly lifted |
+| cinnamon_powder | 시나몬 파우더 | id `m_ing_256`, name `시나몬 파우더`, zone `SEASONING`, aliases `["시나몬", "계피가루", "계피 가루"]` | small heap of reddish-brown ground cinnamon with two cinnamon sticks beside it |
+| chocolate | 초콜릿 | id `m_ing_257`, name `초콜릿`, zone `FRIDGE`, aliases `["다크초콜릿", "초콜렛"]` | plain dark chocolate bar broken into a few square pieces, no wrapper, no embossed text |
+| maple_syrup | 메이플시럽 | id `m_ing_258`, name `메이플시럽`, zone `SEASONING`, aliases `["메이플 시럽", "메이플"]` | small glass bottle of dark amber maple syrup with a small loop handle, blank label |
+| apple_jam | 사과잼 | id `m_ing_259`, name `사과잼`, zone `FRIDGE`, aliases `["사과 잼"]` | small round glass jar of golden-brown apple jam with no lid, no label |
+| brie | 브리 치즈 | id `m_ing_260`, name `브리 치즈`, zone `FRIDGE`, aliases `["브리", "브리치즈"]` | one wedge of soft brie cheese with a white bloomy rind and creamy pale yellow interior |
+| heavy_cream | 동물성 생크림 | id `m_ing_261`, name `동물성 생크림`, zone `FRIDGE`, aliases `["생크림", "휘핑크림", "동물성생크림"]` | plain white unprinted milk carton style container of heavy cream next to a small dollop of thick whipped cream |
 | perilla_leaf | 깻잎 | id `m_ing_165`, name `깻잎`, zone `FRIDGE`, aliases `["깻잎순", "들깻잎", "깻잎장아찌"]` | small neat stack of fresh green Korean perilla leaves (kkaennip), slightly fanned so the serrated edges and pointed tips are visible |
 
+- **등록 시 기존 재료에서 옮길 별칭**(새 재료를 사전에 넣을 때 기존 쪽에서 지운다)
+
+  | 별칭 | 기존 재료 → 새 재료 |
+  |---|---|
+  | `까나리액젓` | 멸치액젓 `fish_sauce` → 까나리 액젓 `sand_lance_fish_sauce` |
+  | `천일염`, `굵은소금`, `굵은 소금` | 소금 `salt` → 굵은 소금 `coarse_salt` |
+  | `청주` | 맛술 `cooking_wine` → 청주 `cheongju` |
+  | `쪽파` | 대파 `scallion` → 쪽파 `small_green_onion` |
+  | `소시지` | 베이컨 `bacon` → 프랑크소시지 `frankfurter` |
+  | `소고기 양지` | 소고기 `beef`(삭제 예정) → 소고기 양지 `beef_flank` |
+  | `피자치즈` | 치즈 `cheese`(삭제 예정) → 슈레드 피자치즈 `shredded_mozzarella` |
+- **새로 만들지 않고 기존 재료로 쓰는 것**: 양배추·올리브 오일·바지락·콩나물·두부·사과·사각어묵·식빵·미림(맛술) — 이미 있음. 구이용 돼지 삼겹살 → `pork_belly`, 구운 김 → `laver`, 청고추 → `green_chili`(별칭 추가함).
+- **상품명**: 진라면·사리곰탕면은 일반명(라면·곰탕 라면)으로 두고 상품명은 별칭에만 넣는다. 포장 없이 면만 그린다.
 - **물엿 등록 시**: 올리고당(`m_ing_13`)의 별칭 `물엿`을 지운다. 올리고당은 노란 짜는 병, 물엿은 넓은 투명 통으로 구분한다.
 - 캔 디자인(색·배 그림·빨간 배지)은 실제 상품대로 쓰고 **'갈아만든 배' 로고 글자만 뺀다**(2026-11-14 사용자 결정, 저작권 문제 없음 확인). 캔 하나만, 옆에 배를 두지 않는다.
 - imageKey·재료명은 일반명(`pear_juice`, 배 음료)으로 두고 상품명은 별칭에만 넣는다.
