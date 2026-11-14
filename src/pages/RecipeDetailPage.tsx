@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   Heart,
@@ -59,13 +59,16 @@ export const RecipeDetailPage: React.FC = () => {
       ingredientService.getIngredients(),
     ]);
     if (!r) throw new Error(`요리를 찾을 수 없어요: ${recipeId}`);
-    if (servingsInitializedFor.current !== r.id) {
-      servingsInitializedFor.current = r.id;
-      setServings(r.servings || 2);
-    }
     return { recipe: r, fridgeIngredients: ingredients };
   }, [recipeId]);
   const recipe = data?.recipe;
+
+  // 반영된 요리 기준으로 인분을 맞춘다 (fetcher 안에서 하면 늦게 끝난 옛 요청이 인분을 바꿀 수 있다)
+  useEffect(() => {
+    if (!recipe || servingsInitializedFor.current === recipe.id) return;
+    servingsInitializedFor.current = recipe.id;
+    setServings(recipe.servings || 2);
+  }, [recipe]);
   const fridgeIngredients = useMemo(() => data?.fridgeIngredients ?? [], [data]);
 
   const showToastMessage = (message: string) => {

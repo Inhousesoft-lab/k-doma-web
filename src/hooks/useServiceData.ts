@@ -8,6 +8,8 @@ import { subscribeToDataChanges } from '../services';
  * - reload: 저장 후 다시 읽기 (로딩 화면 없이). 실패하면 error 만 켠다 (던지지 않는다)
  * - retry: 오류 화면 [다시 시도] (로딩 화면을 보여 주고 다시 읽기)
  * - setData: 저장 전에 화면에 먼저 반영할 때 (드래그앤드롭 등)
+ * - 마지막 요청의 결과만 반영한다. 먼저 보낸 요청이 늦게 끝나도 새 데이터를 덮어쓰지 않고,
+ *   deps 가 바뀌었거나 화면을 떠난 뒤에 끝난 요청도 버린다
  */
 export default function useServiceData<T>(fetcher: () => Promise<T>, deps: DependencyList = []) {
   const [data, setData] = useState<T | null>(null);
@@ -18,16 +20,23 @@ export default function useServiceData<T>(fetcher: () => Promise<T>, deps: Depen
   const fetcherRef = useRef(fetcher);
   fetcherRef.current = fetcher;
 
+  /** 요청 번호. 결과가 왔을 때 이 번호가 그대로여야 반영한다 */
+  const requestIdRef = useRef(0);
+
   const reload = useCallback(async (): Promise<void> => {
+    const requestId = ++requestIdRef.current;
+    const isLatest = () => requestId === requestIdRef.current;
     try {
       const next = await fetcherRef.current();
+      if (!isLatest()) return;
       setData(next);
       setError(false);
     } catch (e) {
+      if (!isLatest()) return;
       console.error(e);
       setError(true);
     } finally {
-      setLoading(false);
+      if (isLatest()) setLoading(false);
     }
   }, []);
 
@@ -39,9 +48,13 @@ export default function useServiceData<T>(fetcher: () => Promise<T>, deps: Depen
   useEffect(() => {
     setLoading(true);
     void reload();
-    return subscribeToDataChanges(() => {
+    const unsubscribe = subscribeToDataChanges(() => {
       void reload();
     });
+    return () => {
+      unsubscribe();
+      requestIdRef.current++; // 진행 중인 요청 결과는 버린다 (deps 변경·화면 이탈)
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 
