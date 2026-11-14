@@ -3,6 +3,7 @@
     "id": "m_ing_1",
     "name": "간장",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "soy_sauce",
     "aliases": [
       "진간장",
@@ -13,6 +14,7 @@
     "id": "m_ing_2",
     "name": "고추장",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "chili_paste",
     "aliases": [
       "순창고추장"
@@ -22,6 +24,7 @@
     "id": "m_ing_3",
     "name": "된장",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "soybean_paste",
     "aliases": [
       "재래된장"
@@ -31,6 +34,7 @@
     "id": "m_ing_4",
     "name": "고춧가루",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "chili_powder",
     "aliases": [
       "고추가루",
@@ -41,6 +45,7 @@
     "id": "m_ing_5",
     "name": "참기름",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "sesame_oil",
     "aliases": [
       "고소한참기름"
@@ -50,6 +55,7 @@
     "id": "m_ing_6",
     "name": "들기름",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "perilla_oil",
     "aliases": []
   },
@@ -57,6 +63,7 @@
     "id": "m_ing_7",
     "name": "설탕",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "sugar",
     "aliases": [
       "백설탕",
@@ -67,6 +74,7 @@
     "id": "m_ing_8",
     "name": "소금",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "salt",
     "aliases": [
       "맛소금",
@@ -78,6 +86,7 @@
     "id": "m_ing_9",
     "name": "식초",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "vinegar",
     "aliases": [
       "양조식초",
@@ -88,6 +97,7 @@
     "id": "m_ing_10",
     "name": "다진마늘",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "garlic_minced",
     "aliases": [
       "간마늘"
@@ -97,6 +107,7 @@
     "id": "m_ing_11",
     "name": "맛술",
     "zone": "SEASONING",
+    "category": "ETC",
     "imageKey": "cooking_wine",
     "aliases": [
       "미림"
@@ -106,6 +117,7 @@
     "id": "m_ing_12",
     "name": "후추",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "black_pepper",
     "aliases": [
       "후춧가루",
@@ -116,6 +128,7 @@
     "id": "m_ing_180",
     "name": "파슬리 가루",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "parsley_flakes",
     "aliases": [
       "파슬리",
@@ -128,6 +141,7 @@
     "id": "m_ing_182",
     "name": "페퍼론치노",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "peperoncino",
     "aliases": [
       "페페론치노",
@@ -140,6 +154,7 @@
     "id": "m_ing_183",
     "name": "라면 수프",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "ramen_soup_powder",
     "aliases": [
       "라면스프",
@@ -152,6 +167,7 @@
     "id": "m_ing_13",
     "name": "올리고당(물엿)",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "syrup",
     "aliases": [
       "물엿",
@@ -164,6 +180,7 @@
     "id": "m_ing_173",
     "name": "꿀",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "honey",
     "aliases": [
       "벌꿀",
@@ -175,6 +192,7 @@
     "id": "m_ing_14",
     "name": "굴소스",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "oyster_sauce",
     "aliases": []
   },
@@ -182,6 +200,7 @@
     "id": "m_ing_15",
     "name": "케첩",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "ketchup",
     "aliases": [
       "토마토케첩",
@@ -192,6 +211,7 @@
     "id": "m_ing_16",
     "name": "마요네즈",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "mayonnaise",
     "aliases": []
   },
@@ -199,6 +219,7 @@
     "id": "m_ing_17",
     "name": "멸치액젓",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "fish_sauce",
     "aliases": [
       "액젓"
@@ -208,6 +229,7 @@
     "id": "m_ing_18",
     "name": "통깨",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "sesame_seeds",
     "aliases": [
       "볶음참깨"
@@ -217,6 +239,7 @@
     "id": "m_ing_101",
     "name": "양파",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "onion",
     "aliases": []
   },
@@ -224,6 +247,7 @@
     "id": "m_ing_102",
     "name": "대파",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "scallion",
     "aliases": [
       "파"
@@ -233,6 +257,7 @@
     "id": "m_ing_103",
     "name": "계란",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "egg",
     "aliases": [
       "달걀",
@@ -245,6 +270,7 @@
     "id": "m_ing_104",
     "name": "두부",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "tofu",
     "aliases": [
       "찌개두부",
@@ -256,6 +282,7 @@
     "id": "m_ing_105",
     "name": "김치",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "kimchi",
     "aliases": [
       "배추김치",
@@ -267,6 +294,7 @@
     "id": "m_ing_179",
     "name": "묵은지",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "aged_kimchi",
     "aliases": [
       "묵은김치",
@@ -280,6 +308,7 @@
     "id": "m_ing_106",
     "name": "우유",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "milk",
     "aliases": [
       "생우유"
@@ -289,6 +318,7 @@
     "id": "m_ing_108",
     "name": "새우",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "shrimp",
     "aliases": [
       "칵테일새우",
@@ -299,6 +329,7 @@
     "id": "m_ing_109",
     "name": "떡",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "rice_cake",
     "aliases": [
       "떡볶이떡",
@@ -309,6 +340,7 @@
     "id": "m_ing_110",
     "name": "감자",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "potato",
     "aliases": [
       "수미감자"
@@ -318,6 +350,7 @@
     "id": "m_ing_166",
     "name": "닭볶음탕용 닭",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "chicken_stew_cut",
     "aliases": [
       "토막닭",
@@ -332,6 +365,7 @@
     "id": "m_ing_178",
     "name": "생닭",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "whole_chicken",
     "aliases": [
       "통닭",
@@ -346,6 +380,7 @@
     "id": "m_ing_113",
     "name": "오징어",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "squid",
     "aliases": [
       "물오징어"
@@ -355,6 +390,7 @@
     "id": "m_ing_114",
     "name": "어묵",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "fish_cake",
     "aliases": [
       "사각어묵",
@@ -365,6 +401,7 @@
     "id": "m_ing_115",
     "name": "콩나물",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "bean_sprouts",
     "aliases": [
       "숙주"
@@ -374,6 +411,7 @@
     "id": "m_ing_116",
     "name": "애호박",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "zucchini",
     "aliases": [
       "호박"
@@ -383,6 +421,7 @@
     "id": "m_ing_117",
     "name": "버섯",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "mushroom",
     "aliases": [
       "새송이버섯",
@@ -393,6 +432,7 @@
     "id": "m_ing_118",
     "name": "당근",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "carrot",
     "aliases": []
   },
@@ -400,6 +440,7 @@
     "id": "m_ing_119",
     "name": "시금치",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "spinach",
     "aliases": []
   },
@@ -407,6 +448,7 @@
     "id": "m_ing_120",
     "name": "바지락",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "clam",
     "aliases": [
       "조개"
@@ -416,6 +458,7 @@
     "id": "m_ing_121",
     "name": "베이컨",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "bacon",
     "aliases": [
       "햄"
@@ -425,6 +468,7 @@
     "id": "m_ing_123",
     "name": "만두",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "dumpling",
     "aliases": [
       "냉동만두",
@@ -435,6 +479,7 @@
     "id": "m_ing_124",
     "name": "무",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "radish",
     "aliases": []
   },
@@ -442,6 +487,7 @@
     "id": "m_ing_125",
     "name": "쌈장",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "ssamjang",
     "aliases": []
   },
@@ -449,6 +495,7 @@
     "id": "m_ing_126",
     "name": "청양고추",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "chili_pepper",
     "aliases": []
   },
@@ -456,6 +503,7 @@
     "id": "m_ing_127",
     "name": "참치캔",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "canned_tuna",
     "aliases": [
       "참치",
@@ -466,6 +514,7 @@
     "id": "m_ing_128",
     "name": "양배추",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "cabbage",
     "aliases": []
   },
@@ -473,6 +522,7 @@
     "id": "m_ing_129",
     "name": "고추",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "green_chili",
     "aliases": [
       "풋고추"
@@ -482,6 +532,7 @@
     "id": "m_ing_130",
     "name": "김",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "laver",
     "aliases": [
       "조미김",
@@ -493,6 +544,7 @@
     "id": "m_ing_131",
     "name": "스팸",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "spam",
     "aliases": [
       "런천미트"
@@ -502,6 +554,7 @@
     "id": "m_ing_133",
     "name": "사과",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "apple",
     "aliases": []
   },
@@ -509,6 +562,7 @@
     "id": "m_ing_134",
     "name": "소면",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "somen",
     "aliases": [
       "국수"
@@ -518,6 +572,7 @@
     "id": "m_ing_136",
     "name": "오이",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "cucumber",
     "aliases": []
   },
@@ -525,6 +580,7 @@
     "id": "m_ing_137",
     "name": "파스타면",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "pasta",
     "aliases": [
       "스파게티면"
@@ -534,6 +590,7 @@
     "id": "m_ing_138",
     "name": "참치액젓",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "tuna_fish_sauce",
     "aliases": [
       "참치액"
@@ -543,6 +600,7 @@
     "id": "m_ing_140",
     "name": "올리브유",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "olive_oil",
     "aliases": [
       "올리브오일"
@@ -552,6 +610,7 @@
     "id": "m_ing_141",
     "name": "쌀",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "rice",
     "aliases": [
       "밥"
@@ -561,6 +620,7 @@
     "id": "m_ing_142",
     "name": "고등어",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "mackerel",
     "aliases": []
   },
@@ -568,6 +628,7 @@
     "id": "m_ing_143",
     "name": "팽이버섯",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "enoki",
     "aliases": []
   },
@@ -575,6 +636,7 @@
     "id": "m_ing_145",
     "name": "마늘",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "garlic",
     "aliases": [
       "통마늘"
@@ -584,6 +646,7 @@
     "id": "m_ing_175",
     "name": "생강",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "ginger",
     "aliases": [
       "통생강",
@@ -596,6 +659,7 @@
     "id": "m_ing_176",
     "name": "가지",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "eggplant",
     "aliases": [
       "가지나물용"
@@ -605,6 +669,7 @@
     "id": "m_ing_181",
     "name": "방울토마토",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "cherry_tomato",
     "aliases": [
       "방울 토마토",
@@ -617,6 +682,7 @@
     "id": "m_ing_165",
     "name": "깻잎",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "perilla_leaf",
     "aliases": [
       "깻잎순",
@@ -628,6 +694,7 @@
     "id": "m_ing_169",
     "name": "꽈리고추",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "shishito_pepper",
     "aliases": [
       "꽈리 고추"
@@ -637,6 +704,7 @@
     "id": "m_ing_170",
     "name": "잔멸치",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "dried_baby_anchovy",
     "aliases": [
       "잔 멸치",
@@ -650,6 +718,7 @@
     "id": "m_ing_146",
     "name": "닭가슴살",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "chicken_breast",
     "aliases": []
   },
@@ -657,6 +726,7 @@
     "id": "m_ing_147",
     "name": "식빵",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "bread",
     "aliases": []
   },
@@ -664,6 +734,7 @@
     "id": "m_ing_184",
     "name": "바게트",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "baguette",
     "aliases": [
       "바게트 빵",
@@ -675,6 +746,7 @@
     "id": "m_ing_150",
     "name": "떡국떡",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "rice_cake_slices",
     "aliases": []
   },
@@ -682,6 +754,7 @@
     "id": "m_ing_151",
     "name": "부침가루",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "pancake_mix",
     "aliases": []
   },
@@ -689,6 +762,7 @@
     "id": "m_ing_177",
     "name": "감자전분",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "potato_starch",
     "aliases": [
       "전분",
@@ -702,6 +776,7 @@
     "id": "m_ing_152",
     "name": "코인육수",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "broth_coin",
     "aliases": [
       "육수코인"
@@ -711,6 +786,7 @@
     "id": "m_ing_153",
     "name": "다진생강",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "ginger_minced",
     "aliases": [
       "간생강"
@@ -720,6 +796,7 @@
     "id": "m_ing_154",
     "name": "새우젓",
     "zone": "SEASONING",
+    "category": "SEAFOOD",
     "imageKey": "salted_shrimp",
     "aliases": [
       "육젓",
@@ -730,6 +807,7 @@
     "id": "m_ing_155",
     "name": "식용유",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "cooking_oil",
     "aliases": [
       "카놀라유",
@@ -741,6 +819,7 @@
     "id": "m_ing_156",
     "name": "차돌박이",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "beef_brisket",
     "aliases": [
       "차돌"
@@ -750,6 +829,7 @@
     "id": "m_ing_157",
     "name": "우삼겹",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "beef_short_plate",
     "aliases": []
   },
@@ -757,6 +837,7 @@
     "id": "m_ing_174",
     "name": "불고깃감 소고기",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "beef_bulgogi",
     "aliases": [
       "불고기용 소고기",
@@ -771,6 +852,7 @@
     "id": "m_ing_158",
     "name": "돼지고기 앞다리살",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "pork_shoulder",
     "aliases": [
       "앞다리살",
@@ -782,6 +864,7 @@
     "id": "m_ing_159",
     "name": "돼지고기 삼겹살",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "pork_belly",
     "aliases": [
       "삼겹살",
@@ -794,6 +877,7 @@
     "id": "m_ing_172",
     "name": "껍질 붙은 통삼겹",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "pork_belly_skin_on",
     "aliases": [
       "돼지 껍질 붙은 통삼겹",
@@ -810,6 +894,7 @@
     "id": "m_ing_167",
     "name": "돼지갈비",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "pork_ribs",
     "aliases": [
       "돼지 갈비",
@@ -822,6 +907,7 @@
     "id": "m_ing_168",
     "name": "돼지등갈비",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "pork_back_ribs",
     "aliases": [
       "등갈비",
@@ -835,6 +921,7 @@
     "id": "m_ing_163",
     "name": "즉석밥",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "instant_rice",
     "aliases": [
       "햇반",
@@ -845,6 +932,7 @@
     "id": "m_ing_160",
     "name": "양송이버섯",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "button_mushroom",
     "aliases": [
       "양송이"
@@ -854,6 +942,7 @@
     "id": "m_ing_161",
     "name": "슬라이스 체다치즈",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "sliced_cheddar",
     "aliases": [
       "슬라이스 치즈",
@@ -867,6 +956,7 @@
     "id": "m_ing_162",
     "name": "버터",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "butter",
     "aliases": [
       "무염버터",
@@ -877,6 +967,7 @@
     "id": "m_ing_164",
     "name": "배 음료",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "pear_juice",
     "aliases": [
       "갈아만든배",
@@ -889,6 +980,7 @@
     "id": "m_ing_208",
     "name": "굵은 소금",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "coarse_salt",
     "aliases": [
       "굵은소금",
@@ -900,6 +992,7 @@
     "id": "m_ing_185",
     "name": "육회용 설깃살",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "beef_yukhoe",
     "aliases": [
       "육회용 소고기",
@@ -912,6 +1005,7 @@
     "id": "m_ing_186",
     "name": "배",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "pear",
     "aliases": [
       "신고배",
@@ -923,6 +1017,7 @@
     "id": "m_ing_187",
     "name": "당면",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "glass_noodles",
     "aliases": [
       "잡채면",
@@ -934,6 +1029,7 @@
     "id": "m_ing_188",
     "name": "짜장가루",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "jjajang_powder",
     "aliases": [
       "짜장 가루",
@@ -945,6 +1041,7 @@
     "id": "m_ing_189",
     "name": "닭봉",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "chicken_drumettes",
     "aliases": [
       "닭 봉",
@@ -956,6 +1053,7 @@
     "id": "m_ing_190",
     "name": "카레가루",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "curry_powder",
     "aliases": [
       "카레 가루",
@@ -968,6 +1066,7 @@
     "id": "m_ing_191",
     "name": "미나리",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "minari",
     "aliases": [
       "돌미나리",
@@ -978,6 +1077,7 @@
     "id": "m_ing_192",
     "name": "까나리 액젓",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "sand_lance_fish_sauce",
     "aliases": [
       "까나리액젓",
@@ -988,6 +1088,7 @@
     "id": "m_ing_193",
     "name": "꽃게",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "blue_crab",
     "aliases": [
       "꽃 게",
@@ -999,6 +1100,7 @@
     "id": "m_ing_194",
     "name": "건고추",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "dried_red_chili",
     "aliases": [
       "마른고추",
@@ -1011,6 +1113,7 @@
     "id": "m_ing_195",
     "name": "화이트 와인",
     "zone": "SEASONING",
+    "category": "ETC",
     "imageKey": "white_wine",
     "aliases": [
       "화이트와인",
@@ -1022,6 +1125,7 @@
     "id": "m_ing_262",
     "name": "레드 와인",
     "zone": "SEASONING",
+    "category": "ETC",
     "imageKey": "red_wine",
     "aliases": [
       "레드와인",
@@ -1033,6 +1137,7 @@
     "id": "m_ing_263",
     "name": "청고추",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "korean_green_chili",
     "aliases": [
       "청 고추",
@@ -1043,6 +1148,7 @@
     "id": "m_ing_196",
     "name": "쌍화탕",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "ssanghwa_tang",
     "aliases": [
       "쌍화탕 120ml",
@@ -1054,6 +1160,7 @@
     "id": "m_ing_197",
     "name": "홍고추",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "red_chili",
     "aliases": [
       "붉은고추",
@@ -1065,6 +1172,7 @@
     "id": "m_ing_198",
     "name": "흑미밥",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "black_rice",
     "aliases": [
       "흑미 밥",
@@ -1076,6 +1184,7 @@
     "id": "m_ing_199",
     "name": "불고기맛 햄",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "bulgogi_ham",
     "aliases": [
       "불고기햄",
@@ -1087,6 +1196,7 @@
     "id": "m_ing_200",
     "name": "김밥용 단무지",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "pickled_radish_gimbap",
     "aliases": [
       "단무지",
@@ -1097,6 +1207,7 @@
     "id": "m_ing_201",
     "name": "김밥용 우엉",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "burdock_gimbap",
     "aliases": [
       "우엉",
@@ -1108,6 +1219,7 @@
     "id": "m_ing_202",
     "name": "게맛살",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "crab_stick",
     "aliases": [
       "맛살",
@@ -1119,6 +1231,7 @@
     "id": "m_ing_203",
     "name": "트러플 오일",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "truffle_oil",
     "aliases": [
       "트러플오일",
@@ -1129,6 +1242,7 @@
     "id": "m_ing_204",
     "name": "홀 토마토",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "canned_whole_tomato",
     "aliases": [
       "홀토마토",
@@ -1140,6 +1254,7 @@
     "id": "m_ing_205",
     "name": "치킨 파우더",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "chicken_powder",
     "aliases": [
       "치킨파우더",
@@ -1152,6 +1267,7 @@
     "id": "m_ing_206",
     "name": "생 바질",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "fresh_basil",
     "aliases": [
       "바질",
@@ -1163,6 +1279,7 @@
     "id": "m_ing_207",
     "name": "전복",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "abalone",
     "aliases": [
       "활전복",
@@ -1173,6 +1290,7 @@
     "id": "m_ing_209",
     "name": "명란젓",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "pollock_roe",
     "aliases": [
       "명란",
@@ -1184,6 +1302,7 @@
     "id": "m_ing_210",
     "name": "그라나 파다노 치즈",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "grana_padano",
     "aliases": [
       "그라나파다노",
@@ -1194,6 +1313,7 @@
     "id": "m_ing_211",
     "name": "파르미지아노 레지아노 치즈",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "parmigiano",
     "aliases": [
       "파르미지아노 레지아노",
@@ -1206,6 +1326,7 @@
     "id": "m_ing_212",
     "name": "랍스터",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "lobster",
     "aliases": [
       "랍스타",
@@ -1216,6 +1337,7 @@
     "id": "m_ing_213",
     "name": "홍합",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "mussel",
     "aliases": [
       "생홍합",
@@ -1226,6 +1348,7 @@
     "id": "m_ing_214",
     "name": "옥수수",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "corn",
     "aliases": [
       "찰옥수수",
@@ -1236,6 +1359,7 @@
     "id": "m_ing_215",
     "name": "레몬",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "lemon",
     "aliases": []
   },
@@ -1243,6 +1367,7 @@
     "id": "m_ing_216",
     "name": "골뱅이 캔",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "canned_whelk",
     "aliases": [
       "골뱅이",
@@ -1254,6 +1379,7 @@
     "id": "m_ing_217",
     "name": "황태채",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "dried_pollock_shreds",
     "aliases": [
       "황태",
@@ -1265,6 +1391,7 @@
     "id": "m_ing_218",
     "name": "건쌀국수 면",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "dried_rice_noodles",
     "aliases": [
       "쌀국수면",
@@ -1276,6 +1403,7 @@
     "id": "m_ing_219",
     "name": "적양배추",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "red_cabbage",
     "aliases": [
       "적채",
@@ -1286,6 +1414,7 @@
     "id": "m_ing_220",
     "name": "상추",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "lettuce",
     "aliases": [
       "적상추",
@@ -1297,6 +1426,7 @@
     "id": "m_ing_221",
     "name": "블랙 올리브",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "black_olives",
     "aliases": [
       "블랙올리브",
@@ -1308,6 +1438,7 @@
     "id": "m_ing_222",
     "name": "알배추",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "baby_napa_cabbage",
     "aliases": [
       "알배기배추",
@@ -1318,6 +1449,7 @@
     "id": "m_ing_223",
     "name": "라면",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "instant_ramen",
     "aliases": [
       "진라면",
@@ -1333,6 +1465,7 @@
     "id": "m_ing_224",
     "name": "건미역",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "dried_wakame",
     "aliases": [
       "미역",
@@ -1344,6 +1477,7 @@
     "id": "m_ing_225",
     "name": "소고기 양지",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "beef_flank",
     "aliases": [
       "양지",
@@ -1356,6 +1490,7 @@
     "id": "m_ing_226",
     "name": "돼지등뼈",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "pork_neck_bones",
     "aliases": [
       "등뼈",
@@ -1367,6 +1502,7 @@
     "id": "m_ing_227",
     "name": "얼갈이배추",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "young_napa_cabbage",
     "aliases": [
       "얼갈이",
@@ -1377,6 +1513,7 @@
     "id": "m_ing_229",
     "name": "프랑크소시지",
     "zone": "FRIDGE",
+    "category": "MEAT",
     "imageKey": "frankfurter",
     "aliases": [
       "프랑크 소시지",
@@ -1388,6 +1525,7 @@
     "id": "m_ing_230",
     "name": "베이크드 빈스",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "baked_beans",
     "aliases": [
       "베이크드빈스",
@@ -1398,6 +1536,7 @@
     "id": "m_ing_231",
     "name": "찹쌀",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "glutinous_rice",
     "aliases": [
       "찹쌀 쌀"
@@ -1407,6 +1546,7 @@
     "id": "m_ing_232",
     "name": "청주",
     "zone": "SEASONING",
+    "category": "ETC",
     "imageKey": "cheongju",
     "aliases": [
       "정종",
@@ -1417,6 +1557,7 @@
     "id": "m_ing_233",
     "name": "느타리버섯",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "oyster_mushroom",
     "aliases": [
       "느타리",
@@ -1427,6 +1568,7 @@
     "id": "m_ing_234",
     "name": "국간장",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "soup_soy_sauce",
     "aliases": [
       "조선간장",
@@ -1438,6 +1580,7 @@
     "id": "m_ing_235",
     "name": "짜장라면 수프",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "jjajang_ramen_soup",
     "aliases": [
       "짜장라면 스프",
@@ -1449,6 +1592,7 @@
     "id": "m_ing_236",
     "name": "쫄면사리",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "jjolmyeon_noodles",
     "aliases": [
       "쫄면",
@@ -1459,6 +1603,7 @@
     "id": "m_ing_237",
     "name": "고구마",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "sweet_potato",
     "aliases": [
       "밤고구마",
@@ -1469,6 +1614,7 @@
     "id": "m_ing_238",
     "name": "슈레드 피자치즈",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "shredded_mozzarella",
     "aliases": [
       "피자치즈",
@@ -1481,6 +1627,7 @@
     "id": "m_ing_239",
     "name": "바닐라 아이스크림",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "vanilla_ice_cream",
     "aliases": [
       "아이스크림",
@@ -1491,6 +1638,7 @@
     "id": "m_ing_240",
     "name": "모닝빵",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "dinner_roll",
     "aliases": [
       "모닝 빵",
@@ -1501,6 +1649,7 @@
     "id": "m_ing_241",
     "name": "딸기잼",
     "zone": "FRIDGE",
+    "category": "SAUCE",
     "imageKey": "strawberry_jam",
     "aliases": [
       "딸기 잼"
@@ -1510,6 +1659,7 @@
     "id": "m_ing_242",
     "name": "캔 옥수수",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "canned_corn",
     "aliases": [
       "통조림 옥수수",
@@ -1521,6 +1671,7 @@
     "id": "m_ing_243",
     "name": "또르티야",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "tortilla",
     "aliases": [
       "토르티야",
@@ -1532,6 +1683,7 @@
     "id": "m_ing_244",
     "name": "굴",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "oyster",
     "aliases": [
       "생굴",
@@ -1542,6 +1694,7 @@
     "id": "m_ing_245",
     "name": "쪽파",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "small_green_onion",
     "aliases": [
       "실파"
@@ -1551,6 +1704,7 @@
     "id": "m_ing_246",
     "name": "크림치즈",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "cream_cheese",
     "aliases": [
       "크림 치즈"
@@ -1560,6 +1714,7 @@
     "id": "m_ing_247",
     "name": "연유",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "condensed_milk",
     "aliases": []
   },
@@ -1567,6 +1722,7 @@
     "id": "m_ing_248",
     "name": "훈제 연어",
     "zone": "FRIDGE",
+    "category": "SEAFOOD",
     "imageKey": "smoked_salmon",
     "aliases": [
       "훈제연어",
@@ -1577,6 +1733,7 @@
     "id": "m_ing_249",
     "name": "루꼴라",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "arugula",
     "aliases": [
       "루콜라",
@@ -1587,6 +1744,7 @@
     "id": "m_ing_250",
     "name": "케이퍼",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "capers",
     "aliases": [
       "케이퍼스"
@@ -1596,6 +1754,7 @@
     "id": "m_ing_251",
     "name": "마가린",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "margarine",
     "aliases": []
   },
@@ -1603,6 +1762,7 @@
     "id": "m_ing_252",
     "name": "브로콜리",
     "zone": "FRIDGE",
+    "category": "PRODUCE",
     "imageKey": "broccoli",
     "aliases": []
   },
@@ -1610,6 +1770,7 @@
     "id": "m_ing_253",
     "name": "그뤼에르 치즈",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "gruyere",
     "aliases": [
       "그뤼에르",
@@ -1620,6 +1781,7 @@
     "id": "m_ing_254",
     "name": "에멘탈 치즈",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "emmental",
     "aliases": [
       "에멘탈",
@@ -1630,6 +1792,7 @@
     "id": "m_ing_255",
     "name": "왕만두피",
     "zone": "FRIDGE",
+    "category": "GRAIN",
     "imageKey": "dumpling_wrapper",
     "aliases": [
       "만두피",
@@ -1640,6 +1803,7 @@
     "id": "m_ing_256",
     "name": "시나몬 파우더",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "cinnamon_powder",
     "aliases": [
       "시나몬",
@@ -1651,6 +1815,7 @@
     "id": "m_ing_257",
     "name": "초콜릿",
     "zone": "FRIDGE",
+    "category": "ETC",
     "imageKey": "chocolate",
     "aliases": [
       "다크초콜릿",
@@ -1661,6 +1826,7 @@
     "id": "m_ing_258",
     "name": "메이플시럽",
     "zone": "SEASONING",
+    "category": "SAUCE",
     "imageKey": "maple_syrup",
     "aliases": [
       "메이플 시럽",
@@ -1671,6 +1837,7 @@
     "id": "m_ing_259",
     "name": "사과잼",
     "zone": "FRIDGE",
+    "category": "SAUCE",
     "imageKey": "apple_jam",
     "aliases": [
       "사과 잼"
@@ -1680,6 +1847,7 @@
     "id": "m_ing_260",
     "name": "브리 치즈",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "brie",
     "aliases": [
       "브리",
@@ -1690,6 +1858,7 @@
     "id": "m_ing_261",
     "name": "동물성 생크림",
     "zone": "FRIDGE",
+    "category": "DAIRY",
     "imageKey": "heavy_cream",
     "aliases": [
       "생크림",
