@@ -1,0 +1,10 @@
+# Netlify 캐시 설정 (기본값은 매번 서버에 다시 확인 → 재방문도 느림)
+
+# 빌드 결과 JS·CSS: 파일 이름에 해시가 붙어 내용이 바뀌면 이름도 바뀐다 → 1년 캐시
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 레시피 사진·재료 아이콘: 이름이 고정이라 7일 캐시 + 이후 백그라운드 갱신
+# 같은 이름으로 사진을 바꾸면 최대 7일간 예전 사진이 보일 수 있다 → 바꿀 땐 새 파일 이름 권장
+/images/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
