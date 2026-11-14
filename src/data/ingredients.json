@@ -468,13 +468,36 @@
   },
   {
     "id": "m_ing_123",
-    "name": "만두",
+    "name": "고기만두",
     "zone": "FRIDGE",
     "category": "GRAIN",
     "imageKey": "dumpling",
     "aliases": [
+      "만두",
+      "고기 만두",
       "냉동만두",
       "교자"
+    ]
+  },
+  {
+    "id": "m_ing_266",
+    "name": "김치만두",
+    "zone": "FRIDGE",
+    "category": "GRAIN",
+    "imageKey": "kimchi_dumpling",
+    "aliases": [
+      "김치 만두"
+    ]
+  },
+  {
+    "id": "m_ing_267",
+    "name": "물만두",
+    "zone": "FRIDGE",
+    "category": "GRAIN",
+    "imageKey": "mul_dumpling",
+    "aliases": [
+      "물 만두",
+      "냉동 물만두"
     ]
   },
   {
