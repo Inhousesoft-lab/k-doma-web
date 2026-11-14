@@ -1865,5 +1865,30 @@
       "휘핑크림",
       "동물성생크림"
     ]
+  },
+  {
+    "id": "m_ing_264",
+    "name": "밀가루",
+    "zone": "SEASONING",
+    "category": "SAUCE",
+    "imageKey": "flour",
+    "aliases": [
+      "중력분",
+      "박력분",
+      "강력분",
+      "통밀가루"
+    ]
+  },
+  {
+    "id": "m_ing_265",
+    "name": "튀김가루",
+    "zone": "SEASONING",
+    "category": "SAUCE",
+    "imageKey": "frying_mix",
+    "aliases": [
+      "튀김 가루",
+      "튀김믹스",
+      "바삭튀김가루"
+    ]
   }
 ]
