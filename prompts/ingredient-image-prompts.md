@@ -151,6 +151,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | eggplant | 가지 | id `m_ing_175`, name `가지`, zone `FRIDGE`, aliases `["가지나물용"]` | two glossy deep purple Korean eggplants, long and slender with green caps, slightly crossed |
 | whole_chicken | 생닭 한 마리 | id `m_ing_176`, name `생닭 한 마리`, zone `FRIDGE`, aliases `["생닭", "통닭", "닭 한 마리", "백숙용 닭", "삼계탕용 닭", "영계"]` | one whole raw plucked chicken, uncut, pale pink skin, legs tucked, breast side up |
 | ginger | 생강 | id `m_ing_177`, name `생강`, zone `FRIDGE`, aliases `["통생강", "햇생강", "생강 뿌리"]` | one knobby piece of fresh ginger root with light tan skin, one small branch cut to show pale yellow fibrous flesh |
+| potato_starch | 감자전분 | id `m_ing_178`, name `감자전분`, zone `SEASONING`, aliases `["감자 전분", "전분", "전분가루", "녹말", "감자녹말"]` | plain unlabeled white paper bag open at the top, spilling bright pure white fine starch powder into a small heap in front, a few compacted powdery lumps |
 | perilla_leaf | 깻잎 | id `m_ing_165`, name `깻잎`, zone `FRIDGE`, aliases `["깻잎순", "들깻잎", "깻잎장아찌"]` | small neat stack of fresh green Korean perilla leaves (kkaennip), slightly fanned so the serrated edges and pointed tips are visible |
 
 - **물엿 등록 시**: 올리고당(`m_ing_13`)의 별칭 `물엿`을 지운다. 올리고당은 노란 짜는 병, 물엿은 넓은 투명 통으로 구분한다.
