@@ -128,15 +128,17 @@ export const mealPlanService = {
   /**
    * 타임라인 [더 보기]: 한 달씩 더 받는다. 새로 받은 달에 요리 완료가 없으면 다음 달로 계속,
    * 서비스 시작 달에 닿으면 멈춘다 (눌렀는데 아무것도 안 느는 일이 없게)
+   * 반환: 요리 완료가 있는 달을 찾았으면 true, 끝까지 없으면 false
    */
-  async loadOlderCookedMonth(): Promise<void> {
+  async loadOlderCookedMonth(): Promise<boolean> {
     while (this.canLoadMorePlans()) {
       const to = this.plansLoadedFrom()!;
       const from = addMonths(to, -1);
       await extendPlansFrom(from);
       const found = cachedPlans().some((p) => p.status === 'COOKED' && p.date >= from && p.date < to);
-      if (found) return;
+      if (found) return true;
     }
+    return false;
   },
 
   /** 메모리에 있는 기록에서 바로 찾는다 (구독 전이면 undefined) */
