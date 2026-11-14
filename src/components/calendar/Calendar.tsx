@@ -63,7 +63,8 @@ function getMonthCells(year: number, monthIndex: number): DayCell[] {
  * - 연월을 누르면 접힘(1주) ↔ 펼침(한 달)
  * - 요일 줄 일~토(일요일 시작). 일요일 빨강, 토요일 파랑
  * - 기본은 접힌 상태(선택한 날짜가 있는 주 1줄). 달력 아래 짧은 회색 손잡이
- * - 오늘·선택한 날짜: 검은 원(ink) 안에 흰 글자
+ * - 선택한 날짜: 검은 원(ink) 안에 흰 글자
+ * - 오늘(선택 안 됨): 검은 테두리 원(ink), 안은 투명, 글자는 요일색 유지. 흐린 앞뒤 달 칸에는 표시 안 함
  * - 날짜 아래 점: ● 검은 원 = 요리 완료, ○ 테두리 원 = 요리 예정, 요리 없는 날은 점 없음
  * - 펼친 달력: 연월 양옆 ◀ ▶ 로 이전/다음 달. 2026년 8월 ~ 현재 월까지만 (끝이면 화살표 비활성)
  *   달을 옮기면 그 달 1일을 선택한다. 현재 월로 돌아오면 오늘을 선택한다
@@ -205,6 +206,7 @@ export const Calendar: React.FC<CalendarProps> = ({
       <div className={`grid grid-cols-7 text-center ${isCollapsed ? '' : 'gap-y-2'}`}>
         {cells.map((d) => {
           const isSelected = d.dateStr === selectedDate;
+          const isToday = d.dateStr === todayDate && d.inMonth;
           const dayColor =
             d.dayOfWeek === 0 ? 'text-danger' : d.dayOfWeek === 6 ? 'text-primary' : 'text-ink';
 
@@ -218,10 +220,12 @@ export const Calendar: React.FC<CalendarProps> = ({
                 d.inMonth ? 'cursor-pointer' : 'opacity-35 cursor-default'
               }`}
             >
-              {/* 선택한 날짜: 검은 원(ink) 안에 흰 글자 */}
+              {/* 선택한 날짜: 검은 원(ink) 안에 흰 글자 / 오늘: 테두리 원(ink, 선택 원과 같은 색), 안은 투명 */}
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-[14px] font-bold transition-all ${
-                  isSelected ? 'bg-ink text-white shadow-xs' : `${dayColor} ${d.inMonth ? 'hover:bg-fill' : ''}`
+                  isSelected
+                    ? 'bg-ink text-white shadow-xs'
+                    : `${dayColor} ${isToday ? 'border-2 border-ink' : ''} ${d.inMonth ? 'hover:bg-fill' : ''}`
                 }`}
               >
                 {d.dayNumber}
