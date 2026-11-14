@@ -125,12 +125,97 @@
       "긴급",
       "돼지"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 15,
     "servings": 2,
+    "bookPage": 28,
     "part": "Part 1 평생 특식",
     "dishGroupId": "jeyuk",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "삼겹살",
+        "amount": "300g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "½개",
+        "usageType": "PART"
+      },
+      {
+        "name": "마늘",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "깻잎",
+        "amount": "10장",
+        "usageType": "ALL"
+      },
+      {
+        "name": "설탕",
+        "amount": "1+½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "진간장",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고추장",
+        "amount": "듬뿍 2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "참기름",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "10바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "통깨",
+        "amount": "약간",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "대파는 반으로 가르고 3~4cm 길이로 썬다. 양파는 채썰고, 깻잎은 먹기 좋은 크기로 썬다. 삼겹살의 오돌뼈는 칼집을 낸다. (오돌뼈는 잘라내도 무방합니다. 삼겹살 양을 600g으로 늘릴 경우, 양념 계량은 간장만 2큰술로 바꿔주세요.)",
+      "예열한 팬에 삼겹살을 올려 강불로 굽는다.",
+      "아랫면이 익으면 중불로 낮추고 뒤집어 굽는다.",
+      "삼겹살이 80% 정도 익으면 한입 크기로 자른다.",
+      "불을 끄고 설탕 1+½큰술, 진간장 1큰술, 고추장 듬뿍 2큰술을 넣은 뒤, 강불로 올려 볶는다.",
+      "양념이 끓으면 중불로 낮춰 마늘, 대파, 양파를 넣어 1분 볶고, 식초 1큰술, 참기름 1큰술, 후추 10바퀴를 넣어 1분 볶는다. (늘어붙은 양념을 섞어가며 볶으세요.)",
+      "깻잎을 넣고 뚜껑을 덮어 약불로 10초 뜸 들인 후 통깨를 뿌린다. (매운맛을 원할 경우, 청양고추를 추가하세요.)"
+    ],
+    "caloriesKcal": 720,
+    "nutrition": {
+      "calories": 720,
+      "carbs": 36,
+      "protein": 30,
+      "fat": 50
+    },
+    "tags": [
+      "돼지",
+      "특식",
+      "간단한",
+      "밥도둑"
+    ],
+    "description": "삼겹살을 통으로 굽다 잘라 팬에서 바로 양념해 15분 만에 끝내는 긴급 제육볶음",
+    "photoUrl": "/images/recipes/r_p1_02.jpg"
   },
   {
     "id": "r_p1_03",
