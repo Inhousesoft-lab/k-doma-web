@@ -3,7 +3,7 @@
 실행: python3 scripts/check-ingredients.py   (문제가 있으면 종료 코드 1)
 - id·imageKey 중복
 - zone·category 값
-- 이름·별칭이 다른 재료와 겹치는지(띄어쓰기 무시)
+- 이름·별칭이 다른 재료와 겹치는지(앱과 같이 괄호·띄어쓰기 무시)
 """
 import json
 import os
@@ -16,7 +16,8 @@ CATEGORIES = {'SAUCE', 'MEAT', 'SEAFOOD', 'PRODUCE', 'GRAIN', 'DAIRY', 'ETC'}
 
 
 def norm(s: str) -> str:
-    return re.sub(r'\s+', '', s)
+    # 앱(src/utils/ingredient.ts normalize)과 같이 괄호 설명과 공백을 뺀다
+    return re.sub(r'\s+', '', re.sub(r'\(.*?\)', '', s))
 
 
 def main() -> int:

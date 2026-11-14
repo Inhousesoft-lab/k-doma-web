@@ -72,14 +72,17 @@
   },
   {
     "id": "m_ing_8",
-    "name": "소금",
+    "name": "소금(일반 소금)",
     "zone": "SEASONING",
     "category": "SAUCE",
     "imageKey": "salt",
     "aliases": [
-      "맛소금",
+      "소금",
+      "일반 소금",
       "가는소금",
-      "꽃소금"
+      "가는 소금",
+      "꽃소금",
+      "맛소금"
     ]
   },
   {
@@ -1003,12 +1006,13 @@
   },
   {
     "id": "m_ing_208",
-    "name": "굵은 소금",
+    "name": "굵은소금(천일염)",
     "zone": "SEASONING",
     "category": "SAUCE",
     "imageKey": "coarse_salt",
     "aliases": [
       "굵은소금",
+      "굵은 소금",
       "천일염",
       "왕소금"
     ]
