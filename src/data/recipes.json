@@ -329,6 +329,7 @@
     ],
     "cookTimeMinutes": 70,
     "servings": 2,
+    "bookPage": 35,
     "part": "Part 1 평생 특식",
     "ingredientsRequired": [
       {
