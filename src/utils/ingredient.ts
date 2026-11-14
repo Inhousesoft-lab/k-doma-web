@@ -18,6 +18,21 @@ masterIngredients.forEach((m) => {
   m.aliases?.forEach((alias) => masterIndex.set(normalize(alias), m));
 });
 
+/**
+ * 항상 있는 재료 (물 등). 레시피 재료 목록에는 보이지만
+ * 보유 상태·장바구니·부족 재료·보유율·재고 반영에서는 뺀다.
+ */
+const ALWAYS_AVAILABLE = new Set(['물'].map(normalize));
+
+export function isAlwaysAvailable(name: string): boolean {
+  return ALWAYS_AVAILABLE.has(normalize(name));
+}
+
+/** 장을 봐야 하는 재료만 (항상 있는 재료 제외) */
+export function stockIngredientsOf(recipe: Recipe) {
+  return (recipe.ingredientsRequired || []).filter((req) => !isAlwaysAvailable(req.name));
+}
+
 /** 재료 사전에서 찾기 (이름 또는 별칭) */
 export function findMasterIngredient(name: string): MasterIngredient | undefined {
   return masterIndex.get(normalize(name));
@@ -55,7 +70,7 @@ export function fridgeStatusOf(name: string, fridge: Ingredient[]): IngredientSt
 export function getMissingIngredientNames(recipe: Recipe, fridge: Ingredient[]): string[] {
   const seen = new Set<string>();
   const missing: string[] = [];
-  (recipe.ingredientsRequired || []).forEach((req) => {
+  stockIngredientsOf(recipe).forEach((req) => {
     const key = normalize(canonicalName(req.name));
     if (seen.has(key)) return;
     seen.add(key);
@@ -68,5 +83,5 @@ export function getMissingIngredientNames(recipe: Recipe, fridge: Ingredient[]):
 
 /** 레시피 재료 중 적음(LOW)이 하나라도 있는지 (추천 가점용) */
 export function hasLowIngredient(recipe: Recipe, fridge: Ingredient[]): boolean {
-  return (recipe.ingredientsRequired || []).some((req) => fridgeStatusOf(req.name, fridge) === 'LOW');
+  return stockIngredientsOf(recipe).some((req) => fridgeStatusOf(req.name, fridge) === 'LOW');
 }

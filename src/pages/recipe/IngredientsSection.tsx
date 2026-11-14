@@ -2,7 +2,7 @@ import React from 'react';
 import { Check, Copy, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { Ingredient, Recipe } from '../../types';
 import { cartService } from '../../services';
-import { fridgeStatusOf } from '../../utils/ingredient';
+import { fridgeStatusOf, isAlwaysAvailable } from '../../utils/ingredient';
 import { scaleAmount } from '../../utils/amount';
 import StatusSignal from '../../components/common/StatusSignal';
 import Button from '../../components/common/Button';
@@ -89,6 +89,8 @@ const IngredientsSection: React.FC<IngredientsSectionProps> = ({
         const matchedStatus = fridgeStatusOf(item.name, fridgeIngredients);
         const isInCart = cartService.isItemInCart(item.name);
         const scaledQty = scaleAmount(item.amount, servings, recipe.servings || 2);
+        // 물처럼 항상 있는 재료: 상태 신호·장바구니 버튼 없이 이름과 양만
+        const alwaysAvailable = isAlwaysAvailable(item.name);
 
         return (
           <div
@@ -97,14 +99,17 @@ const IngredientsSection: React.FC<IngredientsSectionProps> = ({
           >
             {/* 좌측: 상태 신호(로그인 상태만) + 재료명(적음이면 '양 확인') */}
             <div className="flex items-center gap-2.5 min-w-0">
-              {isLoggedIn && (
-                <StatusSignal status={matchedStatus} size={14} />
-              )}
+              {isLoggedIn &&
+                (alwaysAvailable ? (
+                  <span className="w-[14px] shrink-0" aria-hidden />
+                ) : (
+                  <StatusSignal status={matchedStatus} size={14} />
+                ))}
               <div className="flex items-center gap-1.5 truncate">
                 <span className="text-[15px] font-bold text-ink truncate">
                   {item.name}
                 </span>
-                {isLoggedIn && matchedStatus === 'LOW' && (
+                {isLoggedIn && !alwaysAvailable && matchedStatus === 'LOW' && (
                   <span className="text-[11px] font-bold text-warning bg-warning-light px-1.5 py-0.5 rounded-full shrink-0">
                     양 확인
                   </span>
@@ -118,28 +123,30 @@ const IngredientsSection: React.FC<IngredientsSectionProps> = ({
                 {scaledQty}
               </span>
 
-              <button
-                type="button"
-                onClick={() => handleToggleCartItem(item.name)}
-                className={`h-[30px] px-2.5 rounded-full text-[12px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
-                  isInCart
-                    ? 'bg-mint-bg text-mint border border-mint/30'
-                    : 'bg-fill text-ink hover:bg-line'
-                }`}
-                aria-label={isInCart ? '장바구니에서 빼기' : '장바구니에 담기'}
-              >
-                {isInCart ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 stroke-[2.5]" />
-                    <span>담김</span>
-                  </>
-                ) : (
-                  <>
-                    <Plus className="w-3.5 h-3.5" />
-                    <span>담기</span>
-                  </>
-                )}
-              </button>
+              {!alwaysAvailable && (
+                <button
+                  type="button"
+                  onClick={() => handleToggleCartItem(item.name)}
+                  className={`h-[30px] px-2.5 rounded-full text-[12px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
+                    isInCart
+                      ? 'bg-mint-bg text-mint border border-mint/30'
+                      : 'bg-fill text-ink hover:bg-line'
+                  }`}
+                  aria-label={isInCart ? '장바구니에서 빼기' : '장바구니에 담기'}
+                >
+                  {isInCart ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+                      <span>담김</span>
+                    </>
+                  ) : (
+                    <>
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>담기</span>
+                    </>
+                  )}
+                </button>
+              )}
             </div>
           </div>
         );

@@ -14,6 +14,7 @@ import {
   hasLowIngredient,
   ingredientKey,
   isOwned,
+  stockIngredientsOf,
 } from '../utils/ingredient';
 import { daysBetween, weekStartOf } from '../utils/date';
 import {
@@ -52,7 +53,7 @@ export function dishGroupOf(recipe: Recipe): string {
 /** 보유율 = 보유(HAVE·LOW) 재료 종류 수 ÷ 필요 재료 종류 수. 같은 표준 재료는 한 번만. 필요 재료 0개면 0 */
 export function ownedRatio(recipe: Recipe, fridge: Ingredient[]): number {
   const statusByKey = new Map<string, boolean>();
-  (recipe.ingredientsRequired || []).forEach((req) => {
+  stockIngredientsOf(recipe).forEach((req) => {
     const key = ingredientKey(req.name);
     if (!statusByKey.has(key)) statusByKey.set(key, isOwned(fridgeStatusOf(req.name, fridge)));
   });
