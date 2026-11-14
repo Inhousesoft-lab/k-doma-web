@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp } from 'lucide-react';
 import { MealPlan } from '../../types';
-import { addDays, addMonths, dayOfWeek, makeDateStr, monthKey, parseDateStr, todayStr, weekStartOf } from '../../utils/date';
+import {
+  SERVICE_START_MONTH,
+  addDays,
+  addMonths,
+  dayOfWeek,
+  makeDateStr,
+  monthKey,
+  parseDateStr,
+  todayStr,
+  weekStartOf,
+} from '../../utils/date';
 
 export interface CalendarProps {
   selectedDate: string; // YYYY-MM-DD
@@ -11,7 +21,7 @@ export interface CalendarProps {
 }
 
 /** 달력에서 볼 수 있는 가장 이른 달 (서비스 시작 달). 가장 늦은 달은 현재 월 */
-export const CALENDAR_MIN_MONTH = '2026-08-01';
+export const CALENDAR_MIN_MONTH = SERVICE_START_MONTH;
 
 const WEEKDAYS = [
   { label: '일', isSunday: true, isSaturday: false },

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Calendar as CalendarIcon, Utensils } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { MealPlan, Recipe } from '../types';
@@ -18,9 +18,10 @@ import ViewToggle, { RecordsViewMode } from '../components/records/ViewToggle';
 import RecordsTimeline from '../components/records/RecordsTimeline';
 import Modal from '../components/common/Modal';
 import Toast from '../components/common/Toast';
-import { todayStr } from '../utils/date';
+import { addMonths, formatYearMonth, parseDateStr, todayStr } from '../utils/date';
 
 const SAVE_FAILED = '저장하지 못했어요. 다시 시도해 주세요';
+const LOAD_FAILED = '기록을 불러오지 못했어요. 다시 시도해 주세요';
 
 /**
  * 기록 탭 (KD-43, KD-57)
@@ -29,6 +30,8 @@ const SAVE_FAILED = '저장하지 못했어요. 다시 시도해 주세요';
  * - 보기 전환 [달력 | 타임라인] (달력 위 오른쪽). 기본 = 달력. 탭을 다시 열면 달력으로 시작
  * - 타임라인: 요리 완료한 날만, 최신 날짜가 위. 카드는 달력 보기와 같은 PlanCard
  * - 달력 보기에서 고른 날에 기록이 없으면 안내 박스. [요리 보러 가기]는 오늘만 (기록은 오늘 날짜로만 추가된다)
+ * - 기록은 지난달 1일부터 받는다. 달력에서 이전 달로 가면 그 전 달부터 더 받고(앞쪽 흐린 칸 점),
+ *   타임라인은 아래 [N월 기록 더 보기]로 한 달씩 더 받는다 (요리 완료 없는 달은 건너뛴다)
  */
 export const RecordsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -70,8 +73,59 @@ export const RecordsPage: React.FC = () => {
 
   const dayPlans = plans.filter((p) => p.date === selectedDate);
   const cookedPlans = plans.filter((p) => p.status === 'COOKED');
-  const cookedDayCount = new Set(cookedPlans.map((p) => p.date)).size;
   const isTodaySelected = selectedDate === todayStr();
+
+  // 이전 달 기록 더 받기
+  const [loadingMore, setLoadingMore] = useState<boolean>(false);
+  const [loadMoreFailed, setLoadMoreFailed] = useState<boolean>(false);
+  const canLoadMore = isLoggedIn && mealPlanService.canLoadMorePlans();
+  const loadedFrom = mealPlanService.plansLoadedFrom();
+  const nextMonth = loadedFrom ? addMonths(loadedFrom, -1) : null;
+  const nextMonthLabel = nextMonth
+    ? parseDateStr(nextMonth).year === parseDateStr(todayStr()).year
+      ? `${parseDateStr(nextMonth).monthIndex + 1}월`
+      : formatYearMonth(nextMonth)
+    : '';
+
+  const handleChangeView = (mode: RecordsViewMode) => {
+    setLoadMoreFailed(false);
+    setViewMode(mode);
+  };
+
+  // 타임라인 [더 보기] (요리 완료 없는 달은 건너뛴다)
+  const handleLoadMore = async () => {
+    if (loadingMore) return;
+    setLoadingMore(true);
+    setLoadMoreFailed(false);
+    try {
+      await mealPlanService.loadOlderCookedMonth();
+    } catch (e) {
+      console.error(e);
+      setLoadMoreFailed(true);
+      showToastMessage(LOAD_FAILED, 'error');
+    } finally {
+      setLoadingMore(false);
+    }
+  };
+
+  // 달력: 보고 있는 달의 전 달부터 받는다 (펼친 달력 앞쪽 흐린 칸·접힌 주의 지난달 날짜 점)
+  const viewMonth = addMonths(selectedDate, 0);
+  useEffect(() => {
+    if (!isLoggedIn) return;
+    mealPlanService.ensurePlansFrom(addMonths(viewMonth, -1)).catch((e) => {
+      console.error(e);
+      showToastMessage(LOAD_FAILED, 'error');
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoggedIn, viewMonth]);
+
+  // 타임라인: 받은 범위에 요리 완료가 없으면 있는 달(또는 서비스 시작 달)까지 자동으로 더 받는다
+  const needsAutoLoad =
+    viewMode === 'timeline' && isLoggedIn && !loading && cookedPlans.length === 0 && canLoadMore && !loadMoreFailed;
+  useEffect(() => {
+    if (needsAutoLoad) void handleLoadMore();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [needsAutoLoad]);
 
   /** 카드 버튼 동작. 실패하면 토스트. 기록이 바뀌면 구독이 화면을 다시 그린다 */
   const runPlanAction = async (planId: string, action: () => Promise<void>) => {
@@ -154,16 +208,9 @@ export const RecordsPage: React.FC = () => {
 
   return (
     <div className="flex flex-col px-5 pt-3 pb-8 gap-4 bg-white min-h-[calc(100vh-80px)]">
-      {/* 0. 보기 전환 토글: 오른쪽 끝. 타임라인일 때만 왼쪽에 '요리한 날 N일' */}
-      <div className="flex items-center justify-between">
-        {viewMode === 'timeline' && isLoggedIn && cookedDayCount > 0 ? (
-          <span className="text-[13px] text-ink-tertiary">
-            요리한 날 <b className="text-ink">{cookedDayCount}일</b>
-          </span>
-        ) : (
-          <span />
-        )}
-        <ViewToggle value={viewMode} onChange={setViewMode} />
+      {/* 0. 보기 전환 토글: 오른쪽 끝 */}
+      <div className="flex items-center justify-end">
+        <ViewToggle value={viewMode} onChange={handleChangeView} />
       </div>
 
       {viewMode === 'calendar' ? (
@@ -193,6 +240,17 @@ export const RecordsPage: React.FC = () => {
         </>
       ) : !isLoggedIn ? (
         loginNotice
+      ) : cookedPlans.length === 0 && (loadingMore || needsAutoLoad) ? (
+        <StateView type="loading" title="기록을 불러오는 중이에요" className="grow" />
+      ) : cookedPlans.length === 0 && loadMoreFailed && canLoadMore ? (
+        <StateView
+          type="error"
+          title="기록을 불러오지 못했어요"
+          description="네트워크 상태를 확인하고 다시 시도해주세요."
+          actionText="다시 시도"
+          onAction={handleLoadMore}
+          className="grow"
+        />
       ) : cookedPlans.length === 0 ? (
         <StateView
           type="empty"
@@ -203,7 +261,13 @@ export const RecordsPage: React.FC = () => {
           className="grow"
         />
       ) : (
-        <RecordsTimeline plans={cookedPlans} renderCard={renderPlanCard} />
+        <RecordsTimeline
+          plans={cookedPlans}
+          renderCard={renderPlanCard}
+          loadMoreLabel={canLoadMore ? `${nextMonthLabel} 기록 더 보기` : null}
+          loadingMore={loadingMore}
+          onLoadMore={handleLoadMore}
+        />
       )}
 
       {/* 3. 재고 변경 바텀시트 (로그인 상태에서만) */}

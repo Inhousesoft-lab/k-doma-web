@@ -6,6 +6,9 @@
 
 const APP_TIME_ZONE = 'Asia/Seoul';
 
+/** 서비스 시작 달 (YYYY-MM-01). 달력 이동·기록 조회는 이 달보다 앞으로 가지 않는다 */
+export const SERVICE_START_MONTH = '2026-08-01';
+
 /** 오늘 날짜 (Asia/Seoul) */
 export function todayStr(): string {
   return new Intl.DateTimeFormat('en-CA', {

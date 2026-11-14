@@ -1,5 +1,7 @@
 import React from 'react';
+import { Loader2 } from 'lucide-react';
 import { MealPlan } from '../../types';
+import Button from '../common/Button';
 import { formatMonthDayWeekday, formatYearMonth, monthKey } from '../../utils/date';
 
 export interface RecordsTimelineProps {
@@ -7,6 +9,10 @@ export interface RecordsTimelineProps {
   plans: MealPlan[];
   /** 카드 그리기. 달력 보기와 같은 PlanCard 를 그대로 쓴다 */
   renderCard: (plan: MealPlan) => React.ReactNode;
+  /** 아래 [더 보기] 문구 ('10월 기록 더 보기'). null 이면 더 받을 달이 없어 버튼을 숨긴다 */
+  loadMoreLabel: string | null;
+  loadingMore: boolean;
+  onLoadMore: () => void;
 }
 
 interface DayGroup {
@@ -32,9 +38,9 @@ export function groupByDateDesc(plans: MealPlan[]): DayGroup[] {
  * - 요리 완료한 날만, 최신 날짜가 위
  * - 달이 바뀌면 월 제목 ('2026년 11월')
  * - 왼쪽 세로선 + 날짜마다 동그라미, 오른쪽에 날짜(글자만, 누를 수 없음)와 그 날의 요리 카드
- * - 나중에 리팩토링 필요: 기록이 아주 많아지면 나눠 그리기(가상 스크롤/페이지)
+ * - 받은 범위(지난달 1일~)만 그린다. 이전 달은 아래 [N월 기록 더 보기]로 한 달씩 더 받는다
  */
-export const RecordsTimeline: React.FC<RecordsTimelineProps> = ({ plans, renderCard }) => {
+export const RecordsTimeline: React.FC<RecordsTimelineProps> = ({ plans, renderCard, loadMoreLabel, loadingMore, onLoadMore }) => {
   const groups = groupByDateDesc(plans);
 
   return (
@@ -70,6 +76,17 @@ export const RecordsTimeline: React.FC<RecordsTimelineProps> = ({ plans, renderC
           </React.Fragment>
         );
       })}
+      {loadMoreLabel && (
+        <Button
+          variant="neutral"
+          size="md"
+          onClick={onLoadMore}
+          disabled={loadingMore}
+          icon={loadingMore ? <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> : undefined}
+        >
+          {loadingMore ? '불러오는 중이에요' : loadMoreLabel}
+        </Button>
+      )}
     </section>
   );
 };
