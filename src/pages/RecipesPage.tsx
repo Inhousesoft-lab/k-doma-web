@@ -291,6 +291,8 @@ export const RecipesPage: React.FC = () => {
                   {recipe.photoUrl ? (
                     <img
                       src={recipe.photoUrl}
+                      loading="lazy"
+                      decoding="async"
                       alt={recipe.name}
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
@@ -348,6 +350,8 @@ export const RecipesPage: React.FC = () => {
                   {recipe.photoUrl ? (
                     <img
                       src={recipe.photoUrl}
+                      loading="lazy"
+                      decoding="async"
                       alt={recipe.name}
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"

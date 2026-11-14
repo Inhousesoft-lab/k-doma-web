@@ -84,6 +84,8 @@ export const PlanCard: React.FC<PlanCardProps> = ({
           {photoUrl ? (
             <img
               src={photoUrl}
+              loading="lazy"
+              decoding="async"
               alt={plan.recipeName}
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"

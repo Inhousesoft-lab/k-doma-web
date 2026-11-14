@@ -231,6 +231,7 @@ export const RecipeDetailPage: React.FC = () => {
           {recipe.photoUrl ? (
             <img
               src={recipe.photoUrl}
+              fetchPriority="high"
               alt={recipe.name}
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
