@@ -146,6 +146,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | dried_baby_anchovy | 잔멸치 | id `m_ing_170`, name `잔멸치`, zone `FRIDGE`, aliases `["잔 멸치", "지리멸치", "볶음멸치", "세멸치", "멸치"]` | small heap of tiny dried silvery baby anchovies (jan-myeolchi), each about 2cm long |
 | starch_syrup | 물엿 | id `m_ing_171`, name `물엿`, zone `SEASONING`, aliases `["쌀엿", "조청"]` | wide clear plastic tub with a white lid set beside it, filled with thick colorless glossy starch syrup, a thick drip of syrup running over the rim, no label |
 | pork_belly_skin_on | 껍질 붙은 통삼겹 | id `m_ing_172`, name `껍질 붙은 통삼겹`, zone `FRIDGE`, aliases `["오겹살", "통오겹", "껍데기 통삼겹", "껍질 통삼겹", "수육용 삼겹"]` | one thick whole rectangular slab of raw skin-on pork belly, pale cream skin on top and clearly visible alternating layers of pink meat and white fat on the cut side |
+| honey | 꿀 | id `m_ing_173`, name `꿀`, zone `SEASONING`, aliases `["벌꿀", "아카시아꿀", "잡화꿀"]` | round glass jar of golden amber honey with no lid, a wooden honey dipper resting in the jar with honey dripping from it, no label |
 | perilla_leaf | 깻잎 | id `m_ing_165`, name `깻잎`, zone `FRIDGE`, aliases `["깻잎순", "들깻잎", "깻잎장아찌"]` | small neat stack of fresh green Korean perilla leaves (kkaennip), slightly fanned so the serrated edges and pointed tips are visible |
 
 - **물엿 등록 시**: 올리고당(`m_ing_13`)의 별칭 `물엿`을 지운다. 올리고당은 노란 짜는 병, 물엿은 넓은 투명 통으로 구분한다.
