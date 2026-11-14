@@ -145,10 +145,10 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | chicken_stew_cut | 닭볶음탕용 닭 | **등록됨** id `m_ing_166`, name `닭볶음탕용 닭`, zone `FRIDGE`, aliases `["토막닭", "닭볶음탕용 닭고기", "볶음탕용 닭"]` | pile of raw whole chicken cut into bone-in pieces for stew (drumsticks, wings, thighs), pale pink skin-on, loosely piled |
 | shishito_pepper | 꽈리고추 | **등록됨** id `m_ing_169`, name `꽈리고추`, zone `FRIDGE`, aliases `["꽈리 고추"]` | small pile of fresh bright green shishito peppers, short and wrinkled with crinkly skin and green stems |
 | dried_baby_anchovy | 잔멸치 | **등록됨** id `m_ing_170`, name `잔멸치`, zone `FRIDGE`, aliases `["잔 멸치", "지리멸치", "볶음멸치", "세멸치"]` | small heap of tiny dried silvery baby anchovies (jan-myeolchi), each about 2cm long |
-| starch_syrup | 물엿 | **등록됨** id `m_ing_171`, name `물엿`, zone `SEASONING`, aliases `["쌀엿", "조청"]` | wide clear plastic tub with a white lid set beside it, filled with thick colorless glossy starch syrup, a thick drip of syrup running over the rim, no label |
+| ~~starch_syrup~~ | 물엿 | **만들지 않음** — 올리고당(`m_ing_13`)과 합침. 별칭 `["물엿", "쌀엿", "조청"]`로 처리하고 아이콘은 `syrup` 사용 (2026-11-14 사용자 결정). id `m_ing_171`은 비워둔다 | - |
 | perilla_leaf | 깻잎 | **등록됨** id `m_ing_165`, name `깻잎`, zone `FRIDGE`, aliases `["깻잎순"]` | small neat stack of fresh green Korean perilla leaves (kkaennip), slightly fanned so the serrated edges and pointed tips are visible |
 
-- **물엿 등록 시**: 올리고당(`m_ing_13`)의 별칭 `물엿`을 지운다. 올리고당은 노란 짜는 병, 물엿은 넓은 투명 통으로 구분한다.
+- **물엿**: 따로 등록하지 않고 올리고당(`m_ing_13`)의 별칭으로 둔다(2026-11-14 사용자 결정).
 - 캔 디자인(색·배 그림·빨간 배지)은 실제 상품대로 쓰고 **'갈아만든 배' 로고 글자만 뺀다**(2026-11-14 사용자 결정, 저작권 문제 없음 확인). 캔 하나만, 옆에 배를 두지 않는다.
 - imageKey·재료명은 일반명(`pear_juice`, 배 음료)으로 두고 상품명은 별칭에만 넣는다.
 
