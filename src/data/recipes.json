@@ -750,11 +750,84 @@
       "긴급",
       "소"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 25,
     "servings": 2,
+    "bookPage": 49,
     "part": "Part 1 평생 특식",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "불고깃감 소고기",
+        "amount": "600g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "3큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "참기름",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "굴소스",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "20바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "3바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "통깨",
+        "amount": "약간",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "소고기는 손가락 너비로 썬다. (고기는 지방이 많은 부위가 맛있습니다.)",
+      "볼에 소고기를 넣고 다진 마늘 1큰술, 설탕 2큰술, 간장 3큰술, 식초 ½큰술, 참기름 1큰술, 굴소스 1큰술, 후추 20바퀴를 넣고 잘 버무려 재운다. (덩어리가 없도록 손으로 고기를 잘 주물러야 식감이 좋아집니다.)",
+      "종이포일 위에 2의 불고기를 야구공 크기(약 200g)로 올리고, 납작하게 잘 펴준다. (최대한 균일한 두께로 펴되, 가운데는 잘 안 익을 수 있으니 조금 더 얇게 눌러주세요. 구우면 크기가 줄어들기 때문에 크게 펼쳐주세요. 이대로 지퍼백에 넣어 냉동실에 보관하면 1개월 동안 먹을 수 있습니다.)",
+      "중불에 달군 팬에 식용유를 3바퀴 두르고, 잘 펴둔 고기를 넣어 2분 굽는다. (프라이팬을 충분히 달군 뒤 구워야 합니다. 고기가 오그라들 수 있으니 윗면에는 종이포일을 붙인 채로 굽고, 끝부분을 눌러가며 구워주세요.)",
+      "종이포일을 떼고 고기를 뒤집어 2분 더 구운 뒤, 취향껏 통깨를 뿌리면 완성!"
+    ],
+    "caloriesKcal": 940,
+    "nutrition": {
+      "calories": 940,
+      "carbs": 18,
+      "protein": 59,
+      "fat": 69
+    },
+    "tags": [
+      "소",
+      "특식",
+      "간단한",
+      "밥도둑"
+    ],
+    "description": "양념한 불고기를 종이포일 위에 얇게 펴서 앞뒤 2분씩 바싹 구워내는 초간단 불고기",
+    "photoUrl": "/images/recipes/r_p1_08.jpg"
   },
   {
     "id": "r_p1_09",

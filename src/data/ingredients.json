@@ -670,6 +670,18 @@
     "aliases": []
   },
   {
+    "id": "m_ing_174",
+    "name": "불고깃감 소고기",
+    "zone": "FRIDGE",
+    "imageKey": "beef_bulgogi",
+    "aliases": [
+      "불고기용 소고기",
+      "불고깃감",
+      "불고기감",
+      "소고기 불고기용"
+    ]
+  },
+  {
     "id": "m_ing_158",
     "name": "돼지고기 앞다리살",
     "zone": "FRIDGE",
