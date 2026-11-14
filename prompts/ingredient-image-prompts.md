@@ -130,11 +130,11 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | sliced_cheddar | 슬라이스 체다치즈 | stack of orange cheddar cheese slices, slightly fanned |
 | butter | 버터 | block of butter with one piece cut, on its opened plain wrapper |
 
-> 돼지고기(pork)·소고기(beef)·닭고기(chicken)·치즈(cheese)는 재료 사전에서 빠질 예정이라 만들지 않는다.
+> 돼지고기(pork)·소고기(beef)·닭고기(chicken)·치즈(cheese)는 2026-11-14 재료 사전에서 지웠다. 부위별 재료로 대체.
 
-### 3.3 추가 예정(재료 사전 미등록)
+### 3.3 추가 재료(2026-11-14 재료 사전 등록, 이미지 대기)
 
-이미지를 먼저 만들고, 재료 사전(`src/data/ingredients.json`)에 등록할 때 아래 값을 쓴다.
+아래 값으로 재료 사전(`src/data/ingredients.json`)에 이미 등록했다. 이미지를 만들면 `assets/ingredients-src/{imageKey}.png`에 넣고 변환 스크립트만 돌리면 된다.
 
 | imageKey | 재료 | 사전 등록안 | SUBJECT |
 |---|---|---|---|
