@@ -85,10 +85,12 @@ export const RecipeDetailPage: React.FC = () => {
     }
   };
 
-  // 2. 공유 링크 복사 (기획서 4.1: www.kdoma.com/recipe/{recipeId} 형식)
+  // 2. 공유 링크 복사 (기획서 4.1: {사이트 주소}/recipe/{recipeId} 형식)
+  //    사이트 주소는 VITE_SITE_URL, 없으면 지금 연 주소의 origin
   const handleShare = async () => {
     if (!recipe) return;
-    const shareUrl = `www.kdoma.com/recipe/${recipe.id}`;
+    const siteUrl = (import.meta.env.VITE_SITE_URL || window.location.origin).replace(/\/+$/, '');
+    const shareUrl = `${siteUrl}/recipe/${recipe.id}`;
     try {
       await navigator.clipboard.writeText(shareUrl);
       setToastMessage('공유 링크가 복사되었습니다');
