@@ -113,7 +113,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | fish_cake | 어묵 | stack of flat square Korean fish cake sheets (eomuk) |
 | bean_sprouts | 콩나물 | small heap of soybean sprouts with yellow heads |
 | zucchini | 애호박 | single Korean zucchini (aehobak), light green |
-| mushroom | 버섯 | three shiitake mushrooms |
+| mushroom | 표고버섯 | three shiitake mushrooms |
 | button_mushroom | 양송이버섯 | group of white button mushrooms, one cut in half |
 | enoki | 팽이버섯 | bunch of enoki mushrooms |
 | carrot | 당근 | single carrot with green leafy top, diagonal |
@@ -251,7 +251,9 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | heavy_cream | 동물성 생크림 | id `m_ing_261`, zone `FRIDGE`, aliases `["생크림", "휘핑크림", "동물성생크림"]` | 대기 | plain white unprinted milk carton style container of heavy cream next to a small dollop of thick whipped cream |
 | red_wine | 레드 와인 | id `m_ing_262`, zone `SEASONING`, aliases `["레드와인", "요리용 레드 와인", "적포도주"]` | 대기 | one dark glass wine bottle of red wine with a plain dark foil capsule, blank label, a small pour of deep red wine in a short glass beside it |
 | korean_green_chili | 청고추 | id `m_ing_263`, zone `FRIDGE`, aliases `["청 고추", "녹광고추"]` | 대기 | three fresh long thick glossy dark green Korean chili peppers (cheong-gochu), smooth skin, gently curved, green stems |
-| red_cheongyang_chili | 청양 홍고추 | id `m_ing_268`, zone `FRIDGE`, aliases `["청양홍고추", "빨간 청양고추", "홍청양고추"]` | 대기 | three small slim fresh bright red Korean cheongyang hot chili peppers, glossy skin, short green stems |
+| pine_mushroom | 송이버섯 | id `m_ing_117`, zone `FRIDGE`, aliases `["송이", "자연송이"]` | 대기 | two whole fresh Korean pine mushrooms (songi), thick pale stems with brown closed caps, a little soil at the base |
+| king_oyster_mushroom | 새송이버섯 | id `m_ing_270`, zone `FRIDGE`, aliases `["새송이"]` | 대기 | two fresh king oyster mushrooms with thick white stems and small light brown caps, one sliced lengthwise |
+| wood_ear_mushroom | 목이버섯 | id `m_ing_271`, zone `FRIDGE`, aliases `["목이", "건목이버섯", "말린 목이버섯"]` | 대기 | small pile of soaked black wood ear mushrooms, glossy dark brown-black ruffled ear-shaped pieces |
 
 ### 3.4 같은 재료 / 다른 재료(2026-11-14 사용자 확인)
 
@@ -260,12 +262,12 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | 기존 재료 | 새 재료 | 기존에서 지운 별칭 |
 |---|---|---|
 | 멸치액젓 `fish_sauce` | 까나리 액젓 `sand_lance_fish_sauce` | `까나리액젓` |
+| 송이버섯 `pine_mushroom` | 표고버섯 `mushroom`(기존 아이콘), 새송이버섯 `king_oyster_mushroom` | `표고버섯`, `새송이버섯` |
 | 소금(가는 소금) `salt` | 굵은 소금 `coarse_salt` | `천일염`, `굵은소금`, `굵은 소금` |
 | 맛술 `cooking_wine` | 청주 `cheongju` | `청주` |
 | 대파 `scallion` | 쪽파 `small_green_onion` | `쪽파` |
 | 베이컨 `bacon` | 프랑크소시지 `frankfurter` | `소시지` |
 | 고추(풋고추) `green_chili` | 청고추 `korean_green_chili` | `청고추` |
-| 홍고추 `red_chili` | 청양 홍고추 `red_cheongyang_chili` | `청양 홍고추` |
 | 소고기 `beef`(삭제함) | 소고기 양지 `beef_flank` | — |
 | 치즈 `cheese`(삭제함) | 슈레드 피자치즈 `shredded_mozzarella` | `피자치즈`는 새 재료 별칭으로 옮김 |
 

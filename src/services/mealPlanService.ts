@@ -39,7 +39,7 @@ export interface InventoryChoice {
 export const mealPlanService = {
   /**
    * 받은 범위의 가구 기록 (날짜순, 같은 날은 추가한 순). 비로그인은 빈 목록
-   * 로그인하면 지난달 1일부터 받는다. 이전 달은 ensurePlansFrom / loadOlderCookedMonth 로 더 받는다
+   * 로그인하면 지난달 1일부터 받는다. 이전 달은 ensurePlansFrom / loadOlderPlanMonth 로 더 받는다
    */
   async getPlans(): Promise<MealPlan[]> {
     return [...(await plans())];
@@ -126,16 +126,16 @@ export const mealPlanService = {
   },
 
   /**
-   * 타임라인 [더 보기]: 한 달씩 더 받는다. 새로 받은 달에 요리 완료가 없으면 다음 달로 계속,
+   * 타임라인 [더 보기]: 한 달씩 더 받는다. 새로 받은 달에 기록(예정·완료)이 없으면 다음 달로 계속,
    * 서비스 시작 달에 닿으면 멈춘다 (눌렀는데 아무것도 안 느는 일이 없게)
-   * 반환: 요리 완료가 있는 달을 찾았으면 true, 끝까지 없으면 false
+   * 반환: 기록이 있는 달을 찾았으면 true, 끝까지 없으면 false
    */
-  async loadOlderCookedMonth(): Promise<boolean> {
+  async loadOlderPlanMonth(): Promise<boolean> {
     while (this.canLoadMorePlans()) {
       const to = this.plansLoadedFrom()!;
       const from = addMonths(to, -1);
       await extendPlansFrom(from);
-      const found = cachedPlans().some((p) => p.status === 'COOKED' && p.date >= from && p.date < to);
+      const found = cachedPlans().some((p) => p.date >= from && p.date < to);
       if (found) return true;
     }
     return false;

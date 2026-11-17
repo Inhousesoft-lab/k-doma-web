@@ -29,10 +29,10 @@ const NO_MORE_RECORDS = '더 이상 기록이 없어요';
  * - 가구의 요리 기록을 달력으로 본다. 다른 구성원의 기록도 바로 반영된다 (실시간)
  * - 선택한 날짜의 요리 카드를 모두 보여 준다 (하루 최대 10개, 추가한 순)
  * - 보기 전환 [달력 | 타임라인] (달력 위 오른쪽). 기본 = 달력. 탭을 다시 열면 달력으로 시작
- * - 타임라인: 요리 완료한 날만, 최신 날짜가 위. 카드는 달력 보기와 같은 PlanCard
+ * - 타임라인: 달력과 같은 기록(요리 예정·요리 완료)을 날짜별로, 최신 날짜가 위. 카드는 달력 보기와 같은 PlanCard
  * - 달력 보기에서 고른 날에 기록이 없으면 안내 박스. [요리 보러 가기]는 오늘만 (기록은 오늘 날짜로만 추가된다)
  * - 기록은 지난달 1일부터 받는다. 달력에서 이전 달로 가면 그 전 달부터 더 받고(앞쪽 흐린 칸 점),
- *   타임라인은 아래 [더보기]로 한 달씩 더 받는다 (요리 완료 없는 달은 건너뛴다. 끝까지 없으면 버튼이 사라진다)
+ *   타임라인은 아래 [더보기]로 한 달씩 더 받는다 (기록 없는 달은 건너뛴다. 끝까지 없으면 버튼이 사라진다)
  */
 export const RecordsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -73,7 +73,6 @@ export const RecordsPage: React.FC = () => {
   const hideToast = useCallback(() => setShowToast(false), []);
 
   const dayPlans = plans.filter((p) => p.date === selectedDate);
-  const cookedPlans = plans.filter((p) => p.status === 'COOKED');
   const isTodaySelected = selectedDate === todayStr();
 
   // 이전 달 기록 더 받기
@@ -86,14 +85,14 @@ export const RecordsPage: React.FC = () => {
     setViewMode(mode);
   };
 
-  // 타임라인 [더보기] (요리 완료 없는 달은 건너뛴다)
+  // 타임라인 [더보기] (기록 없는 달은 건너뛴다)
   // 받아 봤는데 서비스 시작 달까지 없으면 버튼이 사라지고, 버튼으로 누른 경우만 '더 이상 기록이 없어요' 안내
   const handleLoadMore = async (fromButton = true) => {
     if (loadingMore) return;
     setLoadingMore(true);
     setLoadMoreFailed(false);
     try {
-      const found = await mealPlanService.loadOlderCookedMonth();
+      const found = await mealPlanService.loadOlderPlanMonth();
       if (!found && fromButton) showToastMessage(NO_MORE_RECORDS);
     } catch (e) {
       console.error(e);
@@ -115,9 +114,9 @@ export const RecordsPage: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn, viewMonth]);
 
-  // 타임라인: 받은 범위에 요리 완료가 없으면 있는 달(또는 서비스 시작 달)까지 자동으로 더 받는다
+  // 타임라인: 받은 범위에 기록이 없으면 있는 달(또는 서비스 시작 달)까지 자동으로 더 받는다
   const needsAutoLoad =
-    viewMode === 'timeline' && isLoggedIn && !loading && cookedPlans.length === 0 && canLoadMore && !loadMoreFailed;
+    viewMode === 'timeline' && isLoggedIn && !loading && plans.length === 0 && canLoadMore && !loadMoreFailed;
   useEffect(() => {
     if (needsAutoLoad) void handleLoadMore(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -236,9 +235,9 @@ export const RecordsPage: React.FC = () => {
         </>
       ) : !isLoggedIn ? (
         loginNotice
-      ) : cookedPlans.length === 0 && (loadingMore || needsAutoLoad) ? (
+      ) : plans.length === 0 && (loadingMore || needsAutoLoad) ? (
         <StateView type="loading" title="기록을 불러오는 중이에요" className="grow" />
-      ) : cookedPlans.length === 0 && loadMoreFailed && canLoadMore ? (
+      ) : plans.length === 0 && loadMoreFailed && canLoadMore ? (
         <StateView
           type="error"
           title="기록을 불러오지 못했어요"
@@ -247,18 +246,18 @@ export const RecordsPage: React.FC = () => {
           onAction={() => handleLoadMore(false)}
           className="grow"
         />
-      ) : cookedPlans.length === 0 ? (
+      ) : plans.length === 0 ? (
         <StateView
           type="empty"
-          title="아직 완성한 요리가 없어요"
-          description="요리를 완성하면 날짜별로 여기에 쌓여요."
+          title="아직 요리 기록이 없어요"
+          description="요리를 기록하면 날짜별로 여기에 쌓여요."
           actionText="요리 보러 가기"
           onAction={() => navigate('/recipes')}
           className="grow"
         />
       ) : (
         <RecordsTimeline
-          plans={cookedPlans}
+          plans={plans}
           renderCard={renderPlanCard}
           loadMoreLabel={canLoadMore ? '더보기' : null}
           loadingMore={loadingMore}
