@@ -9,6 +9,8 @@ interface ImportMetaEnv {
   readonly VITE_FIREBASE_APP_ID: string;
   readonly VITE_FIREBASE_MEASUREMENT_ID: string;
   readonly VITE_USE_FIREBASE_EMULATOR?: string;
+  /** 공유 링크에 쓰는 사이트 주소(예: https://k-doma.netlify.app). 없으면 지금 연 주소의 origin */
+  readonly VITE_SITE_URL?: string;
 }
 
 interface ImportMeta {
