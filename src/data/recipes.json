@@ -437,7 +437,8 @@
     "mainIngredient": "돼지",
     "category": "특식",
     "themes": [
-      "돼지"
+      "돼지",
+      "조림"
     ],
     "cookTimeMinutes": 75,
     "servings": 2,
@@ -933,7 +934,8 @@
     "mainIngredient": "채소",
     "category": "특식",
     "themes": [
-      "중식"
+      "중식",
+      "채식"
     ],
     "cookTimeMinutes": 40,
     "servings": 2,
@@ -1724,7 +1726,8 @@
     "category": "밥",
     "themes": [
       "긴급",
-      "양식"
+      "양식",
+      "채식"
     ],
     "cookTimeMinutes": 10,
     "caloriesKcal": 870,
@@ -1818,7 +1821,8 @@
     "mainIngredient": "계란",
     "category": "밥",
     "themes": [
-      "긴급"
+      "긴급",
+      "채식"
     ],
     "cookTimeMinutes": 10,
     "caloriesKcal": 760,
@@ -2994,5 +2998,106 @@
     "part": "Part 5 평생 간식",
     "ingredientsRequired": [],
     "steps": []
+  },
+  {
+    "id": "r_braised_tofu",
+    "name": "두부조림",
+    "mainIngredient": "두부",
+    "category": "반찬",
+    "themes": [
+      "채식",
+      "조림"
+    ],
+    "cookTimeMinutes": 25,
+    "caloriesKcal": 575,
+    "servings": 2,
+    "nutrition": {
+      "calories": 575,
+      "carbs": 50,
+      "protein": 31,
+      "fat": 28
+    },
+    "tags": [
+      "두부",
+      "반찬",
+      "매콤한",
+      "단짠",
+      "밥도둑"
+    ],
+    "description": "기름 없이 구워 단맛을 끌어낸 양파·대파에 굴소스 양념을 더해 자작하게 졸인 밥반찬",
+    "ingredientsRequired": [
+      {
+        "name": "두부",
+        "amount": "1모(300g)",
+        "usageType": "ALL"
+      },
+      {
+        "name": "대파",
+        "amount": "½대",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "청양 홍고추",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "진간장",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "굴소스",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고춧가루",
+        "amount": "⅔큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "적당량",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "200ml",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "두부 1모(300g)는 2분간 물기를 뺀 뒤 반으로 잘라 8등분으로 슬라이스한다.",
+      "대파 ½대는 어슷썰고, 양파 1개는 도톰하게 채 썬다. 청양 홍고추 1개는 송송 썬다.",
+      "센 불로 달군 팬에 기름 없이 대파와 양파를 넣고 2분간 갈색이 나도록 구워 카라멜라이징한다.",
+      "식용유 1큰술을 두르고 설탕 ½큰술, 다진 마늘 ½큰술을 넣어 볶는다.",
+      "불을 끄고 진간장 2큰술, 굴소스 2큰술을 넣어 섞는다.",
+      "고춧가루 ⅔큰술을 넣고 강불에서 1분간 빠르게 볶아 채소와 양념이 잘 어우러지게 한다.",
+      "두부를 팬에 넣고 양념을 두부 위에 올린 뒤 물 200ml를 붓고, 뚜껑을 덮어 중약불에서 5분 졸인다.",
+      "뚜껑을 열고 수분을 확인하며 국물이 자작해질 때까지 8~10분 더 졸인다.",
+      "청양 홍고추와 후추를 뿌리면 완성!"
+    ],
+    "photoUrl": "/images/recipes/r_braised_tofu.webp"
   }
 ]

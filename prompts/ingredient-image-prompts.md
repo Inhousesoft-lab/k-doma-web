@@ -251,6 +251,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | heavy_cream | 동물성 생크림 | id `m_ing_261`, zone `FRIDGE`, aliases `["생크림", "휘핑크림", "동물성생크림"]` | 대기 | plain white unprinted milk carton style container of heavy cream next to a small dollop of thick whipped cream |
 | red_wine | 레드 와인 | id `m_ing_262`, zone `SEASONING`, aliases `["레드와인", "요리용 레드 와인", "적포도주"]` | 대기 | one dark glass wine bottle of red wine with a plain dark foil capsule, blank label, a small pour of deep red wine in a short glass beside it |
 | korean_green_chili | 청고추 | id `m_ing_263`, zone `FRIDGE`, aliases `["청 고추", "녹광고추"]` | 대기 | three fresh long thick glossy dark green Korean chili peppers (cheong-gochu), smooth skin, gently curved, green stems |
+| red_cheongyang_chili | 청양 홍고추 | id `m_ing_268`, zone `FRIDGE`, aliases `["청양홍고추", "빨간 청양고추", "홍청양고추"]` | 대기 | three small slim fresh bright red Korean cheongyang hot chili peppers, glossy skin, short green stems |
 
 ### 3.4 같은 재료 / 다른 재료(2026-11-14 사용자 확인)
 
@@ -264,6 +265,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | 대파 `scallion` | 쪽파 `small_green_onion` | `쪽파` |
 | 베이컨 `bacon` | 프랑크소시지 `frankfurter` | `소시지` |
 | 고추(풋고추) `green_chili` | 청고추 `korean_green_chili` | `청고추` |
+| 홍고추 `red_chili` | 청양 홍고추 `red_cheongyang_chili` | `청양 홍고추` |
 | 소고기 `beef`(삭제함) | 소고기 양지 `beef_flank` | — |
 | 치즈 `cheese`(삭제함) | 슈레드 피자치즈 `shredded_mozzarella` | `피자치즈`는 새 재료 별칭으로 옮김 |
 

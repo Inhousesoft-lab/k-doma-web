@@ -525,7 +525,10 @@
     "zone": "FRIDGE",
     "category": "PRODUCE",
     "imageKey": "chili_pepper",
-    "aliases": []
+    "aliases": [
+      "청양 청고추",
+      "청양청고추"
+    ]
   },
   {
     "id": "m_ing_127",
@@ -1195,6 +1198,18 @@
       "붉은고추",
       "빨간고추",
       "생홍고추"
+    ]
+  },
+  {
+    "id": "m_ing_268",
+    "name": "청양 홍고추",
+    "zone": "FRIDGE",
+    "category": "PRODUCE",
+    "imageKey": "red_cheongyang_chili",
+    "aliases": [
+      "청양홍고추",
+      "빨간 청양고추",
+      "홍청양고추"
     ]
   },
   {
