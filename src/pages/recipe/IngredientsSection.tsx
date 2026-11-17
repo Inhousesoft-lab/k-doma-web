@@ -32,7 +32,7 @@ const IngredientsSection: React.FC<IngredientsSectionProps> = ({
   handleToggleCartItem,
   handleAddAllMissingToCart,
 }) => (
-  <section className="bg-white rounded-card p-4.5 border border-line">
+  <section>
     {/* 헤더: 필요한 재료 + 인분 조절 (−/+) */}
     <div className="flex items-center justify-between mb-3 pb-2 border-b border-line-subtle">
       <div>

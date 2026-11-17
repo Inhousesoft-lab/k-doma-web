@@ -225,9 +225,8 @@ export const RecipeDetailPage: React.FC = () => {
 
   return (
     <div className="flex flex-col bg-white min-h-screen pb-28">
-      <div className="px-5 pt-4 flex flex-col gap-6">
-        {/* 1. 요리 대표 사진 (전체 폭 라운드 카드) */}
-        <div className="w-full aspect-[4/3] rounded-sheet bg-line-subtle overflow-hidden flex items-center justify-center text-ink-muted shadow-2xs relative">
+      {/* 1. 요리 대표 사진 (화면 폭 꽉 차게, 여백·라운드 없음) */}
+      <div className="w-full aspect-[4/3] bg-line-subtle overflow-hidden flex items-center justify-center text-ink-muted relative">
           {recipe.photoUrl ? (
             <img
               src={recipe.photoUrl}
@@ -239,8 +238,9 @@ export const RecipeDetailPage: React.FC = () => {
           ) : (
             <NoImage size="lg" />
           )}
-        </div>
+      </div>
 
+      <div className="px-5 pt-5 flex flex-col gap-6">
         {/* 2. 요리명과 태그 줄 (주재료, 종류, 조리시간, 책 페이지, 찜, 공유) */}
         <div>
           <div className="flex items-start justify-between gap-3">

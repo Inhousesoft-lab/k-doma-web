@@ -10,7 +10,7 @@ interface SauceSectionProps {
 
 /** 요리 상세 '소스': 곁들이는 소스의 재료(인분에 맞춰 표시)와 만드는 순서 */
 const SauceSection: React.FC<SauceSectionProps> = ({ sauce, servings, baseServings }) => (
-  <section className="bg-white rounded-card p-4.5 border border-line">
+  <section>
     <div className="mb-3">
       <span className="text-[12px] font-bold text-ink-muted">소스</span>
       <h3 className="text-[16px] font-bold text-ink">{sauce.name}</h3>

@@ -3,7 +3,7 @@ import { RecipeNutrition } from '../../types';
 
 /** 요리 상세 영양성분 4칸 (영양 데이터가 있는 요리만 그린다) */
 const NutritionSection: React.FC<{ nutrition: RecipeNutrition }> = ({ nutrition }) => (
-  <section className="bg-white rounded-card p-4.5 border border-line">
+  <section>
     <div className="flex items-center justify-between mb-3">
       <h3 className="text-[16px] font-bold text-ink">영양성분</h3>
       <span className="text-[12px] text-ink-muted">
