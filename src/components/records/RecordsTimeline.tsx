@@ -5,7 +5,7 @@ import Button from '../common/Button';
 import { formatMonthDayWeekday, formatYearMonth, monthKey } from '../../utils/date';
 
 export interface RecordsTimelineProps {
-  /** 요리 완료 기록만 (getPlans 순서: 날짜순, 같은 날은 추가한 순) */
+  /** 달력과 같은 기록 전체: 요리 예정·요리 완료 (getPlans 순서: 날짜순, 같은 날은 추가한 순) */
   plans: MealPlan[];
   /** 카드 그리기. 달력 보기와 같은 PlanCard 를 그대로 쓴다 */
   renderCard: (plan: MealPlan) => React.ReactNode;
@@ -35,7 +35,7 @@ export function groupByDateDesc(plans: MealPlan[]): DayGroup[] {
 
 /**
  * 기록 탭 타임라인 보기
- * - 요리 완료한 날만, 최신 날짜가 위
+ * - 기록(요리 예정·요리 완료)이 있는 날만, 최신 날짜가 위. 달력과 같은 카드가 나온다
  * - 달이 바뀌면 월 제목 ('2026년 11월')
  * - 왼쪽 세로선 + 날짜마다 동그라미, 오른쪽에 날짜(글자만, 누를 수 없음)와 그 날의 요리 카드
  * - 받은 범위(지난달 1일~)만 그린다. 이전 달은 아래 [더보기]로 한 달씩 더 받는다
