@@ -424,13 +424,46 @@
   },
   {
     "id": "m_ing_117",
-    "name": "버섯",
+    "name": "송이버섯",
+    "zone": "FRIDGE",
+    "category": "PRODUCE",
+    "imageKey": "pine_mushroom",
+    "aliases": [
+      "송이",
+      "자연송이"
+    ]
+  },
+  {
+    "id": "m_ing_269",
+    "name": "표고버섯",
     "zone": "FRIDGE",
     "category": "PRODUCE",
     "imageKey": "mushroom",
     "aliases": [
-      "새송이버섯",
-      "표고버섯"
+      "표고",
+      "생표고"
+    ]
+  },
+  {
+    "id": "m_ing_270",
+    "name": "새송이버섯",
+    "zone": "FRIDGE",
+    "category": "PRODUCE",
+    "imageKey": "king_oyster_mushroom",
+    "aliases": [
+      "새송이"
+    ]
+  },
+  {
+    "id": "m_ing_271",
+    "name": "목이버섯",
+    "zone": "FRIDGE",
+    "category": "PRODUCE",
+    "imageKey": "wood_ear_mushroom",
+    "aliases": [
+      "목이",
+      "건목이버섯",
+      "말린 목이버섯"
     ]
   },
   {
@@ -1198,18 +1231,6 @@
       "붉은고추",
       "빨간고추",
       "생홍고추"
-    ]
-  },
-  {
-    "id": "m_ing_268",
-    "name": "청양 홍고추",
-    "zone": "FRIDGE",
-    "category": "PRODUCE",
-    "imageKey": "red_cheongyang_chili",
-    "aliases": [
-      "청양홍고추",
-      "빨간 청양고추",
-      "홍청양고추"
     ]
   },
   {
