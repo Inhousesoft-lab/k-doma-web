@@ -2,7 +2,7 @@ import React from 'react';
 
 /** 요리 상세 조리 순서 (책 원문 기준 단계) */
 const StepsSection: React.FC<{ steps: string[] }> = ({ steps }) => (
-  <section className="bg-white rounded-card p-4.5 border border-line">
+  <section>
     <h3 className="text-[16px] font-bold text-ink mb-3">
       조리 순서
     </h3>
