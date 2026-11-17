@@ -43,4 +43,6 @@ export const THEMES = [
   '닭',
   '스팸',
   '전',
+  '채식',
+  '조림',
 ] as const;
