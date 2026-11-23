@@ -2767,13 +2767,101 @@
       "간식",
       "분식"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 20,
     "servings": 2,
     "bookPage": 212,
     "part": "Part 5 평생 간식",
     "dishGroupId": "tteokbokki",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "밀떡",
+        "amount": "500g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "어묵",
+        "amount": "4장",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "굵은 소금",
+        "amount": "½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "600ml",
+        "usageType": "PART"
+      },
+      {
+        "name": "고춧가루",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "굴소스",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고추장",
+        "amount": "듬뿍 2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "20바퀴",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "대파는 길게 반으로 가른 뒤, 3~4cm 길이로 썬다. 어묵은 4등분한 뒤, 삼각형 모양으로 썬다.",
+      "볼에 떡볶이 양념장 재료(고춧가루 4큰술, 설탕 3큰술, 간장 2큰술, 굴소스 2큰술, 고추장 듬뿍 2큰술, 식용유 1큰술, 후추 20바퀴)를 모두 넣고 잘 섞는다. (식용유를 넣으면 더 맛있고 걸쭉한 양념장을 만들 수 있습니다. 맵기는 고춧가루로 조절하세요. 가루 후추를 사용할 경우에는 1작은술입니다.)",
+      "기름을 두르지 않고 예열한 팬에 대파, 어묵과 설탕 1큰술, 굵은 소금 ½큰술, 다진 마늘 ½큰술을 넣은 뒤, 물 600ml를 붓고 강불에서 끓인다. (뚜껑은 열고 끓이세요. 어묵 육수를 내는 과정입니다.)",
+      "육수가 끓어오르면 중불로 낮추고 밀떡을 넣고 뚜껑을 덮은 뒤 1~2분 끓인다.",
+      "밀떡이 하얗게 불면 양념장을 넣는다. (양념장은 다 넣지 말고 1큰술 남겨두었다가 입맛에 맞게 추가하세요.)",
+      "약불에서 뚜껑을 열고 4분 뭉근하게 끓이면 완성!"
+    ],
+    "caloriesKcal": 1000,
+    "nutrition": {
+      "calories": 1000,
+      "carbs": 190,
+      "protein": 22,
+      "fat": 14
+    },
+    "tags": [
+      "분식",
+      "떡볶이",
+      "매콤한",
+      "간식"
+    ],
+    "description": "어묵으로 육수를 내고 굴소스 양념장으로 윤기 나게 끓인, 길거리 맛 그대로의 매콤달콤 떡볶이",
+    "photoUrl": "/images/recipes/r_p5_02.webp"
   },
   {
     "id": "r_p5_03",
