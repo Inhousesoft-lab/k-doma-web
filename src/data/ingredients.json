@@ -211,6 +211,18 @@
     ]
   },
   {
+    "id": "m_ing_272",
+    "name": "연겨자",
+    "zone": "SEASONING",
+    "category": "SAUCE",
+    "imageKey": "mustard_paste",
+    "aliases": [
+      "겨자",
+      "튜브겨자",
+      "겨자소스"
+    ]
+  },
+  {
     "id": "m_ing_16",
     "name": "마요네즈",
     "zone": "SEASONING",

@@ -1504,12 +1504,112 @@
     "themes": [
       "돼지"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 70,
     "servings": 2,
+    "bookPage": 77,
     "part": "Part 1 평생 특식",
     "dishGroupId": "deunggalbi",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "등갈비",
+        "amount": "1kg",
+        "usageType": "ALL"
+      },
+      {
+        "name": "소금",
+        "amount": "3꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "진간장",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고추장",
+        "amount": "듬뿍 4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고춧가루",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "케첩",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "버터",
+        "amount": "20g",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "600ml",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "20바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "청양고추",
+        "amount": "2개",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "등갈비의 근막을 제거한 뒤 1대씩 썰고 물에 세척한다. 대파는 송송 썰고, 양파는 얇게 채썰고, 청양고추는 송송 썬다. (손질 시에는 칼을 뼈에 바짝 붙여서 잘라주세요.)",
+      "예열된 팬에 등갈비를 올린 후, 소금 3꼬집을 뿌려 강불로 3분 굽는다. (고기에 기름이 없을 경우, 식용유를 1바퀴 둘러주세요.)",
+      "중불로 줄인 후 진간장 4큰술을 넣어 바르르 끓이고, 설탕 4큰술, 고추장 듬뿍 4큰술, 고춧가루 2큰술, 케첩 1큰술, 식초 1큰술을 넣어 섞는다.",
+      "다진 마늘 1큰술, 양파와 파를 넣어 볶는다.",
+      "양파의 숨이 죽으면 물 600ml를 넣고 끓으면 뚜껑을 덮어 약불로 40분 졸인다. (갈비가 자작하게 잠길 정도로 물을 넣어주세요.)",
+      "국물이 걸쭉해지면 약불로 줄이고 버터 20g, 후추 20바퀴를 넣는다. (간이 세면 물을 소주잔 1잔 추가해주세요.)",
+      "등갈비를 그릇에 담고 송송 썬 청양고추를 뿌리면 완성! (간을 보고 싱거우면 강불에서 조금 더 졸여주세요. 남은 양념에 밥 2공기를 넣어 섞고 모차렐라 치즈 150g을 뿌린 뒤 뚜껑을 덮어 약불로 녹이면 '고추장 버터 리소토'가 돼요. 간이 약하면 소금 1꼬집을 더하세요.)"
+    ],
+    "caloriesKcal": 1200,
+    "nutrition": {
+      "calories": 1200,
+      "carbs": 69,
+      "protein": 58,
+      "fat": 76
+    },
+    "tags": [
+      "돼지",
+      "특식",
+      "매콤한",
+      "밥도둑"
+    ],
+    "description": "등갈비를 고추장·간장 양념에 40분 졸이고 마지막에 버터를 녹여 고소하게 마무리한 고추장 버터 등갈비",
+    "photoUrl": "/images/recipes/r_p1_18.webp"
   },
   {
     "id": "r_p1_19",
@@ -2646,13 +2746,116 @@
       "간식",
       "분식"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 30,
     "servings": 2,
     "bookPage": 210,
     "part": "Part 5 평생 간식",
     "dishGroupId": "tteokbokki",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "달걀",
+        "amount": "4개",
+        "usageType": "PART"
+      },
+      {
+        "name": "양배추",
+        "amount": "¼통",
+        "usageType": "PART"
+      },
+      {
+        "name": "밀떡",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "어묵",
+        "amount": "3장",
+        "usageType": "PART"
+      },
+      {
+        "name": "당근",
+        "amount": "½개",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "짜장라면 수프",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "라면사리",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "쫄면사리",
+        "amount": "2묶음",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고추장",
+        "amount": "1½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "1L",
+        "usageType": "PART"
+      },
+      {
+        "name": "고춧가루",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "1작은술",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "냄비에 물 적당량과 소금 1큰술을 넣은 뒤, 달걀을 12분 삶는다. 어묵은 4등분한 뒤 삼각형 모양으로 썬다. 당근은 채썰고, 대파는 반으로 갈라 4등분하고, 양배추는 큼지막하게 썬다.",
+      "양배추를 숭덩숭덩 잘라 전골냄비 바닥에 깐다. (양배추는 금방 숨이 죽으니 큼직하게 썰어 넣어주세요.)",
+      "밀떡, 어묵, 당근, 대파와 다진 마늘 1큰술을 넣는다. (마늘은 취향에 따라 가감해주세요.)",
+      "짜장라면 수프, 라면사리, 쫄면사리를 넣는다. (쫄면사리는 손으로 비벼서 잘 풀어주세요.)",
+      "설탕 1큰술, 간장 1큰술, 고추장 1½큰술, 물 1L를 넣고, 고춧가루 1큰술, 소금 1작은술을 뿌린 뒤, 삶은 달걀을 올린다.",
+      "버너에 올려 끓이면 즉석 떡볶이 완성! (어느 정도 먹고 남은 떡볶이에 신김치를 잘게 잘라 넣고, 참기름 약간, 김가루를 취향껏 더해 볶음밥까지 먹으면 금상첨화겠죠?)"
+    ],
+    "caloriesKcal": 1350,
+    "nutrition": {
+      "calories": 1350,
+      "carbs": 226,
+      "protein": 47,
+      "fat": 28
+    },
+    "tags": [
+      "분식",
+      "떡볶이",
+      "달콤한",
+      "간식"
+    ],
+    "description": "짜장라면 수프로 달콤하게 맛을 내고 라면·쫄면 사리를 듬뿍 넣어 버너에서 끓여 먹는 학교 앞 즉석 떡볶이",
+    "photoUrl": "/images/recipes/r_p5_01.webp"
   },
   {
     "id": "r_p5_02",
@@ -2664,13 +2867,101 @@
       "간식",
       "분식"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 20,
     "servings": 2,
     "bookPage": 212,
     "part": "Part 5 평생 간식",
     "dishGroupId": "tteokbokki",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "밀떡",
+        "amount": "500g",
+        "usageType": "ALL"
+      },
+      {
+        "name": "어묵",
+        "amount": "4장",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "굵은 소금",
+        "amount": "½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "600ml",
+        "usageType": "PART"
+      },
+      {
+        "name": "고춧가루",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "굴소스",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고추장",
+        "amount": "듬뿍 2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식용유",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "20바퀴",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "대파는 길게 반으로 가른 뒤, 3~4cm 길이로 썬다. 어묵은 4등분한 뒤, 삼각형 모양으로 썬다.",
+      "볼에 떡볶이 양념장 재료(고춧가루 4큰술, 설탕 3큰술, 간장 2큰술, 굴소스 2큰술, 고추장 듬뿍 2큰술, 식용유 1큰술, 후추 20바퀴)를 모두 넣고 잘 섞는다. (식용유를 넣으면 더 맛있고 걸쭉한 양념장을 만들 수 있습니다. 맵기는 고춧가루로 조절하세요. 가루 후추를 사용할 경우에는 1작은술입니다.)",
+      "기름을 두르지 않고 예열한 팬에 대파, 어묵과 설탕 1큰술, 굵은 소금 ½큰술, 다진 마늘 ½큰술을 넣은 뒤, 물 600ml를 붓고 강불에서 끓인다. (뚜껑은 열고 끓이세요. 어묵 육수를 내는 과정입니다.)",
+      "육수가 끓어오르면 중불로 낮추고 밀떡을 넣고 뚜껑을 덮은 뒤 1~2분 끓인다.",
+      "밀떡이 하얗게 불면 양념장을 넣는다. (양념장은 다 넣지 말고 1큰술 남겨두었다가 입맛에 맞게 추가하세요.)",
+      "약불에서 뚜껑을 열고 4분 뭉근하게 끓이면 완성!"
+    ],
+    "caloriesKcal": 1000,
+    "nutrition": {
+      "calories": 1000,
+      "carbs": 190,
+      "protein": 22,
+      "fat": 14
+    },
+    "tags": [
+      "분식",
+      "떡볶이",
+      "매콤한",
+      "간식"
+    ],
+    "description": "어묵으로 육수를 내고 굴소스 양념장으로 윤기 나게 끓인, 길거리 맛 그대로의 매콤달콤 떡볶이",
+    "photoUrl": "/images/recipes/r_p5_02.webp"
   },
   {
     "id": "r_p5_03",
@@ -3107,5 +3398,174 @@
       "홍고추와 후추를 뿌리면 완성!"
     ],
     "photoUrl": "/images/recipes/r_braised_tofu.webp"
+  },
+  {
+    "id": "r_dak_hanmari",
+    "name": "닭한마리",
+    "mainIngredient": "닭",
+    "category": "국·탕·찌개",
+    "themes": [
+      "국물",
+      "닭"
+    ],
+    "cookTimeMinutes": 45,
+    "caloriesKcal": 870,
+    "servings": 2,
+    "nutrition": {
+      "calories": 870,
+      "carbs": 74,
+      "protein": 62,
+      "fat": 36
+    },
+    "tags": [
+      "닭",
+      "국·탕·찌개",
+      "담백한",
+      "보양식"
+    ],
+    "description": "한 번 데쳐 잡내를 뺀 닭에 감자·대파·양파를 넣고 끓여, 겨자 넣은 새콤한 소스에 찍어 먹는 복날 닭한마리",
+    "source": {
+      "title": "사먹는 것 보다 더 맛있는 닭한마리 레시피 복날 요리",
+      "url": "https://m.10000recipe.com/recipe/7083382"
+    },
+    "ingredientsRequired": [
+      {
+        "name": "닭볶음탕용 닭",
+        "amount": "1kg",
+        "usageType": "ALL"
+      },
+      {
+        "name": "감자",
+        "amount": "2개",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파(흰 부분)",
+        "amount": "2대",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "1/2개",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "1.5L",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "1/2스푼",
+        "usageType": "PART"
+      },
+      {
+        "name": "멸치액젓",
+        "amount": "1스푼",
+        "usageType": "PART"
+      },
+      {
+        "name": "치킨스톡",
+        "amount": "1스푼",
+        "usageType": "PART"
+      },
+      {
+        "name": "맛술",
+        "amount": "2스푼",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진마늘",
+        "amount": "5스푼",
+        "usageType": "PART"
+      },
+      {
+        "name": "고춧가루",
+        "amount": "4스푼",
+        "usageType": "PART"
+      },
+      {
+        "name": "진간장",
+        "amount": "4스푼",
+        "usageType": "PART"
+      },
+      {
+        "name": "올리고당",
+        "amount": "2스푼",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "1스푼",
+        "usageType": "PART"
+      },
+      {
+        "name": "연겨자",
+        "amount": "1/2스푼",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "톡톡",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "닭을 먼저 데치기 위해 닭이 다 잠길 만큼 물을 받아 끓인다.",
+      "그 사이 감자 2개를 손질해 큼지막하게 썰고, 대파도 손질한다.",
+      "닭은 5분 정도 데치고, 찬물에 내장이나 뼛가루를 씻어준다. (깨끗하게 씻어줘야 잡내가 안 나요.)",
+      "다 씻은 닭은 다시 웍에 넣고, 물 1.5L와 감자, 대파, 양파 반 개를 넣어 중불로 끓인다.",
+      "소금 1/2스푼, 멸치액젓 1스푼, 액상 치킨스톡 1스푼, 맛술 2스푼, 다진마늘 5스푼을 넣고 미리 섞어 둔다.",
+      "물이 끓으면 섞어둔 양념을 다 넣고 15분 정도 끓인다."
+    ],
+    "sauce": {
+      "name": "찍어 먹는 소스",
+      "ingredients": [
+        {
+          "name": "닭한마리 육수",
+          "amount": "8스푼",
+          "usageType": "PART"
+        },
+        {
+          "name": "고춧가루",
+          "amount": "4스푼",
+          "usageType": "PART"
+        },
+        {
+          "name": "진간장",
+          "amount": "4스푼",
+          "usageType": "PART"
+        },
+        {
+          "name": "올리고당",
+          "amount": "2스푼",
+          "usageType": "PART"
+        },
+        {
+          "name": "식초",
+          "amount": "1스푼",
+          "usageType": "PART"
+        },
+        {
+          "name": "연겨자",
+          "amount": "1/2스푼",
+          "usageType": "PART"
+        },
+        {
+          "name": "다진마늘",
+          "amount": "1스푼",
+          "usageType": "PART"
+        },
+        {
+          "name": "후추",
+          "amount": "톡톡",
+          "usageType": "PART"
+        }
+      ],
+      "steps": [
+        "닭한마리 육수 8스푼, 고춧가루 4스푼, 진간장 4스푼, 올리고당 2스푼, 식초 1스푼, 연겨자 1/2스푼, 다진마늘 1스푼, 후추를 넣고 섞는다. (겨자가 들어가서 톡 쏘고 맛있어요.)"
+      ]
+    },
+    "photoUrl": "/images/recipes/r_dak_hanmari.webp"
   }
 ]

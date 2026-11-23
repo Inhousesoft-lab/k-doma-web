@@ -23,7 +23,7 @@
 
 ### 1.2 새 재료 추가(재료 사전에 없는 재료)
 
-1. imageKey(영문 소문자·밑줄)·이름·구역·별칭을 정해 3.3장 표에 한 줄 추가한다. id는 마지막 번호 다음(`m_ing_264`부터).
+1. imageKey(영문 소문자·밑줄)·이름·구역·별칭을 정해 3.3장 표에 한 줄 추가한다. id는 마지막 번호 다음(`m_ing_273`부터).
    - 기존 재료와 다른 재료면 기존 재료 별칭에 겹치는 이름이 없는지 확인한다(예: 대파 ≠ 쪽파).
 2. 같은 값으로 `src/data/ingredients.json`에 추가한다. 이미지가 없어도 등록하면 앱에서 회색 칸으로 보인다.
 3. 이미지는 1.1 순서로 만든다.
@@ -149,7 +149,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 
 ### 3.3 추가 재료(재료 사전 등록됨)
 
-재료 사전(`src/data/ingredients.json`) 기준 값이다. **이미지 '대기'**는 사전에는 있고 이미지만 없어 앱에서 회색 칸('AI')으로 보인다. 이미지를 만들면 1.1 순서로 넣는다. 다음 새 id는 `m_ing_264`부터(`m_ing_171`·`m_ing_228`은 비워 둠).
+재료 사전(`src/data/ingredients.json`) 기준 값이다. **이미지 '대기'**는 사전에는 있고 이미지만 없어 앱에서 회색 칸('AI')으로 보인다. 이미지를 만들면 1.1 순서로 넣는다. 다음 새 id는 `m_ing_273`부터(`m_ing_171`·`m_ing_228`은 비워 둠).
 
 | imageKey | 재료 | 사전 값 | 이미지 | SUBJECT |
 |---|---|---|---|---|
@@ -254,6 +254,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | pine_mushroom | 송이버섯 | id `m_ing_117`, zone `FRIDGE`, aliases `["송이", "자연송이"]` | 대기 | two whole fresh Korean pine mushrooms (songi), thick pale stems with brown closed caps, a little soil at the base |
 | king_oyster_mushroom | 새송이버섯 | id `m_ing_270`, zone `FRIDGE`, aliases `["새송이"]` | 대기 | two fresh king oyster mushrooms with thick white stems and small light brown caps, one sliced lengthwise |
 | wood_ear_mushroom | 목이버섯 | id `m_ing_271`, zone `FRIDGE`, aliases `["목이", "건목이버섯", "말린 목이버섯"]` | 대기 | small pile of soaked black wood ear mushrooms, glossy dark brown-black ruffled ear-shaped pieces |
+| mustard_paste | 연겨자 | id `m_ing_272`, zone `SEASONING`, aliases `["겨자", "튜브겨자", "겨자소스"]` | 대기 | small white dish with a swirl of pale yellow Korean mustard paste, a plain unlabeled squeeze tube lying beside it |
 
 ### 3.4 같은 재료 / 다른 재료(2026-11-14 사용자 확인)
 

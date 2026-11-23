@@ -38,6 +38,12 @@ export interface RecipeSauce {
   steps: string[];
 }
 
+/** 책 밖에서 가져온 레시피의 출처 (예: 블로그 글). 요리 상세 설명 아래에 한 줄로 보여 준다 */
+export interface RecipeSource {
+  title: string; // 원문 제목
+  url: string; // 원문 링크
+}
+
 export interface Recipe {
   id: string;
   name: string;
@@ -54,6 +60,7 @@ export interface Recipe {
   nutrition?: RecipeNutrition; // 영양성분 4칸 (없으면 섹션 통째로 미표시)
   tags?: string[];
   description?: string;
+  source?: RecipeSource;
   ingredientsRequired?: RecipeIngredientRef[];
   steps?: string[];
   sauce?: RecipeSauce;
