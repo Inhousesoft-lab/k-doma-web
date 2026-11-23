@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Heart, Share2, CalendarPlus } from 'lucide-react';
+import { Heart, Share2, CalendarPlus, Paperclip } from 'lucide-react';
 import { todayStr } from '../utils/date';
 import { getMissingIngredientNames } from '../utils/ingredient';
 import {
@@ -271,6 +271,20 @@ export const RecipeDetailPage: React.FC = () => {
                 <p className="text-[14px] text-ink-secondary mt-2 leading-relaxed">
                   {recipe.description}
                 </p>
+              )}
+
+              {/* 출처 링크 (책 밖 레시피): 클립 아이콘 + 원문 제목 한 줄, 넘치면 말줄임 */}
+              {recipe.source && (
+                <a
+                  href={recipe.source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1.5 flex items-center gap-1 min-w-0 text-[12px] text-ink-muted hover:text-ink-secondary"
+                  aria-label={`출처: ${recipe.source.title}`}
+                >
+                  <Paperclip className="w-3.5 h-3.5 shrink-0" />
+                  <span className="truncate underline underline-offset-2">{recipe.source.title}</span>
+                </a>
               )}
             </div>
 
