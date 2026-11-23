@@ -2646,13 +2646,116 @@
       "간식",
       "분식"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 30,
     "servings": 2,
     "bookPage": 210,
     "part": "Part 5 평생 간식",
     "dishGroupId": "tteokbokki",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "달걀",
+        "amount": "4개",
+        "usageType": "PART"
+      },
+      {
+        "name": "양배추",
+        "amount": "¼통",
+        "usageType": "PART"
+      },
+      {
+        "name": "밀떡",
+        "amount": "1줌",
+        "usageType": "PART"
+      },
+      {
+        "name": "어묵",
+        "amount": "3장",
+        "usageType": "PART"
+      },
+      {
+        "name": "당근",
+        "amount": "½개",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "짜장라면 수프",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "라면사리",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "쫄면사리",
+        "amount": "2묶음",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "간장",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고추장",
+        "amount": "1½큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "1L",
+        "usageType": "PART"
+      },
+      {
+        "name": "고춧가루",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "소금",
+        "amount": "1작은술",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "냄비에 물 적당량과 소금 1큰술을 넣은 뒤, 달걀을 12분 삶는다. 어묵은 4등분한 뒤 삼각형 모양으로 썬다. 당근은 채썰고, 대파는 반으로 갈라 4등분하고, 양배추는 큼지막하게 썬다.",
+      "양배추를 숭덩숭덩 잘라 전골냄비 바닥에 깐다. (양배추는 금방 숨이 죽으니 큼직하게 썰어 넣어주세요.)",
+      "밀떡, 어묵, 당근, 대파와 다진 마늘 1큰술을 넣는다. (마늘은 취향에 따라 가감해주세요.)",
+      "짜장라면 수프, 라면사리, 쫄면사리를 넣는다. (쫄면사리는 손으로 비벼서 잘 풀어주세요.)",
+      "설탕 1큰술, 간장 1큰술, 고추장 1½큰술, 물 1L를 넣고, 고춧가루 1큰술, 소금 1작은술을 뿌린 뒤, 삶은 달걀을 올린다.",
+      "버너에 올려 끓이면 즉석 떡볶이 완성! (어느 정도 먹고 남은 떡볶이에 신김치를 잘게 잘라 넣고, 참기름 약간, 김가루를 취향껏 더해 볶음밥까지 먹으면 금상첨화겠죠?)"
+    ],
+    "caloriesKcal": 1350,
+    "nutrition": {
+      "calories": 1350,
+      "carbs": 226,
+      "protein": 47,
+      "fat": 28
+    },
+    "tags": [
+      "분식",
+      "떡볶이",
+      "달콤한",
+      "간식"
+    ],
+    "description": "짜장라면 수프로 달콤하게 맛을 내고 라면·쫄면 사리를 듬뿍 넣어 버너에서 끓여 먹는 학교 앞 즉석 떡볶이",
+    "photoUrl": "/images/recipes/r_p5_01.webp"
   },
   {
     "id": "r_p5_02",
