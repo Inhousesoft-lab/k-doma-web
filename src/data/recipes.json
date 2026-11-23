@@ -1504,12 +1504,112 @@
     "themes": [
       "돼지"
     ],
-    "cookTimeMinutes": 0,
+    "cookTimeMinutes": 70,
     "servings": 2,
+    "bookPage": 77,
     "part": "Part 1 평생 특식",
     "dishGroupId": "deunggalbi",
-    "ingredientsRequired": [],
-    "steps": []
+    "ingredientsRequired": [
+      {
+        "name": "등갈비",
+        "amount": "1kg",
+        "usageType": "ALL"
+      },
+      {
+        "name": "소금",
+        "amount": "3꼬집",
+        "usageType": "PART"
+      },
+      {
+        "name": "진간장",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "설탕",
+        "amount": "4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고추장",
+        "amount": "듬뿍 4큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "고춧가루",
+        "amount": "2큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "케첩",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "식초",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "버터",
+        "amount": "20g",
+        "usageType": "PART"
+      },
+      {
+        "name": "다진 마늘",
+        "amount": "1큰술",
+        "usageType": "PART"
+      },
+      {
+        "name": "대파",
+        "amount": "1대",
+        "usageType": "PART"
+      },
+      {
+        "name": "양파",
+        "amount": "1개",
+        "usageType": "PART"
+      },
+      {
+        "name": "물",
+        "amount": "600ml",
+        "usageType": "PART"
+      },
+      {
+        "name": "후추",
+        "amount": "20바퀴",
+        "usageType": "PART"
+      },
+      {
+        "name": "청양고추",
+        "amount": "2개",
+        "usageType": "PART"
+      }
+    ],
+    "steps": [
+      "등갈비의 근막을 제거한 뒤 1대씩 썰고 물에 세척한다. 대파는 송송 썰고, 양파는 얇게 채썰고, 청양고추는 송송 썬다. (손질 시에는 칼을 뼈에 바짝 붙여서 잘라주세요.)",
+      "예열된 팬에 등갈비를 올린 후, 소금 3꼬집을 뿌려 강불로 3분 굽는다. (고기에 기름이 없을 경우, 식용유를 1바퀴 둘러주세요.)",
+      "중불로 줄인 후 진간장 4큰술을 넣어 바르르 끓이고, 설탕 4큰술, 고추장 듬뿍 4큰술, 고춧가루 2큰술, 케첩 1큰술, 식초 1큰술을 넣어 섞는다.",
+      "다진 마늘 1큰술, 양파와 파를 넣어 볶는다.",
+      "양파의 숨이 죽으면 물 600ml를 넣고 끓으면 뚜껑을 덮어 약불로 40분 졸인다. (갈비가 자작하게 잠길 정도로 물을 넣어주세요.)",
+      "국물이 걸쭉해지면 약불로 줄이고 버터 20g, 후추 20바퀴를 넣는다. (간이 세면 물을 소주잔 1잔 추가해주세요.)",
+      "등갈비를 그릇에 담고 송송 썬 청양고추를 뿌리면 완성! (간을 보고 싱거우면 강불에서 조금 더 졸여주세요. 남은 양념에 밥 2공기를 넣어 섞고 모차렐라 치즈 150g을 뿌린 뒤 뚜껑을 덮어 약불로 녹이면 '고추장 버터 리소토'가 돼요. 간이 약하면 소금 1꼬집을 더하세요.)"
+    ],
+    "caloriesKcal": 1200,
+    "nutrition": {
+      "calories": 1200,
+      "carbs": 69,
+      "protein": 58,
+      "fat": 76
+    },
+    "tags": [
+      "돼지",
+      "특식",
+      "매콤한",
+      "밥도둑"
+    ],
+    "description": "등갈비를 고추장·간장 양념에 40분 졸이고 마지막에 버터를 녹여 고소하게 마무리한 고추장 버터 등갈비",
+    "photoUrl": "/images/recipes/r_p1_18.webp"
   },
   {
     "id": "r_p1_19",
