@@ -18,6 +18,9 @@ export interface CalendarProps {
   onSelectDate: (date: string) => void;
   plans: MealPlan[];
   todayDate?: string; // YYYY-MM-DD (기본: 오늘, Asia/Seoul)
+  /** 접힘 상태를 밖에서 정할 때 (기록 탭: 상세 화면에 갔다 와도 펼친 상태 유지). 없으면 안에서 관리 (기본 접힘) */
+  collapsed?: boolean;
+  onCollapsedChange?: (collapsed: boolean) => void;
 }
 
 /** 달력에서 볼 수 있는 가장 이른 달 (서비스 시작 달). 가장 늦은 달은 현재 월 */
@@ -86,9 +89,12 @@ export const Calendar: React.FC<CalendarProps> = ({
   onSelectDate,
   plans,
   todayDate = todayStr(),
+  collapsed,
+  onCollapsedChange,
 }) => {
   // 접힌 달력(기본): true = 접힘(1주 7일), false = 펼침(한 달 전체)
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
+  const [innerCollapsed, setInnerCollapsed] = useState<boolean>(true);
+  const isCollapsed = collapsed ?? innerCollapsed;
 
   // 보고 있는 달 = 선택한 날짜의 달
   const { year, monthIndex } = parseDateStr(selectedDate);
@@ -119,7 +125,9 @@ export const Calendar: React.FC<CalendarProps> = ({
   };
 
   const handleToggle = () => {
-    setIsCollapsed((prev) => !prev);
+    const next = !isCollapsed;
+    if (collapsed === undefined) setInnerCollapsed(next);
+    onCollapsedChange?.(next);
   };
 
   const handleTodayClick = () => {

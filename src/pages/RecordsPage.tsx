@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Calendar as CalendarIcon, Utensils } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { MealPlan, Recipe } from '../types';
 import useServiceData from '../hooks/useServiceData';
 import {
@@ -18,17 +18,39 @@ import ViewToggle, { RecordsViewMode } from '../components/records/ViewToggle';
 import RecordsTimeline from '../components/records/RecordsTimeline';
 import Modal from '../components/common/Modal';
 import Toast from '../components/common/Toast';
-import { addMonths, todayStr } from '../utils/date';
+import { SERVICE_START_MONTH, addMonths, makeDateStr, parseDateStr, todayStr } from '../utils/date';
 
 const SAVE_FAILED = '저장하지 못했어요. 다시 시도해 주세요';
 const LOAD_FAILED = '기록을 불러오지 못했어요. 다시 시도해 주세요';
 const NO_MORE_RECORDS = '더 이상 기록이 없어요';
 
 /**
+ * 주소에 담는 화면 상태 (요리 상세에 갔다가 뒤로 와도 그대로 보이게)
+ * - date=YYYY-MM-DD : 달력에서 고른 날짜 (없으면 오늘)
+ * - view=timeline   : 타임라인 보기 (없으면 달력)
+ * - cal=month       : 펼친 달력 (없으면 접힘)
+ * 하단 탭 [기록]은 /records 로 열어서 달력·오늘·접힘으로 시작한다
+ */
+const PARAM_DATE = 'date';
+const PARAM_VIEW = 'view';
+const PARAM_CAL = 'cal';
+
+/** 주소의 날짜가 올바르고 서비스 시작일 ~ 오늘 안이면 그 날짜, 아니면 오늘 */
+function readSelectedDate(value: string | null): string {
+  const today = todayStr();
+  if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return today;
+  const { year, monthIndex, day } = parseDateStr(value);
+  if (makeDateStr(year, monthIndex, day) !== value) return today; // 2026-02-31 같은 없는 날짜
+  if (value < SERVICE_START_MONTH || value > today) return today;
+  return value;
+}
+
+/**
  * 기록 탭 (KD-43, KD-57)
  * - 가구의 요리 기록을 달력으로 본다. 다른 구성원의 기록도 바로 반영된다 (실시간)
  * - 선택한 날짜의 요리 카드를 모두 보여 준다 (하루 최대 10개, 추가한 순)
  * - 보기 전환 [달력 | 타임라인] (달력 위 오른쪽). 기본 = 달력. 탭을 다시 열면 달력으로 시작
+ * - 요리 상세에 갔다가 뒤로 오면 고른 날짜·펼친 달력·타임라인 보기를 그대로 보여 준다 (주소에 담음). 스크롤은 유지하지 않음
  * - 타임라인: 달력과 같은 기록(요리 예정·요리 완료)을 날짜별로, 최신 날짜가 위. 카드는 달력 보기와 같은 PlanCard
  * - 달력 보기에서 고른 날에 기록이 없으면 안내 박스. [요리 보러 가기]는 오늘만 (기록은 오늘 날짜로만 추가된다)
  * - 기록은 지난달 1일부터 받는다. 달력에서 이전 달로 가면 그 전 달부터 더 받고(앞쪽 흐린 칸 점),
@@ -36,8 +58,29 @@ const NO_MORE_RECORDS = '더 이상 기록이 없어요';
  */
 export const RecordsPage: React.FC = () => {
   const navigate = useNavigate();
-  const [selectedDate, setSelectedDate] = useState<string>(() => todayStr());
-  const [viewMode, setViewMode] = useState<RecordsViewMode>('calendar');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedDate = readSelectedDate(searchParams.get(PARAM_DATE));
+  const viewMode: RecordsViewMode = searchParams.get(PARAM_VIEW) === 'timeline' ? 'timeline' : 'calendar';
+  const isCalendarCollapsed = searchParams.get(PARAM_CAL) !== 'month';
+
+  /** 주소 값 바꾸기. 바꿀 때마다 방문 기록을 쌓지 않는다 (뒤로가기 한 번에 이전 화면으로) */
+  const updateParams = (changes: Record<string, string | null>) => {
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        Object.entries(changes).forEach(([key, value]) => {
+          if (value === null) next.delete(key);
+          else next.set(key, value);
+        });
+        return next;
+      },
+      { replace: true },
+    );
+  };
+  // 오늘을 고르면 주소에서 날짜를 뺀다 (기본값)
+  const setSelectedDate = (date: string) => updateParams({ [PARAM_DATE]: date === todayStr() ? null : date });
+  const setViewMode = (mode: RecordsViewMode) => updateParams({ [PARAM_VIEW]: mode === 'timeline' ? 'timeline' : null });
+  const setCalendarCollapsed = (collapsed: boolean) => updateParams({ [PARAM_CAL]: collapsed ? null : 'month' });
   // 로그인 상태 (비로그인이어도 화면은 연다, KD-48)
   // 비로그인: 기록이 없다 → 달력에 점이 없고, 달력 아래는 로그인 안내 박스
   // 카드에 요리 시간·칼로리·탄단지를 보여 주려고 레시피를 id로 찾는다
@@ -211,7 +254,13 @@ export const RecordsPage: React.FC = () => {
       {viewMode === 'calendar' ? (
         <>
           {/* 1. 달력: 연월 접힘/펼침, 요일 줄, 접힌 상태 1주, 선택일 검은 원, 완료● / 예정○ 점 */}
-          <Calendar selectedDate={selectedDate} onSelectDate={setSelectedDate} plans={plans} />
+          <Calendar
+            selectedDate={selectedDate}
+            onSelectDate={setSelectedDate}
+            plans={plans}
+            collapsed={isCalendarCollapsed}
+            onCollapsedChange={setCalendarCollapsed}
+          />
 
           {/* 2. 로그인: 선택한 날짜의 요리 카드 모두. 없으면 안내 박스 ([요리 보러 가기]는 오늘만)
                  비로그인: 어느 날짜를 골라도 로그인 안내 박스 (KD-48) */}
