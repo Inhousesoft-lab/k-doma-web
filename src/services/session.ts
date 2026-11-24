@@ -1,12 +1,13 @@
 /**
  * 로그인 상태와 화면 변경 알림 (서비스 공통)
- * - 로그인 상태: Firebase Auth 가 관리한다. 세션 유지(browserSessionPersistence)라 새로고침해도 유지되고 탭을 닫으면 풀린다.
+ * - 로그인 상태: Firebase Auth 가 관리한다. 로그인 유지(browserLocalPersistence, localStorage)라 탭·브라우저를 닫았다 열어도
+ *   같은 브라우저면 로그인돼 있다. [로그아웃]하면 지워진다. 다른 브라우저·기기·시크릿 창은 따로 로그인한다.
  * - 아이디 = 이메일. Firebase 에 등록된 계정이면 누구나 로그인하고, 로그인하면 내 1인 가구가 생긴다 (KD-58).
  * - 회원가입·가구 합류는 MVP 2.
  */
 import { CartItem, Ingredient, MealPlan, UserProfile } from '../types';
 import {
-  browserSessionPersistence,
+  browserLocalPersistence,
   onAuthStateChanged,
   setPersistence,
   signInWithEmailAndPassword,
@@ -26,7 +27,7 @@ export const currentUid = (): string | null => currentUserId;
 
 
 /** 처음 로그인 상태를 확인할 때까지 기다린다. main.tsx 가 첫 화면을 그리기 전에 기다린다 */
-export const authReady: Promise<void> = setPersistence(auth, browserSessionPersistence)
+export const authReady: Promise<void> = setPersistence(auth, browserLocalPersistence)
   .catch(() => undefined) // 저장소를 못 쓰는 환경이면 기본 유지 방식 그대로
   .then(
     () =>
