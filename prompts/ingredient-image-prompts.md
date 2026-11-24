@@ -255,6 +255,7 @@ cartoon, illustration, 3d render, clay, pixel art, flat icon, blurry, cropped su
 | king_oyster_mushroom | 새송이버섯 | id `m_ing_270`, zone `FRIDGE`, aliases `["새송이"]` | 대기 | two fresh king oyster mushrooms with thick white stems and small light brown caps, one sliced lengthwise |
 | wood_ear_mushroom | 목이버섯 | id `m_ing_271`, zone `FRIDGE`, aliases `["목이", "건목이버섯", "말린 목이버섯"]` | 대기 | small pile of soaked black wood ear mushrooms, glossy dark brown-black ruffled ear-shaped pieces |
 | mustard_paste | 연겨자 | id `m_ing_272`, zone `SEASONING`, aliases `["겨자", "튜브겨자", "겨자소스"]` | 대기 | small white dish with a swirl of pale yellow Korean mustard paste, a plain unlabeled squeeze tube lying beside it |
+| pork_mince | 돼지고기 다짐육 | id `m_ing_273`, zone `FRIDGE`, category `MEAT`, aliases `["돼지 다짐육", "다진 돼지고기", "돼지고기 다진 것", "간 돼지고기", "돼지 간고기"]` | 대기 | small mound of raw finely ground pork mince, pale pink with white fat specks, loosely heaped |
 
 ### 3.4 같은 재료 / 다른 재료(2026-11-14 사용자 확인)
 
